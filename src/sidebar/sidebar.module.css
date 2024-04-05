@@ -1,0 +1,73 @@
+div {
+    /* Other styles */
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-x: hidden;
+  }
+.sideMenuBar{
+    display: flex;
+    gap: 0;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+    margin: 0;
+    /* height: calc(100vh - 60px); */
+    /* margin-top: 60px; */
+}
+.lineStyle{
+    width: 211px;
+    height: 0px;
+    top: 132px;
+    left: 25px;
+    gap: 0px;
+    border: 1px 0px 0px 0px;
+    opacity: 0px;
+    border: 1px solid #0000001A;
+    margin-top: 30px;
+}
+.generalText{
+    font-family: Rubik;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16.59px;
+    letter-spacing: 0.003em;
+    text-align: left;
+    color: #52526C;
+    text-transform: uppercase;
+}
+.dashboardText{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18.23px;
+    letter-spacing: 0.003em;
+    text-align: left;
+    color: #2F2F3BCC;
+    padding-left: 10px;
+}
+.width{
+    display: flex;
+    justify-content: flex-start;
+    /* align-items: center; */
+    margin: auto;
+    width: 100%;
+}
+.menuStyle{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    margin: auto;
+    width: 100%;
+}
+.left{
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+.right{
+    margin-top: 80px;
+    background-color: rgba(227, 227, 227, 0.30);
+    width: calc(100% - 250px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
