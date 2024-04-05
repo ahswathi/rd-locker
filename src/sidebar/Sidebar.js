@@ -20,7 +20,7 @@ const Sidebar = ({ children }) => {
     
     <div className={Styles.width} style={{marginTop:30}}>
         <img src='./dashbord.png' style={{width:18,height:15,}}/>
-        <div onClick={() => navigate('/dashboard')} className={Styles.dashboardText}> 
+        <div onClick={() => navigate('/')} className={Styles.dashboardText}> 
            Dashboard 
         </div>
     </div>

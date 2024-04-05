@@ -16,9 +16,9 @@ const Layout = ({ children }) => {
   useEffect(() => {
     if (token) {
       setLayout(true)
-      if (!path) {
-        navigate('/dashboard')
-      }
+      // if (!path) {
+      //   navigate('/dashboard')
+      // }
     } else {
       navigate('/')
     }
