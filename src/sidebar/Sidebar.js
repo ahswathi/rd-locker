@@ -119,6 +119,26 @@ const Sidebar = ({ children }) => {
             <DropUp/>
         </div>
     </div>
+    <div className={path === 'report' ? `${Styles.menuActive}` : `${Styles.menuStyle}`} style={{marginTop:30}} onClick={() => navigate('/report')}>
+        <div className={Styles.width}>
+            {path === 'report' ? (
+            <ActiveDoccument/>
+            ): <Doccument/>}
+            <p className={Styles.dashboardText}>
+                Reports
+            </p>
+        </div>
+        {path === 'report' ? (
+            <DropDown/>
+            ): <DropUp/>}
+        
+    </div>
+    {
+        path === 'report' ?
+            <div className={Styles.subpaths}>
+            <div onClick={() => navigate('/accounts')} className={subpath === 'accounts' ? Styles.submenu : ''}>Accounts</div>
+            </div> : ''
+    }
     <div className={Styles.menuStyle} style={{marginTop:30}}>
         <div className={Styles.width}>
             <img src='/subscription.png' style={{width:18,height:15,}}/>

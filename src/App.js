@@ -9,6 +9,7 @@ import Categories from './categories/Categories';
 import AddNewCategory from './categories/AddNewCategory';
 import HealthCare from './healthcare/HealthCare';
 import KYCApproval from './vendorManagement/KYCApproval';
+import Accounts from './accounts/accounts';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route path='/categories/AddNewCategory' element={<AddNewCategory/>}/>
               <Route path='/healthcare/HealthCare' element={<HealthCare/>}/>
               <Route path='/vendorManagement/KYCApproval' element={<KYCApproval/>}/>
+              <Route path='/accounts' element={<Accounts/>}/>
           </Routes>
        </Layout>
        {/* <Routes>
