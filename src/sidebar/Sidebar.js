@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Styles from '../sidebar/sidebar.module.css'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { ActiveDoccument, Doccument, DropDown, DropUp } from '../Svg';
 
 const Sidebar = ({ children }) => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const [path, setPath] = useState('');
+    const [subpath, setSubpath] = useState('');
+    const pathname = location.pathname.split('/')[1];
+    const subpathname = location.pathname.split('/')[2];
+
+    useEffect(() => {
+        setPath(pathname)
+        setSubpath(subpathname)
+      }, [pathname, subpathname])
+
   return (
     <div className={Styles.sideMenuBar}>
     <section className={Styles.left}>
@@ -19,14 +31,14 @@ const Sidebar = ({ children }) => {
     <div className={Styles.lineStyle}/>
     
     <div className={Styles.width} style={{marginTop:30}}>
-        <img src='./dashbord.png' style={{width:18,height:15,}}/>
+        <img src='/dashbord.png' style={{width:18,height:15,}}/>
         <div onClick={() => navigate('/')} className={Styles.dashboardText}> 
            Dashboard 
         </div>
     </div>
     
     <div className={Styles.width} style={{marginTop:30}}>
-        <img src='./categories.png' style={{width:18,height:15,}}/>
+        <img src='/categories.png' style={{width:18,height:15,}}/>
         <div onClick={() => navigate('/categories/Categories')} className={Styles.dashboardText}>
             Categories
         </div>
@@ -37,42 +49,54 @@ const Sidebar = ({ children }) => {
             User
         </p>
     </div>
-    <div className={Styles.menuStyle} style={{marginTop:30}}>
+    <div className={path === 'vendorManagement' ? `${Styles.menuActive}` : `${Styles.menuStyle}`} style={{marginTop:30}} onClick={() => navigate('/vendorManagement')}>
         <div className={Styles.width}>
-            <img src='./document-text.png' style={{width:18,height:15,}}/>
+            {path === 'vendorManagement' ? (
+            <ActiveDoccument/>
+            ): <Doccument/>}
             <p className={Styles.dashboardText}>
                 Vendor Management
             </p>
         </div>
-        <div>
-            <img src='./forwardIcon.png' style={{width:4,height:9,marginBottom:3,}}/>
-        </div>
+        {path === 'vendorManagement' ? (
+            <DropDown/>
+            ): <DropUp/>}
+        
     </div>
+    {
+        path === 'vendorManagement' ?
+            <div className={Styles.subpaths}>
+            <div onClick={() => navigate('/vendorManagement/KYCApproval')} className={subpath === 'KYCApproval' ? Styles.submenu : ''}>KYC Approvals</div>
+            {/* <div onClick={() => navigate('master/chapters')} className={subpath === 'chapters' ? Styles.submenu : ''}>Chapters</div>
+            <div onClick={() => navigate('master/topics')} className={subpath === 'topics' ? Styles.submenu : ''}>Topics</div>
+            <div onClick={() => navigate('master/levels')} className={subpath === 'levels' ? Styles.submenu : ''}>Levels</div> */}
+            </div> : ''
+    }
     <div className={Styles.menuStyle} style={{marginTop:30}}>
         <div className={Styles.width}>
-            <img src='./document-text.png' style={{width:18,height:15,}}/>
+            <img src='/document-text.png' style={{width:18,height:15,}}/>
             <p className={Styles.dashboardText}>
                 E-traveler Management
             </p>
         </div>
         <div>
-            <img src='./forwardIcon.png' style={{width:4,height:9,marginBottom:3,}}/>
+            <DropUp/>
         </div>
     </div>
     <div className={Styles.menuStyle} style={{marginTop:30}}>
         <div className={Styles.width}>
-            <img src='./document-text.png' style={{width:18,height:15,}}/>
+            <img src='/document-text.png' style={{width:18,height:15,}}/>
             <p className={Styles.dashboardText}>
                 Delivery Agent
             </p>
         </div>
         <div>
-            <img src='./forwardIcon.png' style={{width:4,height:9,marginBottom:3}}/>
+            <DropUp/>
         </div>
     </div>
     <div className={Styles.menuStyle} style={{marginTop:30}}>
         <div className={Styles.width}>
-            <img src='./profile-2user.png' style={{width:18,height:15,}}/>
+            <img src='/profile-2user.png' style={{width:18,height:15,}}/>
             <p className={Styles.dashboardText}>
                 Admin Users
             </p>
@@ -86,18 +110,18 @@ const Sidebar = ({ children }) => {
     </div>
     <div className={Styles.menuStyle} style={{marginTop:30}}>
         <div className={Styles.width}>
-            <img src='./report.png' style={{width:18,height:15,}}/>
+            <img src='/report.png' style={{width:18,height:15,}}/>
             <p className={Styles.dashboardText}>
                 Reports
             </p>
         </div>
         <div>
-            <img src='./forwardIcon.png' style={{width:4,height:9,marginBottom:3,}}/>
+            <DropUp/>
         </div>
     </div>
     <div className={Styles.menuStyle} style={{marginTop:30}}>
         <div className={Styles.width}>
-            <img src='./subscription.png' style={{width:18,height:15,}}/>
+            <img src='/subscription.png' style={{width:18,height:15,}}/>
             <p className={Styles.dashboardText}>
                 Subscription Plans
             </p>
@@ -108,7 +132,7 @@ const Sidebar = ({ children }) => {
     </div>
     <div className={Styles.menuStyle} style={{marginTop:30}}>
         <div className={Styles.width}>
-            <img src='./reward.png' style={{width:18,height:15,}}/>
+            <img src='/reward.png' style={{width:18,height:15,}}/>
             <p className={Styles.dashboardText}>
                 Rewards/Vouchers
             </p>
@@ -117,18 +141,18 @@ const Sidebar = ({ children }) => {
     </div>
     <div className={Styles.menuStyle} style={{marginTop:30}}>
         <div className={Styles.width}>
-            <img src='./techSupport.png' style={{width:18,height:15,}}/>
+            <img src='/techSupport.png' style={{width:18,height:15,}}/>
             <p className={Styles.dashboardText}>
                 Tech Support
             </p>
         </div>
         <div>
-            <img src='./forwardIcon.png' style={{width:4,height:9,marginBottom:3}}/>
+            <DropUp/>
         </div>
     </div>
     <div className={Styles.menuStyle} style={{marginTop:30}}>
         <div className={Styles.width}>
-            <img src='./Bullhorn.png' style={{width:18,height:15,}}/>
+            <img src='/Bullhorn.png' style={{width:18,height:15,}}/>
             <p className={Styles.dashboardText}>
                 Brand Partners
             </p>

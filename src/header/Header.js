@@ -25,13 +25,13 @@ const Header = () => {
             <div>
                 <div className={Styles.menuStyle}>
                     <div style={{marginRight:20,marginTop:5}} >
-                        <img src='./setting.png'/>
+                        <img src='/setting.png'/>
                     </div>
                     <div style={{marginRight:10,marginTop:5}} onClick={openModal}>
-                        <img src='./notification.png'/>
+                        <img src='/notification.png'/>
                     </div>
                     <div>
-                        <img src='./profilepic.png'/>
+                        <img src='/profilepic.png'/>
                     </div>
                     <div style={{paddingTop:5,paddingLeft:5}}>
                         <p className={Styles.userName}>
@@ -41,7 +41,7 @@ const Header = () => {
                             <p className={Styles.admin}>
                                 Admin
                             </p>
-                            <img src='./drop.png' style={{width:8,height:4,marginLeft:5,marginTop:5}}/>
+                            <img src='/drop.png' style={{width:8,height:4,marginLeft:5,marginTop:5}}/>
                         </div>
                     </div>
                 </div>

@@ -13,13 +13,14 @@ const Card = ({image,icon,prize,name,rate}) => {
                 <p className={Styles.prize}>{prize}</p>
                 <p className={Styles.name}>{name}</p>
             </div>
-            <div className={Styles.rating}>
+            
+        </div>
+        <div className={Styles.rating}>
                 <img src={icon}/>
                 <div className={Styles.rate}>
                     <p className={Styles.rateText}>{rate}</p>
                 </div>
             </div>
-        </div>
     </div>
   )
 }

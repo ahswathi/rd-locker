@@ -6,6 +6,9 @@ import Layout from '../src/layout/Layout';
 import { ToastContainer } from 'react-toastify'
 import Notifications from './container/Notifications';
 import Categories from './categories/Categories';
+import AddNewCategory from './categories/AddNewCategory';
+import HealthCare from './healthcare/HealthCare';
+import KYCApproval from './vendorManagement/KYCApproval';
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
           <Routes>
               <Route path='/' element={<Dashboard/>} />
               <Route path='/categories/Categories' element={<Categories/>}/>
+              <Route path='/categories/AddNewCategory' element={<AddNewCategory/>}/>
+              <Route path='/healthcare/HealthCare' element={<HealthCare/>}/>
+              <Route path='/vendorManagement/KYCApproval' element={<KYCApproval/>}/>
           </Routes>
        </Layout>
        {/* <Routes>

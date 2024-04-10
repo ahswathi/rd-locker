@@ -71,3 +71,54 @@ div {
     overflow-y: auto;
     overflow-x: hidden;
 }
+.menuActive{
+    background: #1E5EFF12;
+    width: 266px;
+    height: 41px;
+    /* top: 312px; */
+    gap: 0px;
+    opacity: 0px;
+    display: flex;
+    justify-content: space-between; 
+    padding: 5px;
+    margin: auto;
+    width: 100%;
+}
+/* .menuActive svg {
+    stroke: #1E5EFF;
+    padding: 16px 12px;
+    stroke-opacity: 0.56;
+} */
+svg{
+    cursor: pointer;
+}
+/* .menuStyle svg, .menuActive:hover svg{
+    stroke: #1E5EFF;
+    stroke-opacity: 1;
+} */
+.subpaths{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 7px;
+    align-items: flex-end;
+}
+.subpaths div{
+    width: 75%;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    /* margin: 3px 0px; */
+    color: rgba(255, 255, 255, 0.56);
+    border-radius: 6px;
+    padding: 5px;
+    cursor: pointer;
+    padding-left: 20px;
+}
+.submenu{
+    /* background: rgba(255, 255, 255, 0.25); */
+    color: #1E5EFF !important;
+}

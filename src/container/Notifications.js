@@ -36,11 +36,11 @@ const Notifications = () => {
                 Notifications
             </div>
             <div>
-                <img src='./cross.png'/>
+                <img src='/cross.png'/>
             </div>
         </div>
         <div className={Styles.width} style={{marginTop:10}}>
-            <img src='./BellSimple.png' style={{width:20,height:20,marginRight:10,marginTop:5}}/>
+            <img src='/BellSimple.png' style={{width:20,height:20,marginRight:10,marginTop:5}}/>
             <h6 className={Styles.dateText} style={{marginTop:5}}>
                 All
             </h6>
@@ -78,13 +78,13 @@ const Notifications = () => {
                                 {item.decline && item.accept ? (
                                 <div className={Styles.width} style={{marginTop:20,marginBottom:10}}>
                                     <div className={Styles.decline}>
-                                        <img src='./cross.png' style={{height:15,width:15}}/>
+                                        <img src='/cross.png' style={{height:15,width:15}}/>
                                         <p className={Styles.declineText}>
                                             {item.decline}
                                         </p>
                                     </div>
                                     <div className={Styles.accept}>
-                                        <img src='./right.png' style={{height:15,width:15}}/>
+                                        <img src='/right.png' style={{height:15,width:15}}/>
                                         <p className={Styles.acceptText}>
                                             {item.accept}
                                         </p>
@@ -102,7 +102,7 @@ const Notifications = () => {
                             </div>
                         </div>
                         <div>
-                            <img src='./DotsThreeVertical.png'/>
+                            <img src='/DotsThreeVertical.png'/>
                         </div>
                     </div>
                 </div>

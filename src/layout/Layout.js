@@ -13,16 +13,16 @@ const Layout = ({ children }) => {
 
   const token = localStorage.getItem("token");
 
-  useEffect(() => {
-    if (token) {
-      setLayout(true)
-      // if (!path) {
-      //   navigate('/dashboard')
-      // }
-    } else {
-      navigate('/')
-    }
-  }, [token, path])
+  // useEffect(() => {
+  //   if (token) {
+  //     setLayout(true)
+  //     if (!path) {
+  //       navigate('/dashboard')
+  //     }
+  //   } else {
+  //     navigate('/')
+  //   }
+  // }, [token, path])
 
   return (
     <div className={Styles.mainContainer}>
