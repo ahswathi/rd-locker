@@ -1,4 +1,4 @@
-.container{
+    .container{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -38,26 +38,24 @@
     padding-left: 5px;
 }
 .tabView{
-    width: 344px;
+    width: fit-content;
     height: 52px;
     gap: 0px;
     border-radius: 8px;
-    border: 1px solid #E0E2E7;
     opacity: 0px;
     background: #FFFFFF;
-    border: 1px solid #E0E2E7;
     flex-direction: row;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     margin-top: 20px;
-    box-shadow: 4px 10px#0000001A;
-
+    box-shadow: 10px#0000001B;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .active{
     width: 158px;
     height: 38px;
-    /* padding: 6px 12px 6px 12px; */
     gap: 8px;
     border-radius: 6px;
     opacity: 0px;
@@ -69,6 +67,8 @@
 .inActive{
     justify-content: center;
     align-content: center; 
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .activeText{
     font-family: Public Sans;

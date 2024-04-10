@@ -9,7 +9,8 @@ import Categories from './categories/Categories';
 import AddNewCategory from './categories/AddNewCategory';
 import HealthCare from './healthcare/HealthCare';
 import KYCApproval from './vendorManagement/KYCApproval';
-import Accounts from './accounts/accounts';
+import VendorsProfile from './vendorManagement/VendorsProfile';
+import PrivacyPolicy from './vendorManagement/PrivacyPolicy';
 
 function App() {
   return (
@@ -26,7 +27,8 @@ function App() {
               <Route path='/categories/AddNewCategory' element={<AddNewCategory/>}/>
               <Route path='/healthcare/HealthCare' element={<HealthCare/>}/>
               <Route path='/vendorManagement/KYCApproval' element={<KYCApproval/>}/>
-              <Route path='/accounts' element={<Accounts/>}/>
+              <Route path='/vendorManagement/VendorsProfile' element={<VendorsProfile/>}/>
+              <Route path='/vendorManagement/PrivacyPolicy' element={<PrivacyPolicy/>}/>
           </Routes>
        </Layout>
        {/* <Routes>
