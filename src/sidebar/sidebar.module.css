@@ -83,6 +83,8 @@ div {
     padding: 5px;
     margin: auto;
     width: 100%;
+    border-right-width: 10px;
+    border-right-color: #1E5EFF;
 }
 /* .menuActive svg {
     stroke: #1E5EFF;
@@ -102,7 +104,7 @@ svg{
     display: flex;
     flex-direction: column;
     margin-top: 7px;
-    align-items: flex-end;
+    align-items: flex-start;
 }
 .subpaths div{
     width: 75%;
@@ -112,13 +114,23 @@ svg{
     font-weight: 500;
     line-height: 20px;
     /* margin: 3px 0px; */
-    color: rgba(255, 255, 255, 0.56);
+    color: rgba(10, 9, 9, 0.56);
     border-radius: 6px;
     padding: 5px;
     cursor: pointer;
-    padding-left: 20px;
+    /* padding-left: 20px; */
 }
 .submenu{
     /* background: rgba(255, 255, 255, 0.25); */
     color: #1E5EFF !important;
+}
+.menuText{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18.23px;
+    letter-spacing: 0.003em;
+    text-align: left;
+    color: #52526CCC;
+
 }

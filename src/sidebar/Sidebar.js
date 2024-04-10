@@ -59,17 +59,18 @@ const Sidebar = ({ children }) => {
             </p>
         </div>
         {path === 'vendorManagement' ? (
-            <DropDown/>
+            <div style={{marginTop:10,marginRight:5}}>
+                <DropDown/>
+            </div>
             ): <DropUp/>}
         
     </div>
     {
         path === 'vendorManagement' ?
             <div className={Styles.subpaths}>
-            <div onClick={() => navigate('/vendorManagement/KYCApproval')} className={subpath === 'KYCApproval' ? Styles.submenu : ''}>KYC Approvals</div>
-            {/* <div onClick={() => navigate('master/chapters')} className={subpath === 'chapters' ? Styles.submenu : ''}>Chapters</div>
-            <div onClick={() => navigate('master/topics')} className={subpath === 'topics' ? Styles.submenu : ''}>Topics</div>
-            <div onClick={() => navigate('master/levels')} className={subpath === 'levels' ? Styles.submenu : ''}>Levels</div> */}
+            <div onClick={() => navigate('/vendorManagement/KYCApproval')} className={subpath === 'KYCApproval' ? Styles.submenu : Styles.menuText}>KYC Approvals</div>
+            <div onClick={() => navigate('/vendorManagement/VendorsProfile')} className={subpath === 'VendorsProfile' ? Styles.submenu : Styles.menuText}>Vendors profile</div>
+            <div onClick={() => navigate('/vendorManagement/PrivacyPolicy')} className={subpath === 'PrivacyPolicy' ? Styles.submenu : Styles.menuText}>Privacy policy</div>
             </div> : ''
     }
     <div className={Styles.menuStyle} style={{marginTop:30}}>
