@@ -7,6 +7,7 @@ import { Search } from '../Svg';
 import {Area, AreaChart, CartesianGrid,Tooltip, XAxis, YAxis} from 'recharts';
 import Calendar from 'react-calendar';
 import Modal from '../component/Modal';
+import AccountsCard from './accountsCard';
 
 const Accounts = () => {
     const cardData = [
@@ -251,92 +252,7 @@ const Accounts = () => {
                 </div>
             </div>
         </div>
-        <div className={Styles.graph}>
-            <div>
-            <div className={Styles.income}>
-                <h4>
-                    Overall Income
-                </h4>
-                <div className={Styles.date}>
-                    <div className={Styles.width}>
-                        <p className={Styles.dateText}>{date.toDateString()}</p>
-                        <img 
-                            src='/dropdown.png' 
-                            style={{
-                                width:8,
-                                height:4,
-                                marginTop:5,
-                                marginLeft:5
-                            }} 
-                            onClick={openModal}
-                        />
-                        <Modal isOpen={isModalOpen} onClose={closeModal}>
-                            <Calendar 
-                                onChange={setDate} 
-                                value={date} 
-                                maxDetail='year'
-                            />
-                        </Modal>
-                        <p className={Styles.dateText} style={{marginLeft:10}}>{lastDate.toDateString()}</p>
-                        <img 
-                            src='/dropdown.png' 
-                            style={{
-                                width:8,
-                                height:4,
-                                marginTop:5,
-                                marginLeft:5
-                            }} 
-                            onClick={lastMonthOpenModal}
-                        />
-                        <Modal isOpen={islastMonth} onClose={lastMonthcloseModal}>
-                            <Calendar 
-                                onChange={setLastDate} 
-                                value={lastDate} 
-                                maxDetail='year'
-                            />
-                        </Modal>
-                    </div>
-                </div>
-            </div>
-            <div className={Styles.width}>
-                <div style={{top:20}}>
-                    <AreaChart 
-                        width={670} 
-                        height={350} 
-                        data={data} 
-                        margin={{ top: 35, right: 10, bottom: 15, left: 10 }}
-                    >
-                        <CartesianGrid stroke="#eee" strokeDasharray="5 5" vertical={false}/>
-                        <XAxis dataKey="name" axisLine={false} />
-                        <YAxis tick={<CustomYAxisTick />} axisLine={false}/>
-                        <Tooltip content={<CustomTooltip />} />
-                        <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#ebebf5" fillOpacity={0.3} />
-                    </AreaChart>
-                </div>
-            </div>
-            </div>
-            <div>
-                {profitData.map((item) => {
-                    return (
-                    <div className={Styles.sideView} key={item.id}>
-                        <div className={Styles.width}>
-                            <div className={Styles.imgView}>
-                                <img src={item.img}/>
-                            </div>
-                            <div style={{marginLeft:15,marginTop:5}}>
-                                <p className={Styles.incomeText}>
-                                    {item.income}
-                                </p>
-                                <h3 className={Styles.ammountText}>
-                                    {item.amount}
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    )
-                })}
-            </div>
-        </div>
+      <AccountsCard/>
     </div>
   )
 }
