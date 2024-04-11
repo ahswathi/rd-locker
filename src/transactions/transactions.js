@@ -1,38 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../component/Card';
 import Styles from '../component/Style.module.css';
-import styles from '../categories/category.module.css';
+import styles from '../transactions/transactions.module.css';
 import SwitchTab from '../component/SwitchTab';
-import { Search } from '../Svg';
+import { Export, Search } from '../Svg';
 import {Area, AreaChart, CartesianGrid,Tooltip, XAxis, YAxis} from 'recharts';
 import Calendar from 'react-calendar';
 import Modal from '../component/Modal';
+import TransactionList from './TransactionList';
 
-const Accounts = () => {
+const Transactions = () => {
     const cardData = [
         {
             id: 0,
             image: '/Group1.png',
-            icon:'rating.png',
+           /*  icon:'rating.png', */
             prize: '100000',
-            name: 'Vendors',
-            rate: '15k'
+            name: 'Sales',
+          /*   rate: '15k' */
         },
         {
             id: 1,
             image: '/Group.png',
-            icon:'rate1.png',
+            /* icon:'rate1.png', */
             prize: '100000',
-            name: 'E-traveller',
-            rate: '15k'
+            name: 'Debited',
+           /*  rate: '15k' */
         },
         {
             id: 2,
             image: '/Group2.png',
-            icon:'rate2.png',
+           /*  icon:'rate2.png', */
             prize: '100000',
-            name: 'Delivery agent',
-            rate: '15k'
+            name: 'Credited',
+            /* rate: '15k' */
         },
        /*  {
             id: 3,
@@ -198,9 +199,9 @@ const Accounts = () => {
     };
 
     const [value, setValue] = useState([
-        { val: 'All vendors', id: 0 },
-        { val: 'All E-traveller', id: 1 },
-        { val: 'All delivery agents', id: 2 },
+        { val: 'All transaction', id: 0 },
+        { val: 'Debits', id: 1 },
+        { val: 'Credits', id: 2 },
     ]);
     const [selected, setSelected] = useState(1);
     const [search, setSearch] = useState('')
@@ -231,31 +232,11 @@ const Accounts = () => {
                 />
             ))}
         </div>
-        <div className={styles.container}>
-            <div>
-                <SwitchTab 
-                    value={value}
-                    selected={selected}
-                    onChange={(id) => changeID(id)}
-                />
-            </div>
-            <div style={{marginTop:20}}>
-                <div className={Styles.width}>
-                    <div className={styles.search}>
-                        <Search /> 
-                        <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Search by name...' />
-                    </div>
-                    <div className={styles.filter}>
-                        <img src='/filter.png'/> <span>Filter</span>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div className={Styles.graph}>
             <div>
             <div className={Styles.income}>
                 <h4>
-                    Overall Income
+                    Overall Sales
                 </h4>
                 <div className={Styles.date}>
                     <div className={Styles.width}>
@@ -337,8 +318,34 @@ const Accounts = () => {
                 })}
             </div>
         </div>
+        <div className={styles.container}>
+            <div>
+                <SwitchTab 
+                    value={value}
+                    selected={selected}
+                    onChange={(id) => changeID(id)}
+                />
+            </div>
+            <div style={{marginTop:20}}>
+                <div className={Styles.width}>
+                    <div className={styles.search}>
+                        <Search /> 
+                        <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Search by name...' />
+                    </div>
+                    <div className={styles.filter}>
+                        <img src='/filter.png'/> <span>Filter</span>
+                    </div>
+                    <div className={styles.export}>
+                        <Export/> <span>Export</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+<TransactionList/>
+
+
     </div>
   )
 }
 
-export default Accounts
+export default Transactions
