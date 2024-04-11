@@ -109,7 +109,7 @@ const Sidebar = ({ children }) => {
             Others
         </p>
     </div>
-    <div className={Styles.menuStyle} style={{marginTop:30}}>
+    {/* <div className={Styles.menuStyle} style={{marginTop:30}}>
         <div className={Styles.width}>
             <img src='/report.png' style={{width:18,height:15,}}/>
             <p className={Styles.dashboardText}>
@@ -119,7 +119,7 @@ const Sidebar = ({ children }) => {
         <div>
             <DropUp/>
         </div>
-    </div>
+    </div> */}
     <div className={path === 'report' ? `${Styles.menuActive}` : `${Styles.menuStyle}`} style={{marginTop:30}} onClick={() => navigate('/report')}>
         <div className={Styles.width}>
             {path === 'report' ? (
@@ -138,8 +138,11 @@ const Sidebar = ({ children }) => {
         path === 'report' ?
             <div className={Styles.subpaths}>
             <div onClick={() => navigate('/accounts')} className={subpath === 'accounts' ? Styles.submenu : ''}>Accounts</div>
-            </div> : ''
+            <div onClick={() => navigate('/transactions')} className={subpath === 'transactions' ? Styles.submenu : ''}>Transactions</div>
+           </div> : ''
     }
+
+
     <div className={Styles.menuStyle} style={{marginTop:30}}>
         <div className={Styles.width}>
             <img src='/subscription.png' style={{width:18,height:15,}}/>

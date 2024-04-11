@@ -12,6 +12,7 @@ import KYCApproval from './vendorManagement/KYCApproval';
 import VendorsProfile from './vendorManagement/VendorsProfile';
 import PrivacyPolicy from './vendorManagement/PrivacyPolicy';
 import Accounts from './accounts/accounts';
+import Transactions from './transactions/transactions';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
               <Route path='/vendorManagement/VendorsProfile' element={<VendorsProfile/>}/>
               <Route path='/vendorManagement/PrivacyPolicy' element={<PrivacyPolicy/>}/>
               <Route path='/accounts' element={<Accounts/>}/>
+              <Route path='/transactions' element={<Transactions/>}/>
           </Routes>
        </Layout>
        {/* <Routes>

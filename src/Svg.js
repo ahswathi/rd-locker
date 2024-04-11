@@ -134,4 +134,56 @@ export const Report = () => {
   )
 }
 
+export const Download = () => {
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.71875 8.59473L10 11.8751L13.2812 8.59473" stroke="#005CE8" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10 3.125V11.8727" stroke="#005CE8" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16.875 11.875V16.25C16.875 16.4158 16.8092 16.5747 16.6919 16.6919C16.5747 16.8092 16.4158 16.875 16.25 16.875H3.75C3.58424 16.875 3.42527 16.8092 3.30806 16.6919C3.19085 16.5747 3.125 16.4158 3.125 16.25V11.875" stroke="#005CE8" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
 
+  )
+}
+
+export const Pending = () => {
+  return (
+    <svg  style={{marginRight:10}}  width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="4" cy="4" r="4" fill="#FF9500"/>
+</svg>
+  )
+}
+
+export const Paid = () => {
+  return (
+    <svg  style={{marginRight:10}}  width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="4" cy="4" r="4" fill="#54BA4A"/>
+</svg>
+
+  )
+}
+
+export const Dots = () => {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 5.25C12.4142 5.25 12.75 5.58579 12.75 6C12.75 6.41421 12.4142 6.75 12 6.75C11.5858 6.75 11.25 6.41421 11.25 6C11.25 5.58579 11.5858 5.25 12 5.25ZM12 11.25C12.4142 11.25 12.75 11.5858 12.75 12C12.75 12.4142 12.4142 12.75 12 12.75C11.5858 12.75 11.25 12.4142 11.25 12C11.25 11.5858 11.5858 11.25 12 11.25ZM12 17.25C12.4142 17.25 12.75 17.5858 12.75 18C12.75 18.4142 12.4142 18.75 12 18.75C11.5858 18.75 11.25 18.4142 11.25 18C11.25 17.5858 11.5858 17.25 12 17.25Z" fill="#191B1C" stroke="#191B1C" stroke-width="1.5"/>
+</svg>
+
+
+  )
+}
+export const Export = () => {
+  return (
+
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_5_5969)">
+<path d="M8.5854 14.0813C9.36621 14.8627 10.6325 14.8631 11.4138 14.0822C11.4142 14.0819 11.4144 14.0817 11.4147 14.0813L13.5554 11.9407C13.8023 11.6676 13.7811 11.246 13.508 10.9991C13.2537 10.7692 12.8666 10.7696 12.6127 11L10.6621 12.9513L10.6667 2.66669C10.6667 2.29847 10.3682 2 10.0001 2C9.63187 2 9.3334 2.29847 9.3334 2.66666L9.3274 12.9387L7.3874 11C7.1269 10.7397 6.70471 10.7398 6.4444 11.0003C6.18409 11.2608 6.18424 11.683 6.44474 11.9433L8.5854 14.0813Z" fill="#1E5EFF"/>
+<path d="M17.3333 12.667C16.9652 12.667 16.6667 12.9655 16.6667 13.3336V16.0003C16.6667 16.3685 16.3682 16.667 16 16.667H4C3.63181 16.667 3.33334 16.3685 3.33334 16.0003V13.3337C3.33334 12.9655 3.03487 12.667 2.66669 12.667C2.29847 12.667 2 12.9655 2 13.3337V16.0003C2 17.1049 2.89544 18.0003 4 18.0003H16C17.1046 18.0003 18 17.1049 18 16.0003V13.3337C18 12.9655 17.7015 12.667 17.3333 12.667Z" fill="#1E5EFF"/>
+</g>
+<defs>
+<clipPath id="clip0_5_5969">
+<rect width="16" height="16" fill="white" transform="translate(2 2)"/>
+</clipPath>
+</defs>
+</svg>
+  )
+}
