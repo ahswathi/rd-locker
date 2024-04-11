@@ -1,0 +1,379 @@
+.header {
+    width: 900px;
+    height: 42px;
+    padding: 12px 20px 12px 20px;
+    gap: 60px;
+    opacity: 0px;
+    flex-direction: row;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    background: #F5F6F9;
+    margin-top: 10px;
+}
+.subcatText{
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: left;
+    color: #131523;
+}
+.listContainer{
+    width: 940px;
+    height: fit-content;
+    gap: 0px;
+    opacity: 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 4px 0px #15223214;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.info {
+    padding: 16px 18px;
+    background-color: #FFF;
+    color: var(--Gray-900, #191B1C);
+    font-family: "Public Sans";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    /* 142.857% */
+    display: flex;
+    text-transform: capitalize;
+    align-items: center;
+    border-bottom: 1px dashed #E5E7E8;
+}
+.headerText {
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: center;
+    text-transform: capitalize;
+
+}
+.first {
+    width: 20%;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: left;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.second {
+    width: 33%;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: center;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.third {
+    width: 37%;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.third span{
+    margin-top: 10px;
+    margin-left: 5px;
+}
+.fourth {
+    width: 30%;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: center;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.fifth {
+    width: 35%;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: row;
+}
+.sixth {
+    width: 20%;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: row;
+    
+}
+.status {
+    width: 15%;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-transform: capitalize;
+    background: #FF82271A;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.status span{
+    width: 15%;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-transform: capitalize;
+    
+    color: #FF8227;
+}
+.seventh {
+    width: 15%;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-transform: capitalize;
+}
+.option{
+    /* text-align: center; */
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+}
+
+.entryView{
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+    margin-top: 20px;
+}
+.leftright{
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+    margin-right: 10px;
+}
+.onPage{
+    width: 40px;
+    height: 40px;
+    /* padding: 10px 0px 10px 0px; */
+    gap: 10px;
+    border-radius: 20px;
+    opacity: 0px;
+    background: #005CE8;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+}
+.kycDetails{
+    width: 1,128px;
+    height: 62px;
+    padding: 14px 24px 14px 24px;
+    gap: 33px;
+    opacity: 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 4px 0px #15223214;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.kycText{
+    font-family: DM Sans;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: center;
+    color: #131523;
+    justify-content: center;
+    align-content: center;
+}
+.profileCard{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.profileContainer{
+    width: fit-content;
+    height: fit-content;
+    gap: 0px;
+    border-radius: 10px;
+    opacity: 0px;
+    background: #FFFFFF;
+    padding: 20px;
+    justify-content: center;
+    /* display: flex; */
+}
+.imgStyle{
+    justify-content: center;
+    display: flex;
+    z-index: initial;
+    margin-top: -40px;
+}
+.bgimg{
+    justify-content: center;
+    display: flex;
+    
+}
+.textCate{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: #A3AED0;
+
+}
+.imgCard{
+    width: 438px;
+    height: 80px;
+    padding: 10px;
+    gap: 0px;
+    border-radius: 16px;
+    opacity: 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 18px 40px 0px #7090B01F;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.identityText{
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    color: #2B3674;
+
+}
+.imgaeText{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    color: #A3AED0;
+
+}
+.imgaeText span{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    color: #4318FF;
+    border-bottom: 1px solid #4318FF;
+}
+.identityCard{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.infoCard{
+    width: 170px;
+    height: 55px;
+    padding: 17px 10px 10px 20px;
+    gap: 0px;
+    border-radius: 16px ;
+    opacity: 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 10px 10px 0px #7090B01F;
+    margin-bottom: 15px;
+    align-content: center;
+    margin-top: 8px;
+
+}
+.addressCard{
+    width: 365px;
+    height: 75px;
+    padding: 17px 39px 0px 20px;
+    gap: 0px;
+    border-radius: 16px;
+    opacity: 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 18px 40px 0px #7090B01F;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.headText{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    color: #A3AED0;
+}
+.descText{
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    color: #2B3674;
+
+}

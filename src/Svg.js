@@ -101,7 +101,7 @@ export const DropUp = () => {
 export const DropDown = () => {
   return (
     <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M1.38012 1.19727L5.18345 5.0006C5.63262 5.44977 6.36762 5.44977 6.81678 5.0006L10.6201 1.19727" stroke="#1E5EFF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M1.38012 1.19727L5.18345 5.0006C5.63262 5.44977 6.36762 5.44977 6.81678 5.0006L10.6201 1.19727" stroke="#1E5EFF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
   )
 }
@@ -122,6 +122,14 @@ export const ActiveDoccument = () => {
     <path opacity="0.4" d="M14.6663 7.91634H11.9997C9.99967 7.91634 9.33301 7.12467 9.33301 4.74967V1.58301L14.6663 7.91634Z" stroke="#1E5EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
     <path opacity="0.4" d="M4.66699 10.292H8.66699" stroke="#1E5EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
     <path opacity="0.4" d="M4.66699 13.458H7.33366" stroke="#1E5EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  )
+}
+export const FilterIcon = () => {
+  return (
+    <svg width="10" height="15" viewBox="0 0 10 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1.91597 8.48076C1.90592 8.50021 1.90063 8.52176 1.90063 8.54364C1.90068 8.57099 1.909 8.59764 1.92443 8.62017L4.6212 12.5339C4.64635 12.5704 4.68791 12.5922 4.73228 12.5922C4.77664 12.5922 4.8182 12.5704 4.84336 12.5339L7.54467 8.62017C7.57324 8.57847 7.57618 8.52434 7.55234 8.47979C7.5285 8.43523 7.48184 8.40761 7.43131 8.40821L2.03549 8.40821C1.98519 8.40821 1.93914 8.43617 1.91591 8.48077L1.91597 8.48076Z" fill="#52526C" fill-opacity="0.5"/>
+    <path d="M7.55278 6.51924C7.56283 6.49979 7.56812 6.47824 7.56812 6.45636C7.56807 6.42901 7.55975 6.40236 7.54432 6.37983L4.84755 2.46614C4.8224 2.42958 4.78084 2.40775 4.73647 2.40775C4.69211 2.40775 4.65055 2.42958 4.62539 2.46614L1.92408 6.37983C1.89551 6.42153 1.89257 6.47566 1.91641 6.52021C1.94025 6.56477 1.98691 6.59239 2.03744 6.59179L7.43326 6.59179C7.48356 6.59179 7.52961 6.56383 7.55284 6.51923L7.55278 6.51924Z" fill="#52526C" fill-opacity="0.5"/>
     </svg>
   )
 }

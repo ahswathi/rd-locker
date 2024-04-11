@@ -8,70 +8,10 @@ import { useNavigate } from 'react-router-dom';
 import Modal from '../component/Modal';
 import DeleteCategory from '../categories/DeleteCategory';
 import CategoriesRequestList from '../categories/CategoriesRequestList';
+import VendorsCard from './VendorsCard';
 
 const KYCApproval = () => {
-    const data = [
-        {
-            id:0,
-            image:'/healthcare.png',
-            heading: 'Healthcare',
-            subCategory:'7 subcategories'
-        },
-        {
-            id:1,
-            image:'/lawyer.png',
-            heading: 'Lawyers',
-            subCategory:'7 subcategories'
-        },
-        {
-            id:2,
-            image:'/etraveleguid.png',
-            heading: 'E-traveller Guide',
-            subCategory:'7 subcategories'
-        },
-        {
-            id:3,
-            image:'/securityagency.png',
-            heading: 'Security Agency',
-            subCategory:'7 subcategories'
-        },
-        {
-            id:4,
-            image:'/technicalservice.png',
-            heading: 'Technical Services',
-            subCategory:'7 subcategories'
-        },
-        {
-            id:5,
-            image:'/astrologer.png',
-            heading: 'Astrologer',
-            subCategory:'7 subcategories'
-        },
-        {
-            id:6,
-            image:'/chef.png',
-            heading: 'Chef',
-            subCategory:'7 subcategories'
-        },
-        {
-            id:7,
-            image:'/spiritual.png',
-            heading: 'Spirutual',
-            subCategory:'7 subcategories'
-        },
-        {
-            id:8,
-            image:'/photographer.png',
-            heading: 'Photographers',
-            subCategory:'7 subcategories'
-        },
-        {
-            id:9,
-            image:'/financeadvisor.png',
-            heading: 'Finance Advisor',
-            subCategory:'7 subcategories'
-        },
-    ]
+    
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -109,8 +49,9 @@ const KYCApproval = () => {
         // setValue(data)
     };
     useEffect(() => {
-        setSelected(data)
+        setSelected(selected)
     },[])
+    
   return (
     <div style={{padding:20}}>
         <div className={styles.container}>
@@ -152,7 +93,15 @@ const KYCApproval = () => {
                 </div>
             </div>
         </div>
-        
+        <div>
+            {selected === 3 ? (
+            <VendorsCard/>
+            ) : (selected === 2 ? (
+                <VendorsCard/>
+            ) : <VendorsCard/>) 
+            }
+        </div>
+                
         <Modal isOpen={isDeleteModalOpen} onClose={closeDeleteModal}>
             <DeleteCategory
                 closeModal={closeDeleteModal} 

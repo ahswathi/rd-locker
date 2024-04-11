@@ -11,6 +11,7 @@ import HealthCare from './healthcare/HealthCare';
 import KYCApproval from './vendorManagement/KYCApproval';
 import VendorsProfile from './vendorManagement/VendorsProfile';
 import PrivacyPolicy from './vendorManagement/PrivacyPolicy';
+import RegistrationDetails from './vendorManagement/RegistrationDetails';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
               <Route path='/vendorManagement/KYCApproval' element={<KYCApproval/>}/>
               <Route path='/vendorManagement/VendorsProfile' element={<VendorsProfile/>}/>
               <Route path='/vendorManagement/PrivacyPolicy' element={<PrivacyPolicy/>}/>
+              <Route path='/vendorManagement/RegistrationDetails' element={<RegistrationDetails/>}/>
           </Routes>
        </Layout>
        {/* <Routes>

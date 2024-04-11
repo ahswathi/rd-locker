@@ -128,7 +128,7 @@ export const delet = {
     overflow: 'hidden',
     fontFamily:'DM Sans',
     "&:hover": {
-        background:'#1E5EFF'
+        background:'#F0142F'
     },
     marginLeft:'10px'
 }
@@ -146,6 +146,23 @@ export const cancle = {
     fontFamily:'DM Sans',
     "&:hover": {
         background:'#1E5EFF'
+    },
+    marginLeft:'10px'
+}
+export const accept = {
+    height: '42px',
+    padding: '11px 20px',
+    borderRadius: '6px',
+    background: '#0F9A1D',
+    color: '#FFFFFF',
+    textTransform: 'none',
+    fontSize: '16px',
+    fontWeight: '500',
+    lineHeight: '24px', /* 18.2px */
+    overflow: 'hidden',
+    fontFamily:'DM Sans',
+    "&:hover": {
+        background:'#0F9A1F'
     },
     marginLeft:'10px'
 }

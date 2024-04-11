@@ -13,14 +13,7 @@ const DeleteCategory = ({
         name: yup.string().required("Name is required"),
       })
     const {
-        errors,
-        values,
-        handleChange,
-        touched,
-        setValues,
-        handleBlur,
         handleSubmit,
-        resetForm
       } = useFormik({
         initialValues: {
           name: "",
