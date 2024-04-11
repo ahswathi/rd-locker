@@ -1,32 +1,38 @@
-div {
-    /* Other styles */
-    overflow-y: hidden; /* Hide vertical scrollbar */
-    overflow-x: hidden;
-  }
-.headermenu{
-    width: 1000px;
+.wrapper {
+    width: calc(100% - 250px);
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.headermenu {
+    width: calc(100% - 250px);
     height: 53px;
-    margin-left: 280px;
     gap: 0px;
     opacity: 0px;
     box-shadow: 0px 4px 40px 0px #2720781A;
     display: flex;
     flex-direction: row;
-    padding-top: 25px;
     padding-left: 20px;
     padding-right: 20px;
     justify-content: space-between;
-    position: absolute;
+    align-items: center;
+    position: fixed;
+    right: 0;
+    background: #fff;
+    z-index: 3;
     /* flex-wrap: wrap; */
 }
-.menuStyle{
+
+.menuStyle {
     display: flex;
     /* justify-content: space-between; */
     /* align-items: center; */
     margin: auto;
     width: 100%;
 }
-.userName{
+
+.userName {
     font-family: Rubik;
     font-size: 14px;
     font-weight: 500;
@@ -34,7 +40,8 @@ div {
     text-align: left;
     color: #2F2F3B;
 }
-.admin{
+
+.admin {
     font-family: Rubik;
     font-size: 12px;
     font-weight: 400;
@@ -42,14 +49,16 @@ div {
     text-align: left;
     color: #2F2F3BB2;
 }
-.width{
+
+.width {
     display: flex;
     justify-content: flex-start;
     /* align-items: center; */
     margin: auto;
     width: 100%;
 }
-.welcome{
+
+.welcome {
     font-family: DM Sans;
     font-size: 15px;
     font-weight: 500;
@@ -57,10 +66,12 @@ div {
     text-align: left;
     color: #7366FF;
 }
-.form{
+
+.form {
     margin-top: 20px;
 }
-label{
+
+label {
     font-family: DM Sans;
     font-size: 14px;
     font-weight: 500;
@@ -70,6 +81,7 @@ label{
     margin-top: 20px;
 
 }
+
 .input {
     display: flex;
     padding: 12px 16px 12px 18px;
@@ -85,6 +97,7 @@ input {
     border: none;
     width: 100%;
 }
+
 .buttons {
     display: flex;
     align-items: center;
@@ -112,4 +125,11 @@ input {
 
 .save:hover {
     background: #373535;
+}
+
+/*  Main content container ----------------
+----------------------------------------- */
+
+.main {
+    padding-top: 60px;
 }

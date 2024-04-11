@@ -1,19 +1,54 @@
-div {
-    /* Other styles */
-    overflow-y: hidden; /* Hide vertical scrollbar */
-    overflow-x: hidden;
-  }
-.sideMenuBar{
+.sideMenuBar {
     display: flex;
     gap: 0;
     justify-content: center;
     padding: 0;
-    width: 100%;
+    width: 250px;
     margin: 0;
-    /* height: calc(100vh - 60px); */
-    /* margin-top: 60px; */
+    background-color: #fff;
+    position: fixed;
+    height: 100vh;
+    overflow: hidden;
+    scrollbar-gutter: stable both-edges;
+    overflow-y: auto;
 }
-.lineStyle{
+
+.sideMenuBar::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.sideMenuBar:hover {
+    &::-webkit-scrollbar {
+        width: 8px;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, .2);
+        border-radius: 3px;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+.left {
+    /* position: fixed; */
+    /* top: 0;
+    left: 0; */
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.lineStyle {
     width: 211px;
     height: 0px;
     top: 132px;
@@ -24,7 +59,8 @@ div {
     border: 1px solid #0000001A;
     margin-top: 30px;
 }
-.generalText{
+
+.generalText {
     font-family: Rubik;
     font-size: 14px;
     font-weight: 600;
@@ -34,7 +70,8 @@ div {
     color: #52526C;
     text-transform: uppercase;
 }
-.dashboardText{
+
+.dashboardText {
     font-family: DM Sans;
     font-size: 14px;
     font-weight: 500;
@@ -44,34 +81,24 @@ div {
     color: #2F2F3BCC;
     padding-left: 10px;
 }
-.width{
+
+.width {
     display: flex;
     justify-content: flex-start;
     /* align-items: center; */
     margin: auto;
     width: 100%;
 }
-.menuStyle{
+
+.menuStyle {
     display: flex;
     justify-content: space-between;
     /* align-items: center; */
     margin: auto;
     width: 100%;
 }
-.left{
-    width: 250px;
-    background-color: #fff;
-    padding: 20px;
-    flex-wrap: wrap;
-}
-.right{
-    margin-top: 80px;
-    background-color: rgba(227, 227, 227, 0.30);
-    width: calc(100% - 250px);
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-.menuActive{
+
+.menuActive {
     background: #1E5EFF12;
     width: 266px;
     height: 41px;
@@ -87,19 +114,21 @@ div {
     border-right-width: 10px;
     border-right-color: #1E5EFF;
 }
+
 /* .menuActive svg {
     stroke: #1E5EFF;
     padding: 16px 12px;
     stroke-opacity: 0.56;
 } */
-svg{
+svg {
     cursor: pointer;
 }
+
 /* .menuStyle svg, .menuActive:hover svg{
     stroke: #1E5EFF;
     stroke-opacity: 1;
 } */
-.subpaths{
+.subpaths {
     width: 90%;
     margin: auto;
     display: flex;
@@ -107,7 +136,8 @@ svg{
     margin-top: 7px;
     align-items: flex-start;
 }
-.subpaths div{
+
+.subpaths div {
     width: 75%;
     font-family: Inter;
     font-size: 12px;
@@ -121,11 +151,13 @@ svg{
     cursor: pointer;
     /* padding-left: 20px; */
 }
-.submenu{
+
+.submenu {
     /* background: rgba(255, 255, 255, 0.25); */
     color: #1E5EFF !important;
 }
-.menuText{
+
+.menuText {
     font-family: DM Sans;
     font-size: 14px;
     font-weight: 500;
