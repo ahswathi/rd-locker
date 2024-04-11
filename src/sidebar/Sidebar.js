@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Styles from '../sidebar/sidebar.module.css'
 import { useLocation, useNavigate } from 'react-router-dom';
-import { ActiveDoccument, Doccument, DropDown, DropUp } from '../Svg';
+import { ActiveDoccument, Doccument, DropDown, DropUp, Report } from '../Svg';
 
 const Sidebar = ({ children }) => {
     const navigate = useNavigate();
@@ -49,7 +49,7 @@ const Sidebar = ({ children }) => {
             User
         </p>
     </div>
-    <div className={path === 'vendorManagement' ? `${Styles.menuActive}` : `${Styles.menuStyle}`} style={{marginTop:30}} onClick={() => navigate('/vendorManagement')}>
+    <div className={path === 'vendorManagement' ? `${Styles.menuActive}` : `${Styles.menuStyle}`} onClick={() => navigate('/vendorManagement')}>
         <div className={Styles.width}>
             {path === 'vendorManagement' ? (
             <ActiveDoccument/>
@@ -59,7 +59,7 @@ const Sidebar = ({ children }) => {
             </p>
         </div>
         {path === 'vendorManagement' ? (
-            <div style={{marginTop:10,marginRight:5}}>
+            <div>
                 <DropDown/>
             </div>
             ): <DropUp/>}
@@ -120,6 +120,26 @@ const Sidebar = ({ children }) => {
             <DropUp/>
         </div>
     </div>
+    <div className={path === 'report' ? `${Styles.menuActive}` : `${Styles.menuStyle}`} style={{marginTop:30}} onClick={() => navigate('/report')}>
+        <div className={Styles.width}>
+            {path === 'report' ? (
+            <Report/>
+            ): <Doccument/>}
+            <p className={Styles.dashboardText}>
+                Reports
+            </p>
+        </div>
+        {path === 'report' ? (
+            <DropDown/>
+            ): <DropUp/>}
+        
+    </div>
+    {
+        path === 'report' ?
+            <div className={Styles.subpaths}>
+            <div onClick={() => navigate('/accounts')} className={subpath === 'accounts' ? Styles.submenu : ''}>Accounts</div>
+            </div> : ''
+    }
     <div className={Styles.menuStyle} style={{marginTop:30}}>
         <div className={Styles.width}>
             <img src='/subscription.png' style={{width:18,height:15,}}/>

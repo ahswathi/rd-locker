@@ -79,7 +79,8 @@ div {
     gap: 0px;
     opacity: 0px;
     display: flex;
-    justify-content: space-between; 
+    justify-content: center;
+    align-items: center;
     padding: 5px;
     margin: auto;
     width: 100%;
