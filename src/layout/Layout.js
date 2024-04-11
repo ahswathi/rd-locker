@@ -8,7 +8,6 @@ const Layout = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [layout, setLayout] = useState(false);
-  console.log('layout',layout);
   const path = location.pathname.split('/')[1];
 
   const token = localStorage.getItem("token");
@@ -26,11 +25,8 @@ const Layout = ({ children }) => {
 
   return (
     <div className={Styles.mainContainer}>
-      {/* {layout ? <><Header /> <Sidebar children={children} /></> : children} */}
-      
-      <Sidebar children={children}/>
-      <Header/>
-      {/* {children} */}
+      <Header children={children} />
+      <Sidebar />
     </div>
   )
 }
