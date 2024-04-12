@@ -58,7 +58,6 @@
     left: 25px;
     gap: 0px;
     border: 1px 0px 0px 0px;
-    opacity: 0px;
     border: 1px solid #0000001A;
     margin-top: 30px;
 }
@@ -107,7 +106,6 @@
     height: 41px;
     /* top: 312px; */
     gap: 0px;
-    opacity: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
