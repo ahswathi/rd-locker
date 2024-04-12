@@ -36,7 +36,7 @@ function App() {
           <Route path='/vendorManagement/RegistrationDetails' element={<RegistrationDetails />} />
           <Route path='/accounts' element={<Accounts />} />
           <Route path='/transactions' element={<Transactions />} />
-          <Route path='/receipt' element={<Receipt />} />
+          {/* <Route path='/receipt' element={<Receipt />} /> */}
         </Routes>
       </Layout>
       {/* <Routes>
