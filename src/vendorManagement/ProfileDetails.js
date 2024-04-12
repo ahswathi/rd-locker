@@ -3,13 +3,13 @@ import styles from '../categories/category.module.css';
 import Styles from '../vendorManagement/vendor.module.css';
 import { Button } from '@mui/material';
 import { useFormik } from 'formik';
-import { accept, custom, delet, formselect, save } from '../MaterialUI';
+import { accept,delet,} from '../MaterialUI';
 import * as yup from "yup";
 import ProfileCard from './ProfileCard';
 import Modal from '../component/Modal';
 import VendorRejection from './VendorRejection';
 
-const RegistrationDetails = () => {
+const ProfileDetails = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const openModal = () => {
         setIsModalOpen(true);
@@ -42,10 +42,10 @@ const RegistrationDetails = () => {
                 <span className={styles.home}>
                     home 
                     <img src='/tiangle.png' style={{marginLeft:10,marginRight:10}}/> 
-                        KYC Approvals
+                        All Vendors
                     <img src='/tiangle.png' style={{marginLeft:10}}/>
                     <span style={{ color: 'var(--Gray-900, #1E5EFF)',marginLeft:10 }}>
-                        Registration details
+                        Profile Details
                     </span>
                 </span>
             </div>
@@ -75,4 +75,4 @@ const RegistrationDetails = () => {
   )
 }
 
-export default RegistrationDetails
+export default ProfileDetails

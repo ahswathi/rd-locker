@@ -196,6 +196,7 @@
     margin-top: 25px;
     margin-right: 25px;
     position: relative;
+    align-content: center
     /* transition: box-shadow 0.3s; */
 }
 .card:hover {
@@ -286,13 +287,22 @@
     color: #1A9882;
 }
 .home{
-    font-family: Public Sans;
+    font-family: 'Public Sans';
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
     letter-spacing: 0.005em;
     text-align: left;
     color: #667085;
+}
+.home span{
+    font-family: 'Public Sans';
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.005em;
+    text-align: left;
+    color: #1E5EFF;
 }
 .addNewContainer{
     width: fit-content;
@@ -394,7 +404,7 @@ input {
     margin-bottom: 20px;
 }
 .header {
-    width: 880px;
+    width: 970px;
     height: 42px;
     padding: 12px 29px 12px 29px;
     gap: 60px;
@@ -415,7 +425,7 @@ input {
     color: #131523;
 }
 .listContainer{
-    width: 940px;
+    width: 1010px;
     height: fit-content;
     gap: 0px;
     opacity: 0px;
@@ -443,12 +453,16 @@ input {
 
 .first {
     width: 12%;
-    font-family: DM Sans;
+    font-family: 'DM Sans';
     font-size: 14px;
     font-weight: 500;
     line-height: 18.23px;
     letter-spacing: 0.30000001192092896px;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    text-transform: capitalize;
+    display: flex;
 }
 
 .second {
@@ -458,7 +472,11 @@ input {
     font-weight: 500;
     line-height: 18.23px;
     letter-spacing: 0.30000001192092896px;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    text-transform: capitalize;
+    display: flex;
 }
 
 .headerText {
@@ -478,7 +496,10 @@ input {
     font-weight: 500;
     line-height: 18.23px;
     letter-spacing: 0.30000001192092896px;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    text-transform: capitalize;
 }
 .fifth {
     width: 20%;
@@ -490,6 +511,8 @@ input {
     align-items: center;
     justify-content: center;
     text-align: center;
+    text-transform: capitalize;
+    display: flex;
 }
 .option{
     /* text-align: center; */
@@ -507,6 +530,11 @@ input {
     text-align: center;
     padding: 5px;
     border-radius: 5px;
+    text-transform: capitalize;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    display: flex;
 }
 .entryView{
     flex-direction: row;

@@ -44,7 +44,7 @@ const Sidebar = ({ children }) => {
                     </div>
                 </div>
                 <div className={Styles.lineStyle} />
-                <div style={{ marginTop: 20 }}>
+                <div style={{ marginTop: 20,marginBottom:20 }}>
                     <p className={Styles.generalText}>
                         User
                     </p>
