@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from '../categories/category.module.css';
-import { Delete, Left, Right } from '../Svg';
+import { Delete, FilterIcon, Left, Right } from '../Svg';
 
 const CategoriesRequestList = () => {
     const categories = [
@@ -97,11 +97,11 @@ const CategoriesRequestList = () => {
                 SubCategories
             </div>
             <div className={styles.header}>
-            <div className={styles.first}>Sl No #</div>
-            <div className={styles.second}>Request date #</div>
-            <div className={styles.third}>User name #</div>
+            <div className={styles.first}>Sl No <FilterIcon/></div>
+            <div className={styles.second}>Request date<FilterIcon/></div>
+            <div className={styles.third}>User name <FilterIcon/></div>
             <div className={styles.fourth}>Category/Subcategory</div>
-            <div className={styles.fifth}>Options #</div>
+            <div className={styles.fifth}>Options <FilterIcon/></div>
         </div>
         {categories.map((item,index) => {
             return(

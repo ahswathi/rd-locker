@@ -85,6 +85,9 @@
     line-height: 18.23px;
     letter-spacing: 0.30000001192092896px;
     text-align: center;
+    text-transform: capitalize;
+    align-items: center;
+    display: flex;
 }
 
 .second {
@@ -95,6 +98,10 @@
     line-height: 18.23px;
     letter-spacing: 0.30000001192092896px;
     text-align: center;
+    text-transform: capitalize;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .headerText {
@@ -104,6 +111,7 @@
     line-height: 18.23px;
     letter-spacing: 0.30000001192092896px;
     text-align: center;
+    text-transform: capitalize;
 
 }
 
@@ -114,6 +122,8 @@
     font-weight: 500;
     line-height: 18.23px;
     letter-spacing: 0.30000001192092896px;
+    text-transform: capitalize;
+    
 }
 .option{
     /* text-align: center; */
@@ -131,6 +141,10 @@
     text-align: center;
     padding: 5px;
     border-radius: 5px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-transform: capitalize;
 }
 .entryView{
     flex-direction: row;
@@ -174,7 +188,7 @@
     margin-left: 10px;
 }
 .visibilityContainer{
-    width: 226px;
+    width: 330px;
     height: fit-content;
     gap: 0px;
     opacity: 0px;
@@ -186,7 +200,7 @@
 
 }
 .newContainer{
-    width: 226px;
+    width: 330px;
     height: fit-content;
     gap: 0px;
     opacity: 0px;
@@ -195,5 +209,14 @@
     padding: 20px;
     border-radius: 5px;
     margin-top: 20px;
+
+}
+.showingText{
+    font-family: Public Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: left;
+    color: #000000;
 
 }

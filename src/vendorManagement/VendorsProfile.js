@@ -7,6 +7,7 @@ import VendorsCard from './VendorsCard';
 import Filter from '../component/Filter';
 import { Modal } from '@mui/material';
 import style from '../vendorManagement/vendor.module.css'
+import AllVendors from './AllVendors';
 
 
 const VendorsProfile = () => {
@@ -75,8 +76,8 @@ const VendorsProfile = () => {
             </div>
         </div>
         <div>
-            {selected === 3 ? (
-            <VendorsCard/>
+            {selected === 0 ? (
+            <AllVendors/>
             ) : (selected === 2 ? (
                 <VendorsCard/>
             ) : <VendorsCard/>) 
