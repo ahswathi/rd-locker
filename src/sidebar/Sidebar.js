@@ -11,6 +11,9 @@ const Sidebar = ({ children }) => {
     const pathname = location.pathname.split('/')[1];
     const subpathname = location.pathname.split('/')[2];
 
+
+
+    
     useEffect(() => {
         setPath(pathname)
         setSubpath(subpathname)
