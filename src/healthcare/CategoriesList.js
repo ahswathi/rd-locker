@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from '../healthcare/healthcare.module.css';
-import { Delete, Edit, Left, Right } from '../Svg';
+import { Delete, Edit, FilterIcon, Left, Right } from '../Svg';
 import Modal from '../component/Modal';
 import EditCategory from '../categories/EditCategory';
 import DeleteCategory from '../categories/DeleteCategory';
@@ -97,9 +97,9 @@ const CategoriesList = () => {
   return (
     <div>
         <div className={styles.header}>
-            <div className={styles.first}>Sl No #</div>
-            <div className={styles.second}>Subcategory name #</div>
-            <div className={styles.third}>Status #</div>
+            <div className={styles.first}>Sl No <FilterIcon/></div>
+            <div className={styles.second}>Subcategory name <FilterIcon/></div>
+            <div className={styles.third}>Status <FilterIcon/></div>
             <div className={styles.fourth}>Options</div>
         </div>
         {categories.map((item,index) => {
@@ -140,7 +140,7 @@ const CategoriesList = () => {
             )
         })}
         <div className={styles.entryView}>
-        <div>Showing {start} to {end} of {totalItems} entries</div>
+        <div className={styles.showingText}>Showing {start} to {end} of {totalItems} entries</div>
             <div className={styles.leftright}>
                 
                 <Left handleClick={decrement} />

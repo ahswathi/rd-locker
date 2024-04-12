@@ -263,7 +263,7 @@ const Dashboard = () => {
             <div className={Styles.width}>
                 <div style={{top:20}}>
                     <AreaChart 
-                        width={670} 
+                        width={700} 
                         height={350} 
                         data={data} 
                         margin={{ top: 35, right: 10, bottom: 15, left: 10 }}
