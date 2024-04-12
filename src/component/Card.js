@@ -3,7 +3,6 @@ import Styles from "./Style.module.css";
 
 const Card = ({image,icon,prize,name,rate}) => {
   return (
-    
     <div className={Styles.card}>
         <div className={Styles.width}>
             <div>
