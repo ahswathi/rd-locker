@@ -4,10 +4,11 @@ import { Export } from '../Svg'
 
 const Receipt = () => {
   return (
-    <div>
+    <div className={styles.container}>
         <div className={styles.row1}>
             <img src='logo.png' />
         </div>
+
         <div className={styles.row2}>
             <div className={styles.row2}>
                 Hello Charles Hall, <br/>
@@ -20,12 +21,28 @@ const Receipt = () => {
                     <div className={styles.export}>
                         <Export/> <span>Export</span>
                     </div>
-                
             </div>
         </div>
         <div className={styles.row3}>
-            
+            <div className={styles.col}>
+                    <div className={styles.title}>
+                    Payment No.
+                    </div>
+                    <div className={styles.subtitle}>
+                    ABC123
+                    </div>
+            </div>
+            <div className={styles.col}>
+                    <div className={styles.title}>
+                    Payment date
+                    </div>
+                    <div className={styles.subtitle}>
+                    October 2, 2021 - 03:45 pm
+                    </div>
+            </div>
         </div>
+        <hr className={styles.hline} />
+
         <div className={styles.row4}>
             
         </div>
