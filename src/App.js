@@ -33,9 +33,9 @@ function App() {
           <Route path='/vendorManagement/KYCApproval' element={<KYCApproval />} />
           <Route path='/vendorManagement/VendorsProfile' element={<VendorsProfile />} />
           <Route path='/vendorManagement/PrivacyPolicy' element={<PrivacyPolicy />} />
-          <Route path='/vendorManagement/RegistrationDetails' element={<RegistrationDetails />} />
-          <Route path='/accounts' element={<Accounts />} />
-          <Route path='/transactions' element={<Transactions />} />
+          <Route path='/vendorManagement/KYCApproval/RegistrationDetails' element={<RegistrationDetails />} />
+          <Route path='/reports/accounts' element={<Accounts />} />
+          <Route path='/reports/transactions' element={<Transactions />} />
           {/* <Route path='/receipt' element={<Receipt />} /> */}
         </Routes>
       </Layout>

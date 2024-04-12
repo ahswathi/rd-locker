@@ -145,9 +145,9 @@ const Sidebar = ({ children }) => {
                         Others
                     </p>
                 </div>
-                <div className={Styles.width}>
+                <div onClick={() => navigate('/reports')} className={path === 'reports' ? `${Styles.width} ${Styles.active}` : Styles.width}>
                     <div>
-                        {path === 'report' ? (
+                        {path === 'reports' ? (
                             <ReportActive />
                         ) : <Report />}
                         <p className={Styles.dashboardText}>
@@ -159,12 +159,24 @@ const Sidebar = ({ children }) => {
                     ) : <DropUp />}
                 </div>
                 {
-                    path === 'report' ?
+                    path === 'reports' ?
                         <div className={Styles.subpaths}>
-                            <div onClick={() => navigate('/accounts')} className={subpath === 'accounts' ? Styles.submenu : ''}>Accounts</div>
-                            <div onClick={() => navigate('/transactions')} className={subpath === 'transactions' ? Styles.submenu : ''}>Transactions</div>
-                           {/*  <div onClick={() => navigate('/receipt')} className={subpath === 'receipt' ? Styles.submenu : ''}>Receipt</div> */}
-                       </div> : ''
+                            <div onClick={() => navigate('/reports/accounts')} className={subpath === 'accounts' ? Styles.submenu : Styles.menuText}>
+                                <div className={Styles.lines}>
+                                    <span className={Styles.vertical} style={{ top: "-5px", height: 30 }}></span>
+                                    <span className={Styles.horizontal}></span>
+                                </div>
+                                Accounts
+                            </div>
+                            <div onClick={() => navigate('/reports/transactions')} className={subpath === 'transactions' ? Styles.submenu : Styles.menuText}>
+                                <div className={Styles.lines}>
+                                    <span className={Styles.vertical}></span>
+                                    <span className={Styles.horizontal}></span>
+                                </div>
+                                Transactions
+                            </div>
+                            {/*  <div onClick={() => navigate('/receipt')} className={subpath === 'receipt' ? Styles.submenu : ''}>Receipt</div> */}
+                        </div> : ''
                 }
 
 
