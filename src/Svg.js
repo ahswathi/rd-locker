@@ -197,3 +197,19 @@ export const Export = () => {
     </svg>
   )
 }
+export const DropDownIcon = () => {
+  return (
+    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8.52843 0.527944C8.78878 0.267594 9.21089 0.267594 9.47124 0.527944C9.73159 0.788293 9.73159 1.2104 9.47124 1.47075L5.47124 5.47075C5.21886 5.72314 4.81246 5.73197 4.54935 5.49078L0.549355 1.82412C0.277942 1.57532 0.259606 1.15361 0.508401 0.882198C0.757195 0.610785 1.17891 0.592451 1.45032 0.841246L4.97979 4.07659L8.52843 0.527944Z" fill="#1C1D22"/>
+    </svg>
+  )
+}
+
+export const logo = () => {
+  return (
+    <svg  style={{marginRight:10}}  width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="4" cy="4" r="4" fill="#54BA4A"/>
+</svg>
+
+  )
+}

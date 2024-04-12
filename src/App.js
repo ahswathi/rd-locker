@@ -14,6 +14,7 @@ import PrivacyPolicy from './vendorManagement/PrivacyPolicy';
 import RegistrationDetails from './vendorManagement/RegistrationDetails';
 import Accounts from './accounts/accounts';
 import Transactions from './transactions/transactions';
+import Receipt from './receipt/receipt';
 
 function App() {
   return (
