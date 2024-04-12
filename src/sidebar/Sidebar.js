@@ -142,7 +142,7 @@ const Sidebar = ({ children }) => {
                         <div className={Styles.subpaths}>
                             <div onClick={() => navigate('/accounts')} className={subpath === 'accounts' ? Styles.submenu : ''}>Accounts</div>
                             <div onClick={() => navigate('/transactions')} className={subpath === 'transactions' ? Styles.submenu : ''}>Transactions</div>
-                            <div onClick={() => navigate('/receipt')} className={subpath === 'receipt' ? Styles.submenu : ''}>Receipt</div>
+                           {/*  <div onClick={() => navigate('/receipt')} className={subpath === 'receipt' ? Styles.submenu : ''}>Receipt</div> */}
                        </div> : ''
                 }
 

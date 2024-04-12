@@ -12,11 +12,22 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    color: rgba(98, 108, 112, 1);
+}
+.row2 span{
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+    color: rgba(25, 27, 28, 1);
 }
 .row3{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 8px;
 }
 .row4{
     display: flex;
@@ -36,11 +47,15 @@
 .col{
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
+}
+.col p{
+   padding-bottom: 6px;
 }
 .col .title{
     font-size: 16px;
     font-weight: 400;
+    color: #626C70;
 }
 .col .subtitle{
     font-size: 18px;
@@ -92,6 +107,11 @@
     color: rgba(74, 81, 84, 1);
     font-weight: 400;
 }
+.span{
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(25, 27, 28, 1);
+}
 .prod_details{
     display: flex;
     gap: 16px;
@@ -110,4 +130,36 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+.download{
+    font-size: 14px;
+    font-weight: 600;
+    width: 142px;
+    height: 40px;
+    gap: 8px;
+    border-radius: 50px;
+    background: #FFFFFF;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    align-self: center;
+    display: flex; 
+    color: #1E5EFF;
+    background-color: #F0F6FF;
+}
+.print{
+    font-size: 14px;
+    font-weight: 600;
+    width: 142px;
+    height: 40px;
+    gap: 8px;
+    border-radius: 50px;
+    background: #FFFFFF;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    align-self: center;
+    display: flex; 
+    color: #FFFFFF;
+    background-color: #1E5EFF;
 }

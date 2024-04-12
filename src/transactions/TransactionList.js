@@ -78,20 +78,21 @@ const TransactionList = () => {
                 SubCategories
             </div>
             <div className={styles.header}>
-            <div className={styles.first}>NO</div>
-            <div className={styles.first}>INVOICE SUBJECT</div>
+            <div className={styles.first1}>NO</div>
+            <div className={styles.second}>INVOICE SUBJECT</div>
             <div className={styles.first}>Client</div>
             <div className={styles.first}>Date</div>
             <div className={styles.first}>Transaction</div>
             <div className={styles.first}>Status</div>
             <div className={styles.first}>Price</div>
             <div className={styles.first}>Action</div>
+            <div className={styles.first1}></div>
         </div>
         {categories.map((item,index) => {
             return(
                 <div className={styles.info}>
-                  <div className={styles.first}>{(page - 1) * limit + index + 1}</div>
-                  <div className={styles.first}>{item.invoice}</div>
+                  <div className={styles.first1}>{(page - 1) * limit + index + 1}</div>
+                  <div className={styles.second}>{item.invoice}</div>
                   <div className={styles.first}>{item.userName}</div>
                   <div className={styles.first}>{item.date}</div>
                   <div className={styles.first}>{item.trans}</div>
@@ -101,16 +102,16 @@ const TransactionList = () => {
                     </div>
                   </div>
                   <div className={styles.first}>{item.price}</div>
-                  <div className={styles.first}>
+                  <div className={styles.second}>
                     <div className={styles.download}>
                         <Download/> <span>Download</span>
                     </div>
                   </div>
-                  {/* <div className={styles.first}>
+                  <div className={styles.first1}>
                     <div className={styles.dots}>
                         <Dots/> 
                     </div>
-                  </div> */}
+                  </div>
                 </div>
             )
             })}

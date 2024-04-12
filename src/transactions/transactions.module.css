@@ -433,8 +433,17 @@ input {
     border-bottom: 1px dashed #E5E7E8;
 }
 
+.first1 {
+    width: 6%;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    /* text-align: center; */
+}
 .first {
-    width: 11%;
+    width: 16%;
     font-family: DM Sans;
     font-size: 14px;
     font-weight: 500;
@@ -444,7 +453,7 @@ input {
 }
 
 .second {
-   /*  width: 30%; */
+    width: 20%;
     font-family: DM Sans;
     font-size: 14px;
     font-weight: 500;

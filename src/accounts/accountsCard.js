@@ -16,9 +16,10 @@ const AccountsCard = ({
         {
             id:1,
             dateTime:'1  April, 2024',
-            vendorName:'Rahul',
+            vendorName:'Deeksha',
             emailId:'deeksha@gmail.com',
             phoneNumber:'+91-9876543210',
+            cat: 'Healthcare(MBBS)',
             status:'Pending'
         },
         {
@@ -27,39 +28,8 @@ const AccountsCard = ({
             vendorName:'Rahul',
             emailId:'deeksha@gmail.com',
             phoneNumber:'+91-9876543210',
+            cat: 'Healthcare(MBBS)',
             status:'Pending'
-        },
-        {
-            id:3,
-            dateTime:'1  April, 2024',
-            vendorName:'Rahul',
-            emailId:'deeksha@gmail.com',
-            phoneNumber:'+91-9876543210',
-            status:'Pending',
-        },
-        {
-            id:4,
-            dateTime:'1  April, 2024',
-            vendorName:'Rahul',
-            emailId:'deeksha@gmail.com',
-            phoneNumber:'+91-9876543210',
-            status:'Pending',
-        },
-        {
-            id:5,
-            dateTime:'1  April, 2024',
-            vendorName:'Rahul',
-            emailId:'deeksha@gmail.com',
-            phoneNumber:'+91-9876543210',
-            status:'Pending',
-        },
-        {
-            id:6,
-            dateTime:'1  April, 2024',
-            vendorName:'Rahul',
-            emailId:'deeksha@gmail.com',
-            phoneNumber:'+91-9876543210',
-            status:'Pending',
         },
     ]
   const navigate = useNavigate();  
@@ -107,6 +77,7 @@ const AccountsCard = ({
             <div className={styles.third}>Vendor name <FilterIcon/></div>
             <div className={styles.fourth}>Email Id <FilterIcon/></div>
             <div className={styles.fifth}>Phone number <FilterIcon/></div>
+            <div className={styles.fifth}>Category <FilterIcon/></div>
             <div className={styles.sixth}>Status <FilterIcon/></div>
         </div>
         {vendorData.map((item,index) => {
@@ -120,13 +91,10 @@ const AccountsCard = ({
                   </div>
                 <div className={styles.fourth}>{item.emailId}</div>
                 <div className={styles.fifth}>{item.phoneNumber}</div>
+                <div className={styles.sixth}>{item.cat}</div>
 
                 <div className={styles.status}><span>{item.status}</span></div>
-                <div className={styles.seventh}>
-                {/* <div style={{marginLeft:20}} onClick={() => navigate('/vendorManagement/RegistrationDetails')}>
-                    <View/>
-                </div> */}
-                </div>
+                
             </div>
             )
         })}

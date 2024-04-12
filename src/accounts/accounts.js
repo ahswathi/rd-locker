@@ -3,7 +3,7 @@ import Card from '../component/Card';
 import Styles from '../component/Style.module.css';
 import styles from '../categories/category.module.css';
 import SwitchTab from '../component/SwitchTab';
-import { Search } from '../Svg';
+import { Export,Search } from '../Svg';
 import {Area, AreaChart, CartesianGrid,Tooltip, XAxis, YAxis} from 'recharts';
 import Calendar from 'react-calendar';
 import Modal from '../component/Modal';
@@ -248,6 +248,9 @@ const Accounts = () => {
                     </div>
                     <div className={styles.filter}>
                         <img src='/filter.png'/> <span>Filter</span>
+                    </div>
+                    <div className={styles.export}>
+                        <Export/> <span>Export</span>
                     </div>
                 </div>
             </div>
