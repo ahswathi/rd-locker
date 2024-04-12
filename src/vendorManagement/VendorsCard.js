@@ -133,7 +133,7 @@ const VendorsCard = ({
 
                 <div className={styles.status}><span>{item.status}</span></div>
                 <div className={styles.seventh}>
-                <div style={{marginLeft:20}} onClick={() => navigate('/vendorManagement/RegistrationDetails')}>
+                <div style={{marginLeft:20}} onClick={() => navigate('/vendorManagement/KYCApproval/RegistrationDetails')}>
                     <View/>
                 </div>
                 </div>
