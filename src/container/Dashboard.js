@@ -166,17 +166,19 @@ const Dashboard = () => {
     const lastMonthcloseModal = () => {
         setIsLastMonth(false);
     };
+
+
     // Tooltip
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {
             return (
                 <div className={Styles.customtootip}>
                     <div className={Styles.width}>
-                        <img src='/blackRoundIcon.png' style={{ width: 20, height: 20 }} />
-                        <p style={{ paddingLeft: 10 }}>{payload[0].payload.name}</p>
+                        <div style={{ width: 20, height: 20, borderRadius: "50%", background: "#000" }}></div>
+                        <p>{payload[0].payload.name}</p>
                     </div>
                     <div className={Styles.revenue}>
-                        <p>{`Revenue  INR${payload[0].value}`}</p>
+                        <p>Revenue  <span style={{ color: "rgba(0, 0, 0, 1)" }}>INR {payload[0].value}</span></p>
                     </div>
                 </div>
             );
@@ -189,8 +191,8 @@ const Dashboard = () => {
     const CustomYAxisTick = ({ x, y, payload }) => {
         return (
             <g transform={`translate(${x},${y})`}>
-                <text x={0} y={0} dy={4} textAnchor="end" fill="#666" >
-                    {`${payload.value} k`}
+                <text x={0} y={0} dy={4} textAnchor="end" fill="#666" className={Styles.y_axis}>
+                    {`${payload.value}k`}
                 </text>
             </g>
         );
@@ -268,11 +270,19 @@ const Dashboard = () => {
                                 data={data}
                                 margin={{ top: 35, right: 10, bottom: 15, left: 10 }}
                             >
+                                <defs>
+                                    <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="5%" stopColor="rgba(0, 0, 0, 0.1)" stopOpacity={1} />
+                                        <stop offset="95%" stopColor="rgba(0, 0, 0, 0)" stopOpacity={0} />
+                                    </linearGradient>
+                                </defs>
                                 <CartesianGrid stroke="#eee" strokeDasharray="5 5" vertical={false} />
-                                <XAxis dataKey="name" axisLine={false} />
-                                <YAxis tick={<CustomYAxisTick />} axisLine={false} />
+                                {/* <XAxis dataKey="name" axisLine={false} />
+                                <YAxis tick={<CustomYAxisTick />} axisLine={false} /> */}
+                                <XAxis dataKey="name" axisLine={false} tickLine={false} padding="gap" tickSize={15} />
+                                <YAxis tick={<CustomYAxisTick />} axisLine={false} tickLine={false} tickSize={10} />
                                 <Tooltip content={<CustomTooltip />} />
-                                <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#ebebf5" fillOpacity={0.3} />
+                                <Area isAnimationActive={true} type="monotone" activeDot={{ stroke: '#fff', strokeWidth: 9, r: 8 }} dataKey="uv" stroke="rgba(112, 100, 245, 1)" strokeWidth={2} fill="url(#colorUv)" />
                             </AreaChart>
                         </div>
                     </div>
