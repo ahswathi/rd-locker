@@ -166,3 +166,21 @@ export const accept = {
     },
     marginLeft:'10px'
 }
+export const apply = {
+    width:'320px',
+    height: '42px',
+    padding: '11px 0px 11px 0px',
+    borderRadius: '6px',
+    background: '#5570F1',
+    color: '#FFFFFF',
+    textTransform: 'none',
+    fontSize: '16px',
+    fontWeight: '500',
+    lineHeight: '24px', /* 18.2px */
+    overflow: 'hidden',
+    fontFamily:'DM Sans',
+    "&:hover": {
+        background:'#5570F1'
+    },
+    marginTop:'30px'
+}

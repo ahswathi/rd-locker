@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from '../categories/category.module.css';
 import Styles from '../vendorManagement/vendor.module.css';
 import { Button } from '@mui/material';
@@ -6,8 +6,18 @@ import { useFormik } from 'formik';
 import { accept, custom, delet, formselect, save } from '../MaterialUI';
 import * as yup from "yup";
 import ProfileCard from './ProfileCard';
+import Modal from '../component/Modal';
+import VendorRejection from './VendorRejection';
 
 const RegistrationDetails = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
     const schema = yup.object().shape({
         name: yup.string().required("Name is required"),
       })
@@ -48,7 +58,7 @@ const RegistrationDetails = () => {
             </div>
             <div className={styles.buttons}>
                 <div>
-                    <Button sx={delet} onClick={handleSubmit} variant="contained">Reject</Button>
+                    <Button sx={delet} onClick={openModal} variant="contained">Reject</Button>
                 </div>
                 <div>
                     <Button sx={accept} onClick={handleSubmit} variant="contained">Accept</Button>
@@ -58,6 +68,11 @@ const RegistrationDetails = () => {
         <div>
             <ProfileCard/>
         </div>
+        <Modal isOpen={isModalOpen} onClose={closeModal}>
+            <VendorRejection
+              onClose={closeModal}
+            />
+        </Modal>
     </div>
   )
 }

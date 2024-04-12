@@ -1,79 +1,96 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
-/* * {
-  box-sizing: border-box;
-  padding: 0;
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-} */
-.fontSize{
+  background: #F5F6FA;
+}
+
+.fontSize {
   font-size: 16px;
 }
-.fs2{
+
+.fs2 {
   font-size: 18px;
 }
-.fs3{
+
+.fs3 {
   font-size: 16px;
 }
-.heroText{
+
+.heroText {
   font-size: 38px;
 }
-.btext, .btext2{
+
+.btext,
+.btext2 {
   font-size: 32px;
 }
-.highlight{
+
+.highlight {
   font-size: 23px;
   color: #343441;
 }
-.fyp{
+
+.fyp {
   display: flex;
   justify-content: space-between;
 }
-@media screen and (max-width: 1087px){
-    .btext2{
-      font-size: 23px;
-    }
+
+@media screen and (max-width: 1087px) {
+  .btext2 {
+    font-size: 23px;
+  }
 }
-@media screen and (max-width: 973px){
-  .fyp{
+
+@media screen and (max-width: 973px) {
+  .fyp {
     display: block;
   }
-  .highlight{
+
+  .highlight {
     font-size: 18px;
   }
 }
-@media screen and (max-width: 603px){
-  .btext2{
+
+@media screen and (max-width: 603px) {
+  .btext2 {
     font-size: 22px;
   }
 }
-@media screen and (max-width: 525px){
-  .fontSize{
+
+@media screen and (max-width: 525px) {
+  .fontSize {
     font-size: 15px;
   }
-  .fs2{
+
+  .fs2 {
     font-size: 16.5px;
   }
-  .fs3{
+
+  .fs3 {
     font-size: 15px;
   }
-  .heroText{
+
+  .heroText {
     font-size: 32px;
   }
-  .btext{
+
+  .btext {
     font-size: 28px;
     text-align: center;
   }
-  .btext2{
+
+  .btext2 {
     font-size: 19px;
   }
 }

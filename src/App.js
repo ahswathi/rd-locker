@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter , Route , Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import 'react-calendar/dist/Calendar.css';
 import Dashboard from './container/Dashboard';
 import Layout from '../src/layout/Layout';
@@ -21,25 +21,24 @@ function App() {
     <BrowserRouter>
       <Layout>
         <ToastContainer
-            position="bottom-right"
-            autoClose={2000}
-          >
+          position="bottom-right"
+          autoClose={2000}
+        >
         </ToastContainer>
-          <Routes>
-              <Route path='/' element={<Dashboard/>} />
-              <Route path='/categories/Categories' element={<Categories/>}/>
-              <Route path='/categories/AddNewCategory' element={<AddNewCategory/>}/>
-              <Route path='/healthcare/HealthCare' element={<HealthCare/>}/>
-              <Route path='/vendorManagement/KYCApproval' element={<KYCApproval/>}/>
-              <Route path='/vendorManagement/VendorsProfile' element={<VendorsProfile/>}/>
-              <Route path='/vendorManagement/PrivacyPolicy' element={<PrivacyPolicy/>}/>
-              <Route path='/vendorManagement/RegistrationDetails' element={<RegistrationDetails/>}/>
-              <Route path='/accounts' element={<Accounts/>}/>
-              <Route path='/transactions' element={<Transactions/>}/>
-              <Route path='/receipt' element={<Receipt/>}/>
-          </Routes>
-       </Layout>
-       {/* <Routes>
+        <Routes>
+          <Route path='/' element={<Dashboard />} />
+          <Route path='/categories/Categories' element={<Categories />} />
+          <Route path='/categories/AddNewCategory' element={<AddNewCategory />} />
+          <Route path='/healthcare/HealthCare' element={<HealthCare />} />
+          <Route path='/vendorManagement/KYCApproval' element={<KYCApproval />} />
+          <Route path='/vendorManagement/VendorsProfile' element={<VendorsProfile />} />
+          <Route path='/vendorManagement/PrivacyPolicy' element={<PrivacyPolicy />} />
+          <Route path='/vendorManagement/RegistrationDetails' element={<RegistrationDetails />} />
+          <Route path='/accounts' element={<Accounts />} />
+          <Route path='/transactions' element={<Transactions />} />
+        </Routes>
+      </Layout>
+      {/* <Routes>
               <Route path='/' element={<Notifications/>} />
           </Routes> */}
     </BrowserRouter>

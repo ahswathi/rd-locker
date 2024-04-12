@@ -3,38 +3,11 @@ import styles from '../categories/category.module.css';
 import Styles from '../component/Style.module.css';
 import SwitchTab from '../component/SwitchTab';
 import { Search } from '../Svg';
-import Cards from '../categories/Cards';
-import { useNavigate } from 'react-router-dom';
 import Modal from '../component/Modal';
 import DeleteCategory from '../categories/DeleteCategory';
-import CategoriesRequestList from '../categories/CategoriesRequestList';
 import VendorsCard from './VendorsCard';
 
 const KYCApproval = () => {
-    
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-    const openEditModal = () => {
-        setIsEditModalOpen(true)
-    }
-    const openDeleteModal = () => {
-        setIsDeleteModalOpen(true)
-    }
-    const closeEditModal = () => {
-        setIsEditModalOpen(false)
-    }
-    const closeDeleteModal = () => {
-        setIsDeleteModalOpen(false)
-    }
-
-    const openModal = () => {
-        setIsModalOpen(true);
-    };
-
-    const closeModal = () => {
-        setIsModalOpen(false);
-    };
 
     
     const [value, setValue] = useState([
@@ -63,7 +36,7 @@ const KYCApproval = () => {
                     home <img src='/tiangle.png' style={{marginLeft:10}}/> <span style={{ color: 'var(--Gray-900, #1E5EFF)',marginLeft:10 }}>KYC approvals</span>
                 </span>
             </div>
-            <div className={styles.buttonStyle} onClick={openModal}>
+            <div className={styles.buttonStyle}>
                 <div className={Styles.width}>
                     <img src='/plus.png' style={{width:16,height:16}}/>
                     <div className={styles.addcategoryText}>
@@ -101,13 +74,6 @@ const KYCApproval = () => {
             ) : <VendorsCard/>) 
             }
         </div>
-                
-        <Modal isOpen={isDeleteModalOpen} onClose={closeDeleteModal}>
-            <DeleteCategory
-                closeModal={closeDeleteModal} 
-            />
-        </Modal>
-        
     </div>
   )
 }
