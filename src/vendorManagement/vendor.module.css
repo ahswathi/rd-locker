@@ -187,6 +187,7 @@
     justify-content: center;
     text-align: center;
     text-transform: capitalize;
+    display: flex;
 }
 .option{
     /* text-align: center; */
