@@ -64,10 +64,13 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 20px;
-    box-shadow: 10px#0000001B;
+    /* margin-top: 20px; */
+    /* box-shadow: 10px#0000001B; */
     padding-left: 10px;
     padding-right: 10px;
+    border: 1px solid #E0E2E7;
+    box-shadow: 0px 4px 10px 0px #0000001A;
+
 }
 .active{/*  width: 158px; */
     padding: 0px 20px;

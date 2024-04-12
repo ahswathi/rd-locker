@@ -56,7 +56,7 @@ const VendorsProfile = () => {
             </div>
         </div>
         <div className={styles.container}>
-            <div>
+            <div style={{marginTop:20}}>
                 <SwitchTab 
                     value={value}
                     selected={selected}

@@ -139,7 +139,7 @@ const HealthCare = () => {
                 </div>
                 <CategoriesList/>
             </div>
-            <div>
+            <div className={Styles.sideContainer}>
             <div className={Styles.visibilityContainer}>
                 <div className={Styles.subcatText}>
                     Category Visibility

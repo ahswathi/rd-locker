@@ -103,14 +103,14 @@ const Categories = () => {
         { val: 'All Categories', id: 0 },
         { val: 'New category request', id: 1 },
     ]);
-    const [selected, setSelected] = useState(1);
+    const [selected, setSelected] = useState(0);
     const [search, setSearch] = useState('')
     const changeID = (id) => {
         setSelected(id.id);
         // setValue(data)
     };
     useEffect(() => {
-        setSelected(data)
+        setSelected(selected)
     },[])
   return (
     <div style={{padding:20}}>

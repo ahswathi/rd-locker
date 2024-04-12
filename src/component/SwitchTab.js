@@ -15,9 +15,7 @@ const SwitchTab = (props) => {
       };
 
     return (
-        <div>
-            <div className={styles.tabView}>
-
+        <div className={styles.tabView}>
                 {value.map((val,key) => {
                     return (
                         <div key={key} className={val.id === selected ? `${styles.active}` : `${styles.inActive}`}>
@@ -25,14 +23,6 @@ const SwitchTab = (props) => {
                         </div>
                     )
                 })}
-            </div>
-            {/* <div className="tab-content">
-                {tabs.map(tab => (
-                    <div key={tab.id} className={tab.id === activeTab ? 'active' : 'inactive'}>
-                        {tab.content}
-                    </div>
-                ))}
-            </div> */}
         </div>
     );
 };

@@ -1,5 +1,5 @@
 .header {
-    width: 970px;
+    width: 100%;
     height: 42px;
     padding: 12px 10px 12px 10px;
     gap: 60px;
@@ -20,7 +20,7 @@
     color: #131523;
 }
 .listContainer{
-    width: 1010px;
+    width: 100%;
     height: fit-content;
     gap: 0px;
     opacity: 0px;
@@ -32,7 +32,7 @@
 }
 
 .info {
-    padding: 16px 18px;
+    padding: 16px ;
     background-color: #FFF;
     color: var(--Gray-900, #191B1C);
     font-family: "Public Sans";
@@ -44,6 +44,7 @@
     text-transform: capitalize;
     align-items: center;
     border-bottom: 1px dashed #E5E7E8;
+    width: 100%;
 }
 .headerText {
     font-family: DM Sans;
@@ -81,7 +82,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
 }
 .third {
     width: 36%;
@@ -90,7 +90,7 @@
     font-weight: 400;
     line-height: 18.23px;
     letter-spacing: 0.30000001192092896px;
-    text-align: left;
+    /* text-align: left; */
     padding: 5px;
     border-radius: 5px;
     text-transform: capitalize;
@@ -102,6 +102,11 @@
 .third span{
     /* margin-top: 10px; */
     margin-left: 5px;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
 }
 .fourth {
     width: 33%;
@@ -118,7 +123,7 @@
     flex-direction: row;
 }
 .fifth {
-    width: 38%;
+    width: 40%;
     font-family: DM Sans;
     font-size: 14px;
     font-weight: 500;
@@ -147,7 +152,7 @@
     
 }
 .status {
-    width: 15%;
+    width: 25%;
     font-family: 'DM Sans';
     font-size: 14px;
     font-weight: 500;
@@ -177,17 +182,19 @@
     color: #FF8227;
 }
 .seventh {
-    width: 19%;
+    width: 10%;
     font-family: DM Sans;
     font-size: 14px;
     font-weight: 500;
     line-height: 18.23px;
     letter-spacing: 0.30000001192092896px;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    /* justify-content: center; */
     text-align: center;
     text-transform: capitalize;
     display: flex;
+    flex-direction: row;
+    align-content: center;
 }
 .option{
     /* text-align: center; */
@@ -222,9 +229,9 @@
     color: #FFFFFF;
 }
 .kycDetails{
-    width: 1,128px;
+    width: 100%;
     height: 62px;
-    padding: 14px 24px 14px 24px;
+    padding: 4px 24px 4px 24px;
     gap: 33px;
     opacity: 0px;
     background: #FFFFFF;
@@ -388,4 +395,235 @@
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+}
+.showingText{
+    font-family: Public Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: left;
+    color: #000000;
+
+}
+.blockText{
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: #131523;
+
+}
+.followerStyle{
+    justify-content: center;
+    padding-top: 10px;
+}
+.followerStyle h6{
+    font-family: DM Sans;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: #2B3674;
+}
+.followerStyle p{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: #A3AED0;
+}
+.orderBox{
+    flex-direction: row;
+    display: flex;
+    justify-content: flex-start;
+    /* margin-left: 10px; */
+}
+.orderCard{
+    width: 365px;
+    height: 145px;
+    padding: 10px 15px 15px 15px;
+    gap: 10px;
+    border-radius: 12px;
+    opacity: 0px;
+    background: #FFFFFF;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+.ammountCard{
+    width: 239px;
+    height: 145px;
+    padding: 10px 15px 15px 15px;
+    gap: 10px;
+    border-radius: 12px;
+    opacity: 0px;
+    background: #FFFFFF;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+.orderIcon{
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+.allTimeText{
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.52px;
+    text-align: left;
+    color: #BEC0CA;
+    /* margin-right: 10px; */
+}
+.allTimeText svg{
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.52px;
+    text-align: left;
+    color: #BEC0CA;
+    margin-left: 10px;
+}
+.orderText{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18.23px;
+    text-align: left;
+    color: #8B8D97;
+}
+.ammountText{
+    font-family: DM Sans;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26.04px;
+    text-align: left;
+    color: #45464E;
+
+}
+.firstOrder{
+    width: 15%;
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: left;
+    text-transform: capitalize;
+    color: #52526C;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* flex-direction: row; */
+}
+.secondDate{
+    width: 35%;
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: left;
+    text-transform: capitalize;
+    color: #52526CCC;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* flex-direction: row; */
+}
+.thirdCustomer{
+    width: 25%;
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: left;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #52526CCC;
+    /* flex-direction: row; */
+}
+.thirdCustomer span{
+    /* width: 35%; */
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    /* text-align: left; */
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #52526CCC;
+    /* flex-direction: row; */
+}
+.fourthEmail{
+    width: 30%;
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: left;
+    text-transform: capitalize;
+    display: flex;
+    color: #52526CCC;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* flex-direction: row; */
+}
+.fifthPhone{
+    width: 35%;
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: left;
+    text-transform: capitalize;
+    color: #52526CCC;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* flex-direction: row; */
+}
+.eightPrize{
+    width: 20%;
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: left;
+    text-transform: capitalize;
+    color: #52526CCC;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* flex-direction: row; */
+}
+.sixthStatus{
+    width: 20%;
+    font-family: DM Sans;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-transform: capitalize;
+    align-content: center;
+    color: #52526CCC;
 }

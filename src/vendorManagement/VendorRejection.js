@@ -6,7 +6,7 @@ import * as yup from "yup";
 import Button from '@mui/material/Button';
 import { custom, save } from '../MaterialUI';
 
-const VendorRejection = ({onClose}) => {
+const VendorRejection = ({onClose,heading,label}) => {
     const schema = yup.object().shape({
         name: yup.string().required("Name is required"),
       })
@@ -32,14 +32,14 @@ const VendorRejection = ({onClose}) => {
     <div className={styles.addNewContainer}>
         <div className={Styles.notification}>
             <div className={Styles.notifText}>
-                Vendor Rejection
+                {heading}
             </div>
             <div onClick={onClose}>
                 <img src='/cross.png'/>
             </div>
         </div>
         <form className={styles.form}>
-          <label>Vendor Rejection</label>
+          <label>{label}</label>
           <br />
             <div className={styles.inputDesc}>
                 <input type="text" name="name" onBlur={handleBlur} value={values.name} onChange={handleChange} placeholder='Enter reason here' />

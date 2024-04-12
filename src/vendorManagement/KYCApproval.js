@@ -47,7 +47,7 @@ const KYCApproval = () => {
             </div>
         </div>
         <div className={styles.container}>
-            <div>
+            <div style={{marginTop:20}}>
                 <SwitchTab 
                     value={value}
                     selected={selected}
@@ -67,9 +67,9 @@ const KYCApproval = () => {
             </div>
         </div>
         <div>
-            {selected === 3 ? (
+            {selected === 0 ? (
             <VendorsCard/>
-            ) : (selected === 2 ? (
+            ) : (selected === 1 ? (
                 <VendorsCard/>
             ) : <VendorsCard/>) 
             }

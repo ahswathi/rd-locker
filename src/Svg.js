@@ -208,8 +208,57 @@ export const DropDownIcon = () => {
 export const logo = () => {
   return (
     <svg  style={{marginRight:10}}  width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="4" cy="4" r="4" fill="#54BA4A"/>
-</svg>
+      <circle cx="4" cy="4" r="4" fill="#54BA4A"/>
+    </svg>
 
+  )
+}
+export const BlockToggle = () => {
+  return (
+    <svg width="46" height="28" viewBox="0 0 46 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect y="2" width="44" height="24" rx="12" fill="#E31D1C"/>
+      <g filter="url(#filter0_d_1_39251)">
+      <circle cx="32" cy="14" r="8" fill="white"/>
+      </g>
+      <defs>
+      <filter id="filter0_d_1_39251" x="18" y="0" width="28" height="28" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset/>
+      <feGaussianBlur stdDeviation="3"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.14902 0 0 0 0 0.172549 0 0 0 0 0.278431 0 0 0 0.16 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_39251"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_39251" result="shape"/>
+      </filter>
+      </defs>
+    </svg>
+  )
+}
+export const BegIcon = () => {
+  return (
+    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="36" height="36" rx="8" fill="#FFCC91" fill-opacity="0.16"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M21.7615 25.9166H14.805C12.2496 25.9166 10.2893 24.9936 10.8461 21.2789L11.4945 16.2446C11.8377 14.391 13.0201 13.6816 14.0574 13.6816H22.5395C23.5921 13.6816 24.7058 14.4444 25.1024 16.2446L25.7508 21.2789C26.2237 24.5741 24.3168 25.9166 21.7615 25.9166Z" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M21.8759 13.4988C21.8759 11.5104 20.264 9.89847 18.2756 9.89847V9.89847C17.3181 9.89441 16.3984 10.2719 15.7199 10.9476C15.0414 11.6232 14.66 12.5413 14.66 13.4988V13.4988" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M20.747 17.2515H20.7089" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M15.8881 17.2515H15.85" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+  )
+}
+export const Timer = () => {
+  return (
+    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="36" height="36" rx="8" fill="#5570F1" fill-opacity="0.08"/>
+    <g clip-path="url(#clip0_1_39439)">
+    <path d="M25.6751 21.2417C25.1449 22.4955 24.3157 23.6002 23.2599 24.4595C22.2042 25.3187 20.954 25.9063 19.6187 26.1707C18.2835 26.4352 16.9037 26.3685 15.6002 25.9766C14.2966 25.5846 13.1089 24.8793 12.1409 23.9223C11.1729 22.9653 10.4541 21.7857 10.0472 20.4867C9.64043 19.1877 9.55802 17.8088 9.80722 16.4706C10.0564 15.1324 10.6296 13.8756 11.4768 12.8101C12.3239 11.7446 13.4191 10.9028 14.6667 10.3584" stroke="#5570F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M26.3333 18.0003C26.3333 16.906 26.1178 15.8223 25.699 14.8113C25.2802 13.8002 24.6664 12.8816 23.8926 12.1078C23.1187 11.3339 22.2001 10.7201 21.189 10.3013C20.178 9.88254 19.0943 9.66699 18 9.66699V18.0003H26.3333Z" stroke="#5570F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <defs>
+    <clipPath id="clip0_1_39439">
+    <rect width="20" height="20" fill="white" transform="translate(8 8)"/>
+    </clipPath>
+    </defs>
+    </svg>
   )
 }
