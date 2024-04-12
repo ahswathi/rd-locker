@@ -200,7 +200,6 @@
 }
 
 .card {
-    /* border: 1px solid #ccc; */
     border-radius: 15px;
     padding-top: 10px;
     padding-left: 20px;
@@ -208,10 +207,11 @@
     width: 320px;
     height: 105px;
     background-color: white;
-    background: linear-gradient(86.74deg, #FCFCFD 36.66%, rgba(252, 252, 253, 0) 75.17%);
     box-shadow: 9px 10px #2E235E12;
-    /* background: url('../../public/bg1.png'); */
-    /* justify-content: center; */
+    background: linear-gradient(86.74deg, #FCFCFD 36.66%, rgba(252, 252, 253, 0) 75.17%), url("../../public/assets/back_shape.svg"), -243.147px 68.563px / 207.646% 155.734% no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 9px 20px 0px rgba(46, 35, 94, 0.07);
 }
 
 .logo {
@@ -300,13 +300,12 @@
 }
 
 .prize {
-    /* font-family: Rubik; */
+    font-family: Rubik;
     font-size: 22px;
+    color: rgba(47, 47, 59, 1);
     font-weight: 500;
     line-height: 26.07px;
     text-align: left;
-    color: #2F2F3B;
-
 }
 
 .rateText {

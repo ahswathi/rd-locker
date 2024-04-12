@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Card from '../component/Card';
 import Styles from '../component/Style.module.css';
-import {Area, AreaChart, CartesianGrid,Tooltip, XAxis, YAxis} from 'recharts';
+import { Area, AreaChart, CartesianGrid, Tooltip, XAxis, YAxis } from 'recharts';
 import Calendar from 'react-calendar';
 import Modal from '../component/Modal';
 
@@ -10,7 +10,7 @@ const Dashboard = () => {
         {
             id: 0,
             image: '/Group1.png',
-            icon:'rating.png',
+            icon: 'rating.png',
             prize: '100000',
             name: 'Vendors',
             rate: '15k'
@@ -18,7 +18,7 @@ const Dashboard = () => {
         {
             id: 1,
             image: '/Group.png',
-            icon:'rate1.png',
+            icon: 'rate1.png',
             prize: '100000',
             name: 'E-traveller',
             rate: '15k'
@@ -26,7 +26,7 @@ const Dashboard = () => {
         {
             id: 2,
             image: '/Group2.png',
-            icon:'rate2.png',
+            icon: 'rate2.png',
             prize: '100000',
             name: 'Delivery agent',
             rate: '15k'
@@ -48,96 +48,96 @@ const Dashboard = () => {
     ]
     const data = [
         {
-            name: 'Jan', 
-            uv: 90000, 
-            pv: 24000, 
+            name: 'Jan',
+            uv: 90000,
+            pv: 24000,
             amt: 24000
         },
         {
-            name: 'Feb', 
-            uv: 16000, 
-            pv: 2200, 
+            name: 'Feb',
+            uv: 16000,
+            pv: 2200,
             amt: 2200
         },
         {
-            name: 'March', 
-            uv: 20000, 
-            pv: 2100, 
+            name: 'March',
+            uv: 20000,
+            pv: 2100,
             amt: 2100
         },
         {
-            name: 'April', 
-            uv: 30000, 
-            pv: 2400, 
+            name: 'April',
+            uv: 30000,
+            pv: 2400,
             amt: 2400
         },
         {
-            name: 'May', 
-            uv: 50000, 
-            pv: 2400, 
+            name: 'May',
+            uv: 50000,
+            pv: 2400,
             amt: 2400
         },
         {
-            name: 'June', 
-            uv: 60000, 
-            pv: 2400, 
+            name: 'June',
+            uv: 60000,
+            pv: 2400,
             amt: 2400
         },
         {
-            name: 'JUly', 
-            uv: 70430, 
-            pv: 2400, 
+            name: 'JUly',
+            uv: 70430,
+            pv: 2400,
             amt: 2400
         },
         {
-            name: 'Augut', 
-            uv: 60320, 
-            pv: 2400, 
+            name: 'Augut',
+            uv: 60320,
+            pv: 2400,
             amt: 2400
         },
         {
-            name: 'Sept', 
-            uv: 80210, 
-            pv: 2400, 
+            name: 'Sept',
+            uv: 80210,
+            pv: 2400,
             amt: 2400
         },
         {
-            name: 'Oct', 
-            uv: 90330, 
-            pv: 2400, 
+            name: 'Oct',
+            uv: 90330,
+            pv: 2400,
             amt: 2400
         },
         {
-            name: 'Nov', 
-            uv: 10030, 
-            pv: 2400, 
+            name: 'Nov',
+            uv: 10030,
+            pv: 2400,
             amt: 2400
         },
         {
-            name: 'Dec', 
-            uv: 1200, 
-            pv: 2400, 
+            name: 'Dec',
+            uv: 1200,
+            pv: 2400,
             amt: 2400
         },
-        
+
     ]
     const profitData = [
         {
-            id:0,
+            id: 0,
             img: '/downloadIcon.png',
-            income:'Income',
+            income: 'Income',
             amount: 'INR22,678'
         },
         {
-            id:1,
+            id: 1,
             img: '/expensIcon.png',
-            income:'Expense',
+            income: 'Expense',
             amount: 'INR12,678'
         },
         {
-            id:2,
+            id: 2,
             img: '/profitIcon.png',
-            income:'Profit',
+            income: 'Profit',
             amount: 'INR22,678'
         },
     ]
@@ -172,8 +172,8 @@ const Dashboard = () => {
             return (
                 <div className={Styles.customtootip}>
                     <div className={Styles.width}>
-                        <img src='/blackRoundIcon.png' style={{width:20,height:20}}/>
-                        <p style={{paddingLeft:10}}>{payload[0].payload.name}</p>
+                        <img src='/blackRoundIcon.png' style={{ width: 20, height: 20 }} />
+                        <p style={{ paddingLeft: 10 }}>{payload[0].payload.name}</p>
                     </div>
                     <div className={Styles.revenue}>
                         <p>{`Revenue  INR${payload[0].value}`}</p>
@@ -181,7 +181,7 @@ const Dashboard = () => {
                 </div>
             );
         }
-    
+
         return null;
     };
 
@@ -196,111 +196,111 @@ const Dashboard = () => {
         );
     };
 
-  return (
-    <div className={Styles.frontPage}>
-        <div>
-            <p className={Styles.dash}>Dashboard</p>
-        </div>
-        <div className={Styles.App}>
-            {cardData.map((card) => (
-                <Card
-                    key={card.id}
-                    image={card.image}
-                    icon={card.icon}
-                    prize={card.prize}
-                    name={card.name}
-                    rate={card.rate}
-                />
-            ))}
-        </div>
-        <div className={Styles.graph}>
+    return (
+        <div className={Styles.frontPage}>
             <div>
-            <div className={Styles.income}>
-                <h4>
-                    Overall Income
-                </h4>
-                <div className={Styles.date}>
-                    <div className={Styles.width}>
-                        <p className={Styles.dateText}>{date.toDateString()}</p>
-                        <img 
-                            src='/dropdown.png' 
-                            style={{
-                                width:8,
-                                height:4,
-                                marginTop:5,
-                                marginLeft:5
-                            }} 
-                            onClick={openModal}
-                        />
-                        <Modal isOpen={isModalOpen} onClose={closeModal}>
-                            <Calendar 
-                                onChange={setDate} 
-                                value={date} 
-                                maxDetail='year'
-                            />
-                        </Modal>
-                        <p className={Styles.dateText} style={{marginLeft:10}}>{lastDate.toDateString()}</p>
-                        <img 
-                            src='/dropdown.png' 
-                            style={{
-                                width:8,
-                                height:4,
-                                marginTop:5,
-                                marginLeft:5
-                            }} 
-                            onClick={lastMonthOpenModal}
-                        />
-                        <Modal isOpen={islastMonth} onClose={lastMonthcloseModal}>
-                            <Calendar 
-                                onChange={setLastDate} 
-                                value={lastDate} 
-                                maxDetail='year'
-                            />
-                        </Modal>
-                    </div>
-                </div>
+                <p className={Styles.dash}>Dashboard</p>
             </div>
-            <div className={Styles.width}>
-                <div style={{top:20}}>
-                    <AreaChart 
-                        width={700} 
-                        height={350} 
-                        data={data} 
-                        margin={{ top: 35, right: 10, bottom: 15, left: 10 }}
-                    >
-                        <CartesianGrid stroke="#eee" strokeDasharray="5 5" vertical={false}/>
-                        <XAxis dataKey="name" axisLine={false} />
-                        <YAxis tick={<CustomYAxisTick />} axisLine={false}/>
-                        <Tooltip content={<CustomTooltip />} />
-                        <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#ebebf5" fillOpacity={0.3} />
-                    </AreaChart>
-                </div>
+            <div className={Styles.App}>
+                {cardData.map((card) => (
+                    <Card
+                        key={card.id}
+                        image={card.image}
+                        icon={card.icon}
+                        prize={card.prize}
+                        name={card.name}
+                        rate={card.rate}
+                    />
+                ))}
             </div>
-            </div>
-            <div>
-                {profitData.map((item) => {
-                    return (
-                    <div className={Styles.sideView} key={item.id}>
-                        <div className={Styles.width}>
-                            <div className={Styles.imgView}>
-                                <img src={item.img}/>
-                            </div>
-                            <div style={{marginLeft:15,marginTop:5}}>
-                                <p className={Styles.incomeText}>
-                                    {item.income}
-                                </p>
-                                <h3 className={Styles.ammountText}>
-                                    {item.amount}
-                                </h3>
+            <div className={Styles.graph}>
+                <div>
+                    <div className={Styles.income}>
+                        <h4>
+                            Overall Income
+                        </h4>
+                        <div className={Styles.date}>
+                            <div className={Styles.width}>
+                                <p className={Styles.dateText}>{date.toDateString()}</p>
+                                <img
+                                    src='/dropdown.png'
+                                    style={{
+                                        width: 8,
+                                        height: 4,
+                                        marginTop: 5,
+                                        marginLeft: 5
+                                    }}
+                                    onClick={openModal}
+                                />
+                                <Modal isOpen={isModalOpen} onClose={closeModal}>
+                                    <Calendar
+                                        onChange={setDate}
+                                        value={date}
+                                        maxDetail='year'
+                                    />
+                                </Modal>
+                                <p className={Styles.dateText} style={{ marginLeft: 10 }}>{lastDate.toDateString()}</p>
+                                <img
+                                    src='/dropdown.png'
+                                    style={{
+                                        width: 8,
+                                        height: 4,
+                                        marginTop: 5,
+                                        marginLeft: 5
+                                    }}
+                                    onClick={lastMonthOpenModal}
+                                />
+                                <Modal isOpen={islastMonth} onClose={lastMonthcloseModal}>
+                                    <Calendar
+                                        onChange={setLastDate}
+                                        value={lastDate}
+                                        maxDetail='year'
+                                    />
+                                </Modal>
                             </div>
                         </div>
                     </div>
-                    )
-                })}
+                    <div className={Styles.width}>
+                        <div style={{ top: 20 }}>
+                            <AreaChart
+                                width={700}
+                                height={350}
+                                data={data}
+                                margin={{ top: 35, right: 10, bottom: 15, left: 10 }}
+                            >
+                                <CartesianGrid stroke="#eee" strokeDasharray="5 5" vertical={false} />
+                                <XAxis dataKey="name" axisLine={false} />
+                                <YAxis tick={<CustomYAxisTick />} axisLine={false} />
+                                <Tooltip content={<CustomTooltip />} />
+                                <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#ebebf5" fillOpacity={0.3} />
+                            </AreaChart>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    {profitData.map((item) => {
+                        return (
+                            <div className={Styles.sideView} key={item.id}>
+                                <div className={Styles.width}>
+                                    <div className={Styles.imgView}>
+                                        <img src={item.img} />
+                                    </div>
+                                    <div style={{ marginLeft: 15, marginTop: 5 }}>
+                                        <p className={Styles.incomeText}>
+                                            {item.income}
+                                        </p>
+                                        <h3 className={Styles.ammountText}>
+                                            {item.amount}
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default Dashboard
