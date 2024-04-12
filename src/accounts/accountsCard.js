@@ -19,6 +19,7 @@ const AccountsCard = ({
             vendorName:'Deeksha',
             emailId:'deeksha@gmail.com',
             phoneNumber:'+91-9876543210',
+            cat: 'Healthcare(MBBS)',
             status:'Pending'
         },
         {
@@ -27,6 +28,7 @@ const AccountsCard = ({
             vendorName:'Rahul',
             emailId:'deeksha@gmail.com',
             phoneNumber:'+91-9876543210',
+            cat: 'Healthcare(MBBS)',
             status:'Pending'
         },
     ]
@@ -75,6 +77,7 @@ const AccountsCard = ({
             <div className={styles.third}>Vendor name <FilterIcon/></div>
             <div className={styles.fourth}>Email Id <FilterIcon/></div>
             <div className={styles.fifth}>Phone number <FilterIcon/></div>
+            <div className={styles.fifth}>Category <FilterIcon/></div>
             <div className={styles.sixth}>Status <FilterIcon/></div>
         </div>
         {vendorData.map((item,index) => {
@@ -88,6 +91,7 @@ const AccountsCard = ({
                   </div>
                 <div className={styles.fourth}>{item.emailId}</div>
                 <div className={styles.fifth}>{item.phoneNumber}</div>
+                <div className={styles.sixth}>{item.cat}</div>
 
                 <div className={styles.status}><span>{item.status}</span></div>
                 
