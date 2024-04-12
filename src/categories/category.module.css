@@ -10,7 +10,6 @@
     /* padding: 10px 14px 10px 14px; */
     gap: 8px;
     border-radius: 8px;
-    opacity: 0px;
     background: #FFFFFF;
     border: 1px solid #E0E2E7;
     justify-content: center;
@@ -26,7 +25,6 @@
     padding-left: 15px;
     /* gap: 4px; */
     border-radius: 8px;
-    opacity: 0px;
     background: #1E5EFF;
     justify-content: center;
     align-items: center;
@@ -58,7 +56,6 @@
     height: 52px;
     gap: 20px;
     border-radius: 8px;
-    opacity: 0px;
     background: #FFFFFF;
     flex-direction: row;
     display: flex;
@@ -74,7 +71,6 @@
     height: 38px;
     gap: 8px;
     border-radius: 6px;
-    opacity: 0px;
     background: #1E5EFF;
     justify-content: center;
     align-content: center;
@@ -132,7 +128,6 @@
     /* padding: 10px 14px 10px 14px; */
     gap: 8px;
     border-radius: 8px;
-    opacity: 0px;
     background: #FFFFFF;
     border: 1px solid #E0E2E7;
     justify-content: center;
@@ -145,7 +140,6 @@
     width: 980px;
     height: 596px;
     gap: 0px;
-    opacity: 0px;
     background: #FFFFFF;
     box-shadow: 0px 1px 4px 0px #15223214;
     border-radius: 8px;
@@ -189,7 +183,6 @@
     width: 206px;
     height: 165px;
     gap: 0px;
-    opacity: 0px;
     background: #FFFFFF;
     box-shadow: 0px 1px 4px 0px #15223214;
     border-radius: 8px;
@@ -206,7 +199,6 @@
     height: 100px;
     gap: 0px;
     border-radius: 6px 6px 0px 0px;
-    opacity: 0px;
     
 }
 .icons {
@@ -222,7 +214,6 @@
     /* padding: 11px 15px 11px 15px; */
     gap: 10px;
     border-radius: 4px;
-    opacity: 0px;
     background: #FFFFFF;
     justify-content: center;
     align-items: center;
@@ -273,7 +264,6 @@
     /* padding: 4px; */
     gap: 8px;
     border-radius: 10px;
-    opacity: 0px;
     background: #E9FAF7;
     justify-content: center;
     display: flex;
@@ -309,7 +299,6 @@
     height: fit-content;
     padding: 10px;
     gap: 33px;
-    opacity: 0px;
     margin-right: 10px;
     background-color: #ffffff;
 }
@@ -408,7 +397,6 @@ input {
     height: 42px;
     padding: 12px 29px 12px 29px;
     gap: 60px;
-    opacity: 0px;
     flex-direction: row;
     text-transform: uppercase;
     display: flex;
@@ -428,7 +416,6 @@ input {
     width: 1010px;
     height: fit-content;
     gap: 0px;
-    opacity: 0px;
     background: #FFFFFF;
     box-shadow: 0px 1px 4px 0px #15223214;
     padding: 20px;
@@ -554,7 +541,6 @@ input {
     /* padding: 10px 0px 10px 0px; */
     gap: 10px;
     border-radius: 20px;
-    opacity: 0px;
     background: #005CE8;
     justify-content: center;
     display: flex;

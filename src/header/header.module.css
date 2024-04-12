@@ -9,7 +9,6 @@
     width: calc(100% - 250px);
     height: 53px;
     gap: 0px;
-    opacity: 0px;
     box-shadow: 0px 4px 40px 0px #2720781A;
     display: flex;
     flex-direction: row;
