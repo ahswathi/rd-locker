@@ -12,15 +12,7 @@ const AccountsCard = ({
     status
 }) => {
     const vendorData = [
-        // {
-        //     id:0,
-        //     sno:'Sl No',
-        //     dateTime:'Date & Time',
-        //     vendorName:'Vendor name',
-        //     emailId:'Email Id',
-        //     phoneNumber:'Phone number',
-        //     status:'Status'
-        // },
+       
         {
             id:1,
             dateTime:'1  April, 2024',
