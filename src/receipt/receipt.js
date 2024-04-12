@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../receipt/receipt.module.css'
-import { Export } from '../Svg'
+import { Export, Print } from '../Svg'
 
 
 
@@ -15,15 +15,15 @@ const Receipt = () => {
 
         <div className={styles.row2}>
             <div className={styles.row2}>
-                Hello Charles Hall, <br/>
-                This is the receipt for a payment of INR 268.00 you made to Relik - Admin Dashboard Demo.
+                <p>Hello Charles Hall, <br/>
+                This is the receipt for a payment of INR 268.00 you made to <span>Relik - Admin Dashboard </span>Demo.</p>
             </div>
             <div className={styles.row3}>
-                    <div className={styles.export}>
-                        <Export/> <span>Download</span>
+                    <div className={styles.download}>
+                      Download
                     </div>
-                    <div className={styles.export}>
-                        <Export/> <span>Export</span>
+                    <div className={styles.print}>
+                        <Print/> Print Inovice
                     </div>
             </div>
         </div>
@@ -53,10 +53,10 @@ const Receipt = () => {
                     Company
                     </div>
                     <div className={styles.title}>
-                    Street Address <br/>
-                    State, City <br/>
-                    Region, Postal Code <br/>
-                    Aradee@example.com <br/>
+                        <p>Street Address</p> 
+                        <p>State, City</p>
+                        <p>Region, Postal Code</p> 
+                        <p>Aradee@example.com</p> 
                     </div>
             </div>
             <div className={styles.col}>
@@ -64,10 +64,10 @@ const Receipt = () => {
                     Client
                     </div>
                     <div className={styles.title}>
-                    Street Address <br/>
-                    State, City <br/>
-                    Region, Postal Code <br/>
-                    ltd@example.com
+                        <p>Street Address</p> 
+                        <p>State, City</p>
+                        <p>Region, Postal Code</p> 
+                        <p>Aradee@example.com</p> 
                     </div>
             </div>
         </div>

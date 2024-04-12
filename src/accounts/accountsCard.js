@@ -16,7 +16,7 @@ const AccountsCard = ({
         {
             id:1,
             dateTime:'1  April, 2024',
-            vendorName:'Rahul',
+            vendorName:'Deeksha',
             emailId:'deeksha@gmail.com',
             phoneNumber:'+91-9876543210',
             status:'Pending'
@@ -28,38 +28,6 @@ const AccountsCard = ({
             emailId:'deeksha@gmail.com',
             phoneNumber:'+91-9876543210',
             status:'Pending'
-        },
-        {
-            id:3,
-            dateTime:'1  April, 2024',
-            vendorName:'Rahul',
-            emailId:'deeksha@gmail.com',
-            phoneNumber:'+91-9876543210',
-            status:'Pending',
-        },
-        {
-            id:4,
-            dateTime:'1  April, 2024',
-            vendorName:'Rahul',
-            emailId:'deeksha@gmail.com',
-            phoneNumber:'+91-9876543210',
-            status:'Pending',
-        },
-        {
-            id:5,
-            dateTime:'1  April, 2024',
-            vendorName:'Rahul',
-            emailId:'deeksha@gmail.com',
-            phoneNumber:'+91-9876543210',
-            status:'Pending',
-        },
-        {
-            id:6,
-            dateTime:'1  April, 2024',
-            vendorName:'Rahul',
-            emailId:'deeksha@gmail.com',
-            phoneNumber:'+91-9876543210',
-            status:'Pending',
         },
     ]
   const navigate = useNavigate();  
@@ -122,11 +90,7 @@ const AccountsCard = ({
                 <div className={styles.fifth}>{item.phoneNumber}</div>
 
                 <div className={styles.status}><span>{item.status}</span></div>
-                <div className={styles.seventh}>
-                {/* <div style={{marginLeft:20}} onClick={() => navigate('/vendorManagement/RegistrationDetails')}>
-                    <View/>
-                </div> */}
-                </div>
+                
             </div>
             )
         })}
