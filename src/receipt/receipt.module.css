@@ -1,3 +1,9 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px;
+}
 .row1{
     display: flex;
 }
@@ -16,3 +22,22 @@
 .row6{
     display: flex;
 }
+.col{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.col .title{
+    font-size: 16px;
+    font-weight: 400;
+}
+.col .subtitle{
+    font-size: 18px;
+    font-weight: 500;
+}
+.hline {
+    border: 0;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+  
