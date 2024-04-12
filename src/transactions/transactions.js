@@ -327,7 +327,7 @@ const Transactions = () => {
                 />
             </div>
             <div style={{marginTop:20}}>
-                <div className={Styles.width}>
+                <div className={Styles.width}  style={{gap:'10px'}}>
                     <div className={styles.search}>
                         <Search /> 
                         <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Search by name...' />

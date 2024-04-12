@@ -14,6 +14,7 @@ import PrivacyPolicy from './vendorManagement/PrivacyPolicy';
 import RegistrationDetails from './vendorManagement/RegistrationDetails';
 import Accounts from './accounts/accounts';
 import Transactions from './transactions/transactions';
+import Receipt from './receipt/receipt';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
               <Route path='/vendorManagement/RegistrationDetails' element={<RegistrationDetails/>}/>
               <Route path='/accounts' element={<Accounts/>}/>
               <Route path='/transactions' element={<Transactions/>}/>
+              <Route path='/receipt' element={<Receipt/>}/>
           </Routes>
        </Layout>
        {/* <Routes>
