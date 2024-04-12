@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Styles from '../sidebar/sidebar.module.css'
 import { useLocation, useNavigate } from 'react-router-dom';
-import { ActiveDoccument, Doccument, DropDown, DropUp, Report } from '../Svg';
+import { ActiveDoccument, Brand, BrandActive, Categories, CategoriesActive, Dashboard, DashboardActive, Document, DocumentActive, DropDown, DropUp, MultiUser, MultiUserActive, Report, ReportActive, Reward, RewardActive, Subscription, SubscriptionActive, Support, SupportActive } from '../Svg';
 
 const Sidebar = ({ children }) => {
     const navigate = useNavigate();
@@ -11,9 +11,6 @@ const Sidebar = ({ children }) => {
     const pathname = location.pathname.split('/')[1];
     const subpathname = location.pathname.split('/')[2];
 
-
-
-    
     useEffect(() => {
         setPath(pathname)
         setSubpath(subpathname)
@@ -22,41 +19,59 @@ const Sidebar = ({ children }) => {
     return (
         <div className={Styles.sideMenuBar}>
             <section className={Styles.left}>
-                <div>
+                <div className={Styles.logo}>
                     logo
                 </div>
-                <div className={Styles.lineStyle} />
-                <div style={{ marginTop: 20 }}>
+                <div className={Styles.lineStyle} style={{ marginTop: 10 }} />
+                <div className={Styles.main_title}>
                     <p className={Styles.generalText}>
                         General
                     </p>
                 </div>
                 <div className={Styles.lineStyle} />
 
-                <div className={Styles.width} style={{ marginTop: 30 }}>
-                    <img src='/dashbord.png' style={{ width: 18, height: 15, }} />
-                    <div onClick={() => navigate('/')} className={Styles.dashboardText}>
-                        Dashboard
+                <div onClick={() => navigate('/')} className={path === '' ? `${Styles.width} ${Styles.active}` : Styles.width}>
+                    <div>
+                        {
+                            path === "" ?
+                                <DashboardActive />
+                                :
+                                <Dashboard />
+                        }
+                        <div className={Styles.dashboardText}>
+                            Dashboard
+                        </div>
                     </div>
                 </div>
 
-                <div className={Styles.width} style={{ marginTop: 30 }}>
-                    <img src='/categories.png' style={{ width: 18, height: 15, }} />
-                    <div onClick={() => navigate('/categories/Categories')} className={Styles.dashboardText}>
-                        Categories
+                <div onClick={() => navigate('/categories/Categories')} className={path === 'categories' ? `${Styles.width} ${Styles.active}` : Styles.width}>
+                    <div>
+                        {
+                            path === "categories" ?
+                                <CategoriesActive />
+                                :
+                                <Categories />
+                        }
+                        <div className={Styles.dashboardText}>
+                            Categories
+                        </div>
                     </div>
                 </div>
                 <div className={Styles.lineStyle} />
-                <div style={{ marginTop: 20,marginBottom:20 }}>
+                <div className={Styles.main_title}>
                     <p className={Styles.generalText}>
                         User
                     </p>
                 </div>
-                <div className={path === 'vendorManagement' ? `${Styles.menuActive}` : `${Styles.menuStyle}`} onClick={() => navigate('/vendorManagement')}>
-                    <div className={Styles.width}>
-                        {path === 'vendorManagement' ? (
-                            <ActiveDoccument />
-                        ) : <Doccument />}
+                <div onClick={() => navigate('/vendorManagement')} className={path === 'vendorManagement' ? `${Styles.width} ${Styles.active}` : Styles.width}>
+                    <div>
+                        {path === 'vendorManagement' ?
+                            (
+                                <DocumentActive />
+                            )
+                            :
+                            <Document />
+                        }
                         <p className={Styles.dashboardText}>
                             Vendor Management
                         </p>
@@ -66,19 +81,36 @@ const Sidebar = ({ children }) => {
                             <DropDown />
                         </div>
                     ) : <DropUp />}
-
                 </div>
                 {
                     path === 'vendorManagement' ?
                         <div className={Styles.subpaths}>
-                            <div onClick={() => navigate('/vendorManagement/KYCApproval')} className={subpath === 'KYCApproval' ? Styles.submenu : Styles.menuText}>KYC Approvals</div>
-                            <div onClick={() => navigate('/vendorManagement/VendorsProfile')} className={subpath === 'VendorsProfile' ? Styles.submenu : Styles.menuText}>Vendors profile</div>
-                            <div onClick={() => navigate('/vendorManagement/PrivacyPolicy')} className={subpath === 'PrivacyPolicy' ? Styles.submenu : Styles.menuText}>Privacy policy</div>
+                            <div onClick={() => navigate('/vendorManagement/KYCApproval')} className={subpath === 'KYCApproval' ? Styles.submenu : Styles.menuText}>
+                                <div className={Styles.lines}>
+                                    <span className={Styles.vertical} style={{ top: "-5px", height: 30 }}></span>
+                                    <span className={Styles.horizontal}></span>
+                                </div>
+                                KYC Approvals
+                            </div>
+                            <div onClick={() => navigate('/vendorManagement/VendorsProfile')} className={subpath === 'VendorsProfile' ? Styles.submenu : Styles.menuText}>
+                                <div className={Styles.lines}>
+                                    <span className={Styles.vertical}></span>
+                                    <span className={Styles.horizontal}></span>
+                                </div>
+                                Vendors profile
+                            </div>
+                            <div onClick={() => navigate('/vendorManagement/PrivacyPolicy')} className={subpath === 'PrivacyPolicy' ? Styles.submenu : Styles.menuText}>
+                                <div className={Styles.lines}>
+                                    <span className={Styles.vertical}></span>
+                                    <span className={Styles.horizontal}></span>
+                                </div>
+                                Privacy policy
+                            </div>
                         </div> : ''
                 }
-                <div className={Styles.menuStyle} style={{ marginTop: 30 }}>
-                    <div className={Styles.width}>
-                        <img src='/document-text.png' style={{ width: 18, height: 15, }} />
+                <div className={Styles.width}>
+                    <div>
+                        <Document />
                         <p className={Styles.dashboardText}>
                             E-traveler Management
                         </p>
@@ -87,9 +119,9 @@ const Sidebar = ({ children }) => {
                         <DropUp />
                     </div>
                 </div>
-                <div className={Styles.menuStyle} style={{ marginTop: 30 }}>
-                    <div className={Styles.width}>
-                        <img src='/document-text.png' style={{ width: 18, height: 15, }} />
+                <div className={Styles.width}>
+                    <div>
+                        <Document />
                         <p className={Styles.dashboardText}>
                             Delivery Agent
                         </p>
@@ -98,36 +130,26 @@ const Sidebar = ({ children }) => {
                         <DropUp />
                     </div>
                 </div>
-                <div className={Styles.menuStyle} style={{ marginTop: 30 }}>
-                    <div className={Styles.width}>
-                        <img src='/profile-2user.png' style={{ width: 18, height: 15, }} />
+                <div className={Styles.width}>
+                    <div>
+                        <MultiUser />
+                        {/* <MultiUserActive /> */}
                         <p className={Styles.dashboardText}>
                             Admin Users
                         </p>
                     </div>
                 </div>
                 <div className={Styles.lineStyle} />
-                <div style={{ marginTop: 20 }}>
+                <div className={Styles.main_title}>
                     <p className={Styles.generalText}>
                         Others
                     </p>
                 </div>
-                {/* <div className={Styles.menuStyle} style={{marginTop:30}}>
-        <div className={Styles.width}>
-            <img src='/report.png' style={{width:18,height:15,}}/>
-            <p className={Styles.dashboardText}>
-                Reports
-            </p>
-        </div>
-        <div>
-            <DropUp/>
-        </div>
-    </div> */}
-                <div className={path === 'report' ? `${Styles.menuActive}` : `${Styles.menuStyle}`} style={{ marginTop: 30 }} onClick={() => navigate('/report')}>
-                    <div className={Styles.width}>
+                <div className={Styles.width}>
+                    <div>
                         {path === 'report' ? (
-                            <Report />
-                        ) : <Doccument />}
+                            <ReportActive />
+                        ) : <Report />}
                         <p className={Styles.dashboardText}>
                             Reports
                         </p>
@@ -135,7 +157,6 @@ const Sidebar = ({ children }) => {
                     {path === 'report' ? (
                         <DropDown />
                     ) : <DropUp />}
-
                 </div>
                 {
                     path === 'report' ?
@@ -143,33 +164,34 @@ const Sidebar = ({ children }) => {
                             <div onClick={() => navigate('/accounts')} className={subpath === 'accounts' ? Styles.submenu : ''}>Accounts</div>
                             <div onClick={() => navigate('/transactions')} className={subpath === 'transactions' ? Styles.submenu : ''}>Transactions</div>
                             <div onClick={() => navigate('/receipt')} className={subpath === 'receipt' ? Styles.submenu : ''}>Receipt</div>
-                       </div> : ''
+                        </div> : ''
                 }
 
 
-                <div className={Styles.menuStyle} style={{ marginTop: 30 }}>
-                    <div className={Styles.width}>
-                        <img src='/subscription.png' style={{ width: 18, height: 15, }} />
+                <div className={Styles.width}>
+                    <div>
+                        <Subscription />
+                        {/* <SubscriptionActive /> */}
                         <p className={Styles.dashboardText}>
                             Subscription Plans
                         </p>
                     </div>
-                    {/* <div>
-            <img src='./forwardIcon.png' style={{width:4,height:9,marginBottom:3,}}/>
-        </div> */}
                 </div>
-                <div className={Styles.menuStyle} style={{ marginTop: 30 }}>
-                    <div className={Styles.width}>
-                        <img src='/reward.png' style={{ width: 18, height: 15, }} />
+
+                <div className={Styles.width}>
+                    <div>
+                        <Reward />
+                        {/* <RewardActive /> */}
                         <p className={Styles.dashboardText}>
                             Rewards/Vouchers
                         </p>
                     </div>
-
                 </div>
-                <div className={Styles.menuStyle} style={{ marginTop: 30 }}>
-                    <div className={Styles.width}>
-                        <img src='/techSupport.png' style={{ width: 18, height: 15, }} />
+
+                <div className={Styles.width}>
+                    <div>
+                        <Support />
+                        {/* <SupportActive /> */}
                         <p className={Styles.dashboardText}>
                             Tech Support
                         </p>
@@ -178,17 +200,18 @@ const Sidebar = ({ children }) => {
                         <DropUp />
                     </div>
                 </div>
-                <div className={Styles.menuStyle} style={{ marginTop: 30 }}>
-                    <div className={Styles.width}>
-                        <img src='/Bullhorn.png' style={{ width: 18, height: 15, }} />
+                <div className={Styles.width}>
+                    <div>
+                        <Brand />
+                        {/* <BrandActive /> */}
                         <p className={Styles.dashboardText}>
                             Brand Partners
                         </p>
                     </div>
-                    {/* <div>
+                </div>
+                {/* <div>
             <img src='./forwardIcon.png' style={{width:4,height:9,marginBottom:3}}/>
         </div> */}
-                </div>
 
             </section>
         </div>
