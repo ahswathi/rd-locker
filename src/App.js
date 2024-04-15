@@ -46,6 +46,9 @@ function App() {
           <Route path='/accounts' element={<Accounts />} />
           <Route path='/transactions' element={<Transactions />} />
           <Route path='/receipt' element={<Receipt />} />
+          <Route path='/reports/accounts' element={<Accounts />} />
+          <Route path='/reports/transactions' element={<Transactions />} />
+          {/* <Route path='/receipt' element={<Receipt />} /> */}
         </Routes>
       </Layout>
       {/* <Routes>

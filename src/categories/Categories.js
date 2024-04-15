@@ -14,64 +14,64 @@ import CategoriesRequestList from './CategoriesRequestList';
 const Categories = () => {
     const data = [
         {
-            id:0,
-            image:'/healthcare.png',
+            id: 0,
+            image: '/healthcare.png',
             heading: 'Healthcare',
-            subCategory:'7 subcategories'
+            subCategory: '7 subcategories'
         },
         {
-            id:1,
-            image:'/lawyer.png',
+            id: 1,
+            image: '/lawyer.png',
             heading: 'Lawyers',
-            subCategory:'7 subcategories'
+            subCategory: '7 subcategories'
         },
         {
-            id:2,
-            image:'/etraveleguid.png',
+            id: 2,
+            image: '/etraveleguid.png',
             heading: 'E-traveller Guide',
-            subCategory:'7 subcategories'
+            subCategory: '7 subcategories'
         },
         {
-            id:3,
-            image:'/securityagency.png',
+            id: 3,
+            image: '/securityagency.png',
             heading: 'Security Agency',
-            subCategory:'7 subcategories'
+            subCategory: '7 subcategories'
         },
         {
-            id:4,
-            image:'/technicalservice.png',
+            id: 4,
+            image: '/technicalservice.png',
             heading: 'Technical Services',
-            subCategory:'7 subcategories'
+            subCategory: '7 subcategories'
         },
         {
-            id:5,
-            image:'/astrologer.png',
+            id: 5,
+            image: '/astrologer.png',
             heading: 'Astrologer',
-            subCategory:'7 subcategories'
+            subCategory: '7 subcategories'
         },
         {
-            id:6,
-            image:'/chef.png',
+            id: 6,
+            image: '/chef.png',
             heading: 'Chef',
-            subCategory:'7 subcategories'
+            subCategory: '7 subcategories'
         },
         {
-            id:7,
-            image:'/spiritual.png',
+            id: 7,
+            image: '/spiritual.png',
             heading: 'Spirutual',
-            subCategory:'7 subcategories'
+            subCategory: '7 subcategories'
         },
         {
-            id:8,
-            image:'/photographer.png',
+            id: 8,
+            image: '/photographer.png',
             heading: 'Photographers',
-            subCategory:'7 subcategories'
+            subCategory: '7 subcategories'
         },
         {
-            id:9,
-            image:'/financeadvisor.png',
+            id: 9,
+            image: '/financeadvisor.png',
             heading: 'Finance Advisor',
-            subCategory:'7 subcategories'
+            subCategory: '7 subcategories'
         },
     ]
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -98,7 +98,7 @@ const Categories = () => {
         setIsModalOpen(false);
     };
 
-    
+
     const [value, setValue] = useState([
         { val: 'All Categories', id: 0 },
         { val: 'New category request', id: 1 },
@@ -116,21 +116,22 @@ const Categories = () => {
     <div style={{padding:20}}>
         <div className={styles.container}>
             <div>
-                <div>
-                    <h2 className={styles.categoryText}>Categories</h2>
-                </div>
-                <span className={styles.home}>
-                    home <img src='/tiangle.png' style={{marginLeft:10}}/> <span style={{ color: 'var(--Gray-900, #1E5EFF)',marginLeft:10 }}>Categories</span>
-                </span>
-            </div>
-            <div className={styles.buttonStyle} onClick={openModal}>
-                <div className={Styles.width}>
-                    <img src='/plus.png' style={{width:16,height:16}}/>
-                    <div className={styles.addcategoryText}>
-                        Add Categories
+                  <div>
+                        <h2 className={styles.categoryText}>Categories</h2>
                     </div>
+                    <span className={styles.home}>
+                        home <img src='/tiangle.png' style={{ marginLeft: 10 }} /> <span style={{ color: 'var(--Gray-900, #1E5EFF)', marginLeft: 10 }}>Categories</span>
+                    </span>
                 </div>
-                
+                <div className={styles.buttonStyle} onClick={openModal}>
+                    <div className={Styles.width}>
+                        <img src='/plus.png' style={{ width: 16, height: 16 }} />
+                        <div className={styles.addcategoryText}>
+                            Add Categories
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
         <div className={styles.container}>
@@ -153,66 +154,107 @@ const Categories = () => {
                 </div>
             </div>
         </div>
+            {selected == 0 ? (
+                <>
+                    {data.length > 0 ? (
+                        <div className={styles.cardWrap}>
+                            {data.map((item, key) => {
+                                return (
+                                    <div key={key} >
+                                        <Cards
+                                            image={item.image}
+                                            heading={item.heading}
+                                            subCategory={item.subCategory}
+                                            openEditModal={openEditModal}
+                                            openDeleteModal={openDeleteModal}
+                                        />
+                                    </div>
+                                )
+                            })}
 
-        {selected == 0 ? (
-            <>
-            {data.length > 0 ? (
-            <div className={styles.cardWrap}>
-            {data.map((item,key) => {
-                return (
-                    <div key={key} >
-                        <Cards
-                          image={item.image}
-                          heading={item.heading}
-                          subCategory={item.subCategory}
-                          openEditModal={openEditModal}
-                          openDeleteModal={openDeleteModal}
-                        />
-                    </div>
-                )
-            })}
-            
-            </div>
-            ) : 
-            <div className={styles.mainContainer}>
-            <div className={styles.image}>
-                <img src='/illustration.png'/>
-                
-            </div>
-            <h3 className={styles.create}>
-                Create First Category
-            </h3>
-            <p className={styles.noCategoryText}>
-                No category is created yet!
-            </p>
-        </div>
+                            {data.map((item, key) => {
+                                return (
+                                    <div key={key} >
+                                        <Cards
+                                            image={item.image}
+                                            heading={item.heading}
+                                            subCategory={item.subCategory}
+                                            openEditModal={openEditModal}
+                                            openDeleteModal={openDeleteModal}
+                                        />
+                                    </div>
+                                )
+                            })}
+
+                            {data.map((item, key) => {
+                                return (
+                                    <div key={key} >
+                                        <Cards
+                                            image={item.image}
+                                            heading={item.heading}
+                                            subCategory={item.subCategory}
+                                            openEditModal={openEditModal}
+                                            openDeleteModal={openDeleteModal}
+                                        />
+                                    </div>
+                                )
+                            })}
+
+                            {data.map((item, key) => {
+                                return (
+                                    <div key={key} >
+                                        <Cards
+                                            image={item.image}
+                                            heading={item.heading}
+                                            subCategory={item.subCategory}
+                                            openEditModal={openEditModal}
+                                            openDeleteModal={openDeleteModal}
+                                        />
+                                    </div>
+                                )
+                            })}
+
+                        </div>
+                    ) :
+                        <div className={styles.mainContainer}>
+                            <div className={styles.image}>
+                                <img src='/illustration.png' />
+
+                            </div>
+                            <h3 className={styles.create}>
+                                Create First Category
+                            </h3>
+                            <p className={styles.noCategoryText}>
+                                No category is created yet!
+                            </p>
+                        </div>
+                    }
+                </>
+            ) :
+                <CategoriesRequestList />
             }
-            </>
-        ) :
-            <CategoriesRequestList/>
-        }
-        
-        
-        
-        <Modal isOpen={isModalOpen} onClose={closeModal}>
-            <AddNewCategory
-              onClose={closeModal}
-            />
-        </Modal>
-    
-        <Modal isOpen={isEditModalOpen} onClose={closeEditModal}>
-            <EditCategory
-                onCloseModal={closeEditModal}
-            />
-        </Modal>
-        <Modal isOpen={isDeleteModalOpen} onClose={closeDeleteModal}>
-            <DeleteCategory
-                closeModal={closeDeleteModal} 
-            />
-        </Modal>
-        
-    </div>
-  )
+
+
+
+            <Modal isOpen={isModalOpen} onClose={closeModal}>
+                <AddNewCategory
+                    onClose={closeModal}
+                />
+            </Modal>
+
+            <Modal isOpen={isEditModalOpen} onClose={closeEditModal}>
+                <EditCategory
+                    onCloseModal={closeEditModal}
+                />
+            </Modal>
+            <Modal isOpen={isDeleteModalOpen} onClose={closeDeleteModal}>
+                <DeleteCategory
+                    closeModal={closeDeleteModal}
+                />
+            </Modal>
+
+        </div>
+    )
 }
 
 export default Categories

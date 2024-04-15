@@ -11,6 +11,7 @@ export const selectInput = {
         border: " none !important"
     }
 }
+
 export const custom = {
     width: '90px',
     height: '42px',
@@ -23,7 +24,7 @@ export const custom = {
     fontWeight: '500',
     lineHeight: '24px', /* 18.2px */
     overflow: 'hidden',
-    fontFamily:'DM Sans',
+    fontFamily: 'DM Sans',
     "&:hover": {
         background: 'linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), rgba(255, 255, 255, 0.70)',
     }
@@ -40,11 +41,11 @@ export const save = {
     fontWeight: '500',
     lineHeight: '24px', /* 18.2px */
     overflow: 'hidden',
-    fontFamily:'DM Sans',
+    fontFamily: 'DM Sans',
     "&:hover": {
-        background:'#1E5EFF'
+        background: '#1E5EFF'
     },
-    marginLeft:'10px'
+    marginLeft: '10px'
 }
 export const customradius = {
     height: '42px',
@@ -126,11 +127,11 @@ export const delet = {
     fontWeight: '500',
     lineHeight: '24px', /* 18.2px */
     overflow: 'hidden',
-    fontFamily:'DM Sans',
+    fontFamily: 'DM Sans',
     "&:hover": {
-        background:'#F0142F'
+        background: '#F0142F'
     },
-    marginLeft:'10px'
+    marginLeft: '10px'
 }
 export const cancle = {
     height: '42px',
@@ -143,11 +144,11 @@ export const cancle = {
     fontWeight: '500',
     lineHeight: '24px', /* 18.2px */
     overflow: 'hidden',
-    fontFamily:'DM Sans',
+    fontFamily: 'DM Sans',
     "&:hover": {
-        background:'#1E5EFF'
+        background: '#1E5EFF'
     },
-    marginLeft:'10px'
+    marginLeft: '10px'
 }
 export const accept = {
     height: '42px',
@@ -160,14 +161,14 @@ export const accept = {
     fontWeight: '500',
     lineHeight: '24px', /* 18.2px */
     overflow: 'hidden',
-    fontFamily:'DM Sans',
+    fontFamily: 'DM Sans',
     "&:hover": {
-        background:'#0F9A1F'
+        background: '#0F9A1F'
     },
-    marginLeft:'10px'
+    marginLeft: '10px'
 }
 export const apply = {
-    width:'320px',
+    width: '320px',
     height: '42px',
     padding: '11px 0px 11px 0px',
     borderRadius: '6px',
@@ -178,9 +179,9 @@ export const apply = {
     fontWeight: '500',
     lineHeight: '24px', /* 18.2px */
     overflow: 'hidden',
-    fontFamily:'DM Sans',
+    fontFamily: 'DM Sans',
     "&:hover": {
-        background:'#5570F1'
+        background: '#5570F1'
     },
     marginTop:'30px'
 }
@@ -222,5 +223,6 @@ export const Reset = {
         background:'#5570F1'
     },
     marginTop:'30px',
-    marginRight:'10px'
+    marginRight:'10px',
+    marginTop: '30px'
 }

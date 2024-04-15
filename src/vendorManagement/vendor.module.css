@@ -3,7 +3,6 @@
     height: 42px;
     padding: 12px 10px 12px 10px;
     gap: 60px;
-    opacity: 0px;
     flex-direction: row;
     text-transform: uppercase;
     display: flex;
@@ -23,7 +22,6 @@
     width: 100%;
     height: fit-content;
     gap: 0px;
-    opacity: 0px;
     background: #FFFFFF;
     box-shadow: 0px 1px 4px 0px #15223214;
     padding: 20px;
@@ -222,7 +220,6 @@
     /* padding: 10px 0px 10px 0px; */
     gap: 10px;
     border-radius: 20px;
-    opacity: 0px;
     background: #005CE8;
     justify-content: center;
     display: flex;
@@ -234,7 +231,6 @@
     height: 62px;
     padding: 4px 24px 4px 24px;
     gap: 33px;
-    opacity: 0px;
     background: #FFFFFF;
     box-shadow: 0px 1px 4px 0px #15223214;
     border-radius: 5px;
@@ -264,7 +260,6 @@
     height: fit-content;
     gap: 0px;
     border-radius: 10px;
-    opacity: 0px;
     background: #FFFFFF;
     padding: 20px;
     justify-content: center;
@@ -297,7 +292,6 @@
     padding: 10px;
     gap: 0px;
     border-radius: 16px;
-    opacity: 0px;
     background: #FFFFFF;
     box-shadow: 0px 18px 40px 0px #7090B01F;
     display: flex;
@@ -347,7 +341,6 @@
     padding: 17px 10px 20px 20px;
     gap: 0px;
     border-radius: 16px ;
-    opacity: 0px;
     background: #FFFFFF;
     box-shadow: 0px 10px 10px 0px #7090B01F;
     margin-bottom: 15px;
@@ -361,7 +354,6 @@
     padding: 17px 0px 0px 20px;
     gap: 0px;
     border-radius: 16px;
-    opacity: 0px;
     background: #FFFFFF;
     box-shadow: 0px 18px 40px 0px #7090B01F;
     margin-top: 15px;
