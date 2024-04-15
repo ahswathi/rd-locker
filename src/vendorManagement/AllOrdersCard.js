@@ -3,8 +3,9 @@ import styles from '../vendorManagement/vendor.module.css';
 import Styles from '../categories/category.module.css';
 import { Delete, FilterIcon, Left, Right, Search, View } from '../Svg';
 import { useNavigate } from 'react-router-dom';
-import Modal from '../component/Modal';
-import DeleteCategory from '../categories/DeleteCategory';
+import { Modal, Popover } from '@mui/material';
+import FilterWithDate from '../component/FilterWithDate';
+
 
 const AllOrdersCard = () => {
     const vendorData = [
@@ -28,19 +29,83 @@ const AllOrdersCard = () => {
             orderPrize:'INR 500',
             status:'Completed'
         },
+        {
+            id:3,
+            orderId:'#123456',
+            dateTime:'April 1, 2024 11:30AM',
+            customerName:'Rahul',
+            emailId:'deeksha@gmail.com',
+            phoneNumber:'+91-9876543210',
+            orderPrize:'INR 500',
+            status:'Completed'
+        },
+        {
+            id:4,
+            orderId:'#123456',
+            dateTime:'April 1, 2024 11:30AM',
+            customerName:'Rahul',
+            emailId:'deeksha@gmail.com',
+            phoneNumber:'+91-9876543210',
+            orderPrize:'INR 500',
+            status:'Completed'
+        },
+        {
+            id:5,
+            orderId:'#123456',
+            dateTime:'April 1, 2024 11:30AM',
+            customerName:'Rahul',
+            emailId:'deeksha@gmail.com',
+            phoneNumber:'+91-9876543210',
+            orderPrize:'INR 500',
+            status:'Completed'
+        },
+        {
+            id:6,
+            orderId:'#123456',
+            dateTime:'April 1, 2024 11:30AM',
+            customerName:'Rahul',
+            emailId:'deeksha@gmail.com',
+            phoneNumber:'+91-9876543210',
+            orderPrize:'INR 500',
+            status:'Completed'
+        },
+        {
+            id:7,
+            orderId:'#123456',
+            dateTime:'April 1, 2024 11:30AM',
+            customerName:'Rahul',
+            emailId:'deeksha@gmail.com',
+            phoneNumber:'+91-9876543210',
+            orderPrize:'INR 500',
+            status:'Completed'
+        },
+        {
+            id:8,
+            orderId:'#123456',
+            dateTime:'April 1, 2024 11:30AM',
+            customerName:'Rahul',
+            emailId:'deeksha@gmail.com',
+            phoneNumber:'+91-9876543210',
+            orderPrize:'INR 500',
+            status:'Completed'
+        },
         
     ]
   const navigate = useNavigate();  
   //state
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
   
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  
-  const openDeleteModal =() => {
-    setIsDeleteModalOpen(true)
-  }
-  const closeDeleteModal = () => {
-    setIsDeleteModalOpen(false);
-  }
   const [page, setPage] = useState(1)
   const [limit, setLimit] = useState(50)
   const [totalPages, setTotalPages] = useState(1)
@@ -80,21 +145,38 @@ const AllOrdersCard = () => {
                         <Search /> 
                         <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Search by name...' />
                     </div>
-                    <div className={Styles.filter}>
+                    <div className={Styles.filter} onClick={handleClick}>
                         <img src='/filter.png'/> <span>Filter</span>
                     </div>
+                    <Popover
+                        id={id}
+                        open={open}
+                        anchorEl={anchorEl}
+                        onClose={handleClose}
+                        anchorOrigin={{
+                          vertical: 'bottom',
+                          horizontal: 'right',
+                        }}
+                        transformOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right',
+                        }}
+                    >
+                        <FilterWithDate
+                            onClose={handleClose}
+                        />
+                    </Popover>
                 </div>
-    
             </div>
             <div className={styles.header}>
-                <div className={styles.firstOrder}>OrderId<FilterIcon/></div>
+                <div className={styles.firstOrder}>Order Id<FilterIcon/></div>
                 <div className={styles.secondDate}>Date&Time<FilterIcon/></div>
-                <div className={styles.thirdCustomer}>CustomerName<FilterIcon/></div>
-                <div className={styles.fourthEmail}>EmailId<FilterIcon/></div>
-                <div className={styles.fifthPhone}>PhoneNumber<FilterIcon/></div>
-                <div className={styles.eightPrize}>OrderPrice<FilterIcon/></div>
+                <div className={styles.thirdCustomer}>Customer Name<FilterIcon/></div>
+                <div className={styles.fourthEmail}>Email Id<FilterIcon/></div>
+                <div className={styles.fifthPhone}>Phone Number<FilterIcon/></div>
+                <div className={styles.eightPrize}>Order Price<FilterIcon/></div>
                 <div className={styles.sixthStatus}>Status<FilterIcon/></div>
-                <div className={styles.seventh}>Options</div>
+                <div className={styles.seventhOption}>Options</div>
             </div>
             {vendorData.map((item,index) => {
                 return(
@@ -124,7 +206,7 @@ const AllOrdersCard = () => {
                                 color:item.status === 'Pending' ? '#FF8227' : '#0F9A1D',
                             }}
                         >{item.status}</span></div>
-                        <div className={styles.seventh}>
+                        <div className={styles.seventhOption}>
                         <div style={{marginLeft:20}} onClick={() => navigate('/vendorManagement/ProfileDetails')}>
                             <View/>
                         </div>
@@ -145,11 +227,8 @@ const AllOrdersCard = () => {
                     
                 </div>
             </div>
-            <Modal isOpen={isDeleteModalOpen} onClose={closeDeleteModal}>
-                <DeleteCategory
-                    closeModal={closeDeleteModal} 
-                />
-            </Modal>
+            
+            
         </div>
     )
 }

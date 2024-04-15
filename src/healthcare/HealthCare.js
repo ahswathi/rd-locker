@@ -3,7 +3,7 @@ import styles from '../categories/category.module.css';
 import Styles from '../healthcare/healthcare.module.css';
 import SwitchTab from '../component/SwitchTab';
 import CategoriesList from './CategoriesList';
-import { ToggleButton } from '../Svg';
+import { GoBack, ToggleButton } from '../Svg';
 import AddNewCategory from '../categories/AddNewCategory';
 import { useFormik } from 'formik';
 import * as yup from "yup";
@@ -125,7 +125,9 @@ const HealthCare = () => {
             </div>
             <div className={Styles.buttonStyle}>
                 <div className={Styles.width}>
-                    <img src='/backButton.png' style={{width:4,height:9,marginTop:6}}/>
+                    <div style={{marginTop:2,}}>
+                        <GoBack/>
+                    </div>
                     <div className={Styles.backText}>
                         Back
                     </div>

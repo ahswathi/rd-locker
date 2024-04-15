@@ -86,7 +86,7 @@ const AllVendors = () => {
                         <div className={styles.fifth}>{item.categoryName}</div>
                         <div className={styles.status}><span>{item.status}</span></div>
                         <div className={styles.seventh}>
-                        <div style={{marginLeft:20}} onClick={() => navigate('/vendorManagement/ProfileDetails')}>
+                        <div style={{marginLeft:20}} onClick={() => navigate('/vendorManagement/VendorsProfile/ProfileDetails')}>
                             <View/>
                         </div>
                         <div style={{marginLeft:20}} onClick={openDeleteModal}>

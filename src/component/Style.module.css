@@ -419,7 +419,7 @@
 }
 
 .numberText {
-    /* font-family: Inter; */
+    font-family: Inter;
     font-size: 12px;
     font-weight: 500;
     line-height: 16.8px;
@@ -754,5 +754,58 @@ li {
     
 }
 .buttonStyle{
-    margin-top: 20px;
+    /* margin-top: 20px; */
+    display: flex;
+    justify-content: space-around;
+    /* margin-left: 10px; */
+    margin-bottom: 20px;
+}
+.weekText{
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    text-align: center;
+    color: #83898C;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.dateRange{
+    width: 300px;
+    height: 30px;
+    gap: 0px;
+    border-radius: 8px;
+    opacity: 0px;
+    background: #5570F11F;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-self: center;
+    margin-top: 30px;
+}
+.from{
+    width: 180px;
+    height: 30px;
+    padding: 5px 63px 9px 63px;
+    gap: 10px;
+    border-radius: 8px;
+    opacity: 0px;
+    background: #5570F1;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: -0.005em;
+    text-align: center;
+    color: #FFFFFF;
+}
+.toStyle{
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: -0.005em;
+    text-align: center;
+    color: #5570F1;
+    padding: 5px 63px 9px 63px
 }

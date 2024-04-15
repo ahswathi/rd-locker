@@ -5,20 +5,16 @@ import SwitchTab from '../component/SwitchTab';
 import { Search } from '../Svg';
 import VendorsCard from './VendorsCard';
 import Filter from '../component/Filter';
-import { Modal } from '@mui/material';
+import { Modal, Popover } from '@mui/material';
 import style from '../vendorManagement/vendor.module.css'
 import AllVendors from './AllVendors';
+import { useNavigate } from 'react-router-dom';
 
 
 const VendorsProfile = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const openModal = () => {
-        setIsModalOpen(true);
-    };
-
-    const closeModal = () => {
-        setIsModalOpen(false);
-    };
+    const navigate = useNavigate();  
+    //state
+    const [anchorEl, setAnchorEl] = React.useState(null);
     const [value, setValue] = useState([
         { val: 'All vendors', id: 0 },
         { val: 'My entry', id: 1 },
@@ -27,6 +23,18 @@ const VendorsProfile = () => {
     ]);
     const [selected, setSelected] = useState(0);
     const [search, setSearch] = useState('')
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
+    
     const changeID = (id) => {
         setSelected(id.id);
         // setValue(data)
@@ -45,7 +53,7 @@ const VendorsProfile = () => {
                     home <img src='/tiangle.png' style={{marginLeft:10}}/> <span style={{ color: 'var(--Gray-900, #1E5EFF)',marginLeft:10 }}>All vendors</span>
                 </span>
             </div>
-            <div className={styles.buttonStyle}>
+            <div className={styles.buttonStyle} onClick={() => navigate('/vendorManagement/VendorsProfile/AddNewVendor')}>
                 <div className={Styles.width}>
                     <img src='/plus.png' style={{width:16,height:16}}/>
                     <div className={styles.addcategoryText}>
@@ -69,9 +77,27 @@ const VendorsProfile = () => {
                         <Search /> 
                         <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Search by name...' />
                     </div>
-                    <div className={styles.filter} onClick={openModal}>
+                    <div className={styles.filter} onClick={handleClick}>
                         <img src='/filter.png'/> <span>Filter</span>
                     </div>
+                    <Popover
+                        id={id}
+                        open={open}
+                        anchorEl={anchorEl}
+                        onClose={handleClose}
+                        anchorOrigin={{
+                          vertical: 'bottom',
+                          horizontal: 'right',
+                        }}
+                        transformOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right',
+                        }}
+                    >
+                        <Filter
+                            onClose={handleClose}
+                        />
+                    </Popover>
                 </div>
             </div>
         </div>
@@ -83,21 +109,7 @@ const VendorsProfile = () => {
             ) : <VendorsCard/>) 
             }
         </div>
-        
-        <Modal
-            open={isModalOpen}
-            onClose={closeModal}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-        >
-            <div className={style.modalOverLay}>
-            <Filter
-              onClose={closeModal}
-            //   onOpen={isModalOpen}
-            />
-            </div>
-        </Modal>
-        </div>
+    </div>
   )
 }
 
