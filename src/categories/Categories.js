@@ -110,7 +110,7 @@ const Categories = () => {
         // setValue(data)
     };
     useEffect(() => {
-        setSelected(data)
+        setSelected(selected)
     }, [])
     return (
         <div style={{ padding: 20 }}>
@@ -133,7 +133,7 @@ const Categories = () => {
                 </div>
             </div>
             <div className={styles.container}>
-                <div>
+                <div style={{marginTop:20}}>
                     <SwitchTab
                         value={value}
                         selected={selected}
@@ -157,48 +157,6 @@ const Categories = () => {
                 <>
                     {data.length > 0 ? (
                         <div className={styles.cardWrap}>
-                            {data.map((item, key) => {
-                                return (
-                                    <div key={key} >
-                                        <Cards
-                                            image={item.image}
-                                            heading={item.heading}
-                                            subCategory={item.subCategory}
-                                            openEditModal={openEditModal}
-                                            openDeleteModal={openDeleteModal}
-                                        />
-                                    </div>
-                                )
-                            })}
-
-                            {data.map((item, key) => {
-                                return (
-                                    <div key={key} >
-                                        <Cards
-                                            image={item.image}
-                                            heading={item.heading}
-                                            subCategory={item.subCategory}
-                                            openEditModal={openEditModal}
-                                            openDeleteModal={openDeleteModal}
-                                        />
-                                    </div>
-                                )
-                            })}
-
-                            {data.map((item, key) => {
-                                return (
-                                    <div key={key} >
-                                        <Cards
-                                            image={item.image}
-                                            heading={item.heading}
-                                            subCategory={item.subCategory}
-                                            openEditModal={openEditModal}
-                                            openDeleteModal={openDeleteModal}
-                                        />
-                                    </div>
-                                )
-                            })}
-
                             {data.map((item, key) => {
                                 return (
                                     <div key={key} >
