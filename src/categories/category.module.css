@@ -25,7 +25,7 @@
 .buttonStyle {
     width: 147px;
     height: 44px;
-    padding-left: 15px;
+    padding-left: 5px;
     /* gap: 4px; */
     border-radius: 8px;
     background: #1E5EFF;
@@ -171,6 +171,15 @@
     flex-direction: row;
     align-self: center;
     display: flex;
+}
+.filter span{
+    font-family: Public Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.005em;
+    text-align: left;
+    color: #667085;
 }
 
 .mainContainer {

@@ -21,7 +21,7 @@ const ProfileCard = () => {
     ]
   return (
     <div className={Styles.profileCard}>
-        <div>
+        <div className={Styles.bottomContainer} style={{marginRight:20}}>
             <div className={Styles.profileContainer}>
                 <div className={Styles.bgimg}>
                     <img src='/BackgroundImage.png'/>
@@ -71,7 +71,7 @@ const ProfileCard = () => {
                 
             </div>
         </div>
-        <div className={Styles.profileContainer}>
+        <div className={Styles.profileContainer} >
                 <div className={Styles.kycText} style={{marginTop:10,textAlign:'left'}}>
                     KYC documents
                 </div>
@@ -133,7 +133,7 @@ const ProfileCard = () => {
                         <p className={Styles.descText}>INR 250</p>
                     </div>
                 </div>   
-            </div>
+        </div>
     </div>
   )
 }

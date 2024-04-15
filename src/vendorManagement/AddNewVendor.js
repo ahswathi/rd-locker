@@ -166,65 +166,65 @@ const AddNewVendor = () => {
                     </div>
                 </div>
             </div>
-            <div>
-            <div className={Styles.profileContainer}>
-            <p className={Styles.informationText}>Address details</p>
-                <div className={Styles.lineStyle}/>
-                <div style={{marginTop:30}}>
-                    <label className={Styles.label}>City</label>
-                    <div className={Styles.inputbox}>
-                    
-                    <input type="email" onBlur={handleBlur} value={values.email} placeholder='Enter' name="email" onChange={handleChange} />
+            <div className={Styles.bottomContainer} style={{marginLeft:20}}>
+                <div className={Styles.profileContainer}>
+                <p className={Styles.informationText}>Address details</p>
+                    <div className={Styles.lineStyle}/>
+                    <div style={{marginTop:30}}>
+                        <label className={Styles.label}>City</label>
+                        <div className={Styles.inputbox}>
+                        
+                        <input type="email" onBlur={handleBlur} value={values.email} placeholder='Enter' name="email" onChange={handleChange} />
+                        </div>
+                        {
+                        errors.email && touched.email && <p style={{ color: "red", fontSize: "12px" }}>{errors.email}</p>
+                        }
                     </div>
-                    {
-                    errors.email && touched.email && <p style={{ color: "red", fontSize: "12px" }}>{errors.email}</p>
-                    }
-                </div>
-                <div style={{marginTop:30}}>
-                    <label className={Styles.label}>State</label>
-                    <div className={Styles.inputbox}>
-                    
-                    <input type="email" onBlur={handleBlur} value={values.email} placeholder='Enter' name="email" onChange={handleChange} />
+                    <div style={{marginTop:30}}>
+                        <label className={Styles.label}>State</label>
+                        <div className={Styles.inputbox}>
+                        
+                        <input type="email" onBlur={handleBlur} value={values.email} placeholder='Enter' name="email" onChange={handleChange} />
+                        </div>
+                        {
+                        errors.email && touched.email && <p style={{ color: "red", fontSize: "12px" }}>{errors.email}</p>
+                        }
                     </div>
-                    {
-                    errors.email && touched.email && <p style={{ color: "red", fontSize: "12px" }}>{errors.email}</p>
-                    }
-                </div>
-                <div style={{marginTop:30}}>
-                    <label className={Styles.label}>Country</label>
-                    <div className={Styles.inputbox}>
-                    
-                    <input type="text" placeholder='Enter' onBlur={handleBlur} value={values.password} name='password' onChange={handleChange} />
+                    <div style={{marginTop:30}}>
+                        <label className={Styles.label}>Country</label>
+                        <div className={Styles.inputbox}>
+                        
+                        <input type="text" placeholder='Enter' onBlur={handleBlur} value={values.password} name='password' onChange={handleChange} />
+                        </div>
+                        {
+                        errors.password && touched.password && <p style={{ color: "red", fontSize: "12px" }}>{errors.password}</p>
+                        }
                     </div>
-                    {
-                    errors.password && touched.password && <p style={{ color: "red", fontSize: "12px" }}>{errors.password}</p>
-                    }
-                </div>
-            </div> 
-            <div className={Styles.profileContainer} style={{marginTop:30}}>
-                <p className={Styles.informationText}>Password Details</p>
-                <div className={Styles.lineStyle}/>
-                <div style={{marginTop:30}}>
-                    <label className={Styles.label}>Password*</label>
-                    <div className={Styles.inputbox}>
-                    
-                    <input type="email" onBlur={handleBlur} value={values.email} placeholder='Enter password' name="email" onChange={handleChange} />
+                </div> 
+                <div className={Styles.profileContainer} style={{marginTop:30}}>
+                    <p className={Styles.informationText}>Password Details</p>
+                    <div className={Styles.lineStyle}/>
+                    <div style={{marginTop:30}}>
+                        <label className={Styles.label}>Password*</label>
+                        <div className={Styles.inputbox}>
+                        
+                        <input type="email" onBlur={handleBlur} value={values.email} placeholder='Enter password' name="email" onChange={handleChange} />
+                        </div>
+                        {
+                        errors.email && touched.email && <p style={{ color: "red", fontSize: "12px" }}>{errors.email}</p>
+                        }
                     </div>
-                    {
-                    errors.email && touched.email && <p style={{ color: "red", fontSize: "12px" }}>{errors.email}</p>
-                    }
-                </div>
-                <div style={{marginTop:30}}>
-                    <label className={Styles.label}>Confirm Password*</label>
-                    <div className={Styles.inputbox}>
-                    
-                    <input type="email" onBlur={handleBlur} value={values.email} placeholder='Confirm password' name="email" onChange={handleChange} />
+                    <div style={{marginTop:30}}>
+                        <label className={Styles.label}>Confirm Password*</label>
+                        <div className={Styles.inputbox}>
+                        
+                        <input type="email" onBlur={handleBlur} value={values.email} placeholder='Confirm password' name="email" onChange={handleChange} />
+                        </div>
+                        {
+                        errors.email && touched.email && <p style={{ color: "red", fontSize: "12px" }}>{errors.email}</p>
+                        }
                     </div>
-                    {
-                    errors.email && touched.email && <p style={{ color: "red", fontSize: "12px" }}>{errors.email}</p>
-                    }
-                </div>
-            </div> 
+                </div> 
             </div>
         </div>
         <div className={Styles.AddNewVendor}>

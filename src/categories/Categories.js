@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '../categories/category.module.css';
 import Styles from '../component/Style.module.css';
 import SwitchTab from '../component/SwitchTab';
-import { Search } from '../Svg';
+import { Plus, Search } from '../Svg';
 import Cards from './Cards';
 import { useNavigate } from 'react-router-dom';
 import Modal from '../component/Modal';
@@ -124,11 +124,9 @@ const Categories = () => {
                     </span>
                 </div>
                 <div className={styles.buttonStyle} onClick={openModal}>
-                    <div className={Styles.width}>
-                        <img src='/plus.png' style={{ width: 16, height: 16 }} />
-                        <div className={styles.addcategoryText}>
-                            Add Categories
-                        </div>
+                    <Plus/>
+                    <div className={styles.addcategoryText}>
+                        Add Categories
                     </div>
                 </div>
             </div>

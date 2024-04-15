@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '../categories/category.module.css';
 import Styles from '../component/Style.module.css';
 import SwitchTab from '../component/SwitchTab';
-import { Search } from '../Svg';
+import { Plus, Search } from '../Svg';
 import Modal from '../component/Modal';
 import DeleteCategory from '../categories/DeleteCategory';
 import VendorsCard from './VendorsCard';
@@ -37,13 +37,10 @@ const KYCApproval = () => {
                 </span>
             </div>
             <div className={styles.buttonStyle}>
-                <div className={Styles.width}>
-                    <img src='/plus.png' style={{width:16,height:16}}/>
+                    <Plus/>
                     <div className={styles.addcategoryText}>
                         Add Vendor
                     </div>
-                </div>
-                
             </div>
         </div>
         <div className={styles.container}>
