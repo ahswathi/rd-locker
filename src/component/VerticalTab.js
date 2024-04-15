@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from '../categories/category.module.css';
 
-const SwitchTab = (props) => {
+const VerticalTab = (props) => {
     const { value, selected, onChange } = props;
     // const [activeTab, setActiveTab] = useState(tabs[0].id);
 
@@ -15,11 +15,11 @@ const SwitchTab = (props) => {
       };
 
     return (
-        <div className={styles.tabView}>
+        <div>
                 {value.map((val,key) => {
                     return (
                         <div key={key} className={val.id === selected ? `${styles.active}` : `${styles.inActive}`}>
-                            <div onClick={() => onChange_(val, val.val)} className={val.id === selected ? `${styles.activeText}` : `${styles.inActiveText}`}>{val.val}</div>
+                            <div onClick={() => onChange_(val, val.val)} className={val.id === selected ? `${styles.activeVer}` : `${styles.inActiveVer}`}>{val.val}</div>
                         </div>
                     )
                 })}
@@ -27,4 +27,4 @@ const SwitchTab = (props) => {
     );
 };
 
-export default SwitchTab;
+export default VerticalTab;

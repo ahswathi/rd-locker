@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '../categories/category.module.css';
 import Styles from '../component/Style.module.css';
 import SwitchTab from '../component/SwitchTab';
-import { Search } from '../Svg';
+import { Plus, Search } from '../Svg';
 import Cards from './Cards';
 import { useNavigate } from 'react-router-dom';
 import Modal from '../component/Modal';
@@ -110,7 +110,7 @@ const Categories = () => {
         // setValue(data)
     };
     useEffect(() => {
-        setSelected(data)
+        setSelected(selected)
     }, [])
     return (
         <div style={{ padding: 20 }}>
@@ -124,17 +124,14 @@ const Categories = () => {
                     </span>
                 </div>
                 <div className={styles.buttonStyle} onClick={openModal}>
-                    <div className={Styles.width}>
-                        <img src='/plus.png' style={{ width: 16, height: 16 }} />
-                        <div className={styles.addcategoryText}>
-                            Add Categories
-                        </div>
+                    <Plus/>
+                    <div className={styles.addcategoryText}>
+                        Add Categories
                     </div>
-
                 </div>
             </div>
             <div className={styles.container}>
-                <div>
+                <div style={{marginTop:20}}>
                     <SwitchTab
                         value={value}
                         selected={selected}
@@ -158,48 +155,6 @@ const Categories = () => {
                 <>
                     {data.length > 0 ? (
                         <div className={styles.cardWrap}>
-                            {data.map((item, key) => {
-                                return (
-                                    <div key={key} >
-                                        <Cards
-                                            image={item.image}
-                                            heading={item.heading}
-                                            subCategory={item.subCategory}
-                                            openEditModal={openEditModal}
-                                            openDeleteModal={openDeleteModal}
-                                        />
-                                    </div>
-                                )
-                            })}
-
-                            {data.map((item, key) => {
-                                return (
-                                    <div key={key} >
-                                        <Cards
-                                            image={item.image}
-                                            heading={item.heading}
-                                            subCategory={item.subCategory}
-                                            openEditModal={openEditModal}
-                                            openDeleteModal={openDeleteModal}
-                                        />
-                                    </div>
-                                )
-                            })}
-
-                            {data.map((item, key) => {
-                                return (
-                                    <div key={key} >
-                                        <Cards
-                                            image={item.image}
-                                            heading={item.heading}
-                                            subCategory={item.subCategory}
-                                            openEditModal={openEditModal}
-                                            openDeleteModal={openDeleteModal}
-                                        />
-                                    </div>
-                                )
-                            })}
-
                             {data.map((item, key) => {
                                 return (
                                     <div key={key} >

@@ -15,6 +15,13 @@ import RegistrationDetails from './vendorManagement/RegistrationDetails';
 import Accounts from './accounts/accounts';
 import Transactions from './transactions/transactions';
 import Receipt from './receipt/receipt';
+import ProfileDetails from './vendorManagement/ProfileDetails';
+import Login from './login/Login';
+import AddNewVendor from './vendorManagement/AddNewVendor';
+import ForgotPassword from './login/ForgotPassword';
+import ConfirmEmail from './login/ConfimEmail';
+import ResendMail from './login/ResendMail';
+import ResetPassword from './login/ResetPassword';
 
 function App() {
   return (
@@ -34,14 +41,23 @@ function App() {
           <Route path='/vendorManagement/VendorsProfile' element={<VendorsProfile />} />
           <Route path='/vendorManagement/PrivacyPolicy' element={<PrivacyPolicy />} />
           <Route path='/vendorManagement/KYCApproval/RegistrationDetails' element={<RegistrationDetails />} />
+          <Route path='/vendorManagement/VendorsProfile/ProfileDetails' element={<ProfileDetails />} />
+          <Route path='/vendorManagement/VendorsProfile/AddNewVendor' element={<AddNewVendor />} />
+          <Route path='/accounts' element={<Accounts />} />
+          <Route path='/transactions' element={<Transactions />} />
+          <Route path='/receipt' element={<Receipt />} />
           <Route path='/reports/accounts' element={<Accounts />} />
           <Route path='/reports/transactions' element={<Transactions />} />
           {/* <Route path='/receipt' element={<Receipt />} /> */}
         </Routes>
       </Layout>
       {/* <Routes>
-              <Route path='/' element={<Notifications/>} />
-          </Routes> */}
+          <Route path='/' element={<Login />} />
+          <Route path='/login/ForgotPassword' element={<ForgotPassword />} />
+          <Route path='/login/ConfirmEmail' element={<ConfirmEmail />} />
+          <Route path='/login/ResendMail' element={<ResendMail />} />
+          <Route path='/login/ResetPassword' element={<ResetPassword />} />
+      </Routes> */}
     </BrowserRouter>
   );
 }

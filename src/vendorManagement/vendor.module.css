@@ -1,5 +1,5 @@
 .header {
-    width: 970px;
+    width: 100%;
     height: 42px;
     padding: 12px 10px 12px 10px;
     gap: 60px;
@@ -19,7 +19,7 @@
     color: #131523;
 }
 .listContainer{
-    width: 1010px;
+    width: 100%;
     height: fit-content;
     gap: 0px;
     background: #FFFFFF;
@@ -30,7 +30,7 @@
 }
 
 .info {
-    padding: 16px 18px;
+    padding: 16px ;
     background-color: #FFF;
     color: var(--Gray-900, #191B1C);
     font-family: "Public Sans";
@@ -42,6 +42,7 @@
     text-transform: capitalize;
     align-items: center;
     border-bottom: 1px dashed #E5E7E8;
+    width: 100%;
 }
 .headerText {
     font-family: DM Sans;
@@ -79,7 +80,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
 }
 .third {
     width: 36%;
@@ -88,7 +88,7 @@
     font-weight: 400;
     line-height: 18.23px;
     letter-spacing: 0.30000001192092896px;
-    text-align: left;
+    /* text-align: left; */
     padding: 5px;
     border-radius: 5px;
     text-transform: capitalize;
@@ -100,6 +100,11 @@
 .third span{
     /* margin-top: 10px; */
     margin-left: 5px;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
 }
 .fourth {
     width: 33%;
@@ -116,7 +121,7 @@
     flex-direction: row;
 }
 .fifth {
-    width: 38%;
+    width: 40%;
     font-family: DM Sans;
     font-size: 14px;
     font-weight: 500;
@@ -145,7 +150,7 @@
     
 }
 .status {
-    width: 15%;
+    width: 25%;
     font-family: 'DM Sans';
     font-size: 14px;
     font-weight: 500;
@@ -175,18 +180,21 @@
     color: #FF8227;
 }
 .seventh {
-    width: 19%;
+    width: 10%;
     font-family: DM Sans;
     font-size: 14px;
     font-weight: 500;
     line-height: 18.23px;
     letter-spacing: 0.30000001192092896px;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    /* justify-content: center; */
     text-align: center;
     text-transform: capitalize;
     display: flex;
+    flex-direction: row;
+    align-content: center;
 }
+
 .option{
     /* text-align: center; */
     flex-direction: row;
@@ -219,9 +227,9 @@
     color: #FFFFFF;
 }
 .kycDetails{
-    width: 1,128px;
+    width: 100%;
     height: 62px;
-    padding: 14px 24px 14px 24px;
+    padding: 4px 24px 4px 24px;
     gap: 33px;
     background: #FFFFFF;
     box-shadow: 0px 1px 4px 0px #15223214;
@@ -246,9 +254,13 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
+}
+.bottomContainer{
+    width: 100%;
 }
 .profileContainer{
-    width: 500px;
+    width: 100%;
     height: fit-content;
     gap: 0px;
     border-radius: 10px;
@@ -328,7 +340,7 @@
     justify-content: space-around;
 }
 .infoCard{
-    width: 254px;
+    width: 50%;
     height: 75px;
     padding: 17px 10px 20px 20px;
     gap: 0px;
@@ -341,7 +353,7 @@
 
 }
 .addressCard{
-    width: 460px;
+    width: 100%;
     height: 75px;
     padding: 17px 0px 0px 20px;
     gap: 0px;
@@ -376,8 +388,453 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: transparent;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    margin-right: 20px;
+}
+.showingText{
+    font-family: Public Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: left;
+    color: #000000;
+
+}
+.blockText{
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: #131523;
+
+}
+.followerStyle{
+    justify-content: center;
+    padding-top: 10px;
+}
+.followerStyle h6{
+    font-family: DM Sans;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: #2B3674;
+}
+.followerStyle p{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: #A3AED0;
+}
+.orderBox{
+    flex-direction: row;
+    display: flex;
+    justify-content: flex-start;
+    /* margin-left: 10px; */
+}
+.orderCard{
+    width: 365px;
+    height: 145px;
+    padding: 10px 15px 15px 15px;
+    gap: 10px;
+    border-radius: 12px;
+    opacity: 0px;
+    background: #FFFFFF;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+.ammountCard{
+    width: 239px;
+    height: 145px;
+    padding: 10px 15px 15px 15px;
+    gap: 10px;
+    border-radius: 12px;
+    opacity: 0px;
+    background: #FFFFFF;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+.orderIcon{
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+.allTimeText{
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.52px;
+    text-align: left;
+    color: #BEC0CA;
+    /* margin-right: 10px; */
+}
+.allTimeText svg{
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.52px;
+    text-align: left;
+    color: #BEC0CA;
+    margin-left: 10px;
+}
+.orderText{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18.23px;
+    text-align: left;
+    color: #8B8D97;
+}
+.ammountText{
+    font-family: DM Sans;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26.04px;
+    text-align: left;
+    color: #45464E;
+
+}
+.firstOrder{
+    width: 15%;
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: left;
+    text-transform: capitalize;
+    color: #52526C;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* flex-direction: row; */
+}
+.secondDate{
+    width: 35%;
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: left;
+    text-transform: capitalize;
+    color: #52526CCC;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* flex-direction: row; */
+}
+.thirdCustomer{
+    width: 25%;
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: left;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #52526CCC;
+    /* flex-direction: row; */
+}
+.thirdCustomer span{
+    /* width: 35%; */
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    /* text-align: left; */
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #52526CCC;
+    /* flex-direction: row; */
+}
+.fourthEmail{
+    width: 30%;
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: left;
+    text-transform: capitalize;
+    display: flex;
+    color: #52526CCC;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* flex-direction: row; */
+}
+.fifthPhone{
+    width: 35%;
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: left;
+    text-transform: capitalize;
+    color: #52526CCC;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* flex-direction: row; */
+}
+.eightPrize{
+    width: 20%;
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: left;
+    text-transform: capitalize;
+    color: #52526CCC;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* flex-direction: row; */
+}
+.sixthStatus{
+    width: 20%;
+    font-family: DM Sans;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-transform: capitalize;
+    align-content: center;
+    color: #52526CCC;
+}
+.seventhOption {
+    width: 10%;
+    font-family: DM Sans;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18.23px;
+    letter-spacing: 0.30000001192092896px;
+    color: #52526CCC;
+    /* justify-content: center; */
+    text-align: center;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+.informationText{
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+    color: #131523;
+}
+.lineStyle{
+    width: 80%;
+    height: 0px;
+    gap: 0px;
+    border: 3px;
+    opacity: 0px;
+    border: 1px solid #E5E7E8;
+    margin-top: 10px;
+}
+.inputbox {
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+    border: 1px solid #D9E1EC;
+    background: #FFF;
+    width: 100%;
+    height: 48px;
+    border-radius: 7px;
+    opacity: 0px;
+}
+
+.inputbox input {
+    color: #333;
+    font-family: DM Sans;
+    font-size: 14px;
+    border: none;
+    outline: none;
+}
+.label{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    color: #5A607F;
+}
+.formselect svg {
+    width: 17px;
+    height: 17px;
+    margin-right: 15px;
+}
+.formselect{
+    border-radius: 7px;
+}
+.ImageUpload{
+    width: 460px;
+    height: 168px;
+    top: 23.92px;
+    gap: 0px;
+    border: 1px;
+    opacity: 0px;
+    background: #FFFFFF;
+    border: 1px dashed #A1A7C4;
+    border-radius: 7px;
+}
+.imageView{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-self: center;
+    margin-top: 40px;
+}
+.uploadBox{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    /* margin-right: 10px; */
+}
+.uploadText{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18.23px;
+    text-align: center;
+    color: #5570F1;
+    padding-left: 10px;
+
+}
+.pixel{
+    font-family: Public Sans;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    color: #626C70;
+}
+.AddNewVendor{
+    width: 100%;
+    height: fit-content;
+    gap: 0px;
+    border-radius: 10px;
+    opacity: 0px;
+    background: #FFFFFF;
+    padding: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+.profilVeiw{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+}
+.tabView{
+    width: 50%;
+}
+.privacyPolicyCard{
+    width: 98%;
+    height: 100%;
+    gap: 0px;
+    opacity: 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 4px 0px #15223214;
+    border-radius: 5px;
+    padding: 20px;
+    margin-left: 20px;
+}
+.descText{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: #131523;
+    /* padding-top: 10px; */
+}
+.noteStyle{
+    width: 100%;
+    height: 72px;
+    gap: 0px;
+    opacity: 0px;
+    background: #F5F6FA;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding-left: 20px;
+    margin-top: 20px;
+}
+.noteStyle h6{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: #5A607F;
+
+}
+.noteStyle p{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: #131523;
+
+}
+.borderBottom{
+    width: 100%;
+    height: 0px;
+    gap: 0px;
+    border: 3px;
+    opacity: 0px;
+    border: 1px solid #E6E9F4;
+    margin-top: 30px;
+
+}
+.startingPoint{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: left;
+    color: #131523;
+    margin-top: 30px;
+}
+.numStyle{
+    width: 40px;
+    height: 40px;
+    gap: 0px;
+    opacity: 0px;
+    border-radius: 20px;
+    background: #F5F6FA;
+    text-align: center;
+    border: 1px solid #F5F6FA;
+    padding: 10px 15px 10px 15px;
+    /* justify-content: center;
+    align-items:center ; */
 }

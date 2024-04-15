@@ -26,10 +26,10 @@
     letter-spacing: 0.005em;
     text-align: center;
     color: #5A607F;
-    padding-left: 5px;
+    padding-left: 15px;
 }
 .header {
-    width: 601px;
+    width: 100%;
     height: 42px;
     padding: 12px 29px 12px 29px;
     gap: 60px;
@@ -49,7 +49,7 @@
     color: #131523;
 }
 .listContainer{
-    width: 660px;
+    width: 60%;
     height: fit-content;
     gap: 0px;
     background: #FFFFFF;
@@ -58,7 +58,9 @@
     border-radius: 5px;
     margin-top: 20px;
 }
-
+.sideContainer{
+    width: 38%;
+}
 .info {
     padding: 16px 18px;
     background-color: #FFF;
@@ -85,10 +87,12 @@
     text-transform: capitalize;
     align-items: center;
     display: flex;
+    color: #52526CCC;
+    justify-content: center;
 }
 
 .second {
-    width: 40%;
+    width: 45%;
     font-family: DM Sans;
     font-size: 14px;
     font-weight: 500;
@@ -99,6 +103,7 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    color: #52526CCC;
 }
 
 .headerText {
@@ -120,7 +125,12 @@
     line-height: 18.23px;
     letter-spacing: 0.30000001192092896px;
     text-transform: capitalize;
-    
+    color: #52526CCC;
+    text-align: center;
+    text-transform: capitalize;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 .option{
     /* text-align: center; */
@@ -142,6 +152,9 @@
     display: flex;
     justify-content: center;
     text-transform: capitalize;
+    align-content: center;
+    color: #52526CCC;
+
 }
 .entryView{
     flex-direction: row;
@@ -184,7 +197,7 @@
     margin-left: 10px;
 }
 .visibilityContainer{
-    width: 330px;
+    width: 100%;
     height: fit-content;
     gap: 0px;
     background: #FFFFFF;
@@ -195,7 +208,7 @@
 
 }
 .newContainer{
-    width: 330px;
+    width: 100%;
     height: fit-content;
     gap: 0px;
     background: #FFF2C5;

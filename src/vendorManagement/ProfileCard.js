@@ -21,7 +21,7 @@ const ProfileCard = () => {
     ]
   return (
     <div className={Styles.profileCard}>
-        <div>
+        <div className={Styles.bottomContainer} style={{marginRight:20}}>
             <div className={Styles.profileContainer}>
                 <div className={Styles.bgimg}>
                     <img src='/BackgroundImage.png'/>
@@ -34,6 +34,20 @@ const ProfileCard = () => {
                 </div>
                 <div className={Styles.textCate}>
                     Healthcare (MBBS)
+                </div>
+                <div className={Styles.identityCard}>
+                    <div className={Styles.followerStyle}>
+                        <h6>100</h6>
+                        <p>Followers</p>
+                    </div>
+                    <div className={Styles.followerStyle}>
+                        <h6>500</h6>
+                        <p>Orders</p>
+                    </div>
+                    <div className={Styles.followerStyle}>
+                        <h6>INR 5k</h6>
+                        <p>Paid Amount</p>
+                    </div>
                 </div>
             </div>
             <div className={Styles.profileContainer} style={{marginTop:20}}>
@@ -57,7 +71,7 @@ const ProfileCard = () => {
                 
             </div>
         </div>
-        <div className={Styles.profileContainer}>
+        <div className={Styles.profileContainer} >
                 <div className={Styles.kycText} style={{marginTop:10,textAlign:'left'}}>
                     KYC documents
                 </div>
@@ -119,7 +133,7 @@ const ProfileCard = () => {
                         <p className={Styles.descText}>INR 250</p>
                     </div>
                 </div>   
-            </div>
+        </div>
     </div>
   )
 }

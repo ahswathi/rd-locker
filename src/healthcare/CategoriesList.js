@@ -107,15 +107,14 @@ const CategoriesList = () => {
                 <div className={styles.info}>
                   <div className={styles.first}>{(page - 1) * limit + index + 1}</div>
                   <div className={styles.second}>{item.subcatName}</div>
-                  <div className={styles.third} style={{
-                    backgroundColor: item.status === 'Active' ? "#1A98821A" : '#F439391A'
-
-
-                  }}
+                  <div className={styles.third} 
+                     style={{
+                          backgroundColor: item.status === 'Active' ? "#1A98821A" : '#F439391A'
+                      }}
                     >
                         <span 
                             style={{
-                                width:'25%',
+                                // width:'25%',
                                 fontFamily: 'DM Sans',
                                 fontSize: 14,
                                 fontWeight: '400',

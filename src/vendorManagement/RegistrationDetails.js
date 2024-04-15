@@ -69,6 +69,8 @@ const RegistrationDetails = () => {
         <Modal isOpen={isModalOpen} onClose={closeModal}>
             <VendorRejection
               onClose={closeModal}
+              heading={'Vendor Rejection'}
+              label={'Reason for Rejection'}
             />
         </Modal>
     </div>

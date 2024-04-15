@@ -142,7 +142,7 @@ const VendorsCard = ({
         })}
         
             <div className={styles.entryView}>
-                    <div>Showing {start} to {end} of {totalItems} entries</div>
+                    <div className={styles.showingText}>Showing {start} to {end} of {totalItems} entries</div>
                     <div className={styles.leftright}>
                         
                         <Left handleClick={decrement} />

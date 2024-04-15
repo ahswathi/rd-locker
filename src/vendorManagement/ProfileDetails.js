@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../categories/category.module.css';
 import Styles from '../vendorManagement/vendor.module.css';
 import { Button } from '@mui/material';
@@ -8,9 +8,33 @@ import * as yup from "yup";
 import ProfileCard from './ProfileCard';
 import Modal from '../component/Modal';
 import VendorRejection from './VendorRejection';
+import SwitchTab from '../component/SwitchTab';
+import { BlockToggle, ToggleButton, ToggleButton1 } from '../Svg';
+import OrderInfo from './OrderInfo';
+import { useLocation } from 'react-router-dom';
 
 const ProfileDetails = () => {
+    const location = useLocation();
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [value, setValue] = useState([
+        { val: 'Profile Info', id: 0 },
+        { val: 'Orders Info', id: 1 },
+    ]);
+    const [selected, setSelected] = useState(0);
+    const [search, setSearch] = useState('');
+    const [toggleButton, setToggleButton] = useState('')
+    const toggleBlock = location.pathname.split('/')[1];
+    const changeID = (id) => {
+        setSelected(id.id);
+        // setValue(data)
+    };
+    useEffect(() => {
+        setSelected(selected)
+    },[])
+    useEffect(() => {
+        setToggleButton(toggleBlock)
+    }, [toggleBlock])
+
     const openModal = () => {
         setIsModalOpen(true);
     };
@@ -37,7 +61,7 @@ const ProfileDetails = () => {
         <div className={styles.container}>
             <div>
                 <div>
-                    <h2 className={styles.categoryText}>KYC Approvals</h2>
+                    <h2 className={styles.categoryText}>Vendors Profile</h2>
                 </div>
                 <span className={styles.home}>
                     home 
@@ -54,21 +78,40 @@ const ProfileDetails = () => {
             <div className={Styles.kycText}>
                 Deeksha KYC details
             </div>
+            <div>
+                <SwitchTab
+                    value={value}
+                    selected={selected}
+                    onChange={(id) => changeID(id)}
+                />
+            </div>
             <div className={styles.buttons}>
-                <div>
-                    <Button sx={delet} onClick={openModal} variant="contained">Reject</Button>
+                <div className={Styles.blockText}>
+                    Block
                 </div>
-                <div>
-                    <Button sx={accept} onClick={handleSubmit} variant="contained">Accept</Button>
+                <div style={{marginLeft:10}}>
+                    {toggleButton ? (
+                        <div onClick={openModal}>
+                            <ToggleButton1/>
+                        </div>
+                    ) : 
+                        <div >
+                            <BlockToggle/>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
         <div>
+            {selected === 0 ? (
             <ProfileCard/>
+            ) : <OrderInfo/>}
         </div>
         <Modal isOpen={isModalOpen} onClose={closeModal}>
             <VendorRejection
               onClose={closeModal}
+              heading={'Block Vendor'}
+              label={'Reason for Blocking'}
             />
         </Modal>
     </div>

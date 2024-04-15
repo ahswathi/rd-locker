@@ -183,5 +183,46 @@ export const apply = {
     "&:hover": {
         background: '#5570F1'
     },
+    marginTop:'30px'
+}
+export const Apply = {
+    width: '150px',
+    height: '36px',
+    padding: '17px 16px 17px 16px',
+    gap: '10px',
+    borderRadius: '12px',
+
+    background: '#5570F1',
+    color: '#FFFFFF',
+    textTransform: 'none',
+    fontSize: '14px',
+    fontWeight: '400',
+    lineHeight: '24px', /* 18.2px */
+    overflow: 'hidden',
+    fontFamily:'DM Sans',
+    "&:hover": {
+        background:'#5570F1'
+    },
+    marginTop:'30px'
+}
+export const Reset = {
+    width: '150px',
+    height: '36px',
+    padding: '17px 16px 17px 16px',
+    gap: '10px',
+    borderRadius: '12px',
+    background: '#DBDADE',
+    color: '#000',
+    textTransform: 'none',
+    fontSize: '14px',
+    fontWeight: '400',
+    lineHeight: '24px', /* 18.2px */
+    overflow: 'hidden',
+    fontFamily:'DM Sans',
+    "&:hover": {
+        background:'#5570F1'
+    },
+    marginTop:'30px',
+    marginRight:'10px',
     marginTop: '30px'
 }

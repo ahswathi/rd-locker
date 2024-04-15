@@ -25,7 +25,7 @@
 .buttonStyle {
     width: 147px;
     height: 44px;
-    padding-left: 15px;
+    padding-left: 5px;
     /* gap: 4px; */
     border-radius: 8px;
     background: #1E5EFF;
@@ -67,10 +67,13 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 20px;
-    box-shadow: 10px#0000001B;
+    /* margin-top: 20px; */
+    /* box-shadow: 10px#0000001B; */
     padding-left: 10px;
     padding-right: 10px;
+    border: 1px solid #E0E2E7;
+    box-shadow: 0px 4px 10px 0px #0000001A;
+
 }
 
 .active {
@@ -102,6 +105,25 @@
     color: #FFFFFF;
 }
 
+.activeVer{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    color: #FFFFFF;
+}
+.inActiveVer{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+    color: #131523;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
 .inActiveText {
     font-family: Public Sans;
     font-size: 14px;
@@ -149,6 +171,15 @@
     flex-direction: row;
     align-self: center;
     display: flex;
+}
+.filter span{
+    font-family: Public Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.005em;
+    text-align: left;
+    color: #667085;
 }
 
 .mainContainer {

@@ -28,7 +28,7 @@ const Filter = ({onClose}) => {
     <div className={Styles.addNewContainer}>
         <div className={Styles.notification}>
             <div className={Styles.notifText}>
-                Delete Category
+                Filter
             </div>
             <div onClick={onClose}>
                 <img src='/cross.png'/>
