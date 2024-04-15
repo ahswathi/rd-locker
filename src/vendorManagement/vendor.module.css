@@ -439,9 +439,10 @@
     display: flex;
     justify-content: flex-start;
     /* margin-left: 10px; */
+    width: 80%;
 }
 .orderCard{
-    width: 365px;
+    width: 50%;
     height: 145px;
     padding: 10px 15px 15px 15px;
     gap: 10px;
@@ -452,7 +453,7 @@
     margin-right: 10px;
 }
 .ammountCard{
-    width: 239px;
+    width: 30%;
     height: 145px;
     padding: 10px 15px 15px 15px;
     gap: 10px;
