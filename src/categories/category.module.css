@@ -1,32 +1,33 @@
-.container{
+.container {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
 }
-.export{
+
+
+.export {
     width: 99px;
     height: 44px;
     /* padding: 10px 14px 10px 14px; */
     gap: 8px;
     border-radius: 8px;
-    opacity: 0px;
     background: #FFFFFF;
     border: 1px solid #E0E2E7;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     align-self: center;
-    display: flex; 
+    display: flex;
     color: #1E5EFF;
 }
-.buttonStyle{
+
+.buttonStyle {
     width: 147px;
     height: 44px;
     padding-left: 15px;
     /* gap: 4px; */
     border-radius: 8px;
-    opacity: 0px;
     background: #1E5EFF;
     justify-content: center;
     align-items: center;
@@ -34,7 +35,8 @@
     display: flex;
     flex-direction: row;
 }
-.categoryText{
+
+.categoryText {
     font-family: DM Sans;
     font-size: 20px;
     font-weight: 500;
@@ -43,7 +45,8 @@
     color: #1D1F2C;
 
 }
-.addcategoryText{
+
+.addcategoryText {
     font-family: DM Sans;
     font-size: 14px;
     font-weight: 700;
@@ -53,12 +56,12 @@
     color: #ffffff;
     padding-left: 5px;
 }
-.tabView{
+
+.tabView {
     width: fit-content;
     height: 52px;
     gap: 20px;
     border-radius: 8px;
-    opacity: 0px;
     background: #FFFFFF;
     flex-direction: row;
     display: flex;
@@ -72,24 +75,27 @@
     box-shadow: 0px 4px 10px 0px #0000001A;
 
 }
-.active{/*  width: 158px; */
+
+.active {
+    /*  width: 158px; */
     padding: 0px 20px;
     height: 38px;
     gap: 8px;
     border-radius: 6px;
-    opacity: 0px;
     background: #1E5EFF;
     justify-content: center;
     align-content: center;
 
 }
-.inActive{
+
+.inActive {
     justify-content: center;
-    align-content: center; 
+    align-content: center;
     padding-left: 10px;
     padding-right: 10px;
 }
-.activeText{
+
+.activeText {
     font-family: Public Sans;
     font-size: 14px;
     font-weight: 500;
@@ -98,6 +104,7 @@
     text-align: center;
     color: #FFFFFF;
 }
+
 .activeVer{
     font-family: DM Sans;
     font-size: 14px;
@@ -117,7 +124,7 @@
     margin-left: 10px;
     margin-bottom: 10px;
 }
-.inActiveText{
+.inActiveText {
     font-family: Public Sans;
     font-size: 14px;
     font-weight: 500;
@@ -126,6 +133,7 @@
     text-align: center;
     color: #667085;
 }
+
 .search {
     border-radius: 7px;
     border: 1px solid #DFDFDF;
@@ -136,9 +144,10 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-top: 5px;
-    margin-right: 10px;
+    /* margin-top: 5px;
+    margin-right: 10px; */
 }
+
 .search input {
     outline: none;
     border: none;
@@ -148,13 +157,13 @@
     /* 128.571% */
     letter-spacing: 0.2px;
 }
-.filter{
+
+.filter {
     width: 99px;
     height: 44px;
     /* padding: 10px 14px 10px 14px; */
     gap: 8px;
     border-radius: 8px;
-    opacity: 0px;
     background: #FFFFFF;
     border: 1px solid #E0E2E7;
     justify-content: center;
@@ -163,17 +172,18 @@
     align-self: center;
     display: flex;
 }
-.mainContainer{
+
+.mainContainer {
     width: 980px;
     height: 596px;
     gap: 0px;
-    opacity: 0px;
     background: #FFFFFF;
     box-shadow: 0px 1px 4px 0px #15223214;
     border-radius: 8px;
     margin-top: 20px;
 }
-.image{
+
+.image {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -181,11 +191,13 @@
     justify-items: center;
     margin-top: 150px;
 }
-.img{
+
+.img {
     height: auto;
     width: auto;
 }
-.create{
+
+.create {
     font-family: Inter;
     font-size: 20px;
     font-weight: 700;
@@ -193,7 +205,8 @@
     text-align: center;
     color: #131523;
 }
-.noCategoryText{
+
+.noCategoryText {
     font-family: Inter;
     font-size: 16px;
     font-weight: 400;
@@ -201,17 +214,18 @@
     text-align: center;
     color: #5A607F;
 }
-.cardWrap{
+
+.cardWrap {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     width: fit-content;
 }
-.card{
+
+.card {
     width: 206px;
     height: 165px;
     gap: 0px;
-    opacity: 0px;
     background: #FFFFFF;
     box-shadow: 0px 1px 4px 0px #15223214;
     border-radius: 8px;
@@ -219,8 +233,9 @@
     margin-right: 25px;
     position: relative;
     align-content: center
-    /* transition: box-shadow 0.3s; */
+        /* transition: box-shadow 0.3s; */
 }
+
 .card:hover {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     background: #000000B2;
@@ -228,9 +243,9 @@
     height: 100px;
     gap: 0px;
     border-radius: 6px 6px 0px 0px;
-    opacity: 0px;
-    
+
 }
+
 .icons {
     position: absolute;
     /* top: 5px;
@@ -244,7 +259,6 @@
     /* padding: 11px 15px 11px 15px; */
     gap: 10px;
     border-radius: 4px;
-    opacity: 0px;
     background: #FFFFFF;
     justify-content: center;
     align-items: center;
@@ -254,18 +268,21 @@
     cursor: pointer;
     margin-bottom: 5px;
 }
-.cardImg{
+
+.cardImg {
     display: flex;
     justify-items: center;
     align-self: center;
     justify-content: center;
     margin-top: 10px;
 }
-.heading{
+
+.heading {
     padding-left: 20px;
     margin-top: 40px;
 }
-.heading h5{
+
+.heading h5 {
     font-family: DM Sans;
     font-size: 14px;
     font-weight: 500;
@@ -273,7 +290,8 @@
     text-align: left;
     color: #131523;
 }
-.subcategory{
+
+.subcategory {
     flex-direction: row;
     display: flex;
     justify-content: space-between;
@@ -281,7 +299,8 @@
     padding-right: 10px;
     /* margin-top: 10px; */
 }
-.subcategory h6{
+
+.subcategory h6 {
     font-family: DM Sans;
     font-size: 12px;
     font-weight: 400;
@@ -289,18 +308,19 @@
     text-align: left;
     color: #5A607F;
 }
-.activeView{
+
+.activeView {
     width: 56.98px;
     height: 22px;
     /* padding: 4px; */
     gap: 8px;
     border-radius: 10px;
-    opacity: 0px;
     background: #E9FAF7;
     justify-content: center;
     display: flex;
 }
-.activetext{
+
+.activetext {
     font-family: DM Sans;
     font-size: 12px;
     font-weight: 400;
@@ -308,7 +328,8 @@
     text-align: center;
     color: #1A9882;
 }
-.home{
+
+.home {
     font-family: 'Public Sans';
     font-size: 14px;
     font-weight: 500;
@@ -317,7 +338,8 @@
     text-align: left;
     color: #667085;
 }
-.home span{
+
+.home span {
     font-family: 'Public Sans';
     font-size: 14px;
     font-weight: 500;
@@ -326,21 +348,23 @@
     text-align: left;
     color: #1E5EFF;
 }
-.addNewContainer{
+
+.addNewContainer {
     width: fit-content;
     height: fit-content;
     padding: 10px;
     gap: 33px;
-    opacity: 0px;
     margin-right: 10px;
     background-color: #ffffff;
 }
-.toggleButton{
+
+.toggleButton {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
 }
-.toggleButton span{
+
+.toggleButton span {
     font-family: Inter;
     font-size: 16px;
     font-weight: 400;
@@ -348,10 +372,12 @@
     text-align: left;
     padding-top: 2px;
 }
-.form{
+
+.form {
     margin-top: 20px;
 }
-label{
+
+label {
     font-family: DM Sans;
     font-size: 14px;
     font-weight: 500;
@@ -361,6 +387,7 @@ label{
     margin-top: 20px;
 
 }
+
 .input {
     display: flex;
     padding: 12px 16px 12px 18px;
@@ -376,7 +403,8 @@ input {
     border: none;
     width: 100%;
 }
-.inputDesc{
+
+.inputDesc {
     /* display: flex; */
     padding: 12px 16px 12px 18px;
     border-radius: 4px;
@@ -387,6 +415,7 @@ input {
     width: 300px;
     height: 200px;
 }
+
 .buttons {
     display: flex;
     align-items: center;
@@ -415,7 +444,8 @@ input {
 .save:hover {
     background: #373535;
 }
-.desc{
+
+.desc {
     font-family: DM Sans;
     font-size: 14px;
     font-weight: 400;
@@ -425,12 +455,12 @@ input {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 .header {
     width: 970px;
     height: 42px;
     padding: 12px 29px 12px 29px;
     gap: 60px;
-    opacity: 0px;
     flex-direction: row;
     text-transform: uppercase;
     display: flex;
@@ -438,7 +468,8 @@ input {
     background: #F5F6F9;
     margin-top: 10px;
 }
-.subcatText{
+
+.subcatText {
     font-family: DM Sans;
     font-size: 16px;
     font-weight: 700;
@@ -446,11 +477,11 @@ input {
     text-align: left;
     color: #131523;
 }
-.listContainer{
+
+.listContainer {
     width: 1010px;
     height: fit-content;
     gap: 0px;
-    opacity: 0px;
     background: #FFFFFF;
     box-shadow: 0px 1px 4px 0px #15223214;
     padding: 20px;
@@ -523,6 +554,7 @@ input {
     text-align: center;
     text-transform: capitalize;
 }
+
 .fifth {
     width: 20%;
     font-family: DM Sans;
@@ -536,12 +568,14 @@ input {
     text-transform: capitalize;
     display: flex;
 }
-.option{
+
+.option {
     /* text-align: center; */
     flex-direction: row;
     display: flex;
     justify-content: center;
 }
+
 .third {
     width: 20%;
     font-family: DM Sans;
@@ -558,38 +592,42 @@ input {
     text-transform: capitalize;
     display: flex;
 }
-.entryView{
+
+.entryView {
     flex-direction: row;
     justify-content: space-between;
     display: flex;
     margin-top: 20px;
 }
-.leftright{
+
+.leftright {
     flex-direction: row;
     justify-content: center;
     display: flex;
     margin-right: 10px;
 }
-.onPage{
+
+.onPage {
     width: 40px;
     height: 40px;
     /* padding: 10px 0px 10px 0px; */
     gap: 10px;
     border-radius: 20px;
-    opacity: 0px;
     background: #005CE8;
     justify-content: center;
     display: flex;
     align-items: center;
     color: #FFFFFF;
 }
-.toggleButton{
+
+.toggleButton {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
     margin-top: 20px;
 }
-.toggleButton span{
+
+.toggleButton span {
     font-family: Inter;
     font-size: 16px;
     font-weight: 400;

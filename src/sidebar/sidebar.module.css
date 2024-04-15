@@ -1,15 +1,15 @@
 .sideMenuBar {
     display: flex;
     gap: 0;
-    justify-content: center;
     padding: 0;
-    width: 250px;
+    width: 265px;
     margin: 0;
     background-color: #fff;
     position: fixed;
     height: 100vh;
     overflow: hidden;
-    scrollbar-gutter: stable both-edges;
+    scrollbar-gutter: stable;
+    position: fixed;
     overflow-y: auto;
 }
 
@@ -39,17 +39,22 @@
 }
 
 .left {
-    /* position: fixed; */
-    /* top: 0;
-    left: 0; */
-    width: 250px;
+    width: 265px;
     background-color: #fff;
-    padding: 20px;
-    flex-wrap: wrap;
+    padding: 20px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-
-
+.logo {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: "Rubik", sans-serif;
+    font-size: 26px;
+    text-align: center;
+    color: rgba(47, 47, 59, 1);
+}
 
 .lineStyle {
     width: 211px;
@@ -58,9 +63,14 @@
     left: 25px;
     gap: 0px;
     border: 1px 0px 0px 0px;
-    opacity: 0px;
     border: 1px solid #0000001A;
-    margin-top: 30px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.main_title {
+    padding: 10px 26px;
 }
 
 .generalText {
@@ -86,58 +96,73 @@
 }
 
 .width {
-    display: flex;
-    justify-content: flex-start;
-    /* align-items: center; */
     margin: auto;
     width: 100%;
-}
-
-.menuStyle {
-    display: flex;
-    justify-content: space-between;
-    /* align-items: center; */
-    margin: auto;
-    width: 100%;
-}
-
-.menuActive {
-    background: #1E5EFF12;
-    width: 266px;
+    padding: 0 26px;
+    margin: 5px 0;
     height: 41px;
-    /* top: 312px; */
-    gap: 0px;
-    opacity: 0px;
     display: flex;
-    justify-content: center;
+    justify-content:space-between;
     align-items: center;
-    padding: 5px;
-    margin: auto;
-    width: 100%;
-    border-right-width: 10px;
-    border-right-color: #1E5EFF;
+    cursor: pointer;
 }
 
-/* .menuActive svg {
-    stroke: #1E5EFF;
-    padding: 16px 12px;
-    stroke-opacity: 0.56;
-} */
+.width:hover {
+    background-color: #1e5eff0b;
+}
+
+.width > div {
+    display: flex;
+    align-items: center;
+}
+
+.width.active {
+    background: #1E5EFF12;
+}
+
+.width.active::after {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 30px;
+    background: rgba(30, 94, 255, 1);
+    border-radius: 5px 0 0 5px;
+    position: absolute;
+    right: 0;
+}
+
 svg {
     cursor: pointer;
 }
 
-/* .menuStyle svg, .menuActive:hover svg{
-    stroke: #1E5EFF;
-    stroke-opacity: 1;
-} */
 .subpaths {
-    width: 90%;
+    width: 100%;
     margin: auto;
     display: flex;
     flex-direction: column;
-    margin-top: 7px;
     align-items: flex-start;
+    padding: 0 26px;
+    position: relative;
+}
+
+.vertical {
+    position: absolute;
+    display: block;
+    width: 2px;
+    background: rgba(82, 82, 108, 0.4);
+    height: 40px;
+    top: -15px;
+    left: 2px;
+}
+
+.horizontal {
+    position: absolute;
+    display: block;
+    width: 10px;
+    background: rgba(82, 82, 108, 0.4);
+    height: 2px;
+    top: 25px;
+    left: 2px;
 }
 
 .subpaths div {
@@ -150,14 +175,25 @@ svg {
     /* margin: 3px 0px; */
     color: rgba(10, 9, 9, 0.56);
     border-radius: 6px;
-    padding: 5px;
+    padding: 5px 25px;
     cursor: pointer;
-    /* padding-left: 20px; */
 }
 
 .submenu {
-    /* background: rgba(255, 255, 255, 0.25); */
     color: #1E5EFF !important;
+    position: relative;
+}
+
+.submenu .horizontal::before {
+    content: '';
+    display: block;
+    width: 7.5px !important;
+    height: 7.5px !important;
+    background: rgba(30, 94, 255, 1);
+    border-radius: 50%;
+    position: absolute;
+    top: -3px;
+    left: -3px;
 }
 
 .menuText {
@@ -168,5 +204,5 @@ svg {
     letter-spacing: 0.003em;
     text-align: left;
     color: #52526CCC;
-
+    position: relative;
 }

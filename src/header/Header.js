@@ -3,6 +3,7 @@ import Styles from '../header/header.module.css';
 import { useNavigate } from 'react-router-dom';
 import Modal from '../component/Modal';
 import Notifications from '../container/Notifications';
+import { ArrowDown, Notification, Setting } from '../Svg';
 
 const Header = ({ children }) => {
     const navigate = useNavigate();
@@ -20,16 +21,16 @@ const Header = ({ children }) => {
             <div className={Styles.headermenu}>
                 <div>
                     <p className={Styles.welcome}>
-                        welcome!
+                        Welcome!
                     </p>
                 </div>
                 <div>
                     <div className={Styles.menuStyle}>
-                        <div style={{ marginRight: 20, marginTop: 5 }} >
-                            <img src='/setting.png' />
+                        <div style={{ marginRight: 40, marginTop: 5 }} >
+                            <Setting />
                         </div>
-                        <div style={{ marginRight: 10, marginTop: 5 }} onClick={openModal}>
-                            <img src='/notification.png' />
+                        <div style={{ marginRight: 15, marginTop: 5 }} onClick={openModal}>
+                            <Notification />
                         </div>
                         <div>
                             <img src='/profilepic.png' />
@@ -42,7 +43,7 @@ const Header = ({ children }) => {
                                 <p className={Styles.admin}>
                                     Admin
                                 </p>
-                                <img src='/drop.png' style={{ width: 8, height: 4, marginLeft: 5, marginTop: 5 }} />
+                                <ArrowDown />
                             </div>
                         </div>
                     </div>
