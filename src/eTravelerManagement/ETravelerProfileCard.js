@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Modal from '../component/Modal';
 import DeleteCategory from '../categories/DeleteCategory';
 
-const AllVendors = () => {
+const ETravelerCard = () => {
     const vendorData = [
         {
             id:1,
@@ -66,10 +66,9 @@ const AllVendors = () => {
         <div className={styles.listContainer}>
             <div className={styles.header}>
                 <div className={styles.first}>Sl No <FilterIcon/></div>
-                <div className={styles.third}>Vendor Name <FilterIcon/></div>
+                <div className={styles.third}>ETraveller Name <FilterIcon/></div>
                 <div className={styles.second}>Email Id <FilterIcon/></div>
                 <div className={styles.fourth}>Phone Number <FilterIcon/></div>
-                <div className={styles.fifth}>Category (Subactegory) <FilterIcon/></div>
                 <div className={styles.sixth}>Status <FilterIcon/></div>
                 <div className={styles.seventh}>Options</div>
             </div>
@@ -83,7 +82,6 @@ const AllVendors = () => {
                         </div>
                         <div className={styles.second}>{item.emailId}</div>
                         <div className={styles.fourth}>{item.phoneNumber}</div>
-                        <div className={styles.fifth}>{item.categoryName}</div>
                         <div className={styles.status}
                             style={{
                                 backgroundColor: item.status === 'Active' ? "#1A98821A" : '#F439391A'
@@ -101,7 +99,7 @@ const AllVendors = () => {
                                 }}
                             >{item.status}</span></div>
                         <div className={styles.seventh}>
-                        <div style={{marginLeft:20}} onClick={() => navigate('/vendorManagement/VendorsProfile/ProfileDetails')}>
+                        <div style={{marginLeft:20}} onClick={() => navigate('/eTravelerManagement/ETravellerProfile/ProfileInfo')}>
                             <View/>
                         </div>
                         <div style={{marginLeft:20}} onClick={openDeleteModal}>
@@ -133,4 +131,4 @@ const AllVendors = () => {
     )
 }
 
-export default AllVendors;
+export default ETravelerCard;

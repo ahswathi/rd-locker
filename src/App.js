@@ -22,6 +22,8 @@ import ForgotPassword from './login/ForgotPassword';
 import ConfirmEmail from './login/ConfimEmail';
 import ResendMail from './login/ResendMail';
 import ResetPassword from './login/ResetPassword';
+import ETravellerProfile from './eTravelerManagement/ETravellerProfile';
+import ProfileInfo from './eTravelerManagement/ProfileInfo';
 
 function App() {
   return (
@@ -43,6 +45,8 @@ function App() {
           <Route path='/vendorManagement/KYCApproval/RegistrationDetails' element={<RegistrationDetails />} />
           <Route path='/vendorManagement/VendorsProfile/ProfileDetails' element={<ProfileDetails />} />
           <Route path='/vendorManagement/VendorsProfile/AddNewVendor' element={<AddNewVendor />} />
+          <Route path='/eTravelerManagement/ETravellerProfile' element={<ETravellerProfile />} />
+          <Route path='/eTravelerManagement/ETravellerProfile/ProfileInfo' element={<ProfileInfo />} />
           <Route path='/accounts' element={<Accounts />} />
           <Route path='/transactions' element={<Transactions />} />
           <Route path='/receipt' element={<Receipt />} />

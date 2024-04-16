@@ -49,15 +49,11 @@
     height: 48px;
     top: 332px;
     left: 177px;
-    gap: 0px;
-    opacity: 0px;
     color: #64748B;
 }
 .login {
     width: 650px;
     height: 570px;
-    gap: 0px;
-    opacity: 0px;
     background: #FFFFFF;
     box-shadow: 4px 4px 4px 0px #00000014;
     border-radius: 5px;
@@ -102,7 +98,6 @@
     width: 420px;
     height: 48px;
     border-radius: 7px;
-    opacity: 0px;
     justify-content: center;
     color: #A1A7C4;
 }
@@ -119,9 +114,7 @@
     display: flex;
     width: 420px;
     height: 48px;
-    gap: 0px;
     border-radius: 7px;
-    opacity: 0px;
     justify-content: center;
     align-items: center;
     background: #1E5EFF;
@@ -167,9 +160,7 @@ button:hover {
 .backToSign{
     width: 420px;
     height: 48px;
-    gap: 0px;
     border: 1px;
-    opacity: 0px;
     background: #FFFFFF;
     border: 1px solid #D7DBEC;
     margin-top: 30px;

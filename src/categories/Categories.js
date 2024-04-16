@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '../categories/category.module.css';
 import Styles from '../component/Style.module.css';
 import SwitchTab from '../component/SwitchTab';
-import { Plus, Search } from '../Svg';
+import { Filter, Plus, Search } from '../Svg';
 import Cards from './Cards';
 import { useNavigate } from 'react-router-dom';
 import Modal from '../component/Modal';
@@ -145,7 +145,7 @@ const Categories = () => {
                             <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Search by name...' />
                         </div>
                         <div className={styles.filter}>
-                            <img src='/filter.png' /> <span>Filter</span>
+                            <Filter/> <span>Filter</span>
                         </div>
                     </div>
                 </div>

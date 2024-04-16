@@ -111,11 +111,11 @@ const VendorsCard = ({
     
         <div className={styles.listContainer}>
             <div className={styles.header}>
-            <div className={styles.first}>Sl No <FilterIcon/></div>
-            <div className={styles.second}>Date & Time <FilterIcon/></div>
-            <div className={styles.third}>Vendor name <FilterIcon/></div>
-            <div className={styles.fourth}>Email Id <FilterIcon/></div>
-            <div className={styles.fifth}>Phone number <FilterIcon/></div>
+            <div className={styles.first}>SlNo <FilterIcon/></div>
+            <div className={styles.second}>Date&Time <FilterIcon/></div>
+            <div className={styles.third}>VendorName <FilterIcon/></div>
+            <div className={styles.fourth}>EmailId <FilterIcon/></div>
+            <div className={styles.fifth}>PhoneNumber <FilterIcon/></div>
             <div className={styles.sixth}>Status <FilterIcon/></div>
             <div className={styles.seventh}>Options</div>
         </div>

@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
+import SwitchTab from '../component/SwitchTab';
+import { Filter, Search } from '../Svg';
+import VendorsCard from '../vendorManagement/VendorsCard';
 import styles from '../categories/category.module.css';
 import Styles from '../component/Style.module.css';
-import SwitchTab from '../component/SwitchTab';
-import { Filter, Plus, Search } from '../Svg';
-import Modal from '../component/Modal';
-import DeleteCategory from '../categories/DeleteCategory';
-import VendorsCard from './VendorsCard';
+import ETravelerCard from './ETravelerProfileCard';
 
-const KYCApproval = () => {
-
-    
+const ETravellerProfile = () => {
     const [value, setValue] = useState([
-        { val: 'Accepted vendors', id: 0 },
-        { val: 'Rejected vendors', id: 1 },
-        { val: 'New requests', id: 2 },
+        { val: 'All E-traveller', id: 0 },
+        { val: 'Trash', id: 1 },
     ]);
     const [selected, setSelected] = useState(0);
     const [search, setSearch] = useState('')
@@ -24,28 +20,22 @@ const KYCApproval = () => {
     useEffect(() => {
         setSelected(selected)
     },[])
-    
+
   return (
     <div style={{padding:20}}>
         <div className={styles.container}>
             <div>
                 <div>
-                    <h2 className={styles.categoryText}>KYC Approvals</h2>
+                    <h2 className={styles.categoryText}>E-traveller Profiles</h2>
                 </div>
                 <span className={styles.home}>
-                    home <img src='/tiangle.png' style={{marginLeft:10}}/> <span style={{ color: 'var(--Gray-900, #1E5EFF)',marginLeft:10 }}>KYC approvals</span>
+                    home <img src='/tiangle.png' style={{marginLeft:10}}/> <span style={{ color: 'var(--Gray-900, #1E5EFF)',marginLeft:10 }}>All E-traveller</span>
                 </span>
-            </div>
-            <div className={styles.buttonStyle}>
-                    <Plus/>
-                    <div className={styles.addcategoryText}>
-                        Add Vendor
-                    </div>
             </div>
         </div>
         <div className={styles.container}>
             <div style={{marginTop:20}}>
-                <SwitchTab 
+                <SwitchTab
                     value={value}
                     selected={selected}
                     onChange={(id) => changeID(id)}
@@ -65,7 +55,7 @@ const KYCApproval = () => {
         </div>
         <div>
             {selected === 0 ? (
-            <VendorsCard/>
+            <ETravelerCard/>
             ) : (selected === 1 ? (
                 <VendorsCard/>
             ) : <VendorsCard/>) 
@@ -75,4 +65,4 @@ const KYCApproval = () => {
   )
 }
 
-export default KYCApproval
+export default ETravellerProfile

@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import styles from '../categories/category.module.css';
 import { Delete, Edit, View } from '../Svg';
-import EditCategory from './EditCategory';
-import Modal from '../component/Modal';
-import DeleteCategory from './DeleteCategory';
 import { useNavigate } from 'react-router-dom';
 
 const Cards = ({

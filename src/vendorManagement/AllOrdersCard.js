@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styles from '../vendorManagement/vendor.module.css';
 import Styles from '../categories/category.module.css';
-import { Delete, FilterIcon, Left, Right, Search, View } from '../Svg';
+import { Filter, FilterIcon, Left, Right, Search, View } from '../Svg';
 import { useNavigate } from 'react-router-dom';
-import { Modal, Popover } from '@mui/material';
+import { Popover } from '@mui/material';
 import FilterWithDate from '../component/FilterWithDate';
 
 
@@ -145,8 +145,8 @@ const AllOrdersCard = () => {
                         <Search /> 
                         <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Search by name...' />
                     </div>
-                    <div className={Styles.filter} onClick={handleClick}>
-                        <img src='/filter.png'/> <span>Filter</span>
+                    <div className={Styles.filter} onClick={handleClick} style={{marginLeft:20}}>
+                        <Filter/> <span>Filter</span>
                     </div>
                     <Popover
                         id={id}
@@ -169,12 +169,12 @@ const AllOrdersCard = () => {
                 </div>
             </div>
             <div className={styles.header}>
-                <div className={styles.firstOrder}>Order Id<FilterIcon/></div>
+                <div className={styles.firstOrder}>OrderId<FilterIcon/></div>
                 <div className={styles.secondDate}>Date&Time<FilterIcon/></div>
-                <div className={styles.thirdCustomer}>Customer Name<FilterIcon/></div>
-                <div className={styles.fourthEmail}>Email Id<FilterIcon/></div>
-                <div className={styles.fifthPhone}>Phone Number<FilterIcon/></div>
-                <div className={styles.eightPrize}>Order Price<FilterIcon/></div>
+                <div className={styles.thirdCustomer}>CustomerName<FilterIcon/></div>
+                <div className={styles.fourthEmail}>EmailId<FilterIcon/></div>
+                <div className={styles.fifthPhone}>PhoneNumber<FilterIcon/></div>
+                <div className={styles.eightPrize}>OrderPrice<FilterIcon/></div>
                 <div className={styles.sixthStatus}>Status<FilterIcon/></div>
                 <div className={styles.seventhOption}>Options</div>
             </div>

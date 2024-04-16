@@ -108,17 +108,37 @@ const Sidebar = ({ children }) => {
                             </div>
                         </div> : ''
                 }
-                <div className={Styles.width}>
+                <div onClick={() => navigate('/eTravelerManagement')} className={path === 'eTravelerManagement' ? `${Styles.width} ${Styles.active}` : Styles.width}>
                     <div>
-                        <Document />
+                        {path === 'eTravelerManagement' ?
+                            (
+                                <DocumentActive />
+                            )
+                            :
+                            <Document />
+                        }
                         <p className={Styles.dashboardText}>
-                            E-traveler Management
+                            E-Traveller Management 
                         </p>
                     </div>
-                    <div>
-                        <DropUp />
-                    </div>
+                    {path === 'eTravelerManagement' ? (
+                        <div>
+                            <DropDown />
+                        </div>
+                    ) : <DropUp />}
                 </div>
+                {
+                    path === 'eTravelerManagement' ?
+                        <div className={Styles.subpaths}>
+                            <div onClick={() => navigate('/eTravelerManagement/ETravellerProfile')} className={subpath === 'ETravellerProfile' ? Styles.submenu : Styles.menuText}>
+                                <div className={Styles.lines}>
+                                    <span className={Styles.vertical} style={{ top: "-5px", height: 30 }}></span>
+                                    <span className={Styles.horizontal}></span>
+                                </div>
+                                ETraveller Profile
+                            </div> 
+                        </div> : ''
+                }
                 <div className={Styles.width}>
                     <div>
                         <Document />
