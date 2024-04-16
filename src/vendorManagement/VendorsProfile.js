@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '../categories/category.module.css';
 import Styles from '../component/Style.module.css';
 import SwitchTab from '../component/SwitchTab';
-import { Search } from '../Svg';
+import { Plus, Search } from '../Svg';
 import VendorsCard from './VendorsCard';
 import Filter from '../component/Filter';
 import { Modal, Popover } from '@mui/material';
@@ -54,13 +54,10 @@ const VendorsProfile = () => {
                 </span>
             </div>
             <div className={styles.buttonStyle} onClick={() => navigate('/vendorManagement/VendorsProfile/AddNewVendor')}>
-                <div className={Styles.width}>
-                    <img src='/plus.png' style={{width:16,height:16}}/>
+                <Plus/>
                     <div className={styles.addcategoryText}>
                         Add Vendor
                     </div>
-                </div>
-                
             </div>
         </div>
         <div className={styles.container}>

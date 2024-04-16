@@ -1,8 +1,3 @@
-/* div {
-    overflow-y: hidden; 
-    overflow-x: hidden;
-  } */
-
 .mainContainer {
     width: 100%;
     display: flex;
@@ -10,26 +5,18 @@
     position: relative;
     justify-content: flex-start;
 }
-
 .lineStyle {
     width: 100%;
-    height: 0px;
-    top: 132px;
-    left: 25px;
-    gap: 0px;
-    border: 1px 0px 0px 0px;
+    border: 1px;
     border: 1px solid #0000001A;
     margin-top: 30px;
 }
-
 .menuStyle {
     display: flex;
     justify-content: space-between;
-    /* align-items: center; */
     margin: auto;
     width: 100%;
 }
-
 .generalText {
     font-family: Rubik;
     font-size: 14px;
@@ -40,7 +27,6 @@
     color: #52526C;
     text-transform: uppercase;
 }
-
 .dashboardText {
     font-family: DM Sans;
     font-size: 14px;
@@ -54,43 +40,34 @@
 .notification {
     flex-direction: row;
     justify-content: space-between;
-    /* align-items: center; */
     display: flex;
 }
-
 .notifText {
-    /* font-family: Inter; */
+    font-family: Inter;
     font-size: 18px;
     font-weight: 500;
     line-height: 21.78px;
     text-align: left;
     color: #000000;
 }
-
 .markAllRead {
     margin-top: 10px;
-    /* flex-direction: row; */
     justify-items: center;
     display: flex;
     align-items: center;
     align-self: center;
     justify-content: center;
     justify-self: center;
-    /* margin-left: 120px; */
 }
-
 .notifCard {
     border-radius: 4px;
     padding: 10px;
-    /* padding-left: 10px; */
-    /* padding-right: 10px; */
     width: 451px;
     height: fit-content;
     border: 1px solid #ccc;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
 .messageText {
     font-family: DM Sans;
     font-size: 14px;
@@ -98,9 +75,7 @@
     line-height: 21px;
     text-align: left;
     color: #191B1C;
-
 }
-
 .hourText {
     font-family: DM Sans;
     font-size: 12px;
@@ -108,15 +83,13 @@
     line-height: 16.8px;
     text-align: left;
     color: #AFAFAF;
-
 }
-
 .paymentBg {
     width: 319px;
     height: 37px;
     padding-left: 8px;
     gap: 10px;
-    border-radius: 4px 0px 0px 0px;
+    border-radius: 4px;
     border: 2px;
     background: #F9F9F9;
     border-left: 2px solid #000000;
@@ -125,11 +98,9 @@
     justify-content: center;
     align-content: center;
 }
-
 .decline {
     width: 85px;
     height: 33px;
-    /* padding-top: 15px; */
     gap: 4px;
     border-radius: 4px;
     border: 1px;
@@ -140,7 +111,6 @@
     display: flex;
     align-items: center;
 }
-
 .accept {
     width: 85px;
     height: 33px;
@@ -156,7 +126,6 @@
     align-items: center;
     margin-left: 10px;
 }
-
 .declineText {
     font-family: Inter;
     font-size: 12px;
@@ -164,9 +133,7 @@
     line-height: 16.8px;
     text-align: center;
     color: #000000;
-
 }
-
 .acceptText {
     font-family: Inter;
     font-size: 12px;
@@ -175,10 +142,7 @@
     text-align: center;
     color: #ffffff;
 }
-
 .viewStyle {
-    /* width: 53px; */
-    /* height: 33px; */
     padding: 8px 12px 8px 12px;
     gap: 4px;
     border-radius: 4px;
@@ -186,9 +150,7 @@
     border: 1px solid #000000;
     background-color: #FFFFFF;
     justify-content: center;
-    /* margin-top: 5px; */
 }
-
 .card {
     border-radius: 15px;
     padding-top: 10px;
@@ -203,13 +165,11 @@
     background-size: cover;
     box-shadow: 0px 9px 20px 0px rgba(46, 35, 94, 0.07);
 }
-
 .logo {
     width: 130px;
     height: auto;
     cursor: pointer;
 }
-
 .dash {
     font-family: DM Sans;
     font-size: 20px;
@@ -219,74 +179,57 @@
     color: #1D1F2C;
     padding-left: 10px;
 }
-
 .frontPage {
-    /* height: 100%; */
-    /* width: 100%; */
     background-color: #F5F6FA;
     flex-wrap: wrap;
     margin: 10px;
 }
-
 .container {
     display: flex;
     justify-content: space-between;
 }
-
 .App {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-evenly; */
     width: fit-content;
-
 }
-
 .home {
     width: 100%;
     height: calc(100vh - 71px);
     background: url('../../public/logo192.png');
     background-size: cover;
 }
-
 .png {
     width: 68px;
     height: 68px;
 }
-
 .rgba {
     background-color: rgba(87, 90, 90, 0);
     width: 100%;
     height: calc(100vh - 71px);
     display: flex;
 }
-
 .heading {
     padding-left: 20px;
     justify-content: center;
     display: flex;
     flex-direction: column;
     align-content: flex-start;
-    /* align-self: flex-start; */
-    /* z-index: 10; */
 }
-
 .rating {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     margin-right: 20px;
 }
-
 .name {
     font-family: Rubik;
     font-size: 14px;
     font-weight: 500;
     line-height: 16.59px;
-    /* text-align: left; */
     color: #52526CCC;
     padding-left: 5px;
 }
-
 .prize {
     font-family: Rubik;
     font-size: 22px;
@@ -295,38 +238,28 @@
     line-height: 26.07px;
     text-align: left;
 }
-
 .rateText {
-
     color: #FF3364;
     font-size: 14px;
     font-weight: 500;
     font-family: Rubik;
-    /* margin-top: 5px; */
-    /* line-height: 16.59px; */
 }
-
 .rate {
-    /* margin-top: 5px; */
     padding-left: 5px;
 }
-
 .page {
     height: fit-content;
     color: rgb(113, 118, 118);
 }
-
 .graph {
     padding: 25px;
     border-radius: 15px;
     margin: 10px;
     width: 98%;
-    /* height: 100px; */
     background-color: white;
     display: flex;
     justify-content: space-between;
 }
-
 .width {
     display: flex;
     justify-content: flex-start;
@@ -334,34 +267,27 @@
     width: 100%;
     gap: 10px;
 }
-
 .width p {
     font-size: 14px;
     font-family: Inter;
     font-weight: 500;
     color: rgba(114, 114, 114, 1);
-
 }
-
 .income {
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
-
 .date {
     display: flex;
     justify-content: flex-end;
 }
-
 .dropdown {
     margin: 16px;
 }
-
 .sideView {
     background-color: #F5F6FA;
     border-radius: 5px;
-    /* padding: 20px; */
     padding-left: 20px;
     margin-top: 20px;
     width: 245px;
@@ -369,7 +295,6 @@
     justify-content: center;
     align-content: center;
 }
-
 .imgView {
     width: 45px;
     height: 43px;
@@ -381,14 +306,12 @@
     align-self: center;
     display: flex;
 }
-
 .headtext {
     color: white;
     padding: 20px;
     letter-spacing: 0.5px;
     width: 65%;
 }
-
 .incomeText {
     font-family: Rubik;
     font-size: 14px;
@@ -397,9 +320,7 @@
     letter-spacing: 0.30000001192092896px;
     text-align: left;
     color: #52526C;
-
 }
-
 .ammountText {
     font-family: Rubik;
     font-size: 16px;
@@ -408,23 +329,18 @@
     letter-spacing: 0.30000001192092896px;
     text-align: left;
     color: #2F2F3B;
-
 }
-
 .y_axis {
     fill: #000 !important;
     font-family: Inter;
 }
-
 .dateText {
     font-family: DM Sans;
     font-size: 14px;
     font-weight: 500;
     line-height: 18.23px;
     text-align: left;
-
 }
-
 .numberText {
     font-family: Inter;
     font-size: 12px;
@@ -440,7 +356,6 @@
     border-radius: 4px 0px 0px 0px;
     margin-left: 10px;
 }
-
 .modaloverlay {
     position: fixed;
     top: 0;
@@ -452,14 +367,12 @@
     justify-content: center;
     align-items: center;
 }
-
 .modalcontent {
     background-color: #fff;
     padding: 20px;
     border-radius: 4px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-
 .customtootip {
     background-color: white;
     width: 200px;
@@ -469,7 +382,6 @@
     border-radius: 8px;
     box-shadow: 0 20px 40px 0 #c2c2c27b;
 }
-
 .monthYear {
     width: Hug (20px)px;
     height: Hug (20px)px;
@@ -479,7 +391,6 @@
     background: #000000;
 
 }
-
 .revenue {
     width: 100%;
     padding: 8px 12px 8px 12px;
@@ -489,23 +400,18 @@
     background: #F9F9F9;
     margin-top: 10px;
     border: 1px solid rgba(114, 114, 114, 1);
-
 }
-
 .imageUploadBox {
     width: 440px;
     height: 168px;
     top: 23.67px;
     left: -0.5px;
-    gap: 0px;
     border: 1px dashed #A1A7C4;
     border-radius: 2px;
 }
-
 .headtext h3 {
     margin-bottom: 0;
 }
-
 .form {
     background-color: whitesmoke;
     padding: 18px;
@@ -515,7 +421,6 @@
     margin-top: 20px;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
-
 .input {
     background-color: white;
     border: none;
@@ -525,11 +430,9 @@
     margin-top: 15px;
     font-size: 15px;
 }
-
 .input:focus {
     outline-color: rgba(178, 182, 188, 0.4);
 }
-
 .btn {
     border: none;
     font-size: 13px;
@@ -540,19 +443,16 @@
     background-color: rgb(23, 23, 240);
     transition: all ease-in 0.6s;
 }
-
 .btn:hover,
 .vies:hover,
 .fix:hover {
     background-color: rgb(49, 49, 224);
 }
-
 .btn:focus,
 .view:focus,
 .fix:focus {
     transform: scale(0.96);
 }
-
 .view {
     border: none;
     font-size: 12px;
@@ -562,7 +462,6 @@
     background-color: rgb(23, 23, 240);
     transition: all ease-in 0.6s;
 }
-
 .otherbtn {
     font-size: 13px;
     color: blue;
@@ -571,48 +470,39 @@
     border-radius: 5px;
     border: 1px solid rgb(23, 23, 240);
 }
-
 .otherbtn:focus {
     color: white;
     background-color: blue;
 }
-
 .head {
     font-weight: 500;
     font-size: 21px;
     color: black;
 }
-
 .padding {
     width: 90%;
     margin: auto;
 }
-
 .sideGap {
     width: 80%;
     margin: auto;
 }
-
 .background {
     background-color: whitesmoke;
     padding: 50px;
 }
-
 .icons {
     width: 80px;
     height: auto;
 }
-
 .program {
     display: flex;
     justify-content: space-between;
 }
-
 .twoBox {
     display: flex;
     color: #5e5d5d;
 }
-
 .singleBox {
     border: 1px solid #4dc0f0;
     width: 256px;
@@ -629,62 +519,51 @@
     font-size: 16.5px;
     grid-gap: 30px;
 }
-
 .svg {
     width: 54px;
     height: 49px;
     align-self: center;
 }
-
 .secondClass {
     width: 90%;
     margin: auto;
 }
-
 .contentBox {
     margin: 10px 50px;
     border: 1px solid rgb(205, 205, 205);
     padding: 20px 15px;
     max-width: 350px;
 }
-
 .hr {
     border: 1px solid rgb(85, 84, 84);
     margin-top: -15px;
 }
-
 .btns {
     justify-content: space-between;
     display: flex;
     margin: auto 15px
 }
-
 .subject {
     min-width: 220px;
     margin-left: 20px;
     margin-right: 20px;
 }
-
 li {
     margin-top: 10px;
 }
-
 .png {
     width: 150px;
     height: auto;
 }
-
 .png2 {
     width: 130px;
     margin: 10px;
     height: auto;
 }
-
 .relative {
     position: relative;
     margin-top: 160px;
 }
-
 .absolute {
     position: absolute;
     color: red;
@@ -693,19 +572,16 @@ li {
     font-weight: 500;
     font-size: 14px;
 }
-
 .borderLeft {
     border-left: 1px solid red;
     height: 25px;
     width: 1px;
     margin: auto;
 }
-
 .items {
     display: flex;
     height: 34px;
 }
-
 .box {
     border-left: 1px solid gray;
     text-align: center;
@@ -716,7 +592,6 @@ li {
     position: relative;
     color: rgb(64, 63, 63);
 }
-
 .headline {
     background-color: rgb(236, 233, 233);
     font-weight: 500;
@@ -725,7 +600,6 @@ li {
     text-decoration: none;
     padding: 5px 8px;
 }
-
 .info {
     width: 115px;
     height: 100%;
@@ -738,7 +612,6 @@ li {
     display: flex;
     text-align: center;
 }
-
 .formselect svg {
     width: 17px;
     height: 17px;
@@ -746,24 +619,17 @@ li {
 }
 
 .addNewContainer {
-    width: 323px;
-    height: 353px;
-    /* top: 198px;
-    left: 1096px; */
+    width: 100%;
+    height: 100%;
     padding: 24px 21px 24px 21px;
     gap: 10px;
     border-radius: 12px;
     background: #FFFFFF;
     box-shadow: 4px 4px 10px 0px #0000001A;
-
-    box-shadow: -4px 0px 10px 0px #0000001A;
-
 }
 .buttonStyle{
-    /* margin-top: 20px; */
     display: flex;
     justify-content: space-around;
-    /* margin-left: 10px; */
     margin-bottom: 20px;
 }
 .weekText{
@@ -777,17 +643,16 @@ li {
     margin-top: 5px;
 }
 .dateRange{
-    width: 300px;
+    width: 100%;
     height: 30px;
-    gap: 0px;
     border-radius: 8px;
-    opacity: 0px;
     background: #5570F11F;
     display: flex;
     justify-content: space-between;
     align-content: center;
     align-self: center;
-    margin-top: 30px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 .from{
     width: 180px;
@@ -795,7 +660,6 @@ li {
     padding: 5px 63px 9px 63px;
     gap: 10px;
     border-radius: 8px;
-    opacity: 0px;
     background: #5570F1;
     font-family: Inter;
     font-size: 14px;

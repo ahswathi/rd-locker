@@ -46,9 +46,7 @@ const OrderInfo = () => {
                     {/* </div> */}
             </div>
         </div>
-        <div>
             <AllOrdersCard/>
-        </div>
     </div>
   )
 }

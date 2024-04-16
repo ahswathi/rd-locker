@@ -153,7 +153,7 @@ const AddNewVendor = () => {
                 </div>
                 <div style={{marginTop:20}}>
                     <label className={Styles.label}>Profile Image</label>
-                    <div className={Styles.ImageUpload}>
+                    <div className={Styles.imageUpload}>
                         <div className={Styles.imageView}>
                         <Image/>
                         <div className={Styles.uploadBox}>
@@ -227,13 +227,13 @@ const AddNewVendor = () => {
                 </div> 
             </div>
         </div>
-        <div className={Styles.AddNewVendor}>
+        <div className={Styles.addNewVendorStyle}>
             <p className={Styles.informationText}>Identification details</p>
             <div className={Styles.lineStyle}/>
             <div className={Styles.profilVeiw}>
                 <div style={{marginTop:20}}>
                     <label className={Styles.label}>Upload aadhar card image*</label>
-                    <div className={Styles.ImageUpload}>
+                    <div className={Styles.imageUpload1}>
                         <div className={Styles.imageView}>
                         <Image/>
                         <div className={Styles.uploadBox}>
@@ -247,7 +247,7 @@ const AddNewVendor = () => {
                 </div>
                 <div style={{marginTop:20}}>
                     <label className={Styles.label}>Upload pan card image*</label>
-                    <div className={Styles.ImageUpload}>
+                    <div className={Styles.imageUpload1}>
                         <div className={Styles.imageView}>
                         <Image/>
                         <div className={Styles.uploadBox}>
@@ -261,7 +261,7 @@ const AddNewVendor = () => {
                 </div>
             </div>
         </div>
-        <div className={Styles.AddNewVendor}>
+        <div className={Styles.addNewVendorStyle}>
         <div className={styles.buttons}>
                 <div>
                     <Button sx={custom} variant="contained">Cancle</Button>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styles from '../categories/category.module.css';
 import { Delete, FilterIcon, Left, Right } from '../Svg';
+import Modal from '../component/Modal';
+import DeleteCategory from './DeleteCategory';
 
 const CategoriesRequestList = () => {
     const categories = [
@@ -129,6 +131,13 @@ const CategoriesRequestList = () => {
                         <Right handleClick={increment} />
                         
                     </div>
+            </div>
+            <div>
+              <Modal isOpen={isDeleteModalOpen} onClose={closeDeleteModal}>
+                <DeleteCategory
+                  closeModal={closeDeleteModal}
+                />
+              </Modal>
             </div>
         </div>
   )

@@ -29,7 +29,7 @@ const PrivacyPolicy = () => {
         <span className={styles.home}>
             home <img src='/tiangle.png' style={{marginLeft:10}}/> <span style={{ color: 'var(--Gray-900, #1E5EFF)',marginLeft:10 }}>All Privacy policy</span>
         </span>
-        <div className={Styles.profilVeiw} style={{marginTop:40}}>
+        <div className={Styles.profilVeiw} style={{marginTop:30}}>
           <div className={Styles.tabView}>
           <VerticalTab
               value={value}
