@@ -4,11 +4,13 @@ import styles from '../categories/category.module.css';
 import { useFormik } from 'formik';
 import * as yup from "yup";
 import ImageUpload from '../component/ImageUpload';
-import { ToggleButton } from '../Svg';
+import { Image, ToggleButton, Upload } from '../Svg';
 import Button from '@mui/material/Button';
 import { custom, formselect, save } from '../MaterialUI';
+import { Box, Modal } from '@mui/material';
+import Style from '../vendorManagement/vendor.module.css';
 
-const AddNewCategory = ({onClose}) => {
+const AddNewCategory = ({onClose,open}) => {
     const schema = yup.object().shape({
         name: yup.string().required("Name is required"),
       })
@@ -30,8 +32,30 @@ const AddNewCategory = ({onClose}) => {
         //   updateSubject();
         // }
       })
+      const style = {
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        bgcolor: "white",
+        border: "none",
+        padding: "27px 22px",
+        height: "fit-content",
+        display: "block",
+        width: '580px',
+        borderRadius:'7px',
+        "&:focus": {
+          outline: "none",
+        },
+      };
   return (
-    <div className={styles.addNewContainer}>
+    <Modal
+      open={open}
+      onClose={onClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box sx={style}>
         <div className={Styles.notification}>
             <div className={Styles.notifText}>
                 Add New Category
@@ -47,11 +71,22 @@ const AddNewCategory = ({onClose}) => {
             <input type="text" name="name" onBlur={handleBlur} value={values.name} onChange={handleChange} placeholder='Enter category name' />
           </div>
           
-          <label>Image</label>
-            <ImageUpload/>
-          <br />
+          <div style={{marginTop:20}}>
+                <label className={Style.label}>Profile Image</label>
+                    <div className={Style.imageUpload}>
+                        <div className={Style.imageView}>
+                        <Image/>
+                        <div className={Style.uploadBox}>
+                            <Upload/> <p className={Style.uploadText}>Upload Image</p>
+                        </div>
+                        <div className={Style.pixel}>
+                            Image size : 0px by 0px in .jpg or .png format
+                        </div>
+                    </div>
+                </div>
+            </div>
           </form>
-          <div className={styles.toggleButton}>
+          <div className={styles.toggleButton} style={{marginTop:10}}>
             <ToggleButton/>
             <span>Category visible on site</span>
           </div>
@@ -61,7 +96,8 @@ const AddNewCategory = ({onClose}) => {
             {/* <button>Cancel</button>
             <button>Save</button> */}
           </div>
-    </div>
+    </Box>
+    </Modal>
   )
 }
 

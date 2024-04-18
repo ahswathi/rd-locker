@@ -133,11 +133,10 @@ const CategoriesRequestList = () => {
                     </div>
             </div>
             <div>
-              <Modal isOpen={isDeleteModalOpen} onClose={closeDeleteModal}>
                 <DeleteCategory
                   closeModal={closeDeleteModal}
+                  open={isDeleteModalOpen}
                 />
-              </Modal>
             </div>
         </div>
   )

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Modal from '../component/Modal';
 import DeleteCategory from '../categories/DeleteCategory';
 
-const AllVendors = () => {
+const AllAgentsCard = () => {
     const vendorData = [
         {
             id:1,
@@ -66,7 +66,7 @@ const AllVendors = () => {
         <div className={styles.listContainer}>
             <div className={styles.header}>
                 <div className={styles.first}>Sl No <FilterIcon/></div>
-                <div className={styles.third}>Vendor Name <FilterIcon/></div>
+                <div className={styles.third}>Delivery Agent Name <FilterIcon/></div>
                 <div className={styles.second}>Email Id <FilterIcon/></div>
                 <div className={styles.fourth}>Phone Number <FilterIcon/></div>
                 <div className={styles.fifth}>Category (Subactegory) <FilterIcon/></div>
@@ -101,7 +101,7 @@ const AllVendors = () => {
                                 }}
                             >{item.status}</span></div>
                         <div className={styles.seventh}>
-                        <div style={{marginLeft:20}} onClick={() => navigate('/vendorManagement/VendorsProfile/ProfileDetails')}>
+                        <div style={{marginLeft:20}} onClick={() => navigate('/deliveryAgent/DeliveryAgentProfile/DeliveryAgentProfile')}>
                             <View/>
                         </div>
                         <div style={{marginLeft:20}} onClick={openDeleteModal}>
@@ -124,12 +124,12 @@ const AllVendors = () => {
                     
                 </div>
             </div>
-            <DeleteCategory
-                closeModal={closeDeleteModal} 
-                open={isDeleteModalOpen}
-            />
+                <DeleteCategory
+                    closeModal={closeDeleteModal} 
+                    open={isDeleteModalOpen}
+                />
         </div>
     )
 }
 
-export default AllVendors;
+export default AllAgentsCard;

@@ -18,6 +18,16 @@ const ProfileCard = () => {
             img:'/Image2.png',
             identity:'KYC Video',
         },
+        {
+            id:3,
+            img:'/Image2.png',
+            identity:'Vehicle documents',
+        },
+        {
+            id:4,
+            img:'/Image2.png',
+            identity:'Driving license',
+        },
     ]
   return (
     <div className={Styles.profileCard}>
