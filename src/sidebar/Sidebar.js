@@ -30,7 +30,7 @@ const Sidebar = ({ children }) => {
                 </div>
                 <div className={Styles.lineStyle} />
 
-                <div onClick={() => navigate('/')} className={path === '' ? `${Styles.width} ${Styles.active}` : Styles.width}>
+                <div onClick={() => navigate('/dashboard')} className={path === 'dashboard' ? `${Styles.width} ${Styles.active}` : Styles.width}>
                     <div>
                         {
                             path === "" ?
@@ -118,7 +118,7 @@ const Sidebar = ({ children }) => {
                             <Document />
                         }
                         <p className={Styles.dashboardText}>
-                            E-Traveller Management 
+                            E-Traveller Management
                         </p>
                     </div>
                     {path === 'eTravelerManagement' ? (
@@ -136,7 +136,7 @@ const Sidebar = ({ children }) => {
                                     <span className={Styles.horizontal}></span>
                                 </div>
                                 ETraveller Profile
-                            </div> 
+                            </div>
                         </div> : ''
                 }
                 

@@ -124,14 +124,14 @@ const Categories = () => {
                     </span>
                 </div>
                 <div className={styles.buttonStyle} onClick={openModal}>
-                    <Plus/>
+                    <Plus />
                     <div className={styles.addcategoryText}>
                         Add Categories
                     </div>
                 </div>
             </div>
             <div className={styles.container}>
-                <div style={{marginTop:20}}>
+                <div style={{ marginTop: 20 }}>
                     <SwitchTab
                         value={value}
                         selected={selected}
@@ -145,7 +145,7 @@ const Categories = () => {
                             <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Search by name...' />
                         </div>
                         <div className={styles.filter}>
-                            <Filter/> <span>Filter</span>
+                            <Filter /> <span>Filter</span>
                         </div>
                     </div>
                 </div>
