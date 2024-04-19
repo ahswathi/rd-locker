@@ -15,6 +15,7 @@
     line-height: 44px;
     text-align: center;
     text-transform: uppercase;
+    margin-bottom: 25px;
 }
 
 .main {
@@ -141,6 +142,7 @@ button:hover {
     letter-spacing: -0.02em;
     text-align: right;
     color: #1E5EFF;
+    cursor: pointer;
 }
 .lineStyle{
     width: 420px;
@@ -171,5 +173,5 @@ button:hover {
     line-height: 24px;
     text-align: center;
     color: #1E5EFF;
-
+    cursor: pointer;
 }
