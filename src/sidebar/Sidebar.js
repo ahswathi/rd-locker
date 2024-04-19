@@ -139,21 +139,53 @@ const Sidebar = ({ children }) => {
                             </div>
                         </div> : ''
                 }
-                <div className={Styles.width}>
+                
+                <div onClick={() => navigate('/deliveryAgent')} className={path === 'deliveryAgent' ? `${Styles.width} ${Styles.active}` : Styles.width}>
                     <div>
-                        <Document />
+                        {path === 'deliveryAgent' ?
+                            (
+                                <DocumentActive />
+                            )
+                            :
+                            <Document />
+                        }
                         <p className={Styles.dashboardText}>
                             Delivery Agent
                         </p>
                     </div>
-                    <div>
-                        <DropUp />
-                    </div>
+                    {path === 'deliveryAgent' ? (
+                        <div>
+                            <DropDown />
+                        </div>
+                    ) : <DropUp />}
                 </div>
-                <div className={Styles.width}>
+                {
+                    path === 'deliveryAgent' ?
+                        <div className={Styles.subpaths}>
+                            <div onClick={() => navigate('/deliveryAgent/KYCApprovals')} className={subpath === 'KYCApprovals' ? Styles.submenu : Styles.menuText}>
+                                <div className={Styles.lines}>
+                                    <span className={Styles.vertical} style={{ top: "-5px", height: 30 }}></span>
+                                    <span className={Styles.horizontal}></span>
+                                </div>
+                                KYC Approvals
+                            </div>
+                            <div onClick={() => navigate('/deliveryAgent/DeliveryAgentProfile')} className={subpath === 'DeliveryAgentProfile' ? Styles.submenu : Styles.menuText}>
+                                <div className={Styles.lines}>
+                                    <span className={Styles.vertical}></span>
+                                    <span className={Styles.horizontal}></span>
+                                </div>
+                                Agent Profile
+                            </div>
+                        </div> : ''
+                }
+                <div onClick={() => navigate('/adminUsers/AdminUser')} className={path === 'adminUsers' ? `${Styles.width} ${Styles.active}` : Styles.width}>
                     <div>
-                        <MultiUser />
-                        {/* <MultiUserActive /> */}
+                        {path === 'adminUsers' ? 
+                            (
+                                <MultiUserActive/>
+                            ) : (
+                                <MultiUser/>
+                            )}
                         <p className={Styles.dashboardText}>
                             Admin Users
                         </p>

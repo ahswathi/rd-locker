@@ -25,6 +25,13 @@ import ResendMail from './login/ResendMail';
 import ResetPassword from './login/ResetPassword';
 import ETravellerProfile from './eTravelerManagement/ETravellerProfile';
 import ProfileInfo from './eTravelerManagement/ProfileInfo';
+import AgentProfile from './deliveryAgent/AgentProfile';
+import KYCApprovals from './deliveryAgent/KYCApprovals';
+import AgentRegistraionDetail from './deliveryAgent/AgentRegistrationDetail';
+import DeliveryAgentProfile from './deliveryAgent/DeliveryAgentProfile';
+import AddAgent from './deliveryAgent/AddAgent';
+import AdminUser from './adminUsers/AdminUser';
+import AddNewUser from './adminUsers/AddNewUser';
 
 function App() {
   return (
@@ -54,6 +61,13 @@ function App() {
           <Route path='/vendorManagement/VendorsProfile/AddNewVendor' element={<AddNewVendor />} />
           <Route path='/eTravelerManagement/ETravellerProfile' element={<ETravellerProfile />} />
           <Route path='/eTravelerManagement/ETravellerProfile/ProfileInfo' element={<ProfileInfo />} />
+          <Route path='/deliveryAgent/DeliveryAgentProfile' element={<AgentProfile />} />
+          <Route path='/deliveryAgent/KYCApprovals' element={<KYCApprovals />} />
+          <Route path='/deliveryAgent/KYCApprovals/AgentRegistraionDetail' element={<AgentRegistraionDetail />} />
+          <Route path='/deliveryAgent/DeliveryAgentProfile/DeliveryAgentProfile' element={<DeliveryAgentProfile />} />
+          <Route path='/deliveryAgent/DeliveryAgentProfile/AddAgent' element={<AddAgent />} />
+          <Route path='/adminUsers/AdminUser' element={<AdminUser />} />
+          <Route path='/adminUsers/AdminUser/AddNewUser' element={<AddNewUser />} />
           <Route path='/accounts' element={<Accounts />} />
           <Route path='/transactions' element={<Transactions />} />
           <Route path='/receipt' element={<Receipt />} />

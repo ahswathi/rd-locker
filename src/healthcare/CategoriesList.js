@@ -150,16 +150,16 @@ const CategoriesList = () => {
                 
             </div>
         </div>
-        <Modal isOpen={isEditModalOpen} onClose={closeEditModal}>
+        
             <EditCategory
                 onCloseModal={closeEditModal}
+                open={isEditModalOpen}
             />
-        </Modal>
-        <Modal isOpen={isDeleteModalOpen} onClose={closeDeleteModal}>
-            <DeleteCategory
-              closeModal={closeDeleteModal}
-            />
-        </Modal>
+      
+        <DeleteCategory
+            closeModal={closeDeleteModal} 
+            open={isDeleteModalOpen}
+        />
     </div>
   )
 }

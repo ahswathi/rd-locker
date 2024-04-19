@@ -122,11 +122,10 @@ const ETravelerCard = () => {
                     
                 </div>
             </div>
-            <Modal isOpen={isDeleteModalOpen} onClose={closeDeleteModal}>
-                <DeleteCategory
-                    closeModal={closeDeleteModal} 
-                />
-            </Modal>
+            <DeleteCategory
+                closeModal={closeDeleteModal} 
+                open={isDeleteModalOpen}
+            />
         </div>
     )
 }

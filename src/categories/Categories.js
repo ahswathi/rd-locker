@@ -172,42 +172,33 @@ const Categories = () => {
                         </div>
                     ) :
                         <div className={styles.mainContainer}>
-                            <div className={styles.image}>
+                            
                                 <img src='/illustration.png' />
-
-                            </div>
-                            <h3 className={styles.create}>
-                                Create First Category
-                            </h3>
-                            <p className={styles.noCategoryText}>
-                                No category is created yet!
-                            </p>
+                                <h3 className={styles.create}>
+                                    Create First Category
+                                </h3>
+                                <p className={styles.noCategoryText}>
+                                    No category is created yet!
+                                </p>
+                        
                         </div>
                     }
                 </>
             ) :
                 <CategoriesRequestList />
             }
-
-
-
-            <Modal isOpen={isModalOpen} onClose={closeModal}>
                 <AddNewCategory
                     onClose={closeModal}
+                    open={isModalOpen} 
                 />
-            </Modal>
-
-            <Modal isOpen={isEditModalOpen} onClose={closeEditModal}>
                 <EditCategory
                     onCloseModal={closeEditModal}
+                    open={isEditModalOpen}
                 />
-            </Modal>
-            <Modal isOpen={isDeleteModalOpen} onClose={closeDeleteModal}>
                 <DeleteCategory
                     closeModal={closeDeleteModal}
+                    open={isDeleteModalOpen}
                 />
-            </Modal>
-
         </div>
     )
 }
