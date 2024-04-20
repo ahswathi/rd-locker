@@ -5,11 +5,24 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --toastify-color-info: #3498db;
+  --toastify-color-success: #00df80;
+  --toastify-color-warning: #FFD21E;
+  --toastify-color-error: #F04248;
+
+  --toastify-color-progress-info: var(--toastify-color-info);
+  --toastify-color-progress-success: var(--toastify-color-success);
+  --toastify-color-progress-warning: var(--toastify-color-warning);
+  --toastify-color-progress-error: var(--toastify-color-error);
 }
 
 body {
@@ -45,6 +58,31 @@ body {
 .fyp {
   display: flex;
   justify-content: space-between;
+}
+
+.Toastify__toast--success {
+  /* background-image: url("../public/assets/icons/success.svg"); */
+  background-repeat: no-repeat;
+  background-size: 300px;
+  background-position: left;
+}
+
+.Toastify__toast--warning {
+  /* background-image: url("../public/assets/icons/warning.svg");ij */
+  background-repeat: no-repeat;
+  background-size: 300px;
+  background-position: left;
+}
+
+.Toastify__toast--error {
+  /* background-image: url("../public/assets/icons/error.svg"); */
+  background-repeat: no-repeat;
+  background-size: 300px;
+  background-position: left;
+}
+
+button:disabled {
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 1087px) {

@@ -1,3 +1,4 @@
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import 'react-calendar/dist/Calendar.css';
@@ -39,13 +40,18 @@ function App() {
     <BrowserRouter>
       <Layout>
         <ToastContainer
-          position="bottom-right"
+          position="top-right"
           autoClose={2000}
+          theme='dark'
         >
         </ToastContainer>
         <Routes>
-          {/* <Route path='/' element={<Login />} /> */}
-          <Route path='/' element={<Dashboard />} />
+          <Route path='/' element={<Login />} />
+          <Route path='/login/ForgotPassword' element={<ForgotPassword />} />
+          <Route path='/login/ConfirmEmail' element={<ConfirmEmail />} />
+          <Route path='/login/ResendMail' element={<ResendMail />} />
+          <Route path='/login/ResetPassword' element={<ResetPassword />} />
+          <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/categories/Categories' element={<Categories />} />
           <Route path='/categories/AddNewCategory' element={<AddNewCategory />} />
           <Route path='/healthcare/HealthCare' element={<HealthCare />} />
@@ -74,13 +80,6 @@ function App() {
           {/* <Route path='/receipt' element={<Receipt />} /> */}
         </Routes>
       </Layout>
-      {/* <Routes>
-          <Route path='/' element={<Login />} />
-          <Route path='/login/ForgotPassword' element={<ForgotPassword />} />
-          <Route path='/login/ConfirmEmail' element={<ConfirmEmail />} />
-          <Route path='/login/ResendMail' element={<ResendMail />} />
-          <Route path='/login/ResetPassword' element={<ResetPassword />} />
-      </Routes> */}
     </BrowserRouter>
   );
 }
