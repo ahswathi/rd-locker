@@ -107,13 +107,12 @@ const ProfileDetails = () => {
             <ProfileCard/>
             ) : <OrderInfo/>}
         </div>
-        <Modal isOpen={isModalOpen} onClose={closeModal}>
             <VendorRejection
-              onClose={closeModal}
-              heading={'Block Vendor'}
-              label={'Reason for Blocking'}
+                open={isModalOpen}
+                onClose={closeModal}
+                heading={'Block Vendor'}
+                label={'Reason for Blocking'}
             />
-        </Modal>
     </div>
   )
 }

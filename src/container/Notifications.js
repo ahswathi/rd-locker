@@ -1,7 +1,8 @@
 import React from 'react';
 import Styles from '../component/Style.module.css';
+import { Box, Modal } from '@mui/material';
 
-const Notifications = () => {
+const Notifications = ({open,onClose}) => {
     const notifData = [
         {
             id:0,
@@ -29,13 +30,35 @@ const Notifications = () => {
             view:'View'
         },
     ]
+    const style = {
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        bgcolor: "white",
+        border: "none",
+        padding: "27px 22px",
+        height: "fit-content",
+        display: "block",
+        width: '480px',
+        borderRadius:'7px',
+        "&:focus": {
+          outline: "none",
+        },
+      };
   return (
-    <div className={Styles.notifContainer}>
+    <Modal
+      open={open}
+      onClose={onClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+        <Box sx={style}>
         <div className={Styles.notification}>
             <div className={Styles.notifText}>
                 Notifications
             </div>
-            <div>
+            <div onClick={onClose}>
                 <img src='/cross.png'/>
             </div>
         </div>
@@ -108,7 +131,8 @@ const Notifications = () => {
                 </div>
             )
         })}
-    </div>
+    </Box>
+    </Modal>
   )
 }
 

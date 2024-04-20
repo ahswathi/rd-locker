@@ -105,13 +105,12 @@ const DeliveryAgentProfile = () => {
             <ProfileCard/>
             ) : <OrderInfo/>}
         </div>
-        <Modal isOpen={isModalOpen} onClose={closeModal}>
             <VendorRejection
               onClose={closeModal}
               heading={'Block Delivery agent'}
               label={'Reason for Blocking'}
+              open={isModalOpen}
             />
-        </Modal>
     </div>
   )
 }

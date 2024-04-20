@@ -48,9 +48,10 @@ const Header = ({ children }) => {
                         </div>
                     </div>
                 </div>
-                <Modal isOpen={isModalOpen} onClose={closeModal}>
-                    <Notifications />
-                </Modal>
+                    <Notifications 
+                        open={isModalOpen}
+                        onClose={closeModal}
+                    />
             </div>
             <div className={Styles.main}>
                 {children}

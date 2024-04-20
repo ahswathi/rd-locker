@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
+import { Filter, Plus, Search } from '../Svg';
+import SwitchTab from '../component/SwitchTab';
 import styles from '../categories/category.module.css';
 import Styles from '../component/Style.module.css';
-import SwitchTab from '../component/SwitchTab';
-import { Filter, Plus, Search } from '../Svg';
-import VendorsCard from './VendorsCard';
+import FreeVersion from './FreeVersion';
+import GoldMembership from './GoldMembership';
+import { useNavigate } from 'react-router-dom';
 
-const KYCApproval = () => {
-
-    
+const SubscriptionPlans = () => {
+    const navigate = useNavigate()
     const [value, setValue] = useState([
-        { val: 'Accepted vendors', id: 0 },
-        { val: 'Rejected vendors', id: 1 },
-        { val: 'New requests', id: 2 },
+        { val: 'E-traveller plans', id: 0 },
+        { val: 'Vendor plans', id: 1 },
+        { val: 'Delivery agent plans', id: 2 },
     ]);
     const [selected, setSelected] = useState(0);
     const [search, setSearch] = useState('')
@@ -22,22 +23,21 @@ const KYCApproval = () => {
     useEffect(() => {
         setSelected(selected)
     },[])
-    
   return (
     <div style={{padding:20}}>
         <div className={styles.container}>
             <div>
                 <div>
-                    <h2 className={styles.categoryText}>KYC Approvals</h2>
+                    <h2 className={styles.categoryText}>Subscription Plans</h2>
                 </div>
                 <span className={styles.home}>
-                    home <img src='/tiangle.png' style={{marginLeft:10}}/> <span style={{ color: 'var(--Gray-900, #1E5EFF)',marginLeft:10 }}>KYC approvals</span>
+                    home <img src='/tiangle.png' style={{marginLeft:10}}/> <span style={{ color: 'var(--Gray-900, #1E5EFF)',marginLeft:10 }}>Subscription Plans</span>
                 </span>
             </div>
-            <div className={styles.buttonStyle}>
+            <div className={styles.buttonStyle} onClick={()=> navigate('/subscription/CreateSubcscriptionPlan')}>
                     <Plus/>
                     <div className={styles.addcategoryText}>
-                        Add Vendor
+                        Create Subscription
                     </div>
             </div>
         </div>
@@ -61,16 +61,22 @@ const KYCApproval = () => {
                 </div>
             </div>
         </div>
-        <div>
-            {selected === 0 ? (
-            <VendorsCard/>
-            ) : (selected === 1 ? (
-                <VendorsCard/>
-            ) : <VendorsCard/>) 
-            }
-        </div>
+        {
+            selected === 0 ? (
+                <div className={Styles.width}>
+                    <div>
+                        <FreeVersion/>
+                    </div>
+                    <div>
+                        <GoldMembership/>
+                    </div>
+                </div>
+            ): (
+                <FreeVersion/>
+            )
+        }
     </div>
   )
 }
 
-export default KYCApproval
+export default SubscriptionPlans
