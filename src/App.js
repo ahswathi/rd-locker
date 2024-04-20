@@ -32,6 +32,8 @@ import DeliveryAgentProfile from './deliveryAgent/DeliveryAgentProfile';
 import AddAgent from './deliveryAgent/AddAgent';
 import AdminUser from './adminUsers/AdminUser';
 import AddNewUser from './adminUsers/AddNewUser';
+import SubscriptionPlans from './subscription/SubscriptionPlans';
+import CreateSubcscriptionPlan from './subscription/CreateSubcscriptionPlan';
 
 function App() {
   return (
@@ -73,6 +75,8 @@ function App() {
           <Route path='/receipt' element={<Receipt />} />
           <Route path='/reports/accounts' element={<Accounts />} />
           <Route path='/reports/transactions' element={<Transactions />} />
+          <Route path='/subscription/SubscriptionPlans' element={<SubscriptionPlans />} />
+          <Route path='/subscription/CreateSubcscriptionPlan' element={<CreateSubcscriptionPlan />} />
           {/* <Route path='/receipt' element={<Receipt />} /> */}
         </Routes>
       </Layout>

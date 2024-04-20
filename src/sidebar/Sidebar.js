@@ -232,9 +232,15 @@ const Sidebar = ({ children }) => {
                 }
 
 
-                <div className={Styles.width}>
+                <div onClick={() => navigate('/subscription/SubscriptionPlans')} className={path === 'subscription' ? `${Styles.width} ${Styles.active}` : Styles.width}>
                     <div>
-                        <Subscription />
+                    {path === 'subscription' ? 
+                            (
+                                <SubscriptionActive/>
+                            ) : (
+                                <Subscription/>
+                            )}
+                        {/* <Subscription /> */}
                         {/* <SubscriptionActive /> */}
                         <p className={Styles.dashboardText}>
                             Subscription Plans

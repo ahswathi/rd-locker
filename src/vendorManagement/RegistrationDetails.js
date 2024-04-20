@@ -66,13 +66,12 @@ const RegistrationDetails = () => {
         <div>
             <ProfileCard/>
         </div>
-        <Modal isOpen={isModalOpen} onClose={closeModal}>
             <VendorRejection
-              onClose={closeModal}
-              heading={'Vendor Rejection'}
-              label={'Reason for Rejection'}
+                open={isModalOpen}
+                onClose={closeModal}
+                heading={'Vendor Rejection'}
+                label={'Reason for Rejection'}
             />
-        </Modal>
     </div>
   )
 }

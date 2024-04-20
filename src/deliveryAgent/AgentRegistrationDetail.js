@@ -66,13 +66,12 @@ const AgentRegistraionDetail = () => {
         <div>
             <ProfileCard/>
         </div>
-        <Modal isOpen={isModalOpen} onClose={closeModal}>
             <VendorRejection
               onClose={closeModal}
               heading={'Delivery Agent Rejection'}
               label={'Reason for Rejection'}
+              open={isModalOpen}
             />
-        </Modal>
     </div>
   )
 }

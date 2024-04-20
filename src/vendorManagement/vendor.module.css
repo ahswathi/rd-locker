@@ -685,6 +685,12 @@ input {
 }
 .formselect{
     border-radius: 7px;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: #A1A7C4;
 }
 .imageUpload{
     width: 100%;
