@@ -1,0 +1,237 @@
+.container{
+    width: 375px;
+    height: fit-content;
+    padding: 22px 10px 22px 10px;
+    gap: 10px;
+    border-radius: 12px;
+    background: #FFFFFF;
+    margin-top: 20px;
+}
+.chattingContainer{
+    width: 731px;
+    height: fit-content;
+    padding: 22px 20px 22px 20px;
+    gap: 10px;
+    border-radius: 12px;
+    background: #FFFFFF;
+    margin-top: 20px;
+}
+.numText{
+    font-family: DM Sans;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 23.44px;
+    text-align: right;
+    color: #A6A8B1;
+
+}
+.textStyle{
+    font-family: DM Sans;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15.62px;
+    text-align: center;
+    color: #2C2D33;
+}
+.nameText{
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20.83px;
+    text-align: left;
+    color: #45464E;
+}
+.descText{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18.23px;
+    text-align: left;
+    color: #8B8D97;
+}
+.numStyle{
+    width: 24px;
+    height: 24px;
+    padding: 4px 7.5px 3px 7.5px;
+    border-radius: 500px;
+    background: #FFCC91;
+    margin-left: 10px;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    text-align: center;
+    color: #1C1D22;
+}
+.lineStyle{
+    width: 100%;
+    border: 1px;
+    border: 1px solid #0000001A;
+}
+.dateStyle{
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.dateStyle p{
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    text-align: center;
+    color: #1C1D22;
+    height: 33px;
+    padding: 8px 12px 8px 12px;
+    gap: 10px;
+    border-radius: 8px;
+    background: #F4F5FA;
+    margin-top: 20px;
+}
+.recievedMessage{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.recievedMessage p{
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: #FFFFFF;
+    width: 50%;
+    height: fit-content;
+    padding: 16px;
+    gap: 10px;
+    border-radius: 16px 16px 16px 0px;
+    background: #1E5EFF;
+    margin-top: 20px;
+}
+.recievedMessage span{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18.23px;
+    text-align: left;
+    color: #8B8D97;
+    margin-top: 10px;
+}
+.sentMessage{
+    width:100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: row;
+}
+.sentMessage p{
+    font-family: DM Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: #1C1D22;
+    height: fit-content;
+    padding: 16px;
+    gap: 10px;
+    border-radius: 16px 16px 0px 16px;
+    margin-top: 20px;
+    width:50%;
+    background: #F4F5FA;
+}
+.sentMessage span{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18.23px;
+    text-align: left;
+    color: #8B8D97;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+.inputbox {
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-items: center;
+    border: 1px solid var(--Gray-100, #E9EAF0);
+    background: var(--Gray-White, #FFF);
+    width: 100%;
+    height: 48px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+input {
+    color: #333;
+    font-family: DM Sans;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+}
+.inputbox > div {
+    display: flex;
+    align-items: center;
+}
+.inrBox{
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: row;
+}
+.sendingMsg{
+    width: 99px;
+    height: 36px;
+    padding: 8px 16px 8px 16px;
+    gap: 10px;
+    border-radius: 6px;
+    background: #1E5EFF;
+    display: flex;
+    justify-content: center;
+
+}
+.sendingMsg p{
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.36px;
+    text-align: left;
+    color: #FFF;
+}
+.updateText{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.005em;
+    text-align: center;
+    color: #667085;
+}
+.popUpStyle{
+    padding: 20px;
+    width: 100%;
+    height: fit-content;
+}
+.resolvedView{
+    width: 98px;
+    height: 32px;
+    top: 52.87px;
+    left: 14px;
+    padding: 6px 12px 6px 12px;
+    gap: 8px;
+    border-radius: 6px ;
+    background: #1A9882;
+    font-family: Public Sans;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.005em;
+    text-align: center;
+    color: #FFFFFF;
+}
+

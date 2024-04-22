@@ -87,13 +87,19 @@
 }
 .createPlanContainer{
     width: 100%;
-    height: 827px;
+    height: fit-content;
     padding: 28px 24px 28px 24px;
     gap: 24px;
     border-radius: 12px;
     background: #FFFFFF;
     box-shadow: 0px 1px 4px 0px #15223214;
     margin-top: 20px;
+}
+.viewStyle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* width: 100%; */
 }
 .headingText{
     font-family: DM Sans;
@@ -103,12 +109,15 @@
     text-align: left;
     color: #131523;
 }
-.formselect svg {
+.width{
+    width: 450px;
+}
+.formselects svg {
     width: 17px;
     height: 17px;
     margin-right: 15px;
 }
-.formselect {
+.formselects {
     border-radius: 7px;
     width: 450px;
     font-family: DM Sans;
@@ -118,7 +127,7 @@
     text-align: left;
     color: #A1A7C4;
 }
-.formselect MenuItem{
+.formselects MenuItem{
     font-family: DM Sans;
     font-size: 14px;
     font-weight: 400;
@@ -143,21 +152,18 @@ input {
     font-size: 14px;
     border: none;
     outline: none;
-    padding-left: 30px;
+    padding-left: 10px;
 }
 .inputbox > div {
     display: flex;
     align-items: center;
 }
-.inputbox .inrBox::after{
-    content: '';
-    display: flex;
-    width: 1px;
-    height: 45px;
-    background: #E9EAF0;
-    border-radius: 5px 0 0 5px;
-    position: absolute;
-    right: 470px;
+.inrBox{
+    border-right: 1px solid #E9EAF0;
+    height: 50px;
+    padding: 10px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
 }
 .inputbox{
     font-family: Urbanist;

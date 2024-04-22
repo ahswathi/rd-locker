@@ -58,11 +58,12 @@ const CreateSubcscriptionPlan = () => {
         </div>
         <div className={Styles.createPlanContainer}>
             <p className={Styles.headingText}>Add New Subscription Plan</p>
-            <div className={Styles.descView}>
+            <div className={Styles.viewStyle}>
                 <div style={{marginTop:20}}>
                         <label className={styles.label}>Subscription Plan*</label>
                         <br />
-                        <Select className={Styles.formselect}
+                        <div className={Styles.width}>
+                        <Select className={Styles.formselects}
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             sx={formselect}
@@ -76,11 +77,13 @@ const CreateSubcscriptionPlan = () => {
                             <MenuItem value="ACTIVE">Active</MenuItem>
                             <MenuItem value="INACTIVE">Inactive</MenuItem>
                         </Select>
+                        </div>
                 </div>
                 <div style={{marginTop:20,marginLeft:20}}>
                         <label className={styles.label}>Select role</label>
                         <br />
-                        <Select className={Styles.formselect}
+                        <div className={Styles.width}>
+                        <Select className={Styles.formselects}
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             sx={formselect}
@@ -94,13 +97,15 @@ const CreateSubcscriptionPlan = () => {
                             <MenuItem value="ACTIVE">Active</MenuItem>
                             <MenuItem value="INACTIVE">Inactive</MenuItem>
                         </Select>
+                        </div>
                 </div>
             </div>
-            <div className={Styles.descView}>
+            <div className={Styles.viewStyle}>
                 <div style={{marginTop:20}}>
                         <label className={styles.label}>Subscription Type</label>
                         <br />
-                        <Select className={Styles.formselect}
+                        <div className={Styles.width}>
+                        <Select className={Styles.formselects}
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             sx={formselect}
@@ -114,6 +119,7 @@ const CreateSubcscriptionPlan = () => {
                             <MenuItem value="ACTIVE">Active</MenuItem>
                             <MenuItem value="INACTIVE">Inactive</MenuItem>
                         </Select>
+                        </div>
                 </div>
                 <div style={{marginTop:20,marginLeft:20}}>
                     <label className={Styles.label}>Pricing</label>
@@ -121,7 +127,9 @@ const CreateSubcscriptionPlan = () => {
                     <div className={Styles.inrBox}>
                         INR
                     </div>
-                    <input type="text" placeholder='Enter' onBlur={handleBlur} value={values.password} name='password' onChange={handleChange} />
+                        <div>
+                            <input type="text" placeholder='Enter' onBlur={handleBlur} value={values.password} name='password' onChange={handleChange} />
+                        </div>
                     </div>
                     {
                     errors.password && touched.password && <p style={{ color: "red", fontSize: "12px" }}>{errors.password}</p>
@@ -131,7 +139,8 @@ const CreateSubcscriptionPlan = () => {
             <div style={{marginTop:20,}}>
                         <label className={styles.label}>Plan Status</label>
                         <br />
-                        <Select className={Styles.formselect}
+                        <div className={Styles.width}>
+                        <Select className={Styles.formselects}
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             sx={formselect}
@@ -145,6 +154,7 @@ const CreateSubcscriptionPlan = () => {
                             <MenuItem value="ACTIVE">Active</MenuItem>
                             <MenuItem value="INACTIVE">Inactive</MenuItem>
                         </Select>
+                        </div>
             </div>
             <div className={Styles.planText}>
                 Plan includes
@@ -207,7 +217,7 @@ const CreateSubcscriptionPlan = () => {
                                 <MenuItem value="20">20</MenuItem>
                             </Select>
                         </div>
-                        <div className={Styles.maxText}>
+                        <div className={Styles.maxText} style={{marginLeft:10}}>
                             messages
                         </div>
                    
