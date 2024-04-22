@@ -607,4 +607,92 @@ export const BlackUnCheckBox = () => {
     </svg>
   )
 }
+export const Discount = () => {
+  return (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="48" height="48" rx="4" fill="#336DFF"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M23.5459 15.5703C23.9641 15.152 24.5498 14.9466 25.1377 15.0119L33 15L32.9881 22.8623C33.0534 23.4502 32.848 24.0359 32.4297 24.4541L23.4541 33.4297C22.6937 34.1901 21.4609 34.1901 20.7006 33.4297L14.5703 27.2994C13.8099 26.5391 13.8099 25.3063 14.5703 24.5459L23.5459 15.5703ZM25 17L15.947 25.9227L22.0773 32.053L31 23V17H25ZM26 20L28 22L26 24L24 22L26 20Z" fill="white"/>
+    </svg>
+
+  )
+}
+export const ActivePriceDiscount = () => {
+  return (
+    <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M18 0C19.1046 0 20 0.89543 20 2V12C20 13.1046 19.1046 14 18 14H2C0.89543 14 0 13.1046 0 12V2C0 0.89543 0.89543 0 2 0H18ZM18 2H2V12H18V2ZM10 3C12.2091 3 14 4.79086 14 7C14 9.20914 12.2091 11 10 11C7.79086 11 6 9.20914 6 7C6 4.79086 7.79086 3 10 3ZM10 5C8.89543 5 8 5.89543 8 7C8 8.10457 8.89543 9 10 9C11.1046 9 12 8.10457 12 7C12 5.89543 11.1046 5 10 5Z" fill="#1E5EFF"/>
+    </svg>
+  )
+}
+export const InActivePercentageDiscount = () => {
+  return (
+    <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M10 0C11.1046 0 12 0.89543 12 2V4H16V16C16 17.1046 15.1046 18 14 18H2C0.89543 18 0 17.1046 0 16V4H4V2C4 0.89543 4.89543 0 6 0H10ZM14 6H2V16H14V6ZM10 2H6V4H10V2Z" fill="#5A607F"/>
+    </svg>
+  )
+}
+export const CalendarIcon = () => {
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M14 0C14.5523 0 15 0.447715 15 1V2H18C19.1046 2 20 2.89543 20 4V18C20 19.1046 19.1046 20 18 20H2C0.89543 20 0 19.1046 0 18V4C0 2.89543 0.89543 2 2 2H5V1C5 0.447715 5.44772 0 6 0C6.55228 0 7 0.447715 7 1V2H13V1C13 0.447715 13.4477 0 14 0ZM18 9H2V18H18V9ZM5 4H2V7H18V4H15V5C15 5.55228 14.5523 6 14 6C13.4477 6 13 5.55228 13 5V4H7V5C7 5.55228 6.55228 6 6 6C5.44772 6 5 5.55228 5 5V4Z" fill="#7E84A3"/>
+    </svg>
+  )
+}
+export const OfflineIcon = () => {
+  return (
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="6" cy="6" r="6" fill="white"/>
+      <circle cx="6" cy="6" r="4" fill="#C4CAE8"/>
+    </svg>
+  )
+}
+export const MoreIcon = () => {
+  return (
+    <svg width="4" height="16" viewBox="0 0 4 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 1.25C2.41421 1.25 2.75 1.58579 2.75 2C2.75 2.41421 2.41421 2.75 2 2.75C1.58579 2.75 1.25 2.41421 1.25 2C1.25 1.58579 1.58579 1.25 2 1.25ZM2 7.25C2.41421 7.25 2.75 7.58579 2.75 8C2.75 8.41421 2.41421 8.75 2 8.75C1.58579 8.75 1.25 8.41421 1.25 8C1.25 7.58579 1.58579 7.25 2 7.25ZM2 13.25C2.41421 13.25 2.75 13.5858 2.75 14C2.75 14.4142 2.41421 14.75 2 14.75C1.58579 14.75 1.25 14.4142 1.25 14C1.25 13.5858 1.58579 13.25 2 13.25Z" fill="#191B1C" stroke="#191B1C" stroke-width="1.5"/>
+    </svg>
+
+  )
+}
+export const SentmsgIcon = () => {
+  return (
+    <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.5" width="20" height="20" rx="10" fill="#E8F5F3"/>
+        <path d="M14.5 7L9 12.5L6.5 10" stroke="#1C1D22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  )
+}
+export const AddMsgIcon = () => {
+  return (
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="32" height="32" rx="8" fill="#DBDADE"/>
+        <path d="M16 9V23" stroke="#1C1D22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M9 16H23" stroke="#1C1D22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  )
+}
+export const Emoji = () => {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#979797" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 14C8 14 9.5 16 12 16C14.5 16 16 14 16 14" stroke="#979797" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15 9H15.01" stroke="#979797" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M9 9H9.01" stroke="#979797" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  )
+}
+export const SentIcon = () => {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.8563 1.14793C16.4396 0.722098 15.8229 0.564598 15.2479 0.731264L1.8396 4.60543C1.23293 4.77376 0.802932 5.2546 0.687098 5.8646C0.568765 6.48626 0.982098 7.27626 1.5221 7.60626L5.7146 10.1663C6.1446 10.4296 6.6996 10.3638 7.05543 10.0071L11.8563 5.20626C12.0979 4.95543 12.4979 4.95543 12.7396 5.20626C12.9813 5.4471 12.9813 5.8396 12.7396 6.0896L7.93043 10.8904C7.57377 11.2471 7.5071 11.8004 7.7696 12.2313L10.3313 16.4396C10.6313 16.9388 11.1479 17.2229 11.7146 17.2229C11.7813 17.2229 11.8563 17.2229 11.9229 17.2138C12.5729 17.1313 13.0896 16.6888 13.2813 16.0638L17.2563 2.75626C17.4313 2.1896 17.2729 1.57293 16.8563 1.14793Z" fill="white"/>
+    </svg>
+  )
+}
+export const MsgBox = () => {
+  return (
+    <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.6667 0.125H3.33333C2.4496 0.125992 1.60237 0.455551 0.97748 1.04139C0.352588 1.62722 0.00105857 2.4215 0 3.25L0 10.75C0.00105857 11.5785 0.352588 12.3728 0.97748 12.9586C1.60237 13.5444 2.4496 13.874 3.33333 13.875H12.6667C13.5504 13.874 14.3976 13.5444 15.0225 12.9586C15.6474 12.3728 15.9989 11.5785 16 10.75V3.25C15.9989 2.4215 15.6474 1.62722 15.0225 1.04139C14.3976 0.455551 13.5504 0.125992 12.6667 0.125ZM3.33333 1.375H12.6667C13.0659 1.37574 13.4557 1.48845 13.786 1.69863C14.1163 1.90881 14.3719 2.20684 14.52 2.55438L9.41467 7.34125C9.03895 7.69207 8.53028 7.88904 8 7.88904C7.46972 7.88904 6.96105 7.69207 6.58533 7.34125L1.48 2.55438C1.6281 2.20684 1.88374 1.90881 2.21403 1.69863C2.54432 1.48845 2.93414 1.37574 3.33333 1.375ZM12.6667 12.625H3.33333C2.8029 12.625 2.29419 12.4275 1.91912 12.0758C1.54405 11.7242 1.33333 11.2473 1.33333 10.75V4.1875L5.64267 8.225C6.26842 8.81016 7.11617 9.13877 8 9.13877C8.88383 9.13877 9.73158 8.81016 10.3573 8.225L14.6667 4.1875V10.75C14.6667 11.2473 14.456 11.7242 14.0809 12.0758C13.7058 12.4275 13.1971 12.625 12.6667 12.625Z" fill="#525266" fill-opacity="0.45"/>
+    </svg>
+  )
+}
+
 

@@ -240,36 +240,60 @@ const Sidebar = ({ children }) => {
                             ) : (
                                 <Subscription/>
                             )}
-                        {/* <Subscription /> */}
-                        {/* <SubscriptionActive /> */}
                         <p className={Styles.dashboardText}>
                             Subscription Plans
                         </p>
                     </div>
                 </div>
 
-                <div className={Styles.width}>
+                <div onClick={() => navigate('/voucher/Voucher')} className={path === 'voucher' ? `${Styles.width} ${Styles.active}` : Styles.width}>
                     <div>
-                        <Reward />
-                        {/* <RewardActive /> */}
+                        {path === 'voucher' ? (
+                            <RewardActive /> 
+                        ):(
+                            <Reward /> 
+                        )}
                         <p className={Styles.dashboardText}>
                             Rewards/Vouchers
                         </p>
                     </div>
                 </div>
 
-                <div className={Styles.width}>
+                <div onClick={() => navigate('/techSupport/Messages')} className={path === 'techSupport' ? `${Styles.width} ${Styles.active}` : Styles.width}>
                     <div>
-                        <Support />
-                        {/* <SupportActive /> */}
+                        {path === 'techSupport'? (
+                            <SupportActive />
+                        ) : (
+                            <Support /> 
+                        )}
                         <p className={Styles.dashboardText}>
                             Tech Support
                         </p>
                     </div>
-                    <div>
-                        <DropUp />
-                    </div>
+                    {path === 'techSupport' ? (
+                        <DropDown />
+                    ) : <DropUp />}
                 </div>
+                {
+                    path === 'techSupport' ?
+                        <div className={Styles.subpaths}>
+                            <div onClick={() => navigate('/techSupport/Messages')} className={subpath === 'Messages' ? Styles.submenu : Styles.menuText}>
+                                <div className={Styles.lines}>
+                                    <span className={Styles.vertical} style={{ top: "-5px", height: 30 }}></span>
+                                    <span className={Styles.horizontal}></span>
+                                </div>
+                                Messages
+                            </div>
+                            <div onClick={() => navigate('/techSupport/Enquiries')} className={subpath === 'Enquiries' ? Styles.submenu : Styles.menuText}>
+                                <div className={Styles.lines}>
+                                    <span className={Styles.vertical}></span>
+                                    <span className={Styles.horizontal}></span>
+                                </div>
+                                Enquiries
+                            </div>
+                        </div> : ''
+                }
+                
                 <div className={Styles.width}>
                     <div>
                         <Brand />

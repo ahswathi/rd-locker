@@ -34,6 +34,10 @@ import AdminUser from './adminUsers/AdminUser';
 import AddNewUser from './adminUsers/AddNewUser';
 import SubscriptionPlans from './subscription/SubscriptionPlans';
 import CreateSubcscriptionPlan from './subscription/CreateSubcscriptionPlan';
+import Voucher from './voucher/Voucher';
+import AddVoucher from './voucher/AddVoucher';
+import Messages from './techSupport/Messages';
+import Enquiries from './techSupport/Enquiries';
 
 function App() {
   return (
@@ -70,6 +74,10 @@ function App() {
           <Route path='/deliveryAgent/DeliveryAgentProfile/AddAgent' element={<AddAgent />} />
           <Route path='/adminUsers/AdminUser' element={<AdminUser />} />
           <Route path='/adminUsers/AdminUser/AddNewUser' element={<AddNewUser />} />
+          <Route path='/voucher/Voucher' element={<Voucher />} />
+          <Route path='/voucher/Voucher/AddVoucher' element={<AddVoucher />} />
+          <Route path='/techSupport/Messages' element={<Messages />} />
+          <Route path='/techSupport/Enquiries' element={<Enquiries />} />
           <Route path='/accounts' element={<Accounts />} />
           <Route path='/transactions' element={<Transactions />} />
           <Route path='/receipt' element={<Receipt />} />
