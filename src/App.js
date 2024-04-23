@@ -38,6 +38,8 @@ import Voucher from './voucher/Voucher';
 import AddVoucher from './voucher/AddVoucher';
 import Messages from './techSupport/Messages';
 import Enquiries from './techSupport/Enquiries';
+import BrandPartner from './brandPartner/BrandPartner';
+import AddNewVoucher from './brandPartner/AddNewVoucher';
 
 function App() {
   return (
@@ -85,6 +87,8 @@ function App() {
           <Route path='/reports/transactions' element={<Transactions />} />
           <Route path='/subscription/SubscriptionPlans' element={<SubscriptionPlans />} />
           <Route path='/subscription/CreateSubcscriptionPlan' element={<CreateSubcscriptionPlan />} />
+          <Route path='/brandPartner/BrandPartner' element={<BrandPartner />} />
+          <Route path='/brandPartner/AddNewVoucher' element={<AddNewVoucher />} />
           {/* <Route path='/receipt' element={<Receipt />} /> */}
         </Routes>
       </Layout>

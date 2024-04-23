@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import styles from '../categories/category.module.css';
 import style from '../healthcare/healthcare.module.css';
 import { BlackCheckBox, BlackUnCheckBox, DropDownIcon, GoBack, UnCheckedBox } from '../Svg';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Styles from '../subscription/subscription.module.css'
 import { Button, MenuItem, Select } from '@mui/material';
 import { custom, formselect, save } from '../MaterialUI';
@@ -11,6 +11,7 @@ import * as yup from "yup";
 
 const CreateSubcscriptionPlan = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const schema = yup.object().shape({
         email: yup.string().matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, "Please enter valid email").required("Please enter valid email"),
         password: yup.string().required("Password is required")
@@ -28,6 +29,15 @@ const CreateSubcscriptionPlan = () => {
         //   handleLogin();
         }
       })
+        const [check, setCheck] = useState('');
+        const [unCheck, setUnCheck] = useState('');
+        const checkedItem = location.pathname.split('/')[1];
+        // const subpathname = location.pathname.split('/')[2];
+
+        useEffect(() => {
+            setCheck(checkedItem)
+            // setSubpath(subpathname)
+        }, [checkedItem])
   return (
     <div style={{padding:20}}>
         <div className={styles.container}>
@@ -79,7 +89,7 @@ const CreateSubcscriptionPlan = () => {
                         </Select>
                         </div>
                 </div>
-                <div style={{marginTop:20,marginLeft:20}}>
+                <div style={{marginTop:20,marginLeft:10}}>
                         <label className={styles.label}>Select role</label>
                         <br />
                         <div className={Styles.width}>
@@ -121,7 +131,7 @@ const CreateSubcscriptionPlan = () => {
                         </Select>
                         </div>
                 </div>
-                <div style={{marginTop:20,marginLeft:20}}>
+                <div style={{marginTop:20,marginLeft:0}}>
                     <label className={Styles.label}>Pricing</label>
                     <div className={Styles.inputbox}>
                     <div className={Styles.inrBox}>
@@ -161,7 +171,13 @@ const CreateSubcscriptionPlan = () => {
             </div>
             <div className={Styles.maxViewBox}>
                 <div className={Styles.descView}>
-                    <div><BlackCheckBox/></div>
+                    <div>
+                        { check === true ? (
+                         <BlackUnCheckBox/> 
+                        ) : (
+                            <BlackCheckBox/>
+                        )}
+                    </div>
                     <div className={Styles.maxText}>Max</div>
                     <div>
                     <Select className={Styles.selectPicker}

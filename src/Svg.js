@@ -694,5 +694,34 @@ export const MsgBox = () => {
     </svg>
   )
 }
+export const CancleIcon = () => {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M18.1328 6.69925C18.6224 7.18889 18.6224 7.98273 18.1328 8.47237L14.274 12.3311L18.1328 16.1917C18.6224 16.6813 18.6224 17.4752 18.1328 17.9648C17.6431 18.4544 16.8493 18.4544 16.3597 17.9648L12.5009 14.1043L8.64033 17.9648C8.1507 18.4544 7.35685 18.4544 6.86722 17.9648C6.37759 17.4752 6.37759 16.6813 6.86722 16.1917L10.7278 12.3311L6.86722 8.47237C6.37759 7.98273 6.37759 7.18889 6.86722 6.69925C7.35685 6.20962 8.1507 6.20962 8.64033 6.69925L12.5009 10.558L16.3597 6.69925C16.8493 6.20962 17.6431 6.20962 18.1328 6.69925Z" fill="#7E84A3"/>
+    </svg>
+  )
+}
+export const AlertIcon = () => {
+  return (
+      <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9.83333 11.8333H9V8.5H8.16667M9 5.16667H9.00833M16.5 8.5C16.5 12.6421 13.1421 16 9 16C4.85786 16 1.5 12.6421 1.5 8.5C1.5 4.35786 4.85786 1 9 1C13.1421 1 16.5 4.35786 16.5 8.5Z" stroke="#404040" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+  )
+}
+export const LocationIcon = () => {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_64_7098)">
+        <path d="M14 6.66797C14 11.3346 8 15.3346 8 15.3346C8 15.3346 2 11.3346 2 6.66797C2 5.07667 2.63214 3.55055 3.75736 2.42533C4.88258 1.30011 6.4087 0.667969 8 0.667969C9.5913 0.667969 11.1174 1.30011 12.2426 2.42533C13.3679 3.55055 14 5.07667 14 6.66797Z" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 8.66797C9.10457 8.66797 10 7.77254 10 6.66797C10 5.5634 9.10457 4.66797 8 4.66797C6.89543 4.66797 6 5.5634 6 6.66797C6 7.77254 6.89543 8.66797 8 8.66797Z" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <defs>
+        <clipPath id="clip0_64_7098">
+        <rect width="16" height="16" fill="white"/>
+        </clipPath>
+        </defs>
+    </svg>
+  )
+}
 
 

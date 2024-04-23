@@ -1,0 +1,81 @@
+.brandView{
+    width: 190px;
+    height: 60px;
+    padding: 16px;
+    gap: 10px;
+    border-radius: 8px;
+    background: #FFFFFF;
+    border: 1px solid #D9E1EC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.activeBrandView{
+    width: 190px;
+    height: 60px;
+    padding: 16px;
+    gap: 10px;
+    border-radius: 8px;
+    background: #ECF2FF;
+    border: 1px solid #1E5EFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inActiveText{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: -0.011em;
+    text-align: left;
+    color: #404040;
+
+}
+.activeText{
+    color: #1E5EFF;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: -0.011em;
+    text-align: left;
+}
+.bannerStyle{
+    width: 420px;
+    height:  308px;
+    padding: 24px;
+    gap: 24px;
+    border-radius: 6px;
+    background: #FFFFFF;
+    border: 1px solid #E6E6E6
+}
+.bannerStyle h4{
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: -0.006em;
+    text-align: left;
+    color: #404040;
+}
+.labelText{
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.006em;
+    text-align: left;
+    color: #5A607F;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.digitText{
+    font-family: DM Sans;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+}

@@ -72,7 +72,14 @@ const SubscriptionPlans = () => {
                     </div>
                 </div>
             ): (
-                <FreeVersion/>
+                <div className={Styles.width}>
+                    <div>
+                        <FreeVersion/>
+                    </div>
+                    <div>
+                        <GoldMembership/>
+                    </div>
+                </div>
             )
         }
     </div>

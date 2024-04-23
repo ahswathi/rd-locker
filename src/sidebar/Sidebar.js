@@ -294,10 +294,12 @@ const Sidebar = ({ children }) => {
                         </div> : ''
                 }
                 
-                <div className={Styles.width}>
+                <div onClick={() => navigate('/brandPartner/BrandPartner')} className={path === 'brandPartner' ? `${Styles.width} ${Styles.active}` : Styles.width}>
                     <div>
-                        <Brand />
-                        {/* <BrandActive /> */}
+                        {path === 'brandPartner' ? (
+                            <BrandActive />
+                        ): <Brand />
+                        }
                         <p className={Styles.dashboardText}>
                             Brand Partners
                         </p>

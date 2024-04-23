@@ -5,6 +5,8 @@ import styles from '../categories/category.module.css';
 import Styles from '../component/Style.module.css';
 import { useNavigate } from 'react-router';
 import Style from '../voucher/voucher.module.css'
+import EditVoucher from './EditVoucher';
+import DeleteCategory from '../categories/DeleteCategory';
 
 const Voucher = () => {
     const navigate = useNavigate()
@@ -48,6 +50,21 @@ const Voucher = () => {
         if (page > 1) {
         setPage((prev) => prev - 1)
         }
+    }
+    const [isEditModal,setIsEditModal] = useState(false);
+    const openEditModal = () =>{
+        setIsEditModal(true);
+    }
+    const closeEditModal = () => {
+        setIsEditModal(false)
+    }
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  
+    const openDeleteModal =() => {
+        setIsDeleteModalOpen(true)
+    }
+    const closeDeleteModal = () => {
+        setIsDeleteModalOpen(false);
     }
     const userData = [
         {
@@ -179,10 +196,10 @@ const Voucher = () => {
                             <div style={{marginLeft:10}}>
                                 <View/>
                             </div>
-                            <div style={{marginLeft:10}}>
+                            <div style={{marginLeft:10}} onClick={openEditModal}>
                                 <Edit/>
                             </div>
-                            <div style={{marginLeft:10}}>
+                            <div style={{marginLeft:10}} onClick={openDeleteModal}>
                                 <Delete/>
                             </div>
                             
@@ -205,6 +222,14 @@ const Voucher = () => {
                 </div>
                 </div>
             )}
+            <EditVoucher
+                open={isEditModal}
+                onCloseModal={closeEditModal}
+            />
+            <DeleteCategory
+                open={isDeleteModalOpen}
+                closeModal={closeDeleteModal}
+            />
     </div>
   )
 }
