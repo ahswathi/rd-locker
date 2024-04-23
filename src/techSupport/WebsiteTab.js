@@ -3,6 +3,7 @@ import styles from '../vendorManagement/vendor.module.css';
 import { Delete, FilterIcon, Left, MsgBox, Right, View } from '../Svg';
 import { Navigate, useNavigate } from 'react-router-dom';
 import DeleteCategory from '../categories/DeleteCategory';
+import EnquiriesDetailsModal from './EnquiriesDetailsModal';
 
 const WebsiteTab = () => {
     const vendorData = [
@@ -42,7 +43,14 @@ const WebsiteTab = () => {
     ]
   const navigate = useNavigate();  
   //state
-  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  }
+  const closeModal = () => {
+    setIsModalOpen(false)
+  }
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   
   const openDeleteModal =() => {
@@ -97,7 +105,7 @@ const WebsiteTab = () => {
                 <div className={styles.fourth}>{item.emailId}</div>
                 
                 <div className={styles.seventh}>
-                  <div style={{marginLeft:20}}>
+                  <div style={{marginLeft:20}} onClick={openModal}>
                       <View/>
                   </div>
                   <div style={{marginLeft:10}}>
@@ -123,6 +131,10 @@ const WebsiteTab = () => {
                         
                     </div>
             </div>
+            <EnquiriesDetailsModal
+              open={isModalOpen}
+              onCloseModal={closeModal}
+            />
             <DeleteCategory
               open={isDeleteModalOpen}
               closeModal={closeDeleteModal}

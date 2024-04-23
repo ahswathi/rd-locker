@@ -3,6 +3,7 @@ import styles from '../vendorManagement/vendor.module.css';
 import { Delete, FilterIcon, Left, MsgBox, Right, View } from '../Svg';
 import { useNavigate } from 'react-router-dom';
 import DeleteCategory from '../categories/DeleteCategory';
+import EnquiriesDetailsModal from './EnquiriesDetailsModal';
 
 const BrandPartnerTab = () => {
     const vendorData = [
@@ -43,6 +44,14 @@ const BrandPartnerTab = () => {
   const navigate = useNavigate();  
   //state
   
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  }
+  const closeModal = () => {
+    setIsModalOpen(false)
+  }
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   
   const openDeleteModal =() => {
@@ -97,7 +106,7 @@ const BrandPartnerTab = () => {
                 <div className={styles.fourth}>{item.emailId}</div>
                 
                 <div className={styles.seventh}>
-                  <div style={{marginLeft:20}}>
+                  <div style={{marginLeft:20}} onClick={openModal}>
                       <View/>
                   </div>
                   <div style={{marginLeft:10}}>
@@ -110,11 +119,9 @@ const BrandPartnerTab = () => {
             </div>
             )
         })}
-        
-            <div className={styles.entryView}>
+        <div className={styles.entryView}>
                     <div className={styles.showingText}>Showing {start} to {end} of {totalItems} entries</div>
                     <div className={styles.leftright}>
-                        
                         <Left handleClick={decrement} />
                         {/* <p>01</p> */}
                         <p className={styles.onPage} style={{marginLeft:10}}>{page}</p>
@@ -123,6 +130,10 @@ const BrandPartnerTab = () => {
                         
                     </div>
             </div>
+            <EnquiriesDetailsModal
+              open={isModalOpen}
+              onCloseModal={closeModal}
+            />
             <DeleteCategory
               open={isDeleteModalOpen}
               closeModal={closeDeleteModal}

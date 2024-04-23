@@ -41,8 +41,8 @@ const EditSubscriptionPlan = ({
         transform: "translate(-50%, -50%)",
         bgcolor: "white",
         border: "none",
-        padding: "27px 22px",
-        height: "fit-content",
+        padding: "10px 22px",
+        height: '600px',
         display: "block",
         width: '1000px',
         borderRadius:'7px',
@@ -58,12 +58,13 @@ const EditSubscriptionPlan = ({
       aria-describedby="modal-modal-description"
     >
       <Box sx={style}>
-        <p className={Styles.headingText}>Add New Subscription Plan</p>
+        <p className={Styles.headingText}>Edit Subscription Plan</p>
             <div className={Styles.descView}>
-                <div style={{marginTop:20}}>
+                <div style={{marginTop:10}}>
                         <label className={styles.label}>Subscription Plan*</label>
                         <br />
-                        <Select className={Styles.formselect}
+                        <div className={Styles.width}>
+                        <Select className={Styles.formselects}
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             sx={formselect}
@@ -77,11 +78,13 @@ const EditSubscriptionPlan = ({
                             <MenuItem value="ACTIVE">Active</MenuItem>
                             <MenuItem value="INACTIVE">Inactive</MenuItem>
                         </Select>
+                        </div>
                 </div>
-                <div style={{marginTop:20,marginLeft:20}}>
+                <div style={{marginTop:10,marginLeft:20}}>
                         <label className={styles.label}>Select role</label>
                         <br />
-                        <Select className={Styles.formselect}
+                        <div className={Styles.width}>
+                        <Select className={Styles.formselects}
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             sx={formselect}
@@ -95,13 +98,15 @@ const EditSubscriptionPlan = ({
                             <MenuItem value="ACTIVE">Active</MenuItem>
                             <MenuItem value="INACTIVE">Inactive</MenuItem>
                         </Select>
+                        </div>
                 </div>
             </div>
             <div className={Styles.descView}>
-                <div style={{marginTop:20}}>
-                        <label className={styles.label}>Subscription Type</label>
-                        <br />
-                        <Select className={Styles.formselect}
+                <div style={{marginTop:10}}>
+                    <label className={styles.label}>Subscription Type</label>
+                    <br />
+                    <div className={Styles.width}>
+                        <Select className={Styles.formselects}
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             sx={formselect}
@@ -115,8 +120,9 @@ const EditSubscriptionPlan = ({
                             <MenuItem value="ACTIVE">Active</MenuItem>
                             <MenuItem value="INACTIVE">Inactive</MenuItem>
                         </Select>
+                    </div>
                 </div>
-                <div style={{marginTop:20,marginLeft:20}}>
+                <div style={{marginTop:10,marginLeft:20}}>
                     <label className={Styles.label}>Pricing</label>
                     <div className={Styles.inputbox}>
                     <div className={Styles.inrBox}>
@@ -129,10 +135,11 @@ const EditSubscriptionPlan = ({
                     }
                 </div>
             </div>
-            <div style={{marginTop:20,}}>
-                        <label className={styles.label}>Plan Status</label>
-                        <br />
-                        <Select className={Styles.formselect}
+            <div style={{marginTop:10,}}>
+                    <label className={styles.label}>Plan Status</label>
+                    <br />
+                    <div className={Styles.width}>
+                        <Select className={Styles.formselects}
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             sx={formselect}
@@ -146,6 +153,7 @@ const EditSubscriptionPlan = ({
                             <MenuItem value="ACTIVE">Active</MenuItem>
                             <MenuItem value="INACTIVE">Inactive</MenuItem>
                         </Select>
+                    </div>
             </div>
             <div className={Styles.planText}>
                 Plan includes
@@ -208,7 +216,7 @@ const EditSubscriptionPlan = ({
                                 <MenuItem value="20">20</MenuItem>
                             </Select>
                         </div>
-                        <div className={Styles.maxText}>
+                        <div className={Styles.maxText} style={{marginLeft:15}}>
                             messages
                         </div>
                    
@@ -229,7 +237,7 @@ const EditSubscriptionPlan = ({
             </div>
             <div className={styles.buttons} style={{marginTop:20}}>
                 <div>
-                    <Button sx={custom} variant="contained">Cancle</Button>
+                    <Button sx={custom} variant="contained" onClick={onCloseModal}>Cancle</Button>
                 </div>
                 <div>
                     <Button sx={save} onClick={handleSubmit} variant="contained">Save</Button>
