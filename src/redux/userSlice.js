@@ -23,6 +23,8 @@ export const getProfile = createAsyncThunk('getProfile', async (body, { rejectWi
 }
 )
 
+
+
 const userSlice = createSlice({
     name: "user",
     initialState,
@@ -30,7 +32,8 @@ const userSlice = createSlice({
         setLogin: (state, action) => {
             state.isLoggedIn = true
             state.user = action.payload
-        }
+        },
+        
     },
     extraReducers: (builder) => {
         // login

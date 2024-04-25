@@ -4,59 +4,71 @@ import { useNavigate } from 'react-router-dom'
 
 import { useFormik } from "formik"
 import * as yup from "yup";
+import { forgotPassword } from '../redux/forgotPasswordSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import ConfirmEmail from './ConfimEmail';
 
 const ForgotPassword = () => {
-    const navigate = useNavigate();
-    // schema -----------
+  const dispatch = useDispatch();
+  const { screen } = useSelector(state => state.forgotPassword)
+  const navigate = useNavigate();
+  
+  // schema -----------
   const schema = yup.object().shape({
     email: yup.string().matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, "Please enter valid email").required("Please enter valid email"),
-    password: yup.string().required("Password is required")
   })
 
   const {
-    errors, values, handleChange, touched, setFieldValue, handleBlur, resetForm, handleSubmit,
+    errors, values, handleChange, touched, handleBlur, handleSubmit,
   } = useFormik({
     initialValues: {
       email: "",
       password: ""
     },
     validationSchema: schema,
-    onSubmit: () => {
-    //   handleLogin();
+    onSubmit: (values) => {
+      handleLogin(values);
     }
   })
+
+  const handleLogin = async (values) => {
+    dispatch(forgotPassword(values));
+  }
+
   return (
-    <div className={styles.container}>
+    screen === 'EMAIL' ?
+      <div className={styles.container}>
         <div className={styles.logo}>Logo</div>
-    
+
         <div className={styles.login}>
+          <div className={styles.content}>
             <div className={styles.content}>
-            <div className={styles.content}>
-                <h2>Password Reset</h2>
-                <p>We Will Help You Reset your Password</p>
+              <h2>Password Reset</h2>
+              <p>We Will Help You Reset your Password</p>
             </div>
-            <div style={{marginTop:30}}>
-                <label>Email*</label>
-                <div className={styles.inputbox}>
-                
+            <div style={{ marginTop: 30 }}>
+              <label>Email*</label>
+              <div className={styles.inputbox}>
+
                 <input type="email" onBlur={handleBlur} value={values.email} placeholder='Enter Email Address' name="email" onChange={handleChange} />
-                </div>
-                {
+              </div>
+              {
                 errors.email && touched.email && <p style={{ color: "red", fontSize: "12px" }}>{errors.email}</p>
-                }
-                <br />
+              }
+              <br />
             </div>
-            <button onClick={() => navigate('/login/ConfirmEmail')}>Reset Password</button>
-            <div className={styles.lineStyle}/>
+            <button onClick={handleSubmit}>Reset Password</button>
+            <div className={styles.lineStyle} />
             <div className={styles.rememPassword}>
-                Remembered your Password?
+              Remembered your Password?
             </div>
             <div className={styles.backToSign}>
-                Back to Sign In
+              Back to Sign In
             </div>
-            </div>
+          </div>
         </div>
-    </div>
+      </div>
+      : <ConfirmEmail />
   )
 }
 

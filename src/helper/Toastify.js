@@ -4,19 +4,19 @@ import { toast } from 'react-toastify'
 class Toastify {
     success(title, desc) {
         return toast.success(<Success title={title} desc={desc} />, {
-            icon: ({ theme, type }) => <img src="./assets/icons/success.svg" />
+            icon: ({ theme, type }) => <img src="/assets/icons/success.svg" />
         })
     }
 
     warning(title, desc) {
         return toast.warning(<Warning title={title} desc={desc} />, {
-            icon: ({ theme, type }) => <img src="./assets/icons/warning.svg" />
+            icon: ({ theme, type }) => <img src="/assets/icons/warning.svg" />
         })
     }
 
     error(title, desc) {
         return toast.error(<Error title={title} desc={desc} />, {
-            icon: ({ theme, type }) => <img src="./assets/icons/error.svg" />
+            icon: ({ theme, type }) => <img src="/assets/icons/error.svg" />
         })
     }
 }

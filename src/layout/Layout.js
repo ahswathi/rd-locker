@@ -37,7 +37,9 @@ const Layout = ({ children }) => {
         navigate('/dashboard')
       }
     } else {
-
+      if(path === "" || path === "login"){
+        return () => {}
+      }
       // if callback url present
       if (callbackUrl) {
         return navigate(`/?callbackUrl=${callbackUrl}`)
