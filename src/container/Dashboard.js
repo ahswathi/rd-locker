@@ -198,7 +198,7 @@ const Dashboard = () => {
 
   return (
     <div className={Styles.frontPage}>
-        <div className={Styles.dash}>
+        <div className={Styles.dash} style={{paddingLeft:10}}>
             Dashboard
         </div>
         <div className={Styles.App}>

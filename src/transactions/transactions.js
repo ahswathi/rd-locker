@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Card from '../component/Card';
 import Styles from '../component/Style.module.css';
 import styles from '../transactions/transactions.module.css';
+import categoryStyle from '../categories/category.module.css'
 import SwitchTab from '../component/SwitchTab';
 import { Export, Search } from '../Svg';
 import {Area, AreaChart, CartesianGrid,Tooltip, XAxis, YAxis} from 'recharts';
@@ -86,7 +87,7 @@ const Transactions = () => {
             amt: 2400
         },
         {
-            name: 'JUly', 
+            name: 'July', 
             uv: 70430, 
             pv: 2400, 
             amt: 2400
@@ -178,7 +179,7 @@ const Transactions = () => {
                         <p style={{paddingLeft:10}}>{payload[0].payload.name}</p>
                     </div>
                     <div className={Styles.revenue}>
-                        <p>{`Revenue  INR${payload[0].value}`}</p>
+                        <p>{`Revenue INR${payload[0].value}`}</p>
                     </div>
                 </div>
             );
@@ -203,21 +204,34 @@ const Transactions = () => {
         { val: 'Debits', id: 1 },
         { val: 'Credits', id: 2 },
     ]);
-    const [selected, setSelected] = useState(1);
+    const [selected, setSelected] = useState(0);
     const [search, setSearch] = useState('')
     const changeID = (id) => {
         setSelected(id.id);
         // setValue(data)
     };
     useEffect(() => {
-        setSelected(data)
+        setSelected(selected)
     },[])
 
 
   return (
     <div className={Styles.frontPage}>
-        <div>
-            <p className={Styles.dash}>All Users Accounts</p>
+        <div className={categoryStyle.container} style={{marginLeft:10}}>
+            <div>
+                <div>
+                    <h2 className={categoryStyle.categoryText}>Transactions</h2>
+                </div>
+                <span className={categoryStyle.home}>
+                    home 
+                    <img src='/tiangle.png' style={{marginLeft:10,marginRight:10}}/> 
+                        Reports
+                    <img src='/tiangle.png' style={{marginLeft:10}}/>
+                    <span style={{ color: 'var(--Gray-900, #1E5EFF)',marginLeft:10 }}>
+                        All Transactions
+                    </span>
+                </span>
+            </div>
         </div>
         
         <div className={Styles.App}>
@@ -318,7 +332,7 @@ const Transactions = () => {
                 })}
             </div>
         </div>
-        <div className={styles.container}>
+        <div className={styles.container} style={{marginTop:20,marginLeft:10,marginRight:10}}>
             <div>
                 <SwitchTab 
                     value={value}
@@ -326,23 +340,31 @@ const Transactions = () => {
                     onChange={(id) => changeID(id)}
                 />
             </div>
-            <div style={{marginTop:20}}>
+            <div style={{marginTop:5}}>
                 <div className={Styles.width}  style={{gap:'10px'}}>
-                    <div className={styles.search}>
+                    <div className={categoryStyle.search}>
                         <Search /> 
                         <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Search by name...' />
                     </div>
-                    <div className={styles.filter}>
+                    <div className={categoryStyle.filter}>
                         <img src='/filter.png'/> <span>Filter</span>
                     </div>
-                    <div className={styles.export}>
+                    <div className={categoryStyle.export}>
                         <Export/> <span>Export</span>
                     </div>
                 </div>
             </div>
         </div>
-<TransactionList/>
-
+    
+        <div style={{marginLeft:10,marginRight:10}}>
+            {selected === 0 ? (
+            <TransactionList/>
+            ) : (selected === 1 ? (
+                <TransactionList/>
+            ) : <TransactionList/>
+            ) 
+            }
+        </div>
 
     </div>
   )

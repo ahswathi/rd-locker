@@ -18,6 +18,16 @@
     display: flex;
     color: #1E5EFF;
 }
+.export span {
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0.005em;
+    text-align: left;
+    color: #1E5EFF;
+
+}
 .buttonStyle {
     width: fit-content;
     height: 44px;

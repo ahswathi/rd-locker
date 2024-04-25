@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import styles from '../transactions/transactions.module.css';
-import { Delete, Dots, Download, Left, Pending, Right } from '../Svg';
+import { Delete, Dots, Download, Left, Paid, PaidIcon, Pending, Right } from '../Svg';
+import { useNavigate } from 'react-router-dom';
+import DownloadPdf from './DownloadPdf';
 
 const TransactionList = () => {
+  const navigate = useNavigate();
     const categories = [
         {
             id:0,
@@ -31,19 +34,26 @@ const TransactionList = () => {
             userName:'Wade Warren',
             date:'15 Dec 2024	, 10:30AM',
             trans:'Debit',
-            status:'Pending',
+            status:'Paid',
             price:'INR 887.00',
         },
     ]
   //state
   
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isPdfModalOpen, setIsPdfModalOpen] = useState(false);
   
   const openDeleteModal =() => {
     setIsDeleteModalOpen(true)
   }
   const closeDeleteModal = () => {
     setIsDeleteModalOpen(false);
+  }
+  const openPdfModal =() => {
+    setIsPdfModalOpen(true)
+  }
+  const closePdfModal = () => {
+    setIsPdfModalOpen(false);
   }
   const [page, setPage] = useState(1)
   const [limit, setLimit] = useState(50)
@@ -80,43 +90,44 @@ const TransactionList = () => {
             <div className={styles.header}>
             <div className={styles.first1}>NO</div>
             <div className={styles.second}>INVOICE SUBJECT</div>
-            <div className={styles.first}>Client</div>
-            <div className={styles.first}>Date</div>
-            <div className={styles.first}>Transaction</div>
-            <div className={styles.first}>Status</div>
-            <div className={styles.first}>Price</div>
-            <div className={styles.first}>Action</div>
-            <div className={styles.first1}></div>
+            <div className={styles.third}>Client</div>
+            <div className={styles.dateStyle}>Date</div>
+            <div className={styles.fifth} >Transaction</div>
+            <div className={styles.sixth}>Status</div>
+            <div className={styles.seventhPrize}>Price</div>
+            <div className={styles.eight}>Action</div>
+            <div className={styles.nine}></div>
         </div>
         {categories.map((item,index) => {
             return(
                 <div className={styles.info}>
                   <div className={styles.first1}>{(page - 1) * limit + index + 1}</div>
                   <div className={styles.second}>{item.invoice}</div>
-                  <div className={styles.first}>{item.userName}</div>
-                  <div className={styles.first}>{item.date}</div>
-                  <div className={styles.first}>{item.trans}</div>
-                  <div className={styles.first}>
-                    <div style={{marginRight:20}} onClick={openDeleteModal}>
-                        <Pending/>{item.status}
-                    </div>
+                  <div className={styles.third}>{item.userName}</div>
+                  <div className={styles.fourth}>{item.date}</div>
+                  <div className={styles.fifth}>{item.trans}</div>
+                  <div className={styles.sixth}onClick={openDeleteModal}>
+                    {item.status === 'Pending' ? (
+                      <Pending/>
+                    ) : <Paid/>
+                    }
+                        {item.status}
+            
                   </div>
-                  <div className={styles.first}>{item.price}</div>
-                  <div className={styles.second}>
-                    <div className={styles.download}>
+                  <div className={styles.seventh}>{item.price}</div>
+                  <div className={styles.eight}>
+                    <div className={styles.download} onClick={openPdfModal}>
                         <Download/> <span>Download</span>
                     </div>
                   </div>
-                  <div className={styles.first1}>
-                    <div className={styles.dots}>
-                        <Dots/> 
-                    </div>
+                  <div className={styles.nine}>
+                      <Dots/> 
                   </div>
                 </div>
             )
             })}
             <div className={styles.entryView}>
-                    <div>Showing {start} to {end} of {totalItems} entries</div>
+                    <div className={styles.entryText}>Showing {start} to {end} of {totalItems} entries</div>
                     <div className={styles.leftright}>
                         
                         <Left handleClick={decrement} />
@@ -127,6 +138,10 @@ const TransactionList = () => {
                         
                     </div>
             </div>
+            <DownloadPdf
+              open={isPdfModalOpen}
+              onCloseModal={closePdfModal}
+            />
         </div>
   )
 }

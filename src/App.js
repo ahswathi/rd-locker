@@ -40,6 +40,7 @@ import Messages from './techSupport/Messages';
 import Enquiries from './techSupport/Enquiries';
 import BrandPartner from './brandPartner/BrandPartner';
 import AddNewVoucher from './brandPartner/AddNewVoucher';
+import DownloadPdf from './transactions/DownloadPdf';
 
 function App() {
   return (
@@ -85,6 +86,7 @@ function App() {
           <Route path='/receipt' element={<Receipt />} />
           <Route path='/reports/accounts' element={<Accounts />} />
           <Route path='/reports/transactions' element={<Transactions />} />
+          <Route path='/reports/transactions/DownloadPdf' element={<DownloadPdf />} />
           <Route path='/subscription/SubscriptionPlans' element={<SubscriptionPlans />} />
           <Route path='/subscription/CreateSubcscriptionPlan' element={<CreateSubcscriptionPlan />} />
           <Route path='/brandPartner/BrandPartner' element={<BrandPartner />} />
