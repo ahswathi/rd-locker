@@ -14,7 +14,7 @@ const Accounts = () => {
         {
             id: 0,
             image: '/Group1.png',
-            icon:'rating.png',
+            icon:'/rating.png',
             prize: '100000',
             name: 'Vendors',
             rate: '15k'
@@ -22,7 +22,7 @@ const Accounts = () => {
         {
             id: 1,
             image: '/Group.png',
-            icon:'rate1.png',
+            icon:'/rate1.png',
             prize: '100000',
             name: 'E-traveller',
             rate: '15k'
@@ -30,7 +30,7 @@ const Accounts = () => {
         {
             id: 2,
             image: '/Group2.png',
-            icon:'rate2.png',
+            icon:'/rate2.png',
             prize: '100000',
             name: 'Delivery agent',
             rate: '15k'
@@ -203,21 +203,21 @@ const Accounts = () => {
         { val: 'All E-traveller', id: 1 },
         { val: 'All delivery agents', id: 2 },
     ]);
-    const [selected, setSelected] = useState(1);
+    const [selected, setSelected] = useState(0);
     const [search, setSearch] = useState('')
     const changeID = (id) => {
         setSelected(id.id);
         // setValue(data)
     };
     useEffect(() => {
-        setSelected(data)
+        setSelected(selected)
     },[])
 
 
   return (
     <div className={Styles.frontPage}>
-        <div>
-            <p className={Styles.dash}>All Users Accounts</p>
+        <div className={Styles.dash} style={{paddingLeft:10}}>
+            All Users Accounts
         </div>
         
         <div className={Styles.App}>
@@ -232,7 +232,7 @@ const Accounts = () => {
                 />
             ))}
         </div>
-        <div className={styles.container}>
+        <div className={styles.container} style={{marginTop:20,marginLeft:10,marginRight:10}}>
             <div>
                 <SwitchTab 
                     value={value}
@@ -240,7 +240,7 @@ const Accounts = () => {
                     onChange={(id) => changeID(id)}
                 />
             </div>
-            <div style={{marginTop:20}}>
+            <div style={{marginTop:5}}>
                 <div className={Styles.width}>
                     <div className={styles.search}>
                         <Search /> 
@@ -255,7 +255,16 @@ const Accounts = () => {
                 </div>
             </div>
         </div>
-      <AccountsCard/>
+        <div style={{marginLeft:10,marginRight:10}}>
+            {selected === 0 ? (
+            <AccountsCard/>
+            ) : (selected === 1 ? (
+                <AccountsCard/>
+            ) : <AccountsCard/>
+            ) 
+            }
+        </div>
+      
     </div>
   )
 }

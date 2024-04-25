@@ -3,14 +3,7 @@ import styles from '../vendorManagement/vendor.module.css';
 import { Delete, FilterIcon, Left, Right, View } from '../Svg';
 import { Navigate, useNavigate } from 'react-router-dom';
 
-const AccountsCard = ({
-    index,
-    dateTime,
-    vendorName,
-    emailId,
-    phoneNumber,
-    status
-}) => {
+const AccountsCard = () => {
     const vendorData = [
        
         {
@@ -20,7 +13,7 @@ const AccountsCard = ({
             emailId:'deeksha@gmail.com',
             phoneNumber:'+91-9876543210',
             cat: 'Healthcare(MBBS)',
-            status:'Pending'
+            status:'Active'
         },
         {
             id:2,
@@ -29,7 +22,7 @@ const AccountsCard = ({
             emailId:'deeksha@gmail.com',
             phoneNumber:'+91-9876543210',
             cat: 'Healthcare(MBBS)',
-            status:'Pending'
+            status:'Blocked'
         },
     ]
   const navigate = useNavigate();  
@@ -93,14 +86,29 @@ const AccountsCard = ({
                 <div className={styles.fifth}>{item.phoneNumber}</div>
                 <div className={styles.sixth}>{item.cat}</div>
 
-                <div className={styles.status}><span>{item.status}</span></div>
+                <div className={styles.status}
+                     style={{
+                      backgroundColor: item.status === 'Blocked' ? "#F439391A" : '#1A98821A'
+                  }}
+                >
+                  <span style={{
+                                fontFamily: 'DM Sans',
+                                fontSize: 14,
+                                fontWeight: '400',
+                                // lineHeight: 18.23,
+                                letterSpacing: 0.5,
+                                textAlign:'center',
+                                color:item.status === 'Blocked' ? '#FF8227' : '#0F9A1D',
+                            }}
+
+                >{item.status}</span></div>
                 
             </div>
             )
         })}
         
             <div className={styles.entryView}>
-                    <div>Showing {start} to {end} of {totalItems} entries</div>
+                    <div className={styles.showingText}>Showing {start} to {end} of {totalItems} entries</div>
                     <div className={styles.leftright}>
                         
                         <Left handleClick={decrement} />

@@ -68,7 +68,7 @@ const CreateAdTemplate = ({open,onCloseModal}) => {
             </div>
             <div className={styles.buttons} style={{marginTop:20}}>
                 <div>
-                    <Button sx={custom} variant="contained">Cancle</Button>
+                    <Button sx={custom} variant="contained" onClick={onCloseModal}>Cancle</Button>
                 </div>
                 <div>
                     <Button sx={save} variant="contained" onClick={() => navigate('/brandPartner/AddNewVoucher')}>Next</Button>
