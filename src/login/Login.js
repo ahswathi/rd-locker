@@ -27,8 +27,8 @@ const Login = () => {
   )
 }
 
-const Email = ({ navigate }) => {
-
+const Email = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { isLoading } = useSelector(state => state.login)
 

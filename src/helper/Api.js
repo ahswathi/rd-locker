@@ -59,6 +59,9 @@ class Api {
         return this.init().post("/admin/auth/login-2FA", data)
     }
 
+    forgotPassword = (data) => {
+        return this.init().post("/admin/auth/forgot-password",data)
+    }
     getProfile = (data, config) => {
         return this.init().get("/admin/auth/whoAmI", data)
     }

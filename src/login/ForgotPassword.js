@@ -4,8 +4,14 @@ import { useNavigate } from 'react-router-dom'
 
 import { useFormik } from "formik"
 import * as yup from "yup";
+import { forgotPassword } from '../redux/forgotPasswordSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import ConfirmEmail from './ConfimEmail';
 
 const ForgotPassword = () => {
+  const dispatch = useDispatch();
+  const screen = useSelector(state => state.forgotPassword) 
+  console.log('screen',screen);
     const navigate = useNavigate();
     // schema -----------
   const schema = yup.object().shape({
@@ -14,18 +20,24 @@ const ForgotPassword = () => {
   })
 
   const {
-    errors, values, handleChange, touched, setFieldValue, handleBlur, resetForm, handleSubmit,
+    errors, values, handleChange, touched, handleBlur, handleSubmit,
   } = useFormik({
     initialValues: {
       email: "",
       password: ""
     },
     validationSchema: schema,
-    onSubmit: () => {
-    //   handleLogin();
+    onSubmit: (values) => {
+      handleLogin(values);
     }
   })
+
+  const handleLogin = async (values) => {
+    dispatch(forgotPassword(values));
+  }
+
   return (
+    screen === 'EMAIL' ? 
     <div className={styles.container}>
         <div className={styles.logo}>Logo</div>
     
@@ -46,7 +58,7 @@ const ForgotPassword = () => {
                 }
                 <br />
             </div>
-            <button onClick={() => navigate('/login/ConfirmEmail')}>Reset Password</button>
+            <button onClick={handleSubmit}>Reset Password</button>
             <div className={styles.lineStyle}/>
             <div className={styles.rememPassword}>
                 Remembered your Password?
@@ -57,6 +69,7 @@ const ForgotPassword = () => {
             </div>
         </div>
     </div>
+    : <ConfirmEmail/>
   )
 }
 
