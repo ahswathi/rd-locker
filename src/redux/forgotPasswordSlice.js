@@ -94,4 +94,4 @@ export const forgotPasswordSlice = createSlice({
 
 export const { setScreen, setForgotPassword } = forgotPasswordSlice.actions
 
-export default forgotPassword.reducer;
+export default forgotPasswordSlice.reducer;
