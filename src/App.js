@@ -57,7 +57,7 @@ function App() {
           <Route path='/login/ForgotPassword' element={<ForgotPassword />} />
           <Route path='/login/ConfirmEmail' element={<ConfirmEmail />} />
           <Route path='/login/ResendMail' element={<ResendMail />} />
-          <Route path='/login/ResetPassword' element={<ResetPassword />} />
+          <Route path='/login/ResetPassword/:token' element={<ResetPassword />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/categories/Categories' element={<Categories />} />
           <Route path='/categories/AddNewCategory' element={<AddNewCategory />} />
