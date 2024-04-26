@@ -60,8 +60,17 @@ class Api {
     }
 
     forgotPassword = (data) => {
-        return this.init().post("/admin/auth/forgot-password",data)
+        return this.init().post("/admin/auth/forgot-password", data)
     }
+
+    verifyForgotPsw = (data) => {
+        return this.init().post("/admin/auth/verify-forgot-password", data)
+    }
+
+    resetPsw = (data) => {
+        return this.init().post("/admin/auth/reset-password", data)
+    }
+
     getProfile = (data, config) => {
         return this.init().get("/admin/auth/whoAmI", data)
     }
