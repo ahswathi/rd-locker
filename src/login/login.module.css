@@ -99,7 +99,7 @@
     width: 420px;
     height: 48px;
     border-radius: 7px;
-    justify-content: center;
+    justify-content: flex-start;
     color: #A1A7C4;
 }
 

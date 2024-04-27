@@ -717,7 +717,7 @@ input {
     align-self: center;
     flex-direction: column;
     justify-self: center;
-    margin-top: 20px;
+    /* margin-top: 10px; */
 }
 .uploadBox{
     display: flex;

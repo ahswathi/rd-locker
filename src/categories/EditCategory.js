@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Styles from '../component/Style.module.css';
 import styles from '../categories/category.module.css';
 import { useFormik } from 'formik';
@@ -8,11 +8,15 @@ import Button from '@mui/material/Button';
 import { custom, save } from '../MaterialUI';
 import Style from '../vendorManagement/vendor.module.css';
 import { Box, Modal } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { editCategory } from '../redux/categoriesSlice';
+import CustomizedSwitches from './CustomSwitch';
 
 const EditCategory = ({
     onCloseModal,
     open
 }) => {
+    const dispatch = useDispatch();
     const schema = yup.object().shape({
         name: yup.string().required("Name is required"),
       })
@@ -30,10 +34,13 @@ const EditCategory = ({
           name: "",
         },
         validationSchema: schema,
-        // onSubmit: () => {
-        //   updateSubject();
-        // }
+        onSubmit: (values) => {
+          updateSubject(values);
+        }
       })
+      const updateSubject = async (values) =>{
+        dispatch(editCategory(values))
+    }
       const style = {
         position: "absolute",
         top: "50%",
@@ -49,6 +56,18 @@ const EditCategory = ({
         "&:focus": {
           outline: "none",
         },
+      };
+      const [selectedImage, setSelectedImage] = useState(null);
+
+      const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            setSelectedImage(reader.result);
+          };
+          reader.readAsDataURL(file);
+        }
       };
   return (
     <Modal
@@ -74,23 +93,38 @@ const EditCategory = ({
           </div>
           
           <div style={{marginTop:20}}>
-                <label className={Style.label}> Image</label>
+                <label className={Style.label}>Profile Image</label>
                     <div className={Style.imageUpload}>
                         <div className={Style.imageView}>
-                        <Image/>
-                        <div className={Style.uploadBox}>
-                            <Upload/> <p className={Style.uploadText}>Upload Image</p>
+                        {selectedImage ? (
+                            <div>
+                              <img
+                                src={selectedImage}
+                                alt="Selected"
+                                style={{ maxWidth: '100%', marginTop: '0px' }}
+                              />
+                              {/* <button onClick={handleUpload}>Upload</button> */}
+                            </div>
+                          ) : (
+                            <Image/>
+                          )
+                          }
+                        <div >
+                            
+                            <label htmlFor='catFile' className={Style.uploadBox}><Upload/> <p className={Style.uploadText}>Upload Image</p></label>
+                            <input type='file' accept="image/*" id='catFile' style={{display:'none'}} onChange={handleImageChange} value={values.catFile}/>
                         </div>
                         <div className={Style.pixel}>
                             Image size : 0px by 0px in .jpg or .png format
                         </div>
                     </div>
                 </div>
-            </div>
+          </div>
           </form>
           <div className={styles.toggleButton} style={{marginTop:10}}>
-            <ToggleButton1/>
-            <span>Category visible on site</span>
+            <CustomizedSwitches
+                onMessage={'Category visible on site'}
+            />
           </div>
           <div className={styles.buttons}>
             <Button sx={custom}  variant="contained" onClick={onCloseModal}>Cancel</Button>

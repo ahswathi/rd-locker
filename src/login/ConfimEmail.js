@@ -19,7 +19,7 @@ const ConfirmEmail = () => {
   })
 
   const {
-    errors, values, handleChange, touched, setFieldValue, handleBlur, resetForm, handleSubmit,
+    errors, values, handleChange, touched, handleBlur, handleSubmit,
   } = useFormik({
     initialValues: {
       otp: ""
