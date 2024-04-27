@@ -65,6 +65,18 @@ class Api {
     getProfile = (data, config) => {
         return this.init().get("/admin/auth/whoAmI", data)
     }
+    getCategories = (data, config) => {
+        return this.init().get("/admin/category/get-all", data)
+    }
+    addCategories = (data, config) => {
+        return this.init().post("/admin/category/new", data)
+    }
+    editCategories = (data, config) => {
+        return this.init().put("/admin/category/", data)
+    }
+    fileUpload = (data, config) => {
+        return this.init('multipart/form-data').post("/admin/uploadFile", data)
+    }
 
 }
 

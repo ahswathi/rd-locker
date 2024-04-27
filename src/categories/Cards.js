@@ -8,7 +8,8 @@ const Cards = ({
     heading,
     subCategory,
     openEditModal,
-    openDeleteModal
+    openDeleteModal,
+    status
 }) => {
     const navigate = useNavigate();
     //State
@@ -22,7 +23,7 @@ const Cards = ({
         onMouseLeave={() => setIsHovered(false)}
     >
         <div className={styles.cardImg}>
-            <img src={image}/>
+            <img src={image} height={50} width={50}/>
         </div>
         <div className={styles.heading}>
             <h5>
@@ -31,10 +32,10 @@ const Cards = ({
         </div>
         <div className={styles.subcategory} onClick={() => navigate('/healthcare/HealthCare')}>
             <h6>
-                {subCategory}
+                7 Sub Categories
             </h6>
             <div className={styles.activeView}>
-                <span className={styles.activetext}>Active</span>
+                <span className={styles.activetext}>{status}</span>
             </div>
         </div>
         {isHovered && (

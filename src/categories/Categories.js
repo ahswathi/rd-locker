@@ -10,70 +10,80 @@ import AddNewCategory from './AddNewCategory';
 import EditCategory from './EditCategory';
 import DeleteCategory from './DeleteCategory';
 import CategoriesRequestList from './CategoriesRequestList';
+import { useDispatch, useSelector } from 'react-redux';
+import { categories } from '../redux/categoriesSlice';
 
 const Categories = () => {
-    const data = [
-        {
-            id: 0,
-            image: '/healthcare.png',
-            heading: 'Healthcare',
-            subCategory: '7 subcategories'
-        },
-        {
-            id: 1,
-            image: '/lawyer.png',
-            heading: 'Lawyers',
-            subCategory: '7 subcategories'
-        },
-        {
-            id: 2,
-            image: '/etraveleguid.png',
-            heading: 'E-traveller Guide',
-            subCategory: '7 subcategories'
-        },
-        {
-            id: 3,
-            image: '/securityagency.png',
-            heading: 'Security Agency',
-            subCategory: '7 subcategories'
-        },
-        {
-            id: 4,
-            image: '/technicalservice.png',
-            heading: 'Technical Services',
-            subCategory: '7 subcategories'
-        },
-        {
-            id: 5,
-            image: '/astrologer.png',
-            heading: 'Astrologer',
-            subCategory: '7 subcategories'
-        },
-        {
-            id: 6,
-            image: '/chef.png',
-            heading: 'Chef',
-            subCategory: '7 subcategories'
-        },
-        {
-            id: 7,
-            image: '/spiritual.png',
-            heading: 'Spirutual',
-            subCategory: '7 subcategories'
-        },
-        {
-            id: 8,
-            image: '/photographer.png',
-            heading: 'Photographers',
-            subCategory: '7 subcategories'
-        },
-        {
-            id: 9,
-            image: '/financeadvisor.png',
-            heading: 'Finance Advisor',
-            subCategory: '7 subcategories'
-        },
-    ]
+    // const data = [
+    //     {
+    //         id: 0,
+    //         image: '/healthcare.png',
+    //         heading: 'Healthcare',
+    //         subCategory: '7 subcategories'
+    //     },
+    //     {
+    //         id: 1,
+    //         image: '/lawyer.png',
+    //         heading: 'Lawyers',
+    //         subCategory: '7 subcategories'
+    //     },
+    //     {
+    //         id: 2,
+    //         image: '/etraveleguid.png',
+    //         heading: 'E-traveller Guide',
+    //         subCategory: '7 subcategories'
+    //     },
+    //     {
+    //         id: 3,
+    //         image: '/securityagency.png',
+    //         heading: 'Security Agency',
+    //         subCategory: '7 subcategories'
+    //     },
+    //     {
+    //         id: 4,
+    //         image: '/technicalservice.png',
+    //         heading: 'Technical Services',
+    //         subCategory: '7 subcategories'
+    //     },
+    //     {
+    //         id: 5,
+    //         image: '/astrologer.png',
+    //         heading: 'Astrologer',
+    //         subCategory: '7 subcategories'
+    //     },
+    //     {
+    //         id: 6,
+    //         image: '/chef.png',
+    //         heading: 'Chef',
+    //         subCategory: '7 subcategories'
+    //     },
+    //     {
+    //         id: 7,
+    //         image: '/spiritual.png',
+    //         heading: 'Spirutual',
+    //         subCategory: '7 subcategories'
+    //     },
+    //     {
+    //         id: 8,
+    //         image: '/photographer.png',
+    //         heading: 'Photographers',
+    //         subCategory: '7 subcategories'
+    //     },
+    //     {
+    //         id: 9,
+    //         image: '/financeadvisor.png',
+    //         heading: 'Finance Advisor',
+    //         subCategory: '7 subcategories'
+    //     },
+    // ]
+    const dispatch = useDispatch();
+    const catData  = useSelector(state => state.categories.catData)
+    console.log('catdata',catData);
+
+    useEffect(() => {
+        dispatch(categories(catData))
+    },[dispatch])
+
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -98,12 +108,11 @@ const Categories = () => {
         setIsModalOpen(false);
     };
 
-
     const [value, setValue] = useState([
         { val: 'All Categories', id: 0 },
         { val: 'New category request', id: 1 },
     ]);
-    const [selected, setSelected] = useState(1);
+    const [selected, setSelected] = useState(0);
     const [search, setSearch] = useState('')
     const changeID = (id) => {
         setSelected(id.id);
@@ -112,6 +121,7 @@ const Categories = () => {
     useEffect(() => {
         setSelected(selected)
     }, [])
+
     return (
         <div style={{ padding: 20 }}>
             <div className={styles.container}>
@@ -153,15 +163,17 @@ const Categories = () => {
 
             {selected == 0 ? (
                 <>
-                    {data.length > 0 ? (
+                    {catData.length > 0 ? (
                         <div className={styles.cardWrap}>
-                            {data.map((item, key) => {
+                            {catData.map((item, key) => {
+                                console.log('item',item);
                                 return (
                                     <div key={key} >
                                         <Cards
-                                            image={item.image}
-                                            heading={item.heading}
+                                            image={item.img}
+                                            heading={item.name}
                                             subCategory={item.subCategory}
+                                            status={item.active}
                                             openEditModal={openEditModal}
                                             openDeleteModal={openDeleteModal}
                                         />

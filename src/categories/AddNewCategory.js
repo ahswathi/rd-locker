@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Styles from '../component/Style.module.css';
 import styles from '../categories/category.module.css';
 import { useFormik } from 'formik';
@@ -7,10 +7,17 @@ import ImageUpload from '../component/ImageUpload';
 import { Image, ToggleButton, Upload } from '../Svg';
 import Button from '@mui/material/Button';
 import { custom, formselect, save } from '../MaterialUI';
-import { Box, Modal } from '@mui/material';
+import { Box, Modal, Stack, Switch } from '@mui/material';
 import Style from '../vendorManagement/vendor.module.css';
+import { useDispatch } from 'react-redux';
+import { addCategory } from '../redux/categoriesSlice';
+import CustomSwitchExample from './CustomSwitch';
+import CustomizedSwitches from './CustomSwitch';
+import api from '../helper/Api';
 
 const AddNewCategory = ({onClose,open}) => {
+  const dispatch = useDispatch();
+  
     const schema = yup.object().shape({
         name: yup.string().required("Name is required"),
       })
@@ -20,18 +27,26 @@ const AddNewCategory = ({onClose,open}) => {
         handleChange,
         touched,
         setValues,
+        setFieldValue,
         handleBlur,
         handleSubmit,
         resetForm
       } = useFormik({
         initialValues: {
           name: "",
+          img: [],
+          status: "ACTIVE"
         },
         validationSchema: schema,
-        // onSubmit: () => {
-        //   updateSubject();
-        // }
+        onSubmit: (values) => {
+          updateSubject(values);
+        }
       })
+      
+      const updateSubject = async (values) =>{
+          dispatch(addCategory(values))
+      }
+
       const style = {
         position: "absolute",
         top: "50%",
@@ -48,6 +63,28 @@ const AddNewCategory = ({onClose,open}) => {
           outline: "none",
         },
       };
+
+      
+
+      const handleImageChange = async (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          
+          const body = new FormData()
+          body.set('image',file) 
+          const {data, status} = await api.fileUpload(body)
+          if(status === 200) {
+            setFieldValue("img", data.data)
+          }
+        }
+      };
+
+      const handleStatus = (e) => {
+        setFieldValue("status", e.target.checked)
+      }
+
+      console.log("values", values)
+
   return (
     <Modal
       open={open}
@@ -70,25 +107,44 @@ const AddNewCategory = ({onClose,open}) => {
           <div className={styles.input}>
             <input type="text" name="name" onBlur={handleBlur} value={values.name} onChange={handleChange} placeholder='Enter category name' />
           </div>
-          
+          {
+            errors.name && touched.name && <p style={{ color: "red", fontSize: "12px", textAlign: "left" }}>{errors.name}</p>
+          }
           <div style={{marginTop:20}}>
                 <label className={Style.label}>Profile Image</label>
                     <div className={Style.imageUpload}>
                         <div className={Style.imageView}>
-                        <Image/>
-                        <div className={Style.uploadBox}>
-                            <Upload/> <p className={Style.uploadText}>Upload Image</p>
+                        {values.img.length > 0 ? (
+                            <div>
+                              <img
+                                src={values.img[0]}
+                                alt="Selected"
+                                style={{ maxWidth: '100%', marginTop: '0px' }}
+                              />
+                              {/* <button onClick={handleUpload}>Upload</button> */}
+                            </div>
+                          ) : (
+                            <Image/>
+                          )
+                          }
+                        <div >
+                            
+                            <label htmlFor='catFile' className={Style.uploadBox}><Upload/> <p className={Style.uploadText}>Upload Image</p></label>
+                            <input type='file' accept="image/*" id='catFile' style={{display:'none'}} onChange={handleImageChange} value={values.catFile}/>
                         </div>
                         <div className={Style.pixel}>
                             Image size : 0px by 0px in .jpg or .png format
                         </div>
                     </div>
                 </div>
-            </div>
+          </div>
           </form>
-          <div className={styles.toggleButton} style={{marginTop:10}}>
-            <ToggleButton/>
-            <span>Category visible on site</span>
+          <div style={{marginTop:10}}>
+            <CustomizedSwitches
+                handleChange={handleStatus}
+                onMessage={'Category visible on site'}
+            />
+            {/* <span>Category visible on site</span> */}
           </div>
           <div className={styles.buttons}>
             <Button sx={custom}  variant="contained" onClick={onClose}>Cancel</Button>
