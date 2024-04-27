@@ -13,7 +13,7 @@ const getToken = async () => {
 class Api {
     constructor() {
         this.client = null;
-        this.api_url = process.env.NODE_ENV === "development" ? "https://aradee-backend.vercel.app/api" : `https://aradee-backend.vercel.app/api`;
+        this.api_url = process.env.NODE_ENV === "development" ? "https://aradee.growcommerces.in/api" : `https://aradee.growcommerces.in/api`;
         // this.api_url = process.env.NODE_ENV === "development" ? "http://localhost:5000/api" : `https://aradee-backend.vercel.app/api`;
     }
 
@@ -60,8 +60,17 @@ class Api {
     }
 
     forgotPassword = (data) => {
-        return this.init().post("/admin/auth/forgot-password",data)
+        return this.init().post("/admin/auth/forgot-password", data)
     }
+
+    verifyForgotPsw = (data) => {
+        return this.init().post("/admin/auth/verify-forgot-password", data)
+    }
+
+    resetPsw = (data) => {
+        return this.init().post("/admin/auth/reset-password", data)
+    }
+
     getProfile = (data, config) => {
         return this.init().get("/admin/auth/whoAmI", data)
     }

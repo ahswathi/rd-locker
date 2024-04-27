@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './login.module.css'
 import { useNavigate } from 'react-router-dom'
 
@@ -7,12 +7,13 @@ import * as yup from "yup";
 import { forgotPassword } from '../redux/forgotPasswordSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import ConfirmEmail from './ConfimEmail';
+import { CircularProgress } from '@mui/material';
 
 const ForgotPassword = () => {
   const dispatch = useDispatch();
-  const { screen } = useSelector(state => state.forgotPassword)
+  const { screen, isLoading, resetToken } = useSelector(state => state.forgotPassword)
   const navigate = useNavigate();
-  
+
   // schema -----------
   const schema = yup.object().shape({
     email: yup.string().matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, "Please enter valid email").required("Please enter valid email"),
@@ -33,6 +34,12 @@ const ForgotPassword = () => {
   const handleLogin = async (values) => {
     dispatch(forgotPassword(values));
   }
+
+  useEffect(() => {
+    if (resetToken) {
+      navigate(`/login/ResetPassword/${resetToken}`)
+    }
+  }, [resetToken])
 
   return (
     screen === 'EMAIL' ?
@@ -56,7 +63,14 @@ const ForgotPassword = () => {
               }
               <br />
             </div>
-            <button onClick={handleSubmit}>Reset Password</button>
+            <button onClick={handleSubmit} disabled={isLoading}>
+
+              {
+                isLoading ?
+                  <CircularProgress size={25} thickness={4.5} sx={{ color: "#fff" }} />
+                  : "Reset Password"
+              }
+            </button>
             <div className={styles.lineStyle} />
             <div className={styles.rememPassword}>
               Remembered your Password?
