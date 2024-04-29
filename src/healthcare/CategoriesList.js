@@ -5,63 +5,19 @@ import Modal from '../component/Modal';
 import EditCategory from '../categories/EditCategory';
 import DeleteCategory from '../categories/DeleteCategory';
 
-const CategoriesList = () => {
-    const categories = [
-        {
-            id:0,
-            sno:1,
-            subcatName:'MBBS',
-            status:'Active'
-        },
-        {
-            id:1,
-            sno:2,
-            subcatName:'MB',
-            status:'Active'
-        },
-        {
-            id:2,
-            sno:3,
-            subcatName:'BAMS',
-            status:'InActive'
-        },
-        {
-            id:3,
-            sno:4,
-            subcatName:'Dentist',
-            status:'Active'
-        },
-        {
-            id:4,
-            sno:5,
-            subcatName:'Nutritioner',
-            status:'InActive'
-        },
-        {
-            id:5,
-            sno:6,
-            subcatName:'Physiotherapist',
-            status:'Active'
-        },
-        {
-            id:6,
-            sno:7,
-            subcatName:'Gynaecologist',
-            status:'Active'
-        },
-    ]
+const CategoriesList = ({categories = []}) => {
   //state
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const openEditModal = () => {
-        setIsEditModalOpen(true);
+    setIsEditModalOpen(true);
   };
-  
-  const openDeleteModal =() => {
+
+  const openDeleteModal = () => {
     setIsDeleteModalOpen(true)
   }
   const closeEditModal = () => {
-        setIsEditModalOpen(false);
+    setIsEditModalOpen(false);
   };
 
   const closeDeleteModal = () => {
@@ -96,70 +52,70 @@ const CategoriesList = () => {
 
   return (
     <div>
-        <div className={styles.header}>
-            <div className={styles.first}>Sl No <FilterIcon/></div>
-            <div className={styles.second}>Subcategory name <FilterIcon/></div>
-            <div className={styles.third}>Status <FilterIcon/></div>
-            <div className={styles.fourth}>Options</div>
-        </div>
-        {categories.map((item,index) => {
-            return(
-                <div className={styles.info}>
-                  <div className={styles.first}>{(page - 1) * limit + index + 1}</div>
-                  <div className={styles.second}>{item.subcatName}</div>
-                  <div className={styles.third} 
-                     style={{
-                          backgroundColor: item.status === 'Active' ? "#1A98821A" : '#F439391A'
-                      }}
-                    >
-                        <span 
-                            style={{
-                                // width:'25%',
-                                fontFamily: 'DM Sans',
-                                fontSize: 14,
-                                fontWeight: '400',
-                                // lineHeight: 18.23,
-                                letterSpacing: 0.5,
-                                textAlign:'center',
-                                color:item.status === 'Active' ? '#1A9882' : '#F43939',
-                            }}
-                        >{item.status}</span></div>
-                  <div className={styles.fourth}>
-                    <div className={styles.option}>
-                    <div style={{marginLeft:20}} onClick={openEditModal} >
-                        <Edit/>
-                     </div>
-                     <div style={{marginLeft:20}} onClick={openDeleteModal}>
-                        <Delete/>
-                    </div>
-                    </div>
-                  </div>
-                  
+      <div className={styles.header}>
+        <div className={styles.first}>Sl No <FilterIcon /></div>
+        <div className={styles.second}>Subcategory name <FilterIcon /></div>
+        <div className={styles.third}>Status <FilterIcon /></div>
+        <div className={styles.fourth}>Options</div>
+      </div>
+      {categories.map((item, index) => {
+        return (
+          <div className={styles.info}>
+            <div className={styles.first}>{(page - 1) * limit + index + 1}</div>
+            <div className={styles.second}>{item.name}</div>
+            <div className={styles.third}
+              style={{
+                backgroundColor: item.status ? "#1A98821A" : '#F439391A'
+              }}
+            >
+              <span
+                style={{
+                  // width:'25%',
+                  fontFamily: 'DM Sans',
+                  fontSize: 14,
+                  fontWeight: '400',
+                  // lineHeight: 18.23,
+                  letterSpacing: 0.5,
+                  textAlign: 'center',
+                  color: item.status ? '#1A9882' : '#F43939',
+                }}
+              >{item.status ? "Active" : "Inactive"}</span></div>
+            <div className={styles.fourth}>
+              <div className={styles.option}>
+                <div style={{ marginLeft: 20 }} onClick={openEditModal} >
+                  <Edit />
                 </div>
-            )
-        })}
-        <div className={styles.entryView}>
-        <div className={styles.showingText}>Showing {start} to {end} of {totalItems} entries</div>
-            <div className={styles.leftright}>
-                
-                <Left handleClick={decrement} />
-                {/* <p>01</p> */}
-                <p className={styles.onPage} style={{marginLeft:10}}>{page}</p>
-                <p className={styles.onPage} style={{marginLeft:10,marginRight:10}}>{page}</p>
-                <Right handleClick={increment} />
-                
+                <div style={{ marginLeft: 20 }} onClick={openDeleteModal}>
+                  <Delete />
+                </div>
+              </div>
             </div>
+
+          </div>
+        )
+      })}
+      <div className={styles.entryView}>
+        <div className={styles.showingText}>Showing {start} to {end} of {totalItems} entries</div>
+        <div className={styles.leftright}>
+
+          <Left handleClick={decrement} />
+          {/* <p>01</p> */}
+          <p className={styles.onPage} style={{ marginLeft: 10 }}>{page}</p>
+          <p className={styles.onPage} style={{ marginLeft: 10, marginRight: 10 }}>{page}</p>
+          <Right handleClick={increment} />
+
         </div>
-        
-            <EditCategory
-                onCloseModal={closeEditModal}
-                open={isEditModalOpen}
-            />
-      
-        <DeleteCategory
-            closeModal={closeDeleteModal} 
-            open={isDeleteModalOpen}
-        />
+      </div>
+
+      <EditCategory
+        onCloseModal={closeEditModal}
+        open={isEditModalOpen}
+      />
+
+      <DeleteCategory
+        closeModal={closeDeleteModal}
+        open={isDeleteModalOpen}
+      />
     </div>
   )
 }

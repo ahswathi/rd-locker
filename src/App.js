@@ -62,7 +62,7 @@ function App() {
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/categories/Categories' element={<Categories />} />
           <Route path='/categories/AddNewCategory' element={<AddNewCategory />} />
-          <Route path='/healthcare/HealthCare' element={<HealthCare />} />
+          <Route path='/categories/view/:id' element={<HealthCare />} />
           <Route path='/vendorManagement/KYCApproval' element={<KYCApproval />} />
           <Route path='/vendorManagement/VendorsProfile' element={<VendorsProfile />} />
           <Route path='/vendorManagement/PrivacyPolicy' element={<PrivacyPolicy />} />
