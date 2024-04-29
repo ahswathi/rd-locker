@@ -35,7 +35,7 @@ const AddNewCategory = ({onClose,open}) => {
         initialValues: {
           name: "",
           img: [],
-          status: "ACTIVE"
+          status: true
         },
         validationSchema: schema,
         onSubmit: (values) => {
@@ -45,6 +45,7 @@ const AddNewCategory = ({onClose,open}) => {
       
       const updateSubject = async (values) =>{
           dispatch(addCategory(values))
+          onClose()
       }
 
       const style = {

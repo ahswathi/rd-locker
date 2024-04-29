@@ -52,9 +52,11 @@ export const editCategory = createAsyncThunk('editCategories',async (body, {reje
         if (status === 200) {
             //add category data
             dispatch(setEditCategories(body))
+            Toastify.success("Category Edited Successfuly");
         }
         return data.data
     } catch (err){
+        Toastify.error(err.response.data.message);
         return rejectWithValue(err.response.data.message || "'Something went wrong. Please try again later.'")
     }
 })

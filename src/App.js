@@ -41,6 +41,7 @@ import Enquiries from './techSupport/Enquiries';
 import BrandPartner from './brandPartner/BrandPartner';
 import AddNewVoucher from './brandPartner/AddNewVoucher';
 import DownloadPdf from './transactions/DownloadPdf';
+import Settings from './header/Settings';
 
 function App() {
   return (
@@ -91,6 +92,7 @@ function App() {
           <Route path='/subscription/CreateSubcscriptionPlan' element={<CreateSubcscriptionPlan />} />
           <Route path='/brandPartner/BrandPartner' element={<BrandPartner />} />
           <Route path='/brandPartner/AddNewVoucher' element={<AddNewVoucher />} />
+          <Route path='/header/Settings' element={<Settings />} />
           {/* <Route path='/receipt' element={<Receipt />} /> */}
         </Routes>
       </Layout>

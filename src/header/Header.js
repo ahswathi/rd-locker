@@ -26,7 +26,7 @@ const Header = ({ children }) => {
                 </div>
                 <div>
                     <div className={Styles.menuStyle}>
-                        <div style={{ marginRight: 40, marginTop: 5 }} >
+                        <div style={{ marginRight: 40, marginTop: 5 }} onClick={() => navigate('/header/Settings')} >
                             <Setting />
                         </div>
                         <div style={{ marginRight: 15, marginTop: 5 }} onClick={openModal}>

@@ -9,8 +9,10 @@ const Cards = ({
     subCategory,
     openEditModal,
     openDeleteModal,
-    status
+    status,
+    data
 }) => {
+    console.log('dataaaaaaaaaaaaa',data);
     const navigate = useNavigate();
     //State
     const [isHovered, setIsHovered] = useState(false);
@@ -30,22 +32,32 @@ const Cards = ({
                 {heading}
             </h5>
         </div>
-        <div className={styles.subcategory} onClick={() => navigate('/healthcare/HealthCare')}>
+        <div className={styles.subcategory} onClick={() => navigate('/healthcare/HealthCare/')}>
             <h6>
                 7 Sub Categories
             </h6>
-            <div className={styles.activeView}>
-                <span className={styles.activetext}>{status}</span>
+            <div className={styles.activeView}
+                    style={{
+                        backgroundColor: status === true ? "#1A98821A" : '#F439391A'
+                    }}
+            >
+                <span className={styles.activetext}
+                      style={{
+                        color:status === true ? '#1A9882' : '#F43939'
+                      }}
+                >{status === true ? 'Active': 'InActive'}</span>
             </div>
         </div>
         {isHovered && (
             <div className={styles.icons}>
-                <View className={styles.icon} />
-                <div onClick={openEditModal}>
-                <Edit className={styles.icon} />
+                <div>
+                    <View className={styles.icon} />
                 </div>
-                <div onClick={openDeleteModal}>
-                <Delete className={styles.icon} />
+                <div onClick={() => openEditModal(data)}>
+                    <Edit className={styles.icon} />
+                </div>
+                <div onClick={() => openDeleteModal(data)}>
+                    <Delete className={styles.icon} />
                 </div>
             </div>
         )}

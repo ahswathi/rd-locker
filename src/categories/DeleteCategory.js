@@ -1,29 +1,40 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Styles from '../component/Style.module.css';
 import styles from '../categories/category.module.css';
 import { Box, Button, Modal } from '@mui/material';
 import { useFormik } from 'formik';
 import { custom, delet, formselect, save } from '../MaterialUI';
 import * as yup from "yup";
+import { useDispatch } from 'react-redux';
+import { deleteData } from '../redux/deleteDataSlice';
 
 const DeleteCategory = ({
     closeModal,
-    open
+    open,
+    data
 }) => {
-    const schema = yup.object().shape({
-        name: yup.string().required("Name is required"),
-      })
+    const dispatch = useDispatch();
     const {
         handleSubmit,
+        setValues
       } = useFormik({
-        initialValues: {
-          name: "",
-        },
-        validationSchema: schema,
-        // onSubmit: () => {
-        //   updateSubject();
-        // }
+        
+        onSubmit: (values) => {
+          updateSubject(values);
+        }
       })
+
+      useEffect(() => {
+        if (data) {
+          setValues(data)
+        }
+      },[data])
+
+      const updateSubject = async (values) =>{
+        dispatch(deleteData(values))
+        closeModal();
+      }
+
       const style = {
         position: "absolute",
         top: "50%",

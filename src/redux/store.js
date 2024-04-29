@@ -3,6 +3,8 @@ import loginSlice from "./loginSlice";
 import userSlice from "./userSlice";
 import forgotPasswordSlice from "./forgotPasswordSlice";
 import categoriesSlice from "./categoriesSlice";
+import deleteDataSlice from "./deleteDataSlice";
+import subCategoriesSlice from "./subCategoriesSlice";
 
 export const store = configureStore({
     reducer: {
@@ -10,5 +12,7 @@ export const store = configureStore({
         user: userSlice,
         forgotPassword: forgotPasswordSlice,
         categories: categoriesSlice,
+        deleteData: deleteDataSlice,
+        subCategories: subCategoriesSlice,
     }
 })

@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import styles from '../categories/category.module.css';
 import Styles from '../healthcare/healthcare.module.css';
-import SwitchTab from '../component/SwitchTab';
 import CategoriesList from './CategoriesList';
 import { GoBack, ToggleButton } from '../Svg';
-import AddNewCategory from '../categories/AddNewCategory';
 import { useFormik } from 'formik';
 import * as yup from "yup";
 import Button from '@mui/material/Button';
-import { cancle, formselect, save } from '../MaterialUI';
+import { cancle, save } from '../MaterialUI';
 
 const HealthCare = () => {
     const data = [

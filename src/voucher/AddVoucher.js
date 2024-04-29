@@ -64,7 +64,7 @@ const AddVoucher = () => {
             </div>
             <div className={style.buttonStyle} onClick={() => navigate('/voucher/Voucher')}>
                 <div className={style.width}>
-                    <div style={{marginTop:2,}}>
+                    <div>
                         <GoBack/>
                     </div>
                     <div className={style.backText}>

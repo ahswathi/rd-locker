@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Styles from '../component/Style.module.css';
 import styles from '../categories/category.module.css';
 import { useFormik } from 'formik';
@@ -11,15 +11,18 @@ import { Box, Modal } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { editCategory } from '../redux/categoriesSlice';
 import CustomizedSwitches from './CustomSwitch';
+import api from '../helper/Api';
 
 const EditCategory = ({
     onCloseModal,
-    open
+    open,
+    data
 }) => {
     const dispatch = useDispatch();
     const schema = yup.object().shape({
         name: yup.string().required("Name is required"),
       })
+    
     const {
         errors,
         values,
@@ -28,19 +31,29 @@ const EditCategory = ({
         setValues,
         handleBlur,
         handleSubmit,
-        resetForm
+        setFieldValue
       } = useFormik({
         initialValues: {
           name: "",
+          img: [],
+          status: true
         },
         validationSchema: schema,
         onSubmit: (values) => {
           updateSubject(values);
         }
       })
+
+      useEffect(() => {
+        if (data) {
+          setValues(data)
+        }
+      },[data])
+
       const updateSubject = async (values) =>{
         dispatch(editCategory(values))
-    }
+        onCloseModal()
+      }
       const style = {
         position: "absolute",
         top: "50%",
@@ -57,18 +70,25 @@ const EditCategory = ({
           outline: "none",
         },
       };
-      const [selectedImage, setSelectedImage] = useState(null);
+      
 
-      const handleImageChange = (e) => {
+      const handleImageChange = async (e) => {
         const file = e.target.files[0];
         if (file) {
-          const reader = new FileReader();
-          reader.onloadend = () => {
-            setSelectedImage(reader.result);
-          };
-          reader.readAsDataURL(file);
+          
+          const body = new FormData()
+          body.set('image',file) 
+          const {data, status} = await api.fileUpload(body)
+          if(status === 200) {
+            setFieldValue("img", data.data)
+          }
         }
       };
+
+      const handleStatus = (e) => {
+        setFieldValue("status", e.target.checked)
+      }
+
   return (
     <Modal
       open={open}
@@ -89,19 +109,19 @@ const EditCategory = ({
           <label>Subject Name</label>
           <br />
           <div className={styles.input}>
-            <input type="text" name="name" onBlur={handleBlur} value={values.name} onChange={handleChange} placeholder='Enter category name' />
+            <input type="text" name="name" onBlur={handleBlur} value={values.name } onChange={handleChange} placeholder='Enter category name' />
           </div>
           
           <div style={{marginTop:20}}>
                 <label className={Style.label}>Profile Image</label>
                     <div className={Style.imageUpload}>
                         <div className={Style.imageView}>
-                        {selectedImage ? (
+                        {values?.img?.length > 0 ? (
                             <div>
                               <img
-                                src={selectedImage}
+                                src={values.img[0]}
                                 alt="Selected"
-                                style={{ maxWidth: '100%', marginTop: '0px' }}
+                                style={{ maxWidth: '100px',maxHeight:'50px', marginTop: '0px' }}
                               />
                               {/* <button onClick={handleUpload}>Upload</button> */}
                             </div>
@@ -123,6 +143,7 @@ const EditCategory = ({
           </form>
           <div className={styles.toggleButton} style={{marginTop:10}}>
             <CustomizedSwitches
+                 handleChange={handleStatus}
                 onMessage={'Category visible on site'}
             />
           </div>
