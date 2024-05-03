@@ -41,6 +41,7 @@ import Enquiries from './techSupport/Enquiries';
 import BrandPartner from './brandPartner/BrandPartner';
 import AddNewVoucher from './brandPartner/AddNewVoucher';
 import DownloadPdf from './transactions/DownloadPdf';
+import Settings from './header/Settings';
 
 function App() {
   return (
@@ -61,7 +62,7 @@ function App() {
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/categories/Categories' element={<Categories />} />
           <Route path='/categories/AddNewCategory' element={<AddNewCategory />} />
-          <Route path='/healthcare/HealthCare' element={<HealthCare />} />
+          <Route path='/categories/view/:id' element={<HealthCare />} />
           <Route path='/vendorManagement/KYCApproval' element={<KYCApproval />} />
           <Route path='/vendorManagement/VendorsProfile' element={<VendorsProfile />} />
           <Route path='/vendorManagement/PrivacyPolicy' element={<PrivacyPolicy />} />
@@ -91,6 +92,7 @@ function App() {
           <Route path='/subscription/CreateSubcscriptionPlan' element={<CreateSubcscriptionPlan />} />
           <Route path='/brandPartner/BrandPartner' element={<BrandPartner />} />
           <Route path='/brandPartner/AddNewVoucher' element={<AddNewVoucher />} />
+          <Route path='/header/Settings' element={<Settings />} />
           {/* <Route path='/receipt' element={<Receipt />} /> */}
         </Routes>
       </Layout>

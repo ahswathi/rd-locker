@@ -40,6 +40,7 @@
     display: flex;
     flex-direction: row;
     padding: 5px 10px 5px 10px;
+    cursor: pointer;
 }
 .categoryText {
     font-family: DM Sans;
@@ -82,12 +83,14 @@
     background: #1E5EFF;
     justify-content: center;
     align-content: center;
+    cursor: pointer;
 }
 .inActive {
     justify-content: center;
     align-content: center;
     padding-left: 10px;
     padding-right: 10px;
+    cursor: pointer;
 }
 .activeText {
     font-family: Public Sans;
@@ -166,6 +169,7 @@
     letter-spacing: 0.005em;
     text-align: left;
     color: #667085;
+    cursor: pointer;
 }
 .mainContainer {
     width: 100%;
@@ -200,6 +204,7 @@
     text-align: left;
     color: #131523;
     padding-top: 10px;
+    cursor: pointer;
 }
 .noCategoryText {
     font-family: Inter;
@@ -233,6 +238,7 @@
     width: 206px;
     height: 100px;
     border-radius: 6px;
+    z-index: 1px;
 }
 .icons {
     position: absolute;
@@ -285,13 +291,14 @@
     line-height: 20px;
     text-align: left;
     color: #5A607F;
+    cursor: pointer;
 }
 .activeView {
     width: 56.98px;
     height: 22px;
     gap: 8px;
     border-radius: 10px;
-    background: #E9FAF7;
+    /* background: #E9FAF7; */
     justify-content: center;
     display: flex;
 }
@@ -301,7 +308,7 @@
     font-weight: 400;
     line-height: 20px;
     text-align: center;
-    color: #1A9882;
+    /* color: #1A9882; */
 }
 .home {
     font-family: 'Public Sans';
@@ -366,7 +373,7 @@ label {
 }
 .input {
     display: flex;
-    padding: 12px 16px 12px 18px;
+    padding: 12px 16px 12px 10px;
     border-radius: 4px;
     border: 1px solid var(--Gray-100, #E9EAF0);
     background: var(--Gray-White, #FFF);
@@ -379,7 +386,7 @@ input {
     width: 200px;
 }
 .inputDesc {
-    padding: 12px 16px 12px 18px;
+    padding: 12px 16px 12px 10px;
     border-radius: 4px;
     border: 1px solid var(--Gray-100, #E9EAF0);
     background: var(--Gray-White, #FFF);

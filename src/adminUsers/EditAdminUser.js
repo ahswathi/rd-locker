@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Styles from '../component/Style.module.css';
 import styles from '../categories/category.module.css';
 import { useFormik } from 'formik';
@@ -9,13 +9,25 @@ import Button from '@mui/material/Button';
 import { custom, save } from '../MaterialUI';
 import Style from '../vendorManagement/vendor.module.css';
 import { Box, Modal } from '@mui/material';
+import CustomizedSwitches from '../categories/CustomSwitch';
+import { editAdminUsers } from '../redux/adminUserSlice';
+import api from '../helper/Api';
+import { useDispatch } from 'react-redux';
 
 const EditAdminUser = ({
     onCloseModal,
-    open
+    open,
+    data
 }) => {
+    console.log('data',data);
+    const dispatch = useDispatch();
+
     const schema = yup.object().shape({
-        name: yup.string().required("Name is required"),
+        email: yup.string().matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, "Please enter valid email").required("Please enter valid email"),
+        password: yup.string().required("Password is required"),
+        confirmPassword: yup.string().required("confirmPassword is required"),
+        name: yup.string().required("name is required"),
+        number: yup.string().required("number is required"),
       })
     const {
         errors,
@@ -25,16 +37,55 @@ const EditAdminUser = ({
         setValues,
         handleBlur,
         handleSubmit,
-        resetForm
+        setFieldValue,
       } = useFormik({
         initialValues: {
-          name: "",
+            name: "",
+            email: "",
+            number: "",
+            password: "",
+            confirmPassword: "",
+            img: [],
+            status: true,
+            city:'',
+            state:'',
+            country:'',
         },
         validationSchema: schema,
-        // onSubmit: () => {
-        //   updateSubject();
-        // }
+        onSubmit: (values) => {
+          updateSubject(values);
+        }
       })
+
+      const updateSubject = async (values) =>{
+        dispatch(editAdminUsers(values))
+        onCloseModal()
+      }
+
+      useEffect(() => {
+        if (data) {
+          setValues(data)
+        }
+      },[data])
+
+      const handleStatus = (e) => {
+        setFieldValue("status", e.target.checked)
+      }
+
+      const handleImageChange = async (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          
+          const body = new FormData()
+          body.set('image',file) 
+          const {data, status} = await api.fileUpload(body)
+          if(status === 200) {
+            setFieldValue("img", data.data)
+          }
+        }
+      };
+
+      
       const style = {
         position: "absolute",
         top: "50%",
@@ -42,7 +93,7 @@ const EditAdminUser = ({
         transform: "translate(-50%, -50%)",
         bgcolor: "white",
         border: "none",
-        padding: "27px 22px",
+        padding: "20px 22px",
         height: "fit-content",
         display: "block",
         width: '780px',
@@ -67,7 +118,7 @@ const EditAdminUser = ({
                     <img src='/cross.png'/>
                 </div>
             </div>
-            <p className={Style.informationText} style={{marginTop:20}}>Basic Information</p>
+            <p className={Style.informationText} style={{marginTop:10}}>Basic Information</p>
             <div className={Style.lineStyle}/>
             <div className={styles.container} style={{marginTop:10}}>
                 <div>
@@ -81,37 +132,47 @@ const EditAdminUser = ({
                     <label>Email Id*</label>
                     <br />
                     <div className={styles.input}>
-                        <input type="text" name="name" onBlur={handleBlur} value={values.name} onChange={handleChange} placeholder='Enter Email Id' />
+                        <input type='email' name="email" onBlur={handleBlur} value={values.email} onChange={handleChange} placeholder='Enter Email Id' />
                     </div>
                 </div>
                 <div>
                     <label>Phone Number</label>
                     <br />
                     <div className={styles.input}>
-                        <input type="text" name="name" onBlur={handleBlur} value={values.name} onChange={handleChange} placeholder='Enter Phone Number' />
+                        <input type='number' name="number" onBlur={handleBlur} value={values.number} onChange={handleChange} placeholder='Enter Phone Number' />
                     </div>
                 </div>
             </div>
-            <div className={styles.container} style={{marginTop:10}}>
+            <div className={styles.container} style={{marginTop:5}}>
                         <div className={Style.label}>
                             Account status
                         </div>
                         <div className={styles.toggleButton}>
-                            <div>
-                                <ToggleButton1/>
-                            </div>
-                            <span>
-                                Block
-                            </span>
+                        <CustomizedSwitches
+                            onMessage={'Block'}
+                            handleChange={handleStatus}
+                        />
                         </div>
                     </div>
-            <div style={{marginTop:20}}>
+            <div style={{marginTop:5}}>
                 <label className={Style.label}>Profile Image</label>
                     <div className={Style.imageUpload}>
                         <div className={Style.imageView}>
-                        <Image/>
-                        <div className={Style.uploadBox}>
-                            <Upload/> <p className={Style.uploadText}>Upload Image</p>
+                        {values?.img?.length > 0 ? (
+                                <div>
+                                    <img
+                                        src={values.img[0]}
+                                        alt="Selected"
+                                        style={{ maxWidth: '100%', marginTop: '0px' }}
+                                    />
+                                </div>
+                            ) : (
+                                <Image/>
+                            )
+                            }
+                        <div>
+                            <label htmlFor='catFile' className={Style.uploadBox}><Upload/> <p className={Style.uploadText}>Upload Image</p></label>
+                            <input type='file' accept="image/*" id='catFile' style={{display:'none'}} onChange={handleImageChange} value={values.catFile}/>
                         </div>
                     </div>
                 </div>
@@ -123,21 +184,21 @@ const EditAdminUser = ({
                     <label>City</label>
                     <br />
                     <div className={styles.input}>
-                        <input type="text" name="name" onBlur={handleBlur} value={values.name} onChange={handleChange} placeholder='Enter' />
+                        <input type="text" name="city" onBlur={handleBlur} value={values.city} onChange={handleChange} placeholder='Enter' />
                     </div>
                 </div>
                 <div>
                     <label>State</label>
                     <br />
                     <div className={styles.input}>
-                        <input type="text" name="name" onBlur={handleBlur} value={values.name} onChange={handleChange} placeholder='Enter' />
+                        <input type="text" name="state" onBlur={handleBlur} value={values.state} onChange={handleChange} placeholder='Enter' />
                     </div>
                 </div>
                 <div>
                     <label>Country</label>
                     <br />
                     <div className={styles.input}>
-                        <input type="text" name="name" onBlur={handleBlur} value={values.name} onChange={handleChange} placeholder='Enter' />
+                        <input type="text" name="country" onBlur={handleBlur} value={values.country} onChange={handleChange} placeholder='Enter' />
                     </div>
                 </div>
             </div>

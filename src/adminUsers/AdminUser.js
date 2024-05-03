@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import SwitchTab from '../component/SwitchTab'
-import { AdminuserIcon, Delete, Edit, Filter, FilterIcon, Left, LockIcon, Plus, Right, Search, View } from '../Svg'
-import CategoriesRequestList from '../categories/CategoriesRequestList'
-import Modal from '../component/Modal'
-import AddNewCategory from '../categories/AddNewCategory'
-import EditCategory from '../categories/EditCategory'
+import { Delete, Edit, Filter, FilterIcon, Left, LockIcon, Plus, Right, Search, View } from '../Svg'
 import DeleteCategory from '../categories/DeleteCategory';
 import styles from '../categories/category.module.css';
 import Styles from '../component/Style.module.css';
@@ -12,94 +8,21 @@ import Style from '../vendorManagement/vendor.module.css'
 import { useNavigate } from 'react-router-dom'
 import EditAdminUser from './EditAdminUser'
 import ChangePasswordModal from './ChangePasswordModal'
+import { useDispatch, useSelector } from 'react-redux'
+import { adminUsers } from '../redux/adminUserSlice';
+import DeleteAdminUser from './DeleteAdminUser';
 
 const AdminUser = () => {
-    const userData = [
-        {
-            id:1,
-            orderId:'#123456',
-            dateTime:'April 1, 2024 11:30AM',
-            customerName:'Rahul',
-            emailId:'deeksha@gmail.com',
-            phoneNumber:'+91-9876543210',
-            orderPrize:'INR 500',
-            status:'Active'
-        },
-        {
-            id:2,
-            orderId:'#123456',
-            dateTime:'April 1, 2024 11:30AM',
-            customerName:'Rahul',
-            emailId:'deeksha@gmail.com',
-            phoneNumber:'+91-9876543210',
-            orderPrize:'INR 500',
-            status:'Active'
-        },
-        {
-            id:3,
-            orderId:'#123456',
-            dateTime:'April 1, 2024 11:30AM',
-            customerName:'Rahul',
-            emailId:'deeksha@gmail.com',
-            phoneNumber:'+91-9876543210',
-            orderPrize:'INR 500',
-            status:'Blocked'
-        },
-        {
-            id:4,
-            orderId:'#123456',
-            dateTime:'April 1, 2024 11:30AM',
-            customerName:'Rahul',
-            emailId:'deeksha@gmail.com',
-            phoneNumber:'+91-9876543210',
-            orderPrize:'INR 500',
-            status:'Blocked'
-        },
-        {
-            id:5,
-            orderId:'#123456',
-            dateTime:'April 1, 2024 11:30AM',
-            customerName:'Rahul',
-            emailId:'deeksha@gmail.com',
-            phoneNumber:'+91-9876543210',
-            orderPrize:'INR 500',
-            status:'Blocked'
-        },
-        {
-            id:6,
-            orderId:'#123456',
-            dateTime:'April 1, 2024 11:30AM',
-            customerName:'Rahul',
-            emailId:'deeksha@gmail.com',
-            phoneNumber:'+91-9876543210',
-            orderPrize:'INR 500',
-            status:'Blocked'
-        },
-        {
-            id:7,
-            orderId:'#123456',
-            dateTime:'April 1, 2024 11:30AM',
-            customerName:'Rahul',
-            emailId:'deeksha@gmail.com',
-            phoneNumber:'+91-9876543210',
-            orderPrize:'INR 500',
-            status:'Blocked'
-        },
-        {
-            id:8,
-            orderId:'#123456',
-            dateTime:'April 1, 2024 11:30AM',
-            customerName:'Rahul',
-            emailId:'deeksha@gmail.com',
-            phoneNumber:'+91-9876543210',
-            orderPrize:'INR 500',
-            status:'Blocked'
-        },
-        
-    ]
+    
+    const dispatch = useDispatch();
+    const adminUserData = useSelector(state => state.adminUsers.adminUserData);
+    const isRefresh = useSelector(state => state.adminUsers.isRefresh);
+    console.log('adminUserData',adminUserData);
 
+    
     const navigate = useNavigate();
     // state
+    const [data,setData] = useState(null)
     const [value, setValue] = useState([
         { val: 'All Users', id: 0 },
     ]);
@@ -109,10 +32,12 @@ const AdminUser = () => {
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [isChangePassModalOpen, setIsChangePassModalOpen] = useState(false);
 
-    const openEditModal = () => {
+    const openEditModal = (data) => {
+        setData(data)
         setIsEditModalOpen(true)
     }
-    const openDeleteModal = () => {
+    const openDeleteModal = (data) => {
+        setData(data)
         setIsDeleteModalOpen(true)
     }
     const closeEditModal = () => {
@@ -136,32 +61,36 @@ const AdminUser = () => {
         setSelected(selected)
     }, [])
 
+    useEffect(() => {
+        dispatch(adminUsers())
+    },[dispatch,isRefresh])
+
     const [page, setPage] = useState(1)
-  const [limit, setLimit] = useState(50)
-  const [totalPages, setTotalPages] = useState(1)
-  const [totalItems, setTotalItems] = useState(0);
+    const [limit, setLimit] = useState(50)
+    const [totalPages, setTotalPages] = useState(1)
+    const [totalItems, setTotalItems] = useState(0);
 
-  // calculate start & end of items -------------------
-  const start = (page - 1) * limit + 1;
-  const end =
-    totalPages === page
-      ? totalItems
-      : (page - 1) * limit + limit;
+    // calculate start & end of items -------------------
+    const start = (page - 1) * limit + 1;
+    const end =
+        totalPages === page
+        ? totalItems
+        : (page - 1) * limit + limit;
 
 
-  // increment the page------------------------
-  const increment = () => {
-    if (page < totalPages) {
-      setPage((prev) => prev + 1)
+    // increment the page------------------------
+    const increment = () => {
+        if (page < totalPages) {
+        setPage((prev) => prev + 1)
+        }
     }
-  }
 
-  // decrement the page------------------------
-  const decrement = () => {
-    if (page > 1) {
-      setPage((prev) => prev - 1)
+    // decrement the page------------------------
+    const decrement = () => {
+        if (page > 1) {
+        setPage((prev) => prev - 1)
+        }
     }
-  }
   return (
     <div style={{ padding: 20 }}>
             <div className={styles.container}>
@@ -204,7 +133,80 @@ const AdminUser = () => {
                     </div>
                 </div>
             </div>
-            {userData.length < 0 ? (
+            {adminUserData?.length > 0 ? (
+                <div className={Style.listContainer}>
+                    <div className={Style.header}>
+                        <div className={Style.first}>Sl No <FilterIcon/></div>
+                        <div className={Style.third}>User Name <FilterIcon/></div>
+                        <div className={Style.second}>Email Id <FilterIcon/></div>
+                        <div className={Style.fourth}>Phone Number <FilterIcon/></div>
+                        <div className={Style.sixth}>Status <FilterIcon/></div>
+                        <div className={Style.seventh}>Options</div>
+                    </div>
+                    {adminUserData?.map((item,index) => {
+                        console.log('item=============',item);
+                        return(
+                            <div className={Style.info}>
+                                <div className={Style.first}>{(page - 1) * limit + index + 1}</div>
+                                <div className={Style.third}>
+                                    {item.profileImg[0] ? (
+                                        <img src={item.profileImg[0]} height={30} width={30}/>
+                                    )   : 
+                                        <img src='/dummyImg.png' height={30} width={30}/>
+                                    }
+                                        <span>{item.name}</span>
+                                </div>
+                                <div className={Style.second}>{item.email}</div>
+                                <div className={Style.fourth}>+91-{item.phone}</div>
+                                <div className={Style.status}
+                                    style={{
+                                        backgroundColor: item.status === true ? "#1A98821A" : '#F439391A'
+                                    }} 
+                                >
+                                    <span
+                                        style={{
+                                            fontFamily: 'DM Sans',
+                                            fontSize: 14,
+                                            fontWeight: '400',
+                                            // lineHeight: 18.23,
+                                            letterSpacing: 0.5,
+                                            textAlign:'center',
+                                            color:item.status === true ? '#1A9882' : '#F43939',
+                                        }}
+                                    >{item.status === true ? 'Active' : 'Blocked'}</span></div>
+                                <div className={Style.seventh}>
+                                <div style={{marginLeft:10}}>
+                                    <View/>
+                                </div>
+                                <div style={{marginLeft:10}} onClick={() => openEditModal(item)}>
+                                    <Edit/>
+                                </div>
+                                <div style={{marginLeft:10}} onClick={openChangePassModal}>
+                                    <LockIcon/>
+                                </div>
+                                <div style={{marginLeft:10}} onClick={() => openDeleteModal(item)}>
+                                    <Delete/>
+                                </div>
+                                
+                                </div>
+                            </div>
+                        )}
+                    )}
+                    <div className={Style.entryView}>
+                        <div className={Style.showingText}>Showing {start} to {end} of {totalItems} entries</div>
+                        <div className={Style.leftright}>
+                            
+                            <Left handleClick={decrement} />
+                            {/* <p>01</p> */}
+                            <p className={Style.onPage} style={{marginLeft:10}}>{page}</p>
+                            <p className={Style.onPage} style={{marginLeft:10,marginRight:10}}>{page}</p>
+                            <Right handleClick={increment} />
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            ) : (      
                 <div className={styles.mainContainer}>
                     <img src='/usersImg.png'/>
                     <h3 className={styles.create}>
@@ -220,86 +222,20 @@ const AdminUser = () => {
                         </div>
                     </div>
                 </div>
-            ) : (      
-                <div className={Style.listContainer}>
-                <div className={Style.header}>
-                    <div className={Style.first}>Sl No <FilterIcon/></div>
-                    <div className={Style.third}>User Name <FilterIcon/></div>
-                    <div className={Style.second}>Email Id <FilterIcon/></div>
-                    <div className={Style.fourth}>Phone Number <FilterIcon/></div>
-                    <div className={Style.sixth}>Status <FilterIcon/></div>
-                    <div className={Style.seventh}>Options</div>
-                </div>
-                {userData.map((item,index) => {
-                    return(
-                        <div className={Style.info}>
-                            <div className={Style.first}>{(page - 1) * limit + index + 1}</div>
-                            <div className={Style.third}>
-                            <img src='/profilepic.png'/>
-                            <span>{item.customerName}</span>
-                            </div>
-                            <div className={Style.second}>{item.emailId}</div>
-                            <div className={Style.fourth}>{item.phoneNumber}</div>
-                            <div className={Style.status}
-                                style={{
-                                    backgroundColor: item.status === 'Active' ? "#1A98821A" : '#F439391A'
-                                }} 
-                            >
-                                <span
-                                    style={{
-                                        fontFamily: 'DM Sans',
-                                        fontSize: 14,
-                                        fontWeight: '400',
-                                        // lineHeight: 18.23,
-                                        letterSpacing: 0.5,
-                                        textAlign:'center',
-                                        color:item.status === 'Active' ? '#1A9882' : '#F43939',
-                                    }}
-                                >{item.status}</span></div>
-                            <div className={Style.seventh}>
-                            <div style={{marginLeft:10}}>
-                                <View/>
-                            </div>
-                            <div style={{marginLeft:10}} onClick={openEditModal}>
-                                <Edit/>
-                            </div>
-                            <div style={{marginLeft:10}} onClick={openChangePassModal}>
-                                <LockIcon/>
-                            </div>
-                            <div style={{marginLeft:10}} onClick={openDeleteModal}>
-                                <Delete/>
-                            </div>
-                            
-                            </div>
-                        </div>
-                    )
-                    }
-                )}
-                <div className={Style.entryView}>
-                    <div className={Style.showingText}>Showing {start} to {end} of {totalItems} entries</div>
-                    <div className={Style.leftright}>
-                        
-                        <Left handleClick={decrement} />
-                        {/* <p>01</p> */}
-                        <p className={Style.onPage} style={{marginLeft:10}}>{page}</p>
-                        <p className={Style.onPage} style={{marginLeft:10,marginRight:10}}>{page}</p>
-                        <Right handleClick={increment} />
-                        
-                    </div>
-                </div>
-                </div>
             )}
             <EditAdminUser
                 onCloseModal={closeEditModal}
                 open={isEditModalOpen}
+                data={data}
             />
             <ChangePasswordModal
                 onCloseModal={closeChangePassModal}
                 open={isChangePassModalOpen}
             />
-            <DeleteCategory
+            <DeleteAdminUser
                 closeModal={closeDeleteModal} 
                 open={isDeleteModalOpen}
+                data={data}
             />
 
         </div>

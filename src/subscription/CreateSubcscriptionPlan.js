@@ -1,43 +1,74 @@
 import React, { useState,useEffect } from 'react'
 import styles from '../categories/category.module.css';
 import style from '../healthcare/healthcare.module.css';
-import { BlackCheckBox, BlackUnCheckBox, DropDownIcon, GoBack, UnCheckedBox } from '../Svg';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { DropDownIcon, GoBack,} from '../Svg';
+import { useNavigate } from 'react-router-dom';
 import Styles from '../subscription/subscription.module.css'
 import { Button, MenuItem, Select } from '@mui/material';
 import { custom, formselect, save } from '../MaterialUI';
 import { useFormik } from 'formik';
 import * as yup from "yup";
+import CustomizedCheckbox from '../component/CustomizedCheckbox';
+import { useDispatch } from 'react-redux';
+import { addSubscription } from '../redux/subscriptionSlice';
 
 const CreateSubcscriptionPlan = () => {
     const navigate = useNavigate();
-    const location = useLocation();
+    const dispatch = useDispatch();
     const schema = yup.object().shape({
-        email: yup.string().matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, "Please enter valid email").required("Please enter valid email"),
-        password: yup.string().required("Password is required")
+        price: yup.string().required("price is required"),
+        planDuration: yup.string().required("plan is required"),
+        role: yup.string().required("role is required"),
+        planType: yup.string().required("planType is required"),
+        status: yup.string().required("status is required"),
       })
     
       const {
         errors, values, handleChange, touched, setFieldValue, handleBlur, resetForm, handleSubmit,
       } = useFormik({
         initialValues: {
-          email: "",
-          password: ""
+            planDuration:'',
+            planType:'',
+            role:'',
+            price: 0,
+            status: true,
+            features: {
+                maxChat: 0,
+                maxPost: 0,
+                unlimitedChat:true,
+                audioCall:true,
+                videoCall:true
+            }
+            
         },
         validationSchema: schema,
-        onSubmit: () => {
-        //   handleLogin();
+        onSubmit: (values) => {
+          handleSubject(values);
         }
       })
-        const [check, setCheck] = useState('');
-        const [unCheck, setUnCheck] = useState('');
-        const checkedItem = location.pathname.split('/')[1];
-        // const subpathname = location.pathname.split('/')[2];
+      
+    const handlePost = (e) => {
+        setFieldValue("features.maxPost", 0)
+    }
+    const handleUnlimitedChat = (e) => {
+        setFieldValue("features.unlimitedChat", e.target.checked)
+    }
+    const handleChat = (e) => {
+        setFieldValue("features.maxChat", 0)
+    }
 
-        useEffect(() => {
-            setCheck(checkedItem)
-            // setSubpath(subpathname)
-        }, [checkedItem])
+    const handleAudioCall = (e) => {
+        setFieldValue("features.audioCall", e.target.checked)
+    }
+
+    const handleVideoCall = (e) => {
+        setFieldValue("features.videoCall", e.target.checked)
+    }
+
+
+    const handleSubject = async (values) => {
+        dispatch(addSubscription(values))
+    }
   return (
     <div style={{padding:20}}>
         <div className={styles.container}>
@@ -57,7 +88,7 @@ const CreateSubcscriptionPlan = () => {
             </div>
             <div className={style.buttonStyle} onClick={() => navigate('/subscription/SubscriptionPlans')}>
                 <div className={style.width}>
-                    <div style={{marginTop:2,}}>
+                    <div>
                         <GoBack/>
                     </div>
                     <div className={style.backText}>
@@ -70,9 +101,9 @@ const CreateSubcscriptionPlan = () => {
             <p className={Styles.headingText}>Add New Subscription Plan</p>
             <div className={Styles.viewStyle}>
                 <div style={{marginTop:20}}>
-                        <label className={styles.label}>Subscription Plan*</label>
-                        <br />
-                        <div className={Styles.width}>
+                    <label className={styles.label}>Subscription Plan*</label>
+                    <br />
+                    <div className={Styles.width}>
                         <Select className={Styles.formselects}
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
@@ -80,19 +111,23 @@ const CreateSubcscriptionPlan = () => {
                             IconComponent={DropDownIcon}
                             displayEmpty
                             defaultValue=''
-                            name='Select' value={values.Select}
+                            name='planDuration' 
+                            value={values.planDuration}
                             onChange={handleChange}
                         >
                             <MenuItem value="">Select</MenuItem>
-                            <MenuItem value="ACTIVE">Active</MenuItem>
-                            <MenuItem value="INACTIVE">Inactive</MenuItem>
+                            <MenuItem value="YEARLY">Yearly</MenuItem>
+                            {/* <MenuItem value="Monthly">Monthly</MenuItem> */}
                         </Select>
-                        </div>
+                    </div>
+                    {
+                        errors.planDuration && touched.planDuration && <p style={{ color: "red", fontSize: "12px" }}>{errors.planDuration}</p>
+                    }
                 </div>
                 <div style={{marginTop:20,marginLeft:10}}>
-                        <label className={styles.label}>Select role</label>
-                        <br />
-                        <div className={Styles.width}>
+                    <label className={styles.label}>Select role</label>
+                    <br />
+                    <div className={Styles.width}>
                         <Select className={Styles.formselects}
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
@@ -100,21 +135,26 @@ const CreateSubcscriptionPlan = () => {
                             IconComponent={DropDownIcon}
                             displayEmpty
                             defaultValue=''
-                            name='Select' value={values.Select}
+                            name='role' 
+                            value={values.role}
                             onChange={handleChange}
                         >
                             <MenuItem value="">Select</MenuItem>
-                            <MenuItem value="ACTIVE">Active</MenuItem>
-                            <MenuItem value="INACTIVE">Inactive</MenuItem>
+                            <MenuItem value="CUSTOMER">E-travellers</MenuItem>
+                            <MenuItem value="VENDOR">Vendors</MenuItem>
+                            <MenuItem value="DELIVERY_AGENT">Delivery Agents</MenuItem>
                         </Select>
-                        </div>
+                    </div>
+                    {
+                        errors.role && touched.role && <p style={{ color: "red", fontSize: "12px" }}>{errors.role}</p>
+                    }
                 </div>
             </div>
             <div className={Styles.viewStyle}>
                 <div style={{marginTop:20}}>
-                        <label className={styles.label}>Subscription Type</label>
-                        <br />
-                        <div className={Styles.width}>
+                    <label className={styles.label}>Subscription Type</label>
+                    <br />
+                    <div className={Styles.width}>
                         <Select className={Styles.formselects}
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
@@ -122,14 +162,18 @@ const CreateSubcscriptionPlan = () => {
                             IconComponent={DropDownIcon}
                             displayEmpty
                             defaultValue=''
-                            name='Select' value={values.Select}
+                            name='planType' 
+                            value={values.planType}
                             onChange={handleChange}
                         >
                             <MenuItem value="">Select</MenuItem>
-                            <MenuItem value="ACTIVE">Active</MenuItem>
-                            <MenuItem value="INACTIVE">Inactive</MenuItem>
+                            <MenuItem value="FREE">Free Version</MenuItem>
+                            <MenuItem value="GOLD">GoldMembership</MenuItem>
                         </Select>
-                        </div>
+                    </div>
+                    {
+                        errors.planType && touched.planType && <p style={{ color: "red", fontSize: "12px" }}>{errors.planType}</p>
+                    }
                 </div>
                 <div style={{marginTop:20,marginLeft:0}}>
                     <label className={Styles.label}>Pricing</label>
@@ -138,11 +182,11 @@ const CreateSubcscriptionPlan = () => {
                         INR
                     </div>
                         <div>
-                            <input type="text" placeholder='Enter' onBlur={handleBlur} value={values.password} name='password' onChange={handleChange} />
+                            <input type='number' placeholder='Enter' onBlur={handleBlur} value={values.price} name='price' onChange={handleChange} />
                         </div>
                     </div>
                     {
-                    errors.password && touched.password && <p style={{ color: "red", fontSize: "12px" }}>{errors.password}</p>
+                        errors.price && touched.price && <p style={{ color: "red", fontSize: "12px" }}>{errors.price}</p>
                     }
                 </div>
             </div>
@@ -157,27 +201,26 @@ const CreateSubcscriptionPlan = () => {
                             IconComponent={DropDownIcon}
                             displayEmpty
                             defaultValue=''
-                            name='Select' value={values.Select}
+                            name='status' value={values.status}
                             onChange={handleChange}
                         >
                             <MenuItem value="">Select</MenuItem>
-                            <MenuItem value="ACTIVE">Active</MenuItem>
-                            <MenuItem value="INACTIVE">Inactive</MenuItem>
+                            <MenuItem value={true}>Active</MenuItem>
+                            <MenuItem value={false}>Inactive</MenuItem>
                         </Select>
-                        </div>
+                    </div>
+                    {
+                        errors.status && touched.status && <p style={{ color: "red", fontSize: "12px" }}>{errors.status}</p>
+                    }
             </div>
             <div className={Styles.planText}>
                 Plan includes
             </div>
             <div className={Styles.maxViewBox}>
                 <div className={Styles.descView}>
-                    <div>
-                        { check === true ? (
-                         <BlackUnCheckBox/> 
-                        ) : (
-                            <BlackCheckBox/>
-                        )}
-                    </div>
+                        <CustomizedCheckbox
+                            handleCheck={handlePost}
+                        />
                     <div className={Styles.maxText}>Max</div>
                     <div>
                     <Select className={Styles.selectPicker}
@@ -187,7 +230,8 @@ const CreateSubcscriptionPlan = () => {
                         IconComponent={DropDownIcon}
                         displayEmpty
                         defaultValue=''
-                        name='5' value={values.value}
+                        name='features.maxPost' 
+                        value={values.features.maxPost}
                         onChange={handleChange}
                     >
                         <MenuItem value="">5</MenuItem>
@@ -204,15 +248,17 @@ const CreateSubcscriptionPlan = () => {
             <div className={Styles.maxViewBox}>
                 <div className={Styles.checkBoxView}>
                 <div className={Styles.descView}>
-                    <div><BlackCheckBox/></div>
+                    <CustomizedCheckbox
+                        handleCheck={handleUnlimitedChat}
+                    />
                     <div className={Styles.maxText}>
                         Unlimited chat with vendors and delivery agents
                     </div>
                     </div>
                     <div className={Styles.descView}>
-                        <div >
-                            <BlackUnCheckBox/>
-                        </div>
+                        <CustomizedCheckbox
+                            handleCheck={handleChat}
+                        />
                         <div className={Styles.maxText}>
                             Limited to 
                         </div>
@@ -224,7 +270,8 @@ const CreateSubcscriptionPlan = () => {
                                 IconComponent={DropDownIcon}
                                 displayEmpty
                                 defaultValue=''
-                                name='5' value={values.value}
+                                name='features.maxChat' 
+                                value={values.features.maxChat}
                                 onChange={handleChange}
                             >
                                 <MenuItem value="">5</MenuItem>
@@ -233,7 +280,7 @@ const CreateSubcscriptionPlan = () => {
                                 <MenuItem value="20">20</MenuItem>
                             </Select>
                         </div>
-                        <div className={Styles.maxText} style={{marginLeft:10}}>
+                        <div className={Styles.maxText} style={{marginLeft:20}}>
                             messages
                         </div>
                    
@@ -242,13 +289,17 @@ const CreateSubcscriptionPlan = () => {
             </div>
             <div className={Styles.maxViewBox}>
                 <div className={Styles.descView}>
-                    <div><BlackUnCheckBox/></div>
+                    <CustomizedCheckbox
+                        handleCheck={handleAudioCall}
+                    />
                     <div className={Styles.maxText}>Audio call</div>
                 </div>
             </div>
             <div className={Styles.maxViewBox}>
                 <div className={Styles.descView}>
-                    <div><BlackUnCheckBox/></div>
+                    <CustomizedCheckbox
+                        handleCheck={handleVideoCall}
+                    />
                     <div className={Styles.maxText}>Video call</div>
                 </div>
             </div>

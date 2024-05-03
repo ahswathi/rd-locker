@@ -9,49 +9,62 @@ const Cards = ({
     subCategory,
     openEditModal,
     openDeleteModal,
-    status
+    status,
+    data
 }) => {
     const navigate = useNavigate();
     //State
     const [isHovered, setIsHovered] = useState(false);
-    
-    
-  return (
-    <div  
-        className={styles.card}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-    >
-        <div className={styles.cardImg}>
-            <img src={image} height={50} width={50}/>
-        </div>
-        <div className={styles.heading}>
-            <h5>
-                {heading}
-            </h5>
-        </div>
-        <div className={styles.subcategory} onClick={() => navigate('/healthcare/HealthCare')}>
-            <h6>
-                7 Sub Categories
-            </h6>
-            <div className={styles.activeView}>
-                <span className={styles.activetext}>{status}</span>
+
+
+    return (
+        <div
+            className={styles.card}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
+            <div>
+            <div className={styles.cardImg}>
+                <img src={image} height={50} width={50} />
             </div>
-        </div>
-        {isHovered && (
-            <div className={styles.icons}>
-                <View className={styles.icon} />
-                <div onClick={openEditModal}>
-                <Edit className={styles.icon} />
-                </div>
-                <div onClick={openDeleteModal}>
-                <Delete className={styles.icon} />
+            <div className={styles.heading}>
+                <h5>
+                    {heading}
+                </h5>
+            </div>
+            <div className={styles.subcategory} onClick={() => navigate(`/categories/view/${data._id}?name=${data.name}`)}>
+                <h6>
+                    7 Sub Categories
+                </h6>
+                <div className={styles.activeView}
+                    style={{
+                        backgroundColor: status === true ? "#1A98821A" : '#F439391A'
+                    }}
+                >
+                    <span className={styles.activetext}
+                        style={{
+                            color: status === true ? '#1A9882' : '#F43939'
+                        }}
+                    >{status === true ? 'Active' : 'InActive'}</span>
                 </div>
             </div>
-        )}
-        
-    </div>
-  )
+            </div>
+            {isHovered && (
+                <div className={styles.icons}>
+                    <div>
+                        <View className={styles.icon} />
+                    </div>
+                    <div onClick={() => openEditModal(data)}>
+                        <Edit className={styles.icon} />
+                    </div>
+                    <div onClick={() => openDeleteModal(data)}>
+                        <Delete className={styles.icon} />
+                    </div>
+                </div>
+            )}
+
+        </div>
+    )
 }
 
 export default Cards

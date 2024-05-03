@@ -3,19 +3,18 @@ import Styles from '../component/Style.module.css';
 import styles from '../categories/category.module.css';
 import { Box, Button, Modal } from '@mui/material';
 import { useFormik } from 'formik';
-import { custom, delet, formselect, save } from '../MaterialUI';
-import * as yup from "yup";
+import { custom, delet, } from '../MaterialUI';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteData } from '../redux/categoriesSlice';
+import { deleteSubscription } from '../redux/subscriptionSlice';
 
-const DeleteCategory = ({
+const DeleteSubscription = ({
     closeModal,
     open,
-    heading,
     data
 }) => {
+    // console.log('dataid',data);
     const dispatch = useDispatch();
-    const isRefresh = useSelector((state) => state.categories.isRefresh)
+    const isRefresh = useSelector((state) => state.subscriptions.isRefresh)
     const {
         handleSubmit,
         setValues
@@ -33,7 +32,7 @@ const DeleteCategory = ({
       },[data,isRefresh])
 
       const updateSubject = async (values) =>{
-        dispatch(deleteData(values))
+        dispatch(deleteSubscription(values))
         closeModal();
       }
 
@@ -63,7 +62,7 @@ const DeleteCategory = ({
       <Box sx={style}>
         <div className={Styles.notification}>
             <div className={Styles.notifText}>
-                {heading}
+                Delete Subscription Plan
             </div>
             <div onClick={closeModal}>
                 <img src='/cross.png'/>
@@ -81,4 +80,4 @@ const DeleteCategory = ({
   )
 }
 
-export default DeleteCategory;
+export default DeleteSubscription;

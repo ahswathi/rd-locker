@@ -8,18 +8,20 @@ import Button from '@mui/material/Button';
 import { custom, save } from '../MaterialUI';
 import Style from '../vendorManagement/vendor.module.css';
 import { Box, Modal } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { editCategory } from '../redux/categoriesSlice';
-import CustomizedSwitches from './CustomSwitch';
-import api from '../helper/Api';
+import CustomizedSwitches from '../categories/CustomSwitch';
+import { editSubCategory } from '../redux/subCategoriesSlice';
+import { useParams } from 'react-router-dom';
 
-const EditCategory = ({
+const EditSubCategory = ({
     onCloseModal,
     open,
     data
 }) => {
+    const params = useParams();
+    // console.log('datas===========',data);
     const dispatch = useDispatch();
-    const isRefresh  = useSelector(state => state.categories.isRefresh)
     const schema = yup.object().shape({
         name: yup.string().required("Name is required"),
       })
@@ -36,23 +38,25 @@ const EditCategory = ({
       } = useFormik({
         initialValues: {
           name: "",
-          img: [],
-          status: true
+          status: true,
+          baseId:params.id
         },
         validationSchema: schema,
         onSubmit: (values) => {
           updateSubject(values);
+          console.log('values============',values);
         }
       })
 
       useEffect(() => {
         if (data) {
-          setValues(data)
+            setValues({...data, baseId: params.id})
+            // setValues(data)
         }
-      },[data,isRefresh])
+      },[data])
 
       const updateSubject = async (values) =>{
-        dispatch(editCategory(values))
+        dispatch(editSubCategory(values))
         onCloseModal()
       }
       const style = {
@@ -72,20 +76,6 @@ const EditCategory = ({
         },
       };
       
-
-      const handleImageChange = async (e) => {
-        const file = e.target.files[0];
-        if (file) {
-          
-          const body = new FormData()
-          body.set('image',file) 
-          const {data, status} = await api.fileUpload(body)
-          if(status === 200) {
-            setFieldValue("img", data.data)
-          }
-        }
-      };
-
       const handleStatus = (e) => {
         setFieldValue("status", e.target.checked)
       }
@@ -100,7 +90,7 @@ const EditCategory = ({
       <Box sx={style}>
         <div className={Styles.notification}>
             <div className={Styles.notifText}>
-                Edit Category
+                Edit Sub Category
             </div>
             <div onClick={onCloseModal}>
                 <img src='/cross.png'/>
@@ -115,39 +105,11 @@ const EditCategory = ({
           {
             errors.name && touched.name && <p style={{ color: "red", fontSize: "12px", textAlign: "left" }}>{errors.name}</p>
           }
-          <div style={{marginTop:20}}>
-                <label className={Style.label}>Profile Image</label>
-                    <div className={Style.imageUpload}>
-                        <div className={Style.imageView}>
-                        {values?.img?.length > 0 ? (
-                            <div>
-                              <img
-                                src={values.img[0]}
-                                alt="Selected"
-                                style={{ maxWidth: '100px',maxHeight:'50px', marginTop: '0px' }}
-                              />
-                              {/* <button onClick={handleUpload}>Upload</button> */}
-                            </div>
-                          ) : (
-                            <Image/>
-                          )
-                          }
-                        <div >
-                            
-                            <label htmlFor='catFile' className={Style.uploadBox}><Upload/> <p className={Style.uploadText}>Upload Image</p></label>
-                            <input type='file' accept="image/*" id='catFile' style={{display:'none'}} onChange={handleImageChange} value={values.catFile}/>
-                        </div>
-                        <div className={Style.pixel}>
-                            Image size : 0px by 0px in .jpg or .png format
-                        </div>
-                    </div>
-                </div>
-          </div>
           </form>
           <div className={styles.toggleButton} style={{marginTop:10}}>
             <CustomizedSwitches
                  handleChange={handleStatus}
-                onMessage={'Category visible on site'}
+                onMessage={'SubCategory visible on site'}
             />
           </div>
           <div className={styles.buttons}>
@@ -159,4 +121,4 @@ const EditCategory = ({
   )
 }
 
-export default EditCategory;
+export default EditSubCategory;

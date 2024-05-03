@@ -694,7 +694,7 @@ input {
 }
 .imageUpload{
     width: 100%;
-    height: 168px;
+    height: fit-content;
     border: 1px;
     background: var(--Gray-White, #FFF);
     border: 1px dashed var(--Gray-100, #E9EAF0);

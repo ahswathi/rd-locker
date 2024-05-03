@@ -78,19 +78,24 @@ const Categories = () => {
     // ]
     const dispatch = useDispatch();
     const catData  = useSelector(state => state.categories.catData)
-    console.log('catdata',catData);
+    const isRefresh  = useSelector(state => state.categories.isRefresh)
+    
 
     useEffect(() => {
         dispatch(categories(catData))
-    },[dispatch])
+    },[dispatch, isRefresh])
 
+
+    const [data,setData] = useState(null)
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-    const openEditModal = () => {
+    const openEditModal = (data) => {
+        setData(data)
         setIsEditModalOpen(true)
     }
-    const openDeleteModal = () => {
+    const openDeleteModal = (data) => {
+        setData(data)
         setIsDeleteModalOpen(true)
     }
     const closeEditModal = () => {
@@ -173,9 +178,11 @@ const Categories = () => {
                                             image={item.img}
                                             heading={item.name}
                                             subCategory={item.subCategory}
-                                            status={item.active}
+                                            status={item.status}
                                             openEditModal={openEditModal}
                                             openDeleteModal={openDeleteModal}
+                                            data={item}
+                                            
                                         />
                                     </div>
                                 )
@@ -186,7 +193,7 @@ const Categories = () => {
                         <div className={styles.mainContainer}>
                             
                                 <img src='/illustration.png' />
-                                <h3 className={styles.create}>
+                                <h3 className={styles.create} onClick={openModal}>
                                     Create First Category
                                 </h3>
                                 <p className={styles.noCategoryText}>
@@ -206,10 +213,13 @@ const Categories = () => {
                 <EditCategory
                     onCloseModal={closeEditModal}
                     open={isEditModalOpen}
+                    data={data}
                 />
                 <DeleteCategory
+                    heading={'Delete Category'}
                     closeModal={closeDeleteModal}
                     open={isDeleteModalOpen}
+                    data={data}
                 />
         </div>
     )
