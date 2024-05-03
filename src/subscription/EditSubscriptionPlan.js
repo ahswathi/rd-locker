@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 // import Styles from '../component/Style.module.css';
 import styles from '../categories/category.module.css';
 import { useFormik } from 'formik';
@@ -8,13 +8,24 @@ import Button from '@mui/material/Button';
 import { custom, formselect, save } from '../MaterialUI';
 import Styles from '../subscription/subscription.module.css'
 import { Box, MenuItem, Modal, Select } from '@mui/material';
+import CustomizedCheckbox from '../component/CustomizedCheckbox';
+import { useDispatch, useSelector } from 'react-redux';
+import { editSubscription } from '../redux/subscriptionSlice';
 
 const EditSubscriptionPlan = ({
     onCloseModal,
-    open
+    open,
+    data
 }) => {
+    // console.log('selecteddata',data);
+    const dispatch = useDispatch();
+    
     const schema = yup.object().shape({
-        name: yup.string().required("Name is required"),
+        price: yup.string().required("price is required"),
+        planDuration: yup.string().required("planDuration is required"),
+        role: yup.string().required("role is required"),
+        planType: yup.string().required("planType is required"),
+        status: yup.string().required("status is required"),
       })
     const {
         errors,
@@ -24,16 +35,54 @@ const EditSubscriptionPlan = ({
         setValues,
         handleBlur,
         handleSubmit,
-        resetForm
+        setFieldValue,
       } = useFormik({
         initialValues: {
-          name: "",
+            planDuration: "",
+            role: "",
+            planType: "",
+            price: 0,
+            status: true,
+            features: {
+                maxChat: 0,
+                maxPost: 0,
+                unlimitedChat:true,
+                audioCall:true,
+                videoCall:true
+            }
         },
         validationSchema: schema,
-        // onSubmit: () => {
-        //   updateSubject();
-        // }
+        onSubmit: (values) => {
+          updateSubject(values);
+        }
       })
+      console.log('value===================',values);
+      const handlePost = (e) => {
+        setFieldValue('maxPost',e.target.value)
+      }
+      const handleUnlimitedChat = (e) => {
+        setFieldValue('unlimitedChat',e.target.checked)
+      }
+      const handleMessage = (e) => {
+        setFieldValue('maxChat',e.target.value)
+      }
+      const handleAudioCall = (e) => {
+        setFieldValue('audioCall',e.target.checked)
+      }
+      const handleVideoCall = (e) => {
+        setFieldValue('videoCall',e.target.checked)
+      }
+
+      useEffect(() => {
+        if (data) {
+          setValues(data)
+        }
+      },[data])
+
+      const updateSubject = async (values) =>{
+        dispatch(editSubscription(values))
+      }
+
       const style = {
         position: "absolute",
         top: "50%",
@@ -71,12 +120,13 @@ const EditSubscriptionPlan = ({
                             IconComponent={DropDownIcon}
                             displayEmpty
                             defaultValue=''
-                            name='Select' value={values.Select}
+                            name='planDuration' 
+                            value={values.planDuration}
                             onChange={handleChange}
                         >
                             <MenuItem value="">Select</MenuItem>
-                            <MenuItem value="ACTIVE">Active</MenuItem>
-                            <MenuItem value="INACTIVE">Inactive</MenuItem>
+                            <MenuItem value="YEARLY">Yearly</MenuItem>
+                            {/* <MenuItem value="Monthly">Monthly</MenuItem> */}
                         </Select>
                         </div>
                 </div>
@@ -91,12 +141,14 @@ const EditSubscriptionPlan = ({
                             IconComponent={DropDownIcon}
                             displayEmpty
                             defaultValue=''
-                            name='Select' value={values.Select}
+                            name='role' 
+                            value={values.role}
                             onChange={handleChange}
                         >
                             <MenuItem value="">Select</MenuItem>
-                            <MenuItem value="ACTIVE">Active</MenuItem>
-                            <MenuItem value="INACTIVE">Inactive</MenuItem>
+                            <MenuItem value="CUSTOMER">E-travellers</MenuItem>
+                            <MenuItem value="VENDOR">Vendors</MenuItem>
+                            <MenuItem value="DELIVERY_AGENT">Delivery Agents</MenuItem>
                         </Select>
                         </div>
                 </div>
@@ -113,12 +165,13 @@ const EditSubscriptionPlan = ({
                             IconComponent={DropDownIcon}
                             displayEmpty
                             defaultValue=''
-                            name='Select' value={values.Select}
+                            name='planType' 
+                            value={values.planType}
                             onChange={handleChange}
                         >
                             <MenuItem value="">Select</MenuItem>
-                            <MenuItem value="ACTIVE">Active</MenuItem>
-                            <MenuItem value="INACTIVE">Inactive</MenuItem>
+                            <MenuItem value="FREE">Free Version</MenuItem>
+                            <MenuItem value="GOLD">GoldMembership</MenuItem>
                         </Select>
                     </div>
                 </div>
@@ -128,10 +181,10 @@ const EditSubscriptionPlan = ({
                     <div className={Styles.inrBox}>
                         INR
                     </div>
-                    <input type="text" placeholder='Enter' onBlur={handleBlur} value={values.password} name='password' onChange={handleChange} />
+                    <input type="text" placeholder='Enter' onBlur={handleBlur} value={values.price} name='price' onChange={handleChange} />
                     </div>
                     {
-                    errors.password && touched.password && <p style={{ color: "red", fontSize: "12px" }}>{errors.password}</p>
+                    errors.price && touched.price && <p style={{ color: "red", fontSize: "12px" }}>{errors.price}</p>
                     }
                 </div>
             </div>
@@ -146,12 +199,12 @@ const EditSubscriptionPlan = ({
                             IconComponent={DropDownIcon}
                             displayEmpty
                             defaultValue=''
-                            name='Select' value={values.Select}
+                            name='status' value={values.status}
                             onChange={handleChange}
                         >
-                            <MenuItem value="">Select</MenuItem>
-                            <MenuItem value="ACTIVE">Active</MenuItem>
-                            <MenuItem value="INACTIVE">Inactive</MenuItem>
+                            <MenuItem value="">Status</MenuItem>
+                            <MenuItem value={true}>Active</MenuItem>
+                            <MenuItem value={false}>Inactive</MenuItem>
                         </Select>
                     </div>
             </div>
@@ -160,7 +213,10 @@ const EditSubscriptionPlan = ({
             </div>
             <div className={Styles.maxViewBox}>
                 <div className={Styles.descView}>
-                    <div><BlackCheckBox/></div>
+                    <CustomizedCheckbox 
+                        handleCheck={handlePost}
+                        checked={values.features.maxPost}
+                    />
                     <div className={Styles.maxText}>Max</div>
                     <div>
                     <Select className={Styles.selectPicker}
@@ -170,13 +226,14 @@ const EditSubscriptionPlan = ({
                         IconComponent={DropDownIcon}
                         displayEmpty
                         defaultValue=''
-                        name='5' value={values.value}
+                        name='features.maxPost' 
+                        value={values.features.maxPost}
                         onChange={handleChange}
                     >
-                        <MenuItem value="">5</MenuItem>
-                        <MenuItem value="10">10</MenuItem>
-                        <MenuItem value="15">15</MenuItem>
-                        <MenuItem value="20">20</MenuItem>
+                        <MenuItem value={0}>50</MenuItem>
+                        <MenuItem value={100}>100</MenuItem>
+                        <MenuItem value={200}>200</MenuItem>
+                        <MenuItem value={300}>300</MenuItem>
                     </Select>
                     </div>
                     <div className={Styles.maxText} style={{marginLeft:20}}>
@@ -187,15 +244,19 @@ const EditSubscriptionPlan = ({
             <div className={Styles.maxViewBox}>
                 <div className={Styles.checkBoxView}>
                 <div className={Styles.descView}>
-                    <div><BlackCheckBox/></div>
+                    <CustomizedCheckbox
+                        handleCheck={handleUnlimitedChat}
+                        checked={values.features.unlimitedChat}
+                    />
                     <div className={Styles.maxText}>
                         Unlimited chat with vendors and delivery agents
                     </div>
                     </div>
                     <div className={Styles.descView}>
-                        <div >
-                            <BlackUnCheckBox/>
-                        </div>
+                        <CustomizedCheckbox
+                          handleCheck={handleMessage}
+                          checked={values.features.maxChat}
+                        />
                         <div className={Styles.maxText}>
                             Limited to 
                         </div>
@@ -207,13 +268,14 @@ const EditSubscriptionPlan = ({
                                 IconComponent={DropDownIcon}
                                 displayEmpty
                                 defaultValue=''
-                                name='5' value={values.value}
+                                name='features.maxChat' 
+                                value={values.features.maxChat}
                                 onChange={handleChange}
                             >
-                                <MenuItem value="">5</MenuItem>
-                                <MenuItem value="10">10</MenuItem>
-                                <MenuItem value="15">15</MenuItem>
-                                <MenuItem value="20">20</MenuItem>
+                                <MenuItem value={0}>50</MenuItem>
+                                <MenuItem value={100}>100</MenuItem>
+                                <MenuItem value={200}>200</MenuItem>
+                                <MenuItem value={300}>300</MenuItem>
                             </Select>
                         </div>
                         <div className={Styles.maxText} style={{marginLeft:15}}>
@@ -225,13 +287,19 @@ const EditSubscriptionPlan = ({
             </div>
             <div className={Styles.maxViewBox}>
                 <div className={Styles.descView}>
-                    <div><BlackUnCheckBox/></div>
+                    <CustomizedCheckbox
+                        handleCheck={handleAudioCall}
+                        checked={values.features.audioCall}
+                    />
                     <div className={Styles.maxText}>Audio call</div>
                 </div>
             </div>
             <div className={Styles.maxViewBox}>
                 <div className={Styles.descView}>
-                    <div><BlackUnCheckBox/></div>
+                    <CustomizedCheckbox
+                        handleCheck={handleVideoCall}
+                        checked={values.features.videoCall}
+                    />
                     <div className={Styles.maxText}>Video call</div>
                 </div>
             </div>

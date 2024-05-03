@@ -23,6 +23,7 @@ const Cards = ({
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
+            <div>
             <div className={styles.cardImg}>
                 <img src={image} height={50} width={50} />
             </div>
@@ -31,7 +32,7 @@ const Cards = ({
                     {heading}
                 </h5>
             </div>
-            <div className={styles.subcategory} onClick={() => navigate(`/categories/view/${data._id}`)}>
+            <div className={styles.subcategory} onClick={() => navigate(`/categories/view/${data._id}?name=${data.name}`)}>
                 <h6>
                     7 Sub Categories
                 </h6>
@@ -46,6 +47,7 @@ const Cards = ({
                         }}
                     >{status === true ? 'Active' : 'InActive'}</span>
                 </div>
+            </div>
             </div>
             {isHovered && (
                 <div className={styles.icons}>

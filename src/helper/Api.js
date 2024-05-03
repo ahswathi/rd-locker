@@ -74,6 +74,9 @@ class Api {
     getProfile = (data, config) => {
         return this.init().get("/admin/auth/whoAmI", data)
     }
+
+    //Categories
+
     getCategories = (data, config) => {
         return this.init().get("/admin/category", data)
     }
@@ -89,10 +92,54 @@ class Api {
     deleteData = (data, config) => {
         return this.init('multipart/form-data').delete(`/admin/category/${data._id}`, data)
     }
+
+    //subCategories
+
     subCategories = (data, config) => {
         return this.init('multipart/form-data').get(`/admin/sub-category/${data._id}`, data)
     }
+    addSubCategories = (data, config) => {
+        return this.init('multipart/form-data').post("/admin/sub-category/new", data)
+    }
+    editSubCategories = (data, config) => {
+        return this.init('multipart/form-data').put(`/admin/sub-category/${data._id}`, data)
+    }
+    deleteSubCategories = (data, config) => {
+        return this.init().delete(`/admin/sub-category/${data._id}`, data)
+    }
 
+    //Subscription
+
+    getSubscription = (data, config) => {
+        return this.init().get("/admin/subscription", data)
+    }
+    addSubscription = (data, config) => {
+        return this.init().post("/admin/subscription/new", data)
+    }
+    editSubscription = (data, config) => {
+        return this.init().put(`/admin/subscription/${data._id}`, data)
+    }
+    deleteSubscription = (data, config) => {
+        return this.init().delete(`/admin/subscription/${data._id}`, data)
+    }
+
+    //AdminUser
+
+    getAdminUser = (data, config) => {
+        return this.init().get("/admin/user", data)
+    }
+    addAdminUser = (data, config) => {
+        return this.init('multipart/form-data').post("/admin/user/new", data)
+    }
+    editAdminUser = (data, config) => {
+        return this.init('multipart/form-data').put(`/admin/user/edit/${data._id}`, data)
+    }
+    deleteAdminUser = (data, config) => {
+        return this.init().delete(`/admin/user/delete/${data._id}`, data)
+    }
+    adminChangePassword = (data, config) => {
+        return this.init().put(`/admin/user/update-pwd/${data._id}`, data)
+    }
 }
 
 const api = new Api();

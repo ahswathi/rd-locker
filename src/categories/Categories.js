@@ -12,7 +12,6 @@ import DeleteCategory from './DeleteCategory';
 import CategoriesRequestList from './CategoriesRequestList';
 import { useDispatch, useSelector } from 'react-redux';
 import { categories } from '../redux/categoriesSlice';
-import { subCategories } from '../redux/subCategoriesSlice';
 
 const Categories = () => {
     // const data = [
@@ -79,19 +78,15 @@ const Categories = () => {
     // ]
     const dispatch = useDispatch();
     const catData  = useSelector(state => state.categories.catData)
-    const subCatData  = useSelector(state => state.subCategories.subCatData)
-    console.log('subCatData',subCatData);
+    const isRefresh  = useSelector(state => state.categories.isRefresh)
+    
 
     useEffect(() => {
         dispatch(categories(catData))
-    },[dispatch])
+    },[dispatch, isRefresh])
 
-    useEffect(() => {
-        dispatch(subCategories(subCatData))
-    },[dispatch])
 
     const [data,setData] = useState(null)
-    const [subCatDatas,setSubCatDatas] = useState(null)
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -221,6 +216,7 @@ const Categories = () => {
                     data={data}
                 />
                 <DeleteCategory
+                    heading={'Delete Category'}
                     closeModal={closeDeleteModal}
                     open={isDeleteModalOpen}
                     data={data}

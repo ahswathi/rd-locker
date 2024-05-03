@@ -238,6 +238,7 @@
     width: 206px;
     height: 100px;
     border-radius: 6px;
+    z-index: 1px;
 }
 .icons {
     position: absolute;
@@ -290,6 +291,7 @@
     line-height: 20px;
     text-align: left;
     color: #5A607F;
+    cursor: pointer;
 }
 .activeView {
     width: 56.98px;
@@ -371,7 +373,7 @@ label {
 }
 .input {
     display: flex;
-    padding: 12px 16px 12px 18px;
+    padding: 12px 16px 12px 10px;
     border-radius: 4px;
     border: 1px solid var(--Gray-100, #E9EAF0);
     background: var(--Gray-White, #FFF);
@@ -384,7 +386,7 @@ input {
     width: 200px;
 }
 .inputDesc {
-    padding: 12px 16px 12px 18px;
+    padding: 12px 16px 12px 10px;
     border-radius: 4px;
     border: 1px solid var(--Gray-100, #E9EAF0);
     background: var(--Gray-White, #FFF);

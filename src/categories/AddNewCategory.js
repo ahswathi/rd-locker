@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 import { custom, formselect, save } from '../MaterialUI';
 import { Box, Modal, Stack, Switch } from '@mui/material';
 import Style from '../vendorManagement/vendor.module.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addCategory } from '../redux/categoriesSlice';
 import CustomSwitchExample from './CustomSwitch';
 import CustomizedSwitches from './CustomSwitch';
@@ -17,7 +17,7 @@ import api from '../helper/Api';
 
 const AddNewCategory = ({onClose,open}) => {
   const dispatch = useDispatch();
-  
+  // const isRefresh  = useSelector(state => state.categories.isRefresh)
     const schema = yup.object().shape({
         name: yup.string().required("Name is required"),
       })
@@ -83,8 +83,6 @@ const AddNewCategory = ({onClose,open}) => {
       const handleStatus = (e) => {
         setFieldValue("status", e.target.checked)
       }
-
-      console.log("values", values)
 
   return (
     <Modal

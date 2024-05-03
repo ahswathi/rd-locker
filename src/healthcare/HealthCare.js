@@ -7,81 +7,22 @@ import { useFormik } from 'formik';
 import * as yup from "yup";
 import Button from '@mui/material/Button';
 import { cancle, save } from '../MaterialUI';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import api from '../helper/Api';
+import CustomizedSwitches from '../categories/CustomSwitch';
+import { useDispatch, useSelector } from 'react-redux';
+import { addSubCategory } from '../redux/subCategoriesSlice';
 
 const HealthCare = () => {
+    const dispatch = useDispatch();
     const params = useParams();
-    const data = [
-        {
-            id: 0,
-            image: '/healthcare.png',
-            heading: 'Healthcare',
-            subCategory: '7 subcategories'
-        },
-        {
-            id: 1,
-            image: '/lawyer.png',
-            heading: 'Lawyers',
-            subCategory: '7 subcategories'
-        },
-        {
-            id: 2,
-            image: '/etraveleguid.png',
-            heading: 'E-traveller Guide',
-            subCategory: '7 subcategories'
-        },
-        {
-            id: 3,
-            image: '/securityagency.png',
-            heading: 'Security Agency',
-            subCategory: '7 subcategories'
-        },
-        {
-            id: 4,
-            image: '/technicalservice.png',
-            heading: 'Technical Services',
-            subCategory: '7 subcategories'
-        },
-        {
-            id: 5,
-            image: '/astrologer.png',
-            heading: 'Astrologer',
-            subCategory: '7 subcategories'
-        },
-        {
-            id: 6,
-            image: '/chef.png',
-            heading: 'Chef',
-            subCategory: '7 subcategories'
-        },
-        {
-            id: 7,
-            image: '/spiritual.png',
-            heading: 'Spirutual',
-            subCategory: '7 subcategories'
-        },
-        {
-            id: 8,
-            image: '/photographer.png',
-            heading: 'Photographers',
-            subCategory: '7 subcategories'
-        },
-        {
-            id: 9,
-            image: '/financeadvisor.png',
-            heading: 'Finance Advisor',
-            subCategory: '7 subcategories'
-        },
-    ]
+    const {isRefresh} = useSelector((state) => state.subCategories)
     const [categories, setCategories] = useState([])
-    console.log("params id", params.id)
-    const [value, setValue] = useState([
-        { val: 'All Categories', id: 0 },
-        { val: 'New category request', id: 1 },
-    ]);
-    const [selected, setSelected] = useState(1);
-    const [search, setSearch] = useState('');
+    // console.log("categories", categories)
+    
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const name = queryParams.get('name');
 
     const fetch = async () => {
         try {
@@ -97,40 +38,48 @@ const HealthCare = () => {
 
     useEffect(() => {
         fetch();
-    }, [])
+    }, [isRefresh])
 
-    const changeID = (id) => {
-        setSelected(id.id);
-    };
 
     const schema = yup.object().shape({
-        name: yup.string().required("Name is required"),
+        name: yup.string().required("SubCategory name is required"),
     })
     const {
         errors,
         values,
         handleChange,
         touched,
-        setValues,
+        setFieldValue,
         handleBlur,
         handleSubmit,
         resetForm
     } = useFormik({
         initialValues: {
             name: "",
+            status: true,
+            baseId:params.id
         },
         validationSchema: schema,
-        // onSubmit: () => {
-        //   updateSubject();
-        // }
+        onSubmit: (values) => {
+          updateSubject(values);
+        }
     })
+
+    const updateSubject = async (values) => {
+        dispatch(addSubCategory(values));
+    }
+
+    const handleStatus = (e) => {
+        setFieldValue("status", e.target.checked)
+    }
+    
 
     return (
         <div style={{ padding: 20 }}>
             <div className={styles.container}>
                 <div>
                     <div>
-                        <h2 className={styles.categoryText}>Healthcare</h2>
+                        <h2 className={styles.categoryText}>{name}</h2>
                     </div>
                     <span className={styles.home}>
                         home
@@ -144,7 +93,7 @@ const HealthCare = () => {
                 </div>
                 <div className={Styles.buttonStyle}>
                     <div className={Styles.width}>
-                        <div style={{ marginTop: 2, }}>
+                        <div>
                             <GoBack />
                         </div>
                         <div className={Styles.backText}>
@@ -165,9 +114,11 @@ const HealthCare = () => {
                         <div className={Styles.subcatText}>
                             Category Visibility
                         </div>
-                        <div className={Styles.toggleButton}>
-                            <ToggleButton />
-                            <span>Visible on site</span>
+                        <div style={{marginTop:20}}>
+                            <CustomizedSwitches
+                                // handleChange={handleStatus}
+                                onMessage={'Visible on site'}
+                            />
                         </div>
                     </div>
                     <div className={Styles.newContainer}>
@@ -180,16 +131,19 @@ const HealthCare = () => {
                             <div className={styles.input}>
                                 <input type="text" name="name" onBlur={handleBlur} value={values.name} onChange={handleChange} placeholder='Enter subcategory name' />
                             </div>
+                            {
+                                errors.name && touched.name && <p style={{ color: "red", fontSize: "12px", textAlign: "left" }}>{errors.name}</p>
+                            }
                         </form>
-                        <div className={Styles.toggleButton}>
-                            <ToggleButton />
-                            <span>Subcategory visible on site</span>
+                        <div>
+                            <CustomizedSwitches
+                                handleChange={handleStatus}
+                                onMessage={'Subcategory visible on site'}
+                            />
                         </div>
                         <div className={styles.buttons}>
                             <Button sx={cancle} variant="contained">Cancel</Button>
                             <Button sx={save} onClick={handleSubmit} variant="contained">Save</Button>
-                            {/* <button>Cancel</button>
-                    <button>Save</button> */}
                         </div>
                     </div>
                 </div>

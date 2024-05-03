@@ -3,8 +3,18 @@ import api from "../helper/Api";
 import Toastify from "../helper/Toastify";
 
 const initialState = {
+    isRefresh:false,
     isLoading: false,
     subCatData: {
+        
+    },
+    addSubCatData: {
+        
+    },
+    editSubCatData: {
+        
+    },
+    deleteSubCatData: {
         
     },
     
@@ -15,7 +25,6 @@ const initialState = {
 export const subCategories = createAsyncThunk('subCategories', async (body, { rejectWithValue, dispatch }) => {
     try {
         const { data, status } = await api.subCategories();
-        console.log('data',data);
         if (status === 200) {
                 //get categories data
                 return data.data
@@ -26,7 +35,55 @@ export const subCategories = createAsyncThunk('subCategories', async (body, { re
     }
 }
 )
+export const addSubCategory = createAsyncThunk('addSubCategories', async (body, { rejectWithValue, dispatch }) => {
+    try {
+        const { data, status } = await api.addSubCategories(body);
+        console.log('data------------------------',data);
+        if (status === 200) {
+                //get categories data
+                dispatch(setAddSubCategories(body))
+                Toastify.success("SubCategory Added Successfuly");
+                dispatch(setRefresh());
+            } 
+            return data.data
+        } catch (err) {
+            Toastify.error(err.response.data.message);
+            return rejectWithValue(err.response.data.message || "'Something went wrong. Please try again later.'")
+    }
+}
+)
+export const editSubCategory = createAsyncThunk('editSubCategories', async (body, { rejectWithValue, dispatch }) => {
+    try {
+        const { data, status } = await api.editSubCategories(body);
+        if (status === 200) {
+                //get categories data
+                dispatch(setEditSubCategories(body))
+                Toastify.success("SubCategory Edit Successfuly");
+                dispatch(setRefresh());
+            } 
+            return data.data
+        } catch (err) {
+            Toastify.error(err.response.data.message);
+            return rejectWithValue(err.response.data.message || "'Something went wrong. Please try again later.'")
+    }
+}
+)
 
+export const deleteSubCategories = createAsyncThunk('deleteSubCategories',async (body, {rejectWithValue, dispatch}) => {
+    try {
+        const {data ,status } = await api.deleteSubCategories(body);
+        if (status === 200) {
+            //add category data
+            dispatch(setDeleteSubCategories(body))
+            Toastify.success("Data Deleted Successfuly");
+            dispatch(setRefresh());
+        }
+        return data.data
+    } catch (err){
+        Toastify.error(err.response.data.message);
+        return rejectWithValue(err.response.data.message || "'Something went wrong. Please try again later.'")
+    }
+})
 
 export const subCategoriesSlice = createSlice({
     name: "subCategories",
@@ -35,16 +92,22 @@ export const subCategoriesSlice = createSlice({
         setSubCategories: (state, action) => {
             state.subCatData = action.payload
         },
-        // setAddCategories: (state, action) => {
-        //     state.addData = action.payload
-        // },
-        // setEditCategories: (state, action) => {
-        //     state.editData = action.payload
-        // },
+        setAddSubCategories: (state, action) => {
+            state.addSubCatData = action.payload
+        },
+        setEditSubCategories: (state, action) => {
+            state.editSubCatData = action.payload
+        },
+        setDeleteSubCategories: (state, action) => {
+            state.deleteSubCatData = action.payload
+        },
+        setRefresh:(state) => {
+            state.isRefresh = !state.isRefresh
+        }
     },
     extraReducers: (builder) => {
 
-        // categories
+        // subcategories
         builder.addCase(subCategories.pending, (state) => {
             state.isLoading = false
             state.isError = false
@@ -57,36 +120,52 @@ export const subCategoriesSlice = createSlice({
             state.isLoading = false
             state.errorMsg = action.payload
         })
-        // Add Categories
-        // builder.addCase(addCategory.pending, (state) => {
-        //     state.isLoading = false
-        //     state.isError = false
-        // })
-        // builder.addCase(addCategory.fulfilled, (state, action) => {
-        //     state.isLoading = true
-        //     state.addData = action.payload
-        // })
-        // builder.addCase(addCategory.rejected, (state, action) => {
-        //     state.isLoading = false
-        //     state.errorMsg = action.payload
-        // })
-        // Edit Categories
-        // builder.addCase(editCategory.pending, (state) => {
-        //     state.isLoading = false
-        //     state.isError = false
-        // })
-        // builder.addCase(editCategory.fulfilled, (state, action) => {
-        //     state.isLoading = true
-        //     state.subCatData = action.payload
-        // })
-        // builder.addCase(editCategory.rejected, (state, action) => {
-        //     state.isLoading = false
-        //     state.errorMsg = action.payload
-        // })
+
+        // Add SubCategories
+        builder.addCase(addSubCategory.pending, (state) => {
+            state.isLoading = false
+            state.isError = false
+        })
+        builder.addCase(addSubCategory.fulfilled, (state, action) => {
+            state.isLoading = true
+            state.addSubCatData = action.payload
+        })
+        builder.addCase(addSubCategory.rejected, (state, action) => {
+            state.isLoading = false
+            state.errorMsg = action.payload
+        })
+
+        // Edit SubCategories
+        builder.addCase(editSubCategory.pending, (state) => {
+            state.isLoading = false
+            state.isError = false
+        })
+        builder.addCase(editSubCategory.fulfilled, (state, action) => {
+            state.isLoading = true
+            state.editSubCatData = action.payload
+        })
+        builder.addCase(editSubCategory.rejected, (state, action) => {
+            state.isLoading = false
+            state.errorMsg = action.payload
+        })
+
+        // Delete SubCategories
+        builder.addCase(deleteSubCategories.pending, (state) => {
+            state.isLoading = false
+            state.isError = false
+        })
+        builder.addCase(deleteSubCategories.fulfilled, (state, action) => {
+            state.isLoading = true
+            state.deleteSubCatData = action.payload
+        })
+        builder.addCase(deleteSubCategories.rejected, (state, action) => {
+            state.isLoading = false
+            state.errorMsg = action.payload
+        })
 
     }
 })
 
-export const { setSubCategories, } = subCategoriesSlice.actions
+export const { setSubCategories, setAddSubCategories, setEditSubCategories,setDeleteSubCategories,setRefresh} = subCategoriesSlice.actions
 
 export default subCategoriesSlice.reducer;

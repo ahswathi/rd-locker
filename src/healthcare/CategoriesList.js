@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import styles from '../healthcare/healthcare.module.css';
 import { Delete, Edit, FilterIcon, Left, Right } from '../Svg';
-import Modal from '../component/Modal';
-import EditCategory from '../categories/EditCategory';
-import DeleteCategory from '../categories/DeleteCategory';
+import EditSubCategory from './EditSubCategory';
+import DeleteSubCategory from './DeleteSubCategory';
 
 const CategoriesList = ({categories = []}) => {
   //state
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const openEditModal = () => {
+  const [data, setData] = useState(null)
+  const openEditModal = (data) => {
+    setData(data)
     setIsEditModalOpen(true);
   };
 
-  const openDeleteModal = () => {
+  const openDeleteModal = (data) => {
+    setData(data)
     setIsDeleteModalOpen(true)
   }
   const closeEditModal = () => {
@@ -82,10 +84,10 @@ const CategoriesList = ({categories = []}) => {
               >{item.status ? "Active" : "Inactive"}</span></div>
             <div className={styles.fourth}>
               <div className={styles.option}>
-                <div style={{ marginLeft: 20 }} onClick={openEditModal} >
+                <div style={{ marginLeft: 20 }} onClick={() => openEditModal(item)} >
                   <Edit />
                 </div>
-                <div style={{ marginLeft: 20 }} onClick={openDeleteModal}>
+                <div style={{ marginLeft: 20 }} onClick={() => openDeleteModal(item)}>
                   <Delete />
                 </div>
               </div>
@@ -107,14 +109,16 @@ const CategoriesList = ({categories = []}) => {
         </div>
       </div>
 
-      <EditCategory
+      <EditSubCategory
         onCloseModal={closeEditModal}
         open={isEditModalOpen}
+        data={data}
       />
 
-      <DeleteCategory
+      <DeleteSubCategory
         closeModal={closeDeleteModal}
         open={isDeleteModalOpen}
+        data={data}
       />
     </div>
   )

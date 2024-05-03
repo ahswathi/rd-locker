@@ -3,19 +3,17 @@ import Styles from '../component/Style.module.css';
 import styles from '../categories/category.module.css';
 import { Box, Button, Modal } from '@mui/material';
 import { useFormik } from 'formik';
-import { custom, delet, formselect, save } from '../MaterialUI';
-import * as yup from "yup";
+import { custom, delet,} from '../MaterialUI';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteData } from '../redux/categoriesSlice';
+import { deleteAdminUsers } from '../redux/adminUserSlice';
 
-const DeleteCategory = ({
+const DeleteAdminUser = ({
     closeModal,
     open,
-    heading,
     data
 }) => {
     const dispatch = useDispatch();
-    const isRefresh = useSelector((state) => state.categories.isRefresh)
+    const isRefresh = useSelector((state) => state.adminUsers.isRefresh)
     const {
         handleSubmit,
         setValues
@@ -33,7 +31,7 @@ const DeleteCategory = ({
       },[data,isRefresh])
 
       const updateSubject = async (values) =>{
-        dispatch(deleteData(values))
+        dispatch(deleteAdminUsers(values))
         closeModal();
       }
 
@@ -63,7 +61,7 @@ const DeleteCategory = ({
       <Box sx={style}>
         <div className={Styles.notification}>
             <div className={Styles.notifText}>
-                {heading}
+                Delete Admin User
             </div>
             <div onClick={closeModal}>
                 <img src='/cross.png'/>
@@ -81,4 +79,4 @@ const DeleteCategory = ({
   )
 }
 
-export default DeleteCategory;
+export default DeleteAdminUser;

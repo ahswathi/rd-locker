@@ -6,15 +6,21 @@ import Styles from '../component/Style.module.css';
 import FreeVersion from './FreeVersion';
 import GoldMembership from './GoldMembership';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { subscriptions } from '../redux/subscriptionSlice';
 
 const SubscriptionPlans = () => {
+    const dispatch = useDispatch();
+    const subscriptionData = useSelector(state => state.subscriptions.subscriptionData);
+    const isRefresh  = useSelector(state => state.subscriptions.isRefresh)
+    console.log('subscriptionData',subscriptionData);
     const navigate = useNavigate()
     const [value, setValue] = useState([
         { val: 'E-traveller plans', id: 0 },
         { val: 'Vendor plans', id: 1 },
         { val: 'Delivery agent plans', id: 2 },
     ]);
-    const [selected, setSelected] = useState(0);
+    const [selected, setSelected] = useState(1);
     const [search, setSearch] = useState('')
     const changeID = (id) => {
         setSelected(id.id);
@@ -23,6 +29,10 @@ const SubscriptionPlans = () => {
     useEffect(() => {
         setSelected(selected)
     },[])
+
+    useEffect((value) => {
+        dispatch(subscriptions())
+    },[dispatch,isRefresh])
   return (
     <div style={{padding:20}}>
         <div className={styles.container}>
@@ -63,25 +73,26 @@ const SubscriptionPlans = () => {
         </div>
         {
             selected === 0 ? (
-                <div className={Styles.width}>
-                    <div>
-                        <FreeVersion/>
-                    </div>
-                    <div>
-                        <GoldMembership/>
-                    </div>
+                <div>
+                    <FreeVersion
+                        data={subscriptionData.filter((data) => data.role == 'CUSTOMER' )}
+                    />
                 </div>
-            ): (
-                <div className={Styles.width}>
-                    <div>
-                        <FreeVersion/>
-                    </div>
-                    <div>
-                        <GoldMembership/>
-                    </div>
+            ) : selected === 1 ? (
+                <div>
+                    <FreeVersion
+                        data={subscriptionData.filter((data) => data.role == 'VENDOR' )}
+                    />
                 </div>
-            )
+            ) : selected === 2 ? (
+                <div>
+                    <FreeVersion
+                        data={subscriptionData.filter((data) => data.role == 'DELIVERY_AGENT' )}
+                    />
+                </div>
+            ) : null
         }
+        
     </div>
   )
 }
