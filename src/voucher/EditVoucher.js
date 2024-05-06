@@ -5,7 +5,7 @@ import Styles from '../subscription/subscription.module.css'
 import StylesView from '../voucher/voucher.module.css'
 import { useFormik } from 'formik';
 import * as yup from "yup";
-import { ActivePriceDiscount, BlackUnCheckBox, CalendarIcon, Image, InActivePercentageDiscount, Upload } from '../Svg';
+import { ActivePercentageDiscount, ActivePriceDiscount, BlackUnCheckBox, CalendarIcon, Image, InActivePercentageDiscount, InActivePriceDiscount, Upload } from '../Svg';
 import Calendar from 'react-calendar';
 import { custom, save } from '../MaterialUI';
 import CustomizedCheckbox from '../component/CustomizedCheckbox';
@@ -54,6 +54,7 @@ const EditVoucher = ({open,onCloseModal,data}) => {
             description: "",
             img: [],
             details:{
+                discountType:'FIXED',
                 discountValue: "",
                 usageLimits: "",
                 noLimits:true
@@ -193,14 +194,31 @@ const EditVoucher = ({open,onCloseModal,data}) => {
                 <p className={styles.home} style={{marginTop:6}}>Type of Voucher you want to create</p>
             </div>
             <div className={Styles.descView}>
-                <div className={StylesView.activeBox}>
-                    <ActivePriceDiscount/>
+            <div className={ values.details.discountType === 'FIXED' ?
+                    StylesView.activeBox : StylesView.inActiveBox
+                    }
+                    onClick={() => setFieldValue('details.discountType','FIXED')}
+                >
+                    {values.details.discountType === 'FIXED' ? (
+                        <ActivePriceDiscount/>
+                    ) : 
+                        <InActivePriceDiscount/>
+                    }
+                    
                     <p>
                         Price Discount
                     </p>
                 </div>
-                <div className={StylesView.inActiveBox}>
-                    <InActivePercentageDiscount/>
+                <div className={values.details.discountType === 'PERCENTAGE' ?
+                    StylesView.activeBox : StylesView.inActiveBox
+                    }
+                    onClick={() => setFieldValue('details.discountType','PERCENTAGE')}
+                >
+                    {values.details.discountType === 'PERCENTAGE' ? (
+                        <ActivePercentageDiscount/>
+                    ) : 
+                        <InActivePercentageDiscount/>
+                    }
                     <p>
                         Percentage Discount
                     </p>

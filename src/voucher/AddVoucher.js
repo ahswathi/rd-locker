@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from '../categories/category.module.css';
 import style from '../healthcare/healthcare.module.css';
-import { ActivePriceDiscount, BlackCheckBox, BlackUnCheckBox, CalendarIcon, DropDownIcon, GoBack, Image, InActivePercentageDiscount, UnCheckedBox, Upload } from '../Svg';
+import { ActivePercentageDiscount, ActivePriceDiscount, BlackCheckBox, BlackUnCheckBox, CalendarIcon, DropDownIcon, GoBack, Image, InActivePercentageDiscount, InActivePriceDiscount, UnCheckedBox, Upload } from '../Svg';
 import { useNavigate } from 'react-router-dom';
 import { Button, InputAdornment, Popover, TextField,} from '@mui/material';
 import { custom, save } from '../MaterialUI';
@@ -54,6 +54,7 @@ const AddVoucher = () => {
             description: "",
             img: [],
             details:{
+                discountType:'FIXED',
                 discountValue: "",
                 usageLimits: "",
                 noLimits:true
@@ -190,27 +191,32 @@ const AddVoucher = () => {
                 <p className={styles.home} style={{marginTop:6}}>Type of Voucher you want to create</p>
             </div>
             <div className={Styles.descView}>
-                {/* <div className={StylesView.activeBox}> */}
-                    <TextField
-                        id="standard-read-only-input"
-                        defaultValue="Price Discount"
-                        variant="outlined"
-                        InputProps={{
-                            readOnly: true,
-                            startAdornment: (
-                                <InputAdornment position='center'>
-                                  <ActivePriceDiscount />
-                                </InputAdornment>
-                              ),
-                        }}
-                    />
-                    {/* <ActivePriceDiscount/>
+
+                <div className={ values.details.discountType === 'FIXED' ?
+                    StylesView.activeBox : StylesView.inActiveBox
+                    }
+                    onClick={() => setFieldValue('details.discountType','FIXED')}
+                >
+                    {values.details.discountType === 'FIXED' ? (
+                        <ActivePriceDiscount/>
+                    ) : 
+                        <InActivePriceDiscount/>
+                    }
+                    
                     <p>
                         Price Discount
-                    </p> */}
-                {/* </div> */}
-                <div className={StylesView.inActiveBox}>
-                    <InActivePercentageDiscount/>
+                    </p>
+                </div>
+                <div className={values.details.discountType === 'PERCENTAGE' ?
+                    StylesView.activeBox : StylesView.inActiveBox
+                    }
+                    onClick={() => setFieldValue('details.discountType','PERCENTAGE')}
+                >
+                    {values.details.discountType === 'PERCENTAGE' ? (
+                        <ActivePercentageDiscount/>
+                    ) : 
+                        <InActivePercentageDiscount/>
+                    }
                     <p>
                         Percentage Discount
                     </p>
