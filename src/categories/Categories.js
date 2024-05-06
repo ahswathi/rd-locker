@@ -171,7 +171,6 @@ const Categories = () => {
                     {catData.length > 0 ? (
                         <div className={styles.cardWrap}>
                             {catData.map((item, key) => {
-                                console.log('item',item);
                                 return (
                                     <div key={key} >
                                         <Cards

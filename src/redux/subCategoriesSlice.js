@@ -38,7 +38,6 @@ export const subCategories = createAsyncThunk('subCategories', async (body, { re
 export const addSubCategory = createAsyncThunk('addSubCategories', async (body, { rejectWithValue, dispatch }) => {
     try {
         const { data, status } = await api.addSubCategories(body);
-        console.log('data------------------------',data);
         if (status === 200) {
                 //get categories data
                 dispatch(setAddSubCategories(body))

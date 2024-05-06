@@ -10,7 +10,6 @@ const SwitchTab = (props) => {
     // };
 
     const onChange_ = (val) => {
-        console.log(val);
         onChange(val);
       };
 

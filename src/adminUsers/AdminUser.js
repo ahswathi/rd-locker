@@ -17,7 +17,7 @@ const AdminUser = () => {
     const dispatch = useDispatch();
     const adminUserData = useSelector(state => state.adminUsers.adminUserData);
     const isRefresh = useSelector(state => state.adminUsers.isRefresh);
-    console.log('adminUserData',adminUserData);
+    // console.log('adminUserData',adminUserData);
 
     
     const navigate = useNavigate();
@@ -46,7 +46,8 @@ const AdminUser = () => {
     const closeDeleteModal = () => {
         setIsDeleteModalOpen(false)
     }
-    const openChangePassModal =() => {
+    const openChangePassModal = (data) => {
+        setData(data)
         setIsChangePassModalOpen(true)
     }
     const closeChangePassModal =() => {
@@ -144,7 +145,6 @@ const AdminUser = () => {
                         <div className={Style.seventh}>Options</div>
                     </div>
                     {adminUserData?.map((item,index) => {
-                        console.log('item=============',item);
                         return(
                             <div className={Style.info}>
                                 <div className={Style.first}>{(page - 1) * limit + index + 1}</div>
@@ -181,7 +181,7 @@ const AdminUser = () => {
                                 <div style={{marginLeft:10}} onClick={() => openEditModal(item)}>
                                     <Edit/>
                                 </div>
-                                <div style={{marginLeft:10}} onClick={openChangePassModal}>
+                                <div style={{marginLeft:10}} onClick={() => openChangePassModal(item)}>
                                     <LockIcon/>
                                 </div>
                                 <div style={{marginLeft:10}} onClick={() => openDeleteModal(item)}>
@@ -231,6 +231,7 @@ const AdminUser = () => {
             <ChangePasswordModal
                 onCloseModal={closeChangePassModal}
                 open={isChangePassModalOpen}
+                data={data}
             />
             <DeleteAdminUser
                 closeModal={closeDeleteModal} 

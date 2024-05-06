@@ -44,7 +44,6 @@ const EditSubCategory = ({
         validationSchema: schema,
         onSubmit: (values) => {
           updateSubject(values);
-          console.log('values============',values);
         }
       })
 

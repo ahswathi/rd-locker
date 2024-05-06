@@ -23,7 +23,7 @@ const AddNewUser = () => {
     password: yup.string().required("Password is required"),
     confirmPassword: yup.string().required("confirmPassword is required"),
     name: yup.string().required("name is required"),
-    number: yup.string().required("number is required"),
+    phone: yup.string().required("phonenumber is required"),
   })
 
   const {
@@ -32,14 +32,18 @@ const AddNewUser = () => {
     initialValues: {
         name: "",
         email: "",
-        number: "",
+        phone: "",
+        countryCode: "+91",
         password: "",
         confirmPassword: "",
-        img: [],
+        profileImg: [],
         status: true,
-        city:'',
-        state:'',
-        country:'',
+        address: {
+            city:'',
+            state:'',
+            country:'',
+        }
+        
     },
     validationSchema: schema,
     onSubmit: (values) => {
@@ -58,11 +62,11 @@ const AddNewUser = () => {
       body.set('image',file) 
       const {data, status} = await api.fileUpload(body)
       if(status === 200) {
-        setFieldValue("img", data.data)
+        setFieldValue("profileImg", data.data)
       }
     }
   };
-
+console.log(values);
   const handleStatus = (e) => {
     setFieldValue("status", e.target.checked)
   }
@@ -134,10 +138,10 @@ const AddNewUser = () => {
                     <label className={Styles.label}>Phone Number*</label>
                     <div className={Styles.inputbox}>
                     
-                    <input type='number' placeholder='Enter phone number' onBlur={handleBlur} value={values.number} name='number' onChange={handleChange} />
+                    <input type='number' placeholder='Enter phone number' onBlur={handleBlur} value={values.phone} name='phone' onChange={handleChange} />
                     </div>
                     {
-                    errors.number && touched.number && <p style={{ color: "red", fontSize: "12px" }}>{errors.number}</p>
+                    errors.phone && touched.phone && <p style={{ color: "red", fontSize: "12px" }}>{errors.phone}</p>
                     }
                 </div>
                 <div className={styles.container} style={{marginTop:20}}>
@@ -152,14 +156,14 @@ const AddNewUser = () => {
                     </div>
                 </div>
                 
-                <div style={{marginTop:40}}>
+                <div style={{marginTop:30}}>
                     <label className={Styles.label}>Profile Image</label>
                     <div className={Styles.imageUpload}>
                         <div className={Styles.imageView}>
-                            {values?.img?.length > 0 ? (
+                            {values?.profileImg?.length > 0 ? (
                                 <div>
                                     <img
-                                        src={values.img[0]}
+                                        src={values.profileImg[0]}
                                         alt="Selected"
                                         style={{ maxWidth: '100%', marginTop: '0px' }}
                                     />
@@ -187,19 +191,19 @@ const AddNewUser = () => {
                     <div style={{marginTop:30}}>
                         <label className={Styles.label}>City</label>
                         <div className={Styles.inputbox}>
-                            <input type="text" onBlur={handleBlur} value={values.city} placeholder='Enter' name="city" onChange={handleChange} />
+                            <input type="text" onBlur={handleBlur} value={values.address.city} placeholder='Enter' name="address.city" onChange={handleChange} />
                         </div>
                     </div>
                     <div style={{marginTop:30}}>
                         <label className={Styles.label}>State</label>
                         <div className={Styles.inputbox}>
-                            <input type="text" onBlur={handleBlur} value={values.state} placeholder='Enter' name="state" onChange={handleChange} />
+                            <input type="text" onBlur={handleBlur} value={values.address.state} placeholder='Enter' name="address.state" onChange={handleChange} />
                         </div>
                     </div>
                     <div style={{marginTop:30}}>
                         <label className={Styles.label}>Country</label>
                         <div className={Styles.inputbox}>
-                            <input type="text" placeholder='Enter' onBlur={handleBlur} value={values.country} name='country' onChange={handleChange} />
+                            <input type="text" placeholder='Enter' onBlur={handleBlur} value={values.address.country} name='address.country' onChange={handleChange} />
                         </div>
                     </div>
                 </div> 
