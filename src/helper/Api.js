@@ -14,7 +14,6 @@ class Api {
     constructor() {
         this.client = null;
         this.api_url = process.env.NODE_ENV === "development" ? "https://aradee.universalairproducts.com/api" : `https://aradee.universalairproducts.com/api`;
-        // this.api_url = process.env.NODE_ENV === "development" ? "http://localhost:5000/api" : `https://aradee-backend.vercel.app/api`;
     }
 
     init = (type) => {
@@ -90,19 +89,19 @@ class Api {
         return this.init('multipart/form-data').post("/admin/uploadFile", data)
     }
     deleteData = (data, config) => {
-        return this.init('multipart/form-data').delete(`/admin/category/${data._id}`, data)
+        return this.init().delete(`/admin/category/${data._id}`, data)
     }
 
     //subCategories
 
     subCategories = (data, config) => {
-        return this.init('multipart/form-data').get(`/admin/sub-category/${data._id}`, data)
+        return this.init().get(`/admin/sub-category/${data._id}`, data)
     }
     addSubCategories = (data, config) => {
-        return this.init('multipart/form-data').post("/admin/sub-category/new", data)
+        return this.init().post("/admin/sub-category/new", data)
     }
     editSubCategories = (data, config) => {
-        return this.init('multipart/form-data').put(`/admin/sub-category/${data._id}`, data)
+        return this.init().put(`/admin/sub-category/${data._id}`, data)
     }
     deleteSubCategories = (data, config) => {
         return this.init().delete(`/admin/sub-category/${data._id}`, data)
@@ -126,14 +125,15 @@ class Api {
     //AdminUser
 
     getAdminUser = (data, config) => {
-        return this.init('multipart/form-data').get("/admin/user", data)
+        return this.init().get("/admin/user", data)
     }
+
     addAdminUser = (data, config) => {
-        return this.init('multipart/form-data').post("/admin/user/new", data)
+        return this.init().post("/admin/user/new", data)
     }
     editAdminUser = (data, config) => {
         console.log(data);
-        return this.init('multipart/form-data').put(`/admin/user/edit/${data._id}`, data)
+        return this.init().put(`/admin/user/edit/${data._id}`, data)
     }
     deleteAdminUser = (data, config) => {
         return this.init().delete(`/admin/user/delete/${data._id}`, data)
@@ -148,10 +148,10 @@ class Api {
         return this.init().get("/admin/vouchers", data)
     }
     addVouchers = (data, config) => {
-        return this.init('multipart/form-data').post("/admin/vouchers/new", data)
+        return this.init().post("/admin/vouchers/new", data)
     }
     editVouchers = (data, config) => {
-        return this.init('multipart/form-data').put(`/admin/vouchers/edit/${data._id}`, data)
+        return this.init().put(`/admin/vouchers/edit/${data._id}`, data)
     }
     deleteVouchers = (data, config) => {
         return this.init().delete(`/admin/vouchers/delete/${data._id}`, data)
