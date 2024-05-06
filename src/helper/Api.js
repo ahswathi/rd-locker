@@ -126,12 +126,13 @@ class Api {
     //AdminUser
 
     getAdminUser = (data, config) => {
-        return this.init().get("/admin/user", data)
+        return this.init('multipart/form-data').get("/admin/user", data)
     }
     addAdminUser = (data, config) => {
         return this.init('multipart/form-data').post("/admin/user/new", data)
     }
     editAdminUser = (data, config) => {
+        console.log(data);
         return this.init('multipart/form-data').put(`/admin/user/edit/${data._id}`, data)
     }
     deleteAdminUser = (data, config) => {
@@ -139,6 +140,21 @@ class Api {
     }
     adminChangePassword = (data, config) => {
         return this.init().put(`/admin/user/update-pwd/${data._id}`, data)
+    }
+
+    //Voucher
+
+    getVouchers = (data, config) => {
+        return this.init().get("/admin/vouchers", data)
+    }
+    addVouchers = (data, config) => {
+        return this.init('multipart/form-data').post("/admin/vouchers/new", data)
+    }
+    editVouchers = (data, config) => {
+        return this.init('multipart/form-data').put(`/admin/vouchers/edit/${data._id}`, data)
+    }
+    deleteVouchers = (data, config) => {
+        return this.init().delete(`/admin/vouchers/delete/${data._id}`, data)
     }
 }
 

@@ -238,11 +238,12 @@
 }
 .imageUpload1{
     width: 470px;
-    height: 108px;
+    height: fit-content;
     border: 1px;
     background: var(--Gray-White, #FFF);
     border: 1px dashed var(--Gray-100, #E9EAF0);
     border-radius: 7px;
+    padding-bottom: 10px;
 }
 
 .imageView{
@@ -297,6 +298,7 @@
     flex-direction: column;
     margin-right: 10px;
     margin-top: 10px;
+    cursor: pointer;
 }
 .activeBox p{
     font-family: DM Sans;
@@ -318,6 +320,7 @@
     flex-direction: column;
     margin-right: 10px;
     margin-top: 10px;
+    cursor: pointer;
 }
 .inActiveBox p{
     font-family: DM Sans;

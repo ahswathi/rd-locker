@@ -31,7 +31,7 @@ const ImageUpload = () => {
         canvas.height = videoRef.current.videoHeight;
         canvas.getContext('2d').drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
         const imageUrl = canvas.toDataURL('image/jpeg');
-        console.log('Captured image URL:', imageUrl);
+        // console.log('Captured image URL:', imageUrl);
         // Do something with the captured image URL, like displaying it in an <img> element
     };
 

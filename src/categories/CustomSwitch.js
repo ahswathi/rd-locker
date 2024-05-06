@@ -49,11 +49,11 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
-export default function CustomizedSwitches({onMessage, handleChange}) {
+export default function CustomizedSwitches({onMessage, handleChange,checked}) {
   return (
     <FormGroup>
       <Stack direction="row" spacing={1} alignItems="center">
-        <AntSwitch defaultChecked onChange={handleChange} inputProps={{ 'aria-label': 'ant design' }} />
+        <AntSwitch defaultChecked onChange={handleChange} checked={checked} inputProps={{ 'aria-label': 'ant design' }} />
         <div className={styles.onMessage}>{onMessage}</div>
       </Stack>
     </FormGroup>

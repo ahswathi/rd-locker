@@ -56,7 +56,6 @@ const EditSubscriptionPlan = ({
           updateSubject(values);
         }
       })
-      console.log('value===================',values);
       const handlePost = (e) => {
         setFieldValue('maxPost',e.target.value)
       }
@@ -90,14 +89,15 @@ const EditSubscriptionPlan = ({
         transform: "translate(-50%, -50%)",
         bgcolor: "white",
         border: "none",
-        padding: "10px 22px",
-        height: '600px',
+        padding: "15px 22px",
         display: "block",
-        width: '1000px',
+        width: '1050px',
         borderRadius:'7px',
         "&:focus": {
           outline: "none",
         },
+        overflowY: 'auto',
+        maxHeight: '90vh',
       };
   return (
     <Modal

@@ -6,9 +6,15 @@ import Styles from '../component/Style.module.css';
 import { useNavigate } from 'react-router';
 import Style from '../voucher/voucher.module.css'
 import EditVoucher from './EditVoucher';
-import DeleteCategory from '../categories/DeleteCategory';
+import { useDispatch, useSelector } from 'react-redux';
+import { vouchers } from '../redux/voucherSlice';
+import DeleteVoucher from './DeleteVoucher';
 
 const Voucher = () => {
+    const dispatch = useDispatch();
+    const vouchersData = useSelector(state => state.vouchers.vouchersData);
+    const isRefresh  = useSelector(state => state.vouchers.isRefresh)
+    console.log('vouchersData',vouchersData);
     const navigate = useNavigate()
     //State
     const [value, setValue] = useState([
@@ -21,14 +27,21 @@ const Voucher = () => {
     const [limit, setLimit] = useState(50)
     const [totalPages, setTotalPages] = useState(1)
     const [totalItems, setTotalItems] = useState(0);
+    const [data, setData] = useState(null);
 
     const changeID = (id) => {
         setSelected(id.id);
         // setValue(data)
     };
+
+    // Effects
     useEffect(() => {
         setSelected(selected)
     },[])
+
+    useEffect(() => {
+        dispatch(vouchers())
+    },[dispatch,isRefresh])
 
     // calculate start & end of items -------------------
     const start = (page - 1) * limit + 1;
@@ -52,7 +65,8 @@ const Voucher = () => {
         }
     }
     const [isEditModal,setIsEditModal] = useState(false);
-    const openEditModal = () =>{
+    const openEditModal = (data) =>{
+        setData(data)
         setIsEditModal(true);
     }
     const closeEditModal = () => {
@@ -60,36 +74,14 @@ const Voucher = () => {
     }
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   
-    const openDeleteModal =() => {
+    const openDeleteModal =(data) => {
+        setData(data)
         setIsDeleteModalOpen(true)
     }
     const closeDeleteModal = () => {
         setIsDeleteModalOpen(false);
     }
-    const userData = [
-        {
-            id:1,
-            orderId:'#123456',
-            dateTime:'April 1, 2024 11:30AM',
-            customerName:'Summer discount 10% off',
-            companyName:'Company Name',
-            code:'ABC12',
-            UsageLimits:'10',
-            status:'Active'
-        },
-        {
-            id:2,
-            orderId:'#123456',
-            dateTime:'April 1, 2024 11:30AM',
-            customerName:'Summer discount 10% off',
-            companyName:'Company Name',
-            code:'ABC12',
-            UsageLimits:'No limit',
-            status:'Expire'
-        },
-        
-        
-    ]
+    
   return (
     <div style={{padding:20}}>
         <div className={styles.container}>
@@ -132,7 +124,7 @@ const Voucher = () => {
                 </div>
             </div>
         </div>
-        {userData.length < 0 ? (
+        {vouchersData.length < 0 ? (
                 <div className={styles.mainContainer}>
                     <img src='/usersImg.png'/>
                     <h3 className={styles.create}>
@@ -156,27 +148,32 @@ const Voucher = () => {
                     <div className={Style.third}>Code<FilterIcon/></div>
                     <div className={Style.fourth}>Valid date <FilterIcon/></div>
                     <div className={Style.fifth}>Usage Limits <FilterIcon/></div>
-                    <div className={Style.sixth}>Status <FilterIcon/></div>
+                    {/* <div className={Style.sixth}>Status <FilterIcon/></div> */}
                     <div className={Style.seventh}>Options</div>
                 </div>
-                {userData.map((item,index) => {
+                {vouchersData.map((item,index) => {
                     return(
                         <div className={Style.info}>
                             <div className={Style.first}>{(page - 1) * limit + index + 1}</div>
                             <div className={Style.second}>
-                            <Discount/>
+                            {item.img[0] ? (
+                                <img src={item.img[0]} height={50} width={50}/>
+                            )   : 
+                                <Discount/>
+                            }
+                            
                             <div>
-                            <span>{item.customerName}</span>
+                            <span>{item.title}{item.description}</span>
                             <br/>
                             <p>{item.companyName}</p>
                             </div>
                             </div>
                             <div className={Style.third}>{item.code}</div>
-                            <div className={Style.fourth}>{item.dateTime}</div>
-                            <div className={Style.sixth}>{item.UsageLimits}
+                            <div className={Style.fourth}>{item.details.startDate}</div>
+                            <div className={Style.sixth}>{item.details.usageLimits}
                                 
                             </div>
-                            <div className={Style.status}
+                            {/* <div className={Style.status}
                                 style={{
                                     backgroundColor: item.status === 'Active' ? "#1A98821A" : '#F439391A'
                                 }} 
@@ -191,15 +188,18 @@ const Voucher = () => {
                                         textAlign:'center',
                                         color:item.status === 'Active' ? '#1A9882' : '#F43939',
                                     }}
-                                >{item.status}</span></div>
+                                >{item.status}</span>
+                            </div> */}
                             <div className={Style.seventh}>
                             <div style={{marginLeft:10}}>
                                 <View/>
                             </div>
-                            <div style={{marginLeft:10}} onClick={openEditModal}>
+                            <div style={{marginLeft:10}} onClick={() => openEditModal(item)}>
                                 <Edit/>
                             </div>
-                            <div style={{marginLeft:10}} onClick={openDeleteModal}>
+                            <div style={{marginLeft:10}} 
+                                onClick={() => openDeleteModal(item)}
+                                >
                                 <Delete/>
                             </div>
                             
@@ -225,10 +225,13 @@ const Voucher = () => {
             <EditVoucher
                 open={isEditModal}
                 onCloseModal={closeEditModal}
+                data={data}
             />
-            <DeleteCategory
+            <DeleteVoucher
+                heading={'Delete Voucher'}
                 open={isDeleteModalOpen}
                 closeModal={closeDeleteModal}
+                data={data}
             />
     </div>
   )

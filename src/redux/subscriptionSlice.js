@@ -22,7 +22,6 @@ const initialState = {
 export const subscriptions = createAsyncThunk('getSubscription', async (body, { rejectWithValue, dispatch }) => {
     try {
         const { data, status } = await api.getSubscription();
-        console.log('subscriptionsPlan',data);
         if (status === 200) {
                 //get subscription data
                 return data.data

@@ -6,7 +6,6 @@ import Styles from '../component/Style.module.css';
 import DeleteSubscription from './DeleteSubscription'
 
 const FreeVersion = ({data = []}) => {
-    console.log('data===============',data);
     const [editData,setEditData] = useState(null)
     const [editSubscription, setEditSubscription] = useState(false);
     const openEditModal = (data) =>{

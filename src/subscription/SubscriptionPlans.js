@@ -13,7 +13,7 @@ const SubscriptionPlans = () => {
     const dispatch = useDispatch();
     const subscriptionData = useSelector(state => state.subscriptions.subscriptionData);
     const isRefresh  = useSelector(state => state.subscriptions.isRefresh)
-    console.log('subscriptionData',subscriptionData);
+    // console.log('subscriptionData',subscriptionData);
     const navigate = useNavigate()
     const [value, setValue] = useState([
         { val: 'E-traveller plans', id: 0 },

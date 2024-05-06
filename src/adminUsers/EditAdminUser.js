@@ -19,15 +19,15 @@ const EditAdminUser = ({
     open,
     data
 }) => {
-    console.log('data',data);
+    // console.log('data',data);
     const dispatch = useDispatch();
 
     const schema = yup.object().shape({
-        email: yup.string().matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, "Please enter valid email").required("Please enter valid email"),
-        password: yup.string().required("Password is required"),
-        confirmPassword: yup.string().required("confirmPassword is required"),
-        name: yup.string().required("name is required"),
-        number: yup.string().required("number is required"),
+        // email: yup.string().matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, "Please enter valid email").required("Please enter valid email"),
+        // password: yup.string().required("Password is required"),
+        // confirmPassword: yup.string().required("confirmPassword is required"),
+        // name: yup.string().required("name is required"),
+        // phone: yup.string().required("phonenumber is required"),
       })
     const {
         errors,
@@ -42,25 +42,21 @@ const EditAdminUser = ({
         initialValues: {
             name: "",
             email: "",
-            number: "",
-            password: "",
-            confirmPassword: "",
-            img: [],
+            phone: "",
+            countryCode: "+91",
+            profileImg: [],
             status: true,
-            city:'',
-            state:'',
-            country:'',
+            address:{
+                city:'',
+                state:'',
+                country:'',
+            }
         },
-        validationSchema: schema,
+        // validationSchema: schema,
         onSubmit: (values) => {
           updateSubject(values);
         }
       })
-
-      const updateSubject = async (values) =>{
-        dispatch(editAdminUsers(values))
-        onCloseModal()
-      }
 
       useEffect(() => {
         if (data) {
@@ -80,12 +76,15 @@ const EditAdminUser = ({
           body.set('image',file) 
           const {data, status} = await api.fileUpload(body)
           if(status === 200) {
-            setFieldValue("img", data.data)
+            setFieldValue("profileImg", data.data)
           }
         }
       };
 
-      
+      const updateSubject = async (values) =>{
+        dispatch(editAdminUsers(values))
+      }
+
       const style = {
         position: "absolute",
         top: "50%",
@@ -93,13 +92,15 @@ const EditAdminUser = ({
         transform: "translate(-50%, -50%)",
         bgcolor: "white",
         border: "none",
-        padding: "20px 22px",
-        height: "fit-content",
+        padding: "15px 22px",
         display: "block",
-        width: '780px',
+        width: '1050px',
+        borderRadius:'7px',
         "&:focus": {
           outline: "none",
         },
+        overflowY: 'auto',
+        maxHeight: '90vh',
       };
   return (
     <Modal
@@ -139,7 +140,7 @@ const EditAdminUser = ({
                     <label>Phone Number</label>
                     <br />
                     <div className={styles.input}>
-                        <input type='number' name="number" onBlur={handleBlur} value={values.number} onChange={handleChange} placeholder='Enter Phone Number' />
+                        <input type='number' name="phone" onBlur={handleBlur} value={values.phone} onChange={handleChange} placeholder='Enter Phone Number' />
                     </div>
                 </div>
             </div>
@@ -151,6 +152,7 @@ const EditAdminUser = ({
                         <CustomizedSwitches
                             onMessage={'Block'}
                             handleChange={handleStatus}
+                            checked={values.status}
                         />
                         </div>
                     </div>
@@ -158,10 +160,10 @@ const EditAdminUser = ({
                 <label className={Style.label}>Profile Image</label>
                     <div className={Style.imageUpload}>
                         <div className={Style.imageView}>
-                        {values?.img?.length > 0 ? (
+                        {values?.profileImg?.length > 0 ? (
                                 <div>
                                     <img
-                                        src={values.img[0]}
+                                        src={values.profileImg[0]}
                                         alt="Selected"
                                         style={{ maxWidth: '100%', marginTop: '0px' }}
                                     />
@@ -184,21 +186,21 @@ const EditAdminUser = ({
                     <label>City</label>
                     <br />
                     <div className={styles.input}>
-                        <input type="text" name="city" onBlur={handleBlur} value={values.city} onChange={handleChange} placeholder='Enter' />
+                        <input type="text" name="city" onBlur={handleBlur} value={values?.address?.city} onChange={handleChange} placeholder='Enter' />
                     </div>
                 </div>
                 <div>
                     <label>State</label>
                     <br />
                     <div className={styles.input}>
-                        <input type="text" name="state" onBlur={handleBlur} value={values.state} onChange={handleChange} placeholder='Enter' />
+                        <input type="text" name="state" onBlur={handleBlur} value={values?.address?.state} onChange={handleChange} placeholder='Enter' />
                     </div>
                 </div>
                 <div>
                     <label>Country</label>
                     <br />
                     <div className={styles.input}>
-                        <input type="text" name="country" onBlur={handleBlur} value={values.country} onChange={handleChange} placeholder='Enter' />
+                        <input type="text" name="country" onBlur={handleBlur} value={values?.address?.country} onChange={handleChange} placeholder='Enter' />
                     </div>
                 </div>
             </div>

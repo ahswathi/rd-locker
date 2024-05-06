@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
     }
   }, [token])
 
-  console.log("callback url", callbackUrl)
+  // console.log("callback url", callbackUrl)
 
   useEffect(() => {
     if (isLoggedIn) {
