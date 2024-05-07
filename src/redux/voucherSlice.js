@@ -39,7 +39,7 @@ export const addVouchers = createAsyncThunk('addVouchers',async (body, {rejectWi
         if (status === 200) {
             //add voucher data
             dispatch(setAddVouchers(body))
-            Toastify.success("Subscription Plan Added Successfuly");
+            Toastify.success("Voucher Plan Added Successfuly");
             dispatch(setRefresh())
         }
         return data.data
@@ -54,7 +54,7 @@ export const editVouchers = createAsyncThunk('editVouchers',async (body, {reject
         if (status === 200) {
             //edit voucher data
             dispatch(setEditVouchers(body))
-            Toastify.success("Subscription Plan Edited Successfuly");
+            Toastify.success("Voucher Plan Edited Successfuly");
             dispatch(setRefresh())
         }
         return data.data

@@ -9,43 +9,55 @@ import { useFormik } from 'formik';
 import * as yup from "yup";
 import Styles from '../subscription/subscription.module.css'
 import StylesView from '../voucher/voucher.module.css'
-import { DatePicker } from 'rsuite';
-import Calendar from 'react-calendar';
 import api from '../helper/Api';
 import CustomizedCheckbox from '../component/CustomizedCheckbox';
 import { useDispatch } from 'react-redux';
 import { addVouchers } from '../redux/voucherSlice';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import dayjs from 'dayjs';
+
 
 const AddVoucher = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const [date, setDate] = useState(new Date());
-    console.log('date',date);
-    const [endDate, setEndDate] = useState(new Date());
-    const [anchorEl, setAnchorEl] = useState(null);
-    console.log('anchorEl',anchorEl);
+    // const [date, setDate] = useState(new Date());
+    // console.log('date',date);
+    // const [endDate, setEndDate] = useState(new Date());
+    // const [anchorEl, setAnchorEl] = useState(null);
+    // console.log('anchorEl',anchorEl);
 
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
+    // const handleClick = (event) => {
+    //     setAnchorEl(event.currentTarget);
+    // };
 
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+    // const handleClose = () => {
+    //     setAnchorEl(null);
+    // };
 
-    const open = Boolean(anchorEl);
-    const id = open ? 'simple-popover' : undefined;
+    // const open = Boolean(anchorEl);
+    // const id = open ? 'simple-popover' : undefined;
     const schema = yup.object().shape({
         title: yup.string().required("title is required"),
         companyName: yup.string().required("companyName is required"),
         code: yup.string().required("code is required"),
         description: yup.string().required("description is required"),
-        discountValue: yup.string().required("discountValue is required"),
-        usageLimits: yup.string().required("usageLimits is required"),
+        // 'details.discountValue': yup.string().required("discountValue is required"),
+        // 'details.usageLimits': yup.string().required("usageLimits is required"),
+        // 'details.discountType': yup.string().required("discountType is required"),
+        // 'details.startDate': yup.string().required("startDate is required"),
+        // 'details.endDate': yup.string().required("endDate is required"),
       })
     
       const {
-        errors, values, handleChange, touched, setFieldValue, handleBlur, resetForm, handleSubmit,
+        errors, 
+        values, 
+        handleChange, 
+        touched, 
+        setFieldValue, 
+        handleBlur, 
+        handleSubmit,
       } = useFormik({
         initialValues: {
             title: "",
@@ -57,15 +69,18 @@ const AddVoucher = () => {
                 discountType:'FIXED',
                 discountValue: "",
                 usageLimits: "",
-                noLimits:true
+                noLimits:true,
+                startDate: '',
+                endDate:"",
             }
         },
         validationSchema: schema,
         onSubmit: (values) => {
           handleSubject(values);
+          console.log('valuseeeeee',values);
         }
       })
-
+      console.log(errors)
       const handleImageChange = async (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -84,6 +99,7 @@ const AddVoucher = () => {
 
       const handleSubject = async (values) => {
         dispatch(addVouchers(values))
+        console.log('valuseeeeee',values);
       }
   return (
     <div style={{padding:20}}>
@@ -221,6 +237,9 @@ const AddVoucher = () => {
                         Percentage Discount
                     </p>
                 </div>
+                {/* {
+                    errors.details?.discountType && touched.details?.discountType && <p style={{ color: "red", fontSize: "12px" }}>{errors.details?.discountType}</p>
+                } */}
             </div>
             <div className={Styles.viewStyle}>
                 <div style={{marginTop:20}}>
@@ -234,75 +253,51 @@ const AddVoucher = () => {
                         <input type="text" placeholder='Enter' onBlur={handleBlur} value={values.details.discountValue} name='details.discountValue' onChange={handleChange} />
                     </div>
                 </div>
-                {
-                errors.discountValue && touched.discountValue && <p style={{ color: "red", fontSize: "12px" }}>{errors.discountValue}</p>
-                } 
+                {/* {
+                errors.details?.discountValue && touched.details?.discountValue && <p style={{ color: "red", fontSize: "12px" }}>{errors.details?.discountValue}</p>
+                }  */}
                 </div>
                 <div style={{marginTop:20,marginLeft:20}}>
                         <label className={styles.label}>Start Date</label>
                         <br />
-                        <div className={StylesView.calendarBox} onClick={handleClick}>
-                            <p>
-                                {date.toDateString()}
-                            </p>
-                            <div>
-                                <CalendarIcon/>
-                            </div>
-                        </div>
-                        <Popover
-                            id={id}
-                            open={open}
-                            anchorEl={anchorEl}
-                            onClose={handleClose}
-                            anchorOrigin={{
-                              vertical: 'bottom',
-                              horizontal: 'right',
-                            }}
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                        >
-                            <Calendar 
-                                onChange={setDate} 
-                                value={date} 
+                        <div className={StylesView.calendarBox}>
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <DatePicker 
+                                // defaultValue={dayjs('DD-MM-YYYY')} 
+                                sx={{
+                                    'MuiFormControl-root-MuiTextField-root ': {
+                                        width:'100%',
+                                      },
+                                }} 
+                                onChange={(val) => setFieldValue("details.startDate", val.$d)}
                             />
-                        </Popover>
-                    
+                        </LocalizationProvider>  
+                        </div>
+                        {/* {
+                        errors.details?.startDate && touched.details?.startDate && <p style={{ color: "red", fontSize: "12px" }}>{errors.details?.startDate}</p>
+                        }                */}
                 </div>
             </div>
             <div className={Styles.viewStyle}>
                 <div style={{marginTop:20,}}>
                         <label className={styles.label}>End Date</label>
                         <br />
-                        <div className={StylesView.calendarBox} onClick={handleClick}>
-                            <p>
-                                {endDate.toDateString()}
-                            </p>
-                            <div>
-                                <CalendarIcon/>
-                            </div>
+                        <div className={StylesView.calendarBox}>
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                               <DatePicker 
+                                //    defaultValue={dayjs('DD-MM-YYYY')} 
+                                   sx={{
+                                       'MuiFormControl-root-MuiTextField-root ': {
+                                           width:'100%',
+                                         },
+                                   }} 
+                                   onChange={(val) => setFieldValue("details.endDate", val.$d)}
+                               />
+                           </LocalizationProvider> 
                         </div>
-                        <Popover
-                            id={id}
-                            open={open}
-                            anchorEl={anchorEl}
-                            onClose={handleClose}
-                            anchorOrigin={{
-                              vertical: 'bottom',
-                              horizontal: 'right',
-                            }}
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                        >
-                            <Calendar 
-                                onChange={setEndDate} 
-                                value={endDate} 
-                            />
-                        </Popover>
-                    
+                        {/* {
+                        errors.details?.endDate && touched.details?.endDate && <p style={{ color: "red", fontSize: "12px" }}>{errors.details?.endDate}</p>
+                        } */}
                 </div>
                 <div style={{marginTop:20,marginLeft:20}}>
                     <label className={styles.label}>Usage Limits</label>
@@ -310,9 +305,9 @@ const AddVoucher = () => {
                     <div className={Styles.inputbox}>
                         <input type="text" placeholder='Enter' onBlur={handleBlur} value={values.details.usageLimits} name='details.usageLimits' onChange={handleChange} />
                     </div>
-                    {
-                    errors.usageLimits && touched.usageLimits && <p style={{ color: "red", fontSize: "12px" }}>{errors.usageLimits}</p>
-                    } 
+                    {/* {
+                    errors.details?.usageLimits && touched.details?.usageLimits && <p style={{ color: "red", fontSize: "12px" }}>{errors.details?.usageLimits}</p>
+                    }  */}
                 <div className={Styles.descView} style={{marginTop:10}}>
                      {/* <div style={{marginTop:3}}>
                     <BlackUnCheckBox/>

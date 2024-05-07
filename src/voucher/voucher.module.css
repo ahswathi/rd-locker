@@ -331,14 +331,14 @@
     color: #5A607F;
 }
 .calendarBox{
-    width: 470px;
-    height: 48px;
+    width: 100%;
+    /* height: 48px; */
     border-radius: 7px;
-    border: 1px solid #D9E1EC;
+    /* border: 1px solid #D9E1EC;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 0px 10px 0px 10px;
+    align-items: center; */
+    /* padding: 0px 10px 0px 10px; */
 }
 .calendarBox p{
     font-family: DM Sans;
