@@ -132,7 +132,6 @@ class Api {
         return this.init().post("/admin/user/new", data)
     }
     editAdminUser = (data, config) => {
-        console.log(data);
         return this.init().put(`/admin/user/edit/${data._id}`, data)
     }
     deleteAdminUser = (data, config) => {
@@ -155,6 +154,17 @@ class Api {
     }
     deleteVouchers = (data, config) => {
         return this.init().delete(`/admin/vouchers/delete/${data._id}`, data)
+    }
+    //Setting
+
+    editProfile = (data, config) => {
+        return this.init().put(`/admin/profile/update`, data)
+    }
+    changeProfilePassword = (data, config) => {
+        return this.init().put(`/admin/profile/update-pwd`, data)
+    }
+    updateTwoFA = (data, config) => {
+        return this.init().put(`/admin/profile/update-2FA`, data)
     }
 }
 

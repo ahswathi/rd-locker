@@ -5,13 +5,17 @@ import Styles from '../subscription/subscription.module.css'
 import StylesView from '../voucher/voucher.module.css'
 import { useFormik } from 'formik';
 import * as yup from "yup";
-import { ActivePriceDiscount, BlackUnCheckBox, CalendarIcon, Image, InActivePercentageDiscount, Upload } from '../Svg';
+import { ActivePercentageDiscount, ActivePriceDiscount, BlackUnCheckBox, CalendarIcon, Image, InActivePercentageDiscount, InActivePriceDiscount, Upload } from '../Svg';
 import Calendar from 'react-calendar';
 import { custom, save } from '../MaterialUI';
 import CustomizedCheckbox from '../component/CustomizedCheckbox';
 import { useDispatch } from 'react-redux';
 import api from '../helper/Api';
 import { editVouchers } from '../redux/voucherSlice';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import dayjs from 'dayjs';
 
 const EditVoucher = ({open,onCloseModal,data}) => {
     const dispatch = useDispatch();
@@ -34,8 +38,8 @@ const EditVoucher = ({open,onCloseModal,data}) => {
         companyName: yup.string().required("companyName is required"),
         code: yup.string().required("code is required"),
         description: yup.string().required("description is required"),
-        discountValue: yup.string().required("discountValue is required"),
-        usageLimits: yup.string().required("usageLimits is required"),
+        // discountValue: yup.string().required("discountValue is required"),
+        // usageLimits: yup.string().required("usageLimits is required"),
       })
     const {
         errors,
@@ -54,9 +58,12 @@ const EditVoucher = ({open,onCloseModal,data}) => {
             description: "",
             img: [],
             details:{
+                discountType:'FIXED',
                 discountValue: "",
                 usageLimits: "",
-                noLimits:true
+                noLimits:true,
+                startDate:'',
+                endDate:''
             }
         },
         validationSchema: schema,
@@ -170,7 +177,7 @@ const EditVoucher = ({open,onCloseModal,data}) => {
                               <img
                                 src={values.img[0]}
                                 alt="Selected"
-                                style={{ maxWidth: '10%', marginTop: '0px' }}
+                                style={{ maxWidth: '100%', marginTop: '0px' }}
                               />
                               {/* <button onClick={handleUpload}>Upload</button> */}
                         </div>
@@ -193,21 +200,77 @@ const EditVoucher = ({open,onCloseModal,data}) => {
                 <p className={styles.home} style={{marginTop:6}}>Type of Voucher you want to create</p>
             </div>
             <div className={Styles.descView}>
-                <div className={StylesView.activeBox}>
-                    <ActivePriceDiscount/>
+            <div className={ values.details.discountType === 'FIXED' ?
+                    StylesView.activeBox : StylesView.inActiveBox
+                    }
+                    onClick={() => setFieldValue('details.discountType','FIXED')}
+                >
+                    {values.details.discountType === 'FIXED' ? (
+                        <ActivePriceDiscount/>
+                    ) : 
+                        <InActivePriceDiscount/>
+                    }
+                    
                     <p>
                         Price Discount
                     </p>
                 </div>
-                <div className={StylesView.inActiveBox}>
-                    <InActivePercentageDiscount/>
+                <div className={values.details.discountType === 'PERCENTAGE' ?
+                    StylesView.activeBox : StylesView.inActiveBox
+                    }
+                    onClick={() => setFieldValue('details.discountType','PERCENTAGE')}
+                >
+                    {values.details.discountType === 'PERCENTAGE' ? (
+                        <ActivePercentageDiscount/>
+                    ) : 
+                        <InActivePercentageDiscount/>
+                    }
                     <p>
                         Percentage Discount
                     </p>
                 </div>
             </div>
             <div className={Styles.viewStyle}>
-                <div style={{marginTop:5}}>
+                
+                <div style={{marginTop:15,}}>
+                        <label className={styles.label}>Start Date</label>
+                        <br />
+                        <div className={StylesView.calendarBox}>
+                            <LocalizationProvider dateAdapter={AdapterDayjs}
+                            sx={{
+                                '.MuiFormControl-root-MuiTextField-root ': {
+                                    width:'100%',
+                                  },
+                            }}>
+                               <DatePicker 
+                                   disablePast
+                                    
+                                   onChange={(val) => setFieldValue("details.startDate", val.$d)}
+                               />
+                           </LocalizationProvider> 
+                        </div>
+                    
+                </div>
+                <div style={{marginTop:15,marginLeft:10}}>
+                        <label className={styles.label}>End Date</label>
+                        <br />
+                        <div className={StylesView.calendarBox}>
+                            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                               <DatePicker 
+                                   disablePast
+                                   sx={{
+                                       '.MuiFormControl-root-MuiTextField-root ': {
+                                           width:'100%',
+                                         },
+                                   }} 
+                                   onChange={(val) => setFieldValue("details.endDate", val.$d)}
+                               />
+                           </LocalizationProvider> 
+                        </div>
+                </div>
+            </div>
+            <div className={Styles.viewStyle}>
+                <div style={{marginTop:15}}>
                     <label className={styles.label}>Discount Value</label>
                     <br />
                     <div className={Styles.inputbox}>
@@ -218,85 +281,19 @@ const EditVoucher = ({open,onCloseModal,data}) => {
                         <input type="text" placeholder='Enter' onBlur={handleBlur} value={values.details.discountValue} name='details.discountValue' onChange={handleChange} />
                     </div>
                 </div>
-                {
+                {/* {
                     errors.discountValue && touched.discountValue && <p style={{ color: "red", fontSize: "12px" }}>{errors.discountValue}</p>
-                } 
+                }  */}
                 </div>
-                <div style={{marginTop:5,marginLeft:10}}>
-                        <label className={styles.label}>Start Date</label>
-                        <br />
-                        <div className={StylesView.calendarBox} onClick={handleClick}>
-                            <p>
-                                {date.toDateString()}
-                            </p>
-                            <div>
-                                <CalendarIcon/>
-                            </div>
-                        </div>
-                        <Popover
-                            id={id}
-                            open={openPopUp}
-                            anchorEl={anchorEl}
-                            onClose={handleClose}
-                            anchorOrigin={{
-                              vertical: 'bottom',
-                              horizontal: 'right',
-                            }}
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                        >
-                            <Calendar
-                                onChange={setDate} 
-                                value={date} 
-                            />
-                        </Popover>
-                    
-                </div>
-            </div>
-            <div className={Styles.viewStyle}>
-                <div style={{marginTop:5,}}>
-                        <label className={styles.label}>End Date</label>
-                        <br />
-                        <div className={StylesView.calendarBox} onClick={handleClick}>
-                            <p>
-                                {endDate.toDateString()}
-                            </p>
-                            <div>
-                                <CalendarIcon/>
-                            </div>
-                        </div>
-                        <Popover
-                            id={id}
-                            open={openPopUp}
-                            anchorEl={anchorEl}
-                            onClose={handleClose}
-                            anchorOrigin={{
-                              vertical: 'bottom',
-                              horizontal: 'right',
-                            }}
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                        >
-                            <Calendar 
-                                onChange={setEndDate} 
-                                value={endDate} 
-                            />
-                        </Popover>
-                    
-                </div>
-                <div style={{marginTop:5,marginLeft:10}}>
+                <div style={{marginTop:15,marginLeft:10}}>
                     <label className={styles.label}>Usage Limits</label>
                     <br />
                     <div className={Styles.inputbox}>
                         <input type="text" placeholder='Enter' onBlur={handleBlur} value={values.details.usageLimits} name='details.usageLimits' onChange={handleChange} />
                     </div>
-                    {
+                    {/* {
                     errors.usageLimits && touched.usageLimits && <p style={{ color: "red", fontSize: "12px" }}>{errors.usageLimits}</p>
-                    } 
+                    }  */}
                 <div className={Styles.descView} style={{marginTop:10}}>
                     <CustomizedCheckbox
                         handleCheck={handleCheck}

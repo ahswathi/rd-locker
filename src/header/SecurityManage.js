@@ -5,30 +5,55 @@ import { useFormik } from 'formik';
 import * as yup from "yup";
 import { Button } from '@mui/material';
 import { custom, save } from '../MaterialUI';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeProfilePassword } from '../redux/settingSlice';
+import api from '../helper/Api';
+import { setTwoFA } from '../redux/userSlice';
 
 const SecurityManage = () => {
+    const dispatch = useDispatch();
+    const user = useSelector(state => state.user.user)
     const schema = yup.object().shape({
-        currentPassword: yup.string().required("currentPassword is required"),
+        password: yup.string().required("password is required"),
         newPassword: yup.string().required("newPassword is required"),
         confirmPassword: yup.string().required("confirmPassword is required"),
-        state: yup.string().required("state is required"),
-        country: yup.string().required("country is required"),
     })
     
     const {
-    errors, values, handleChange, touched, setFieldValue, handleBlur, resetForm, handleSubmit,
+        errors, 
+        values, 
+        handleChange, 
+        touched, 
+        setFieldValue, 
+        handleBlur, 
+        resetForm, 
+        handleSubmit,
     } = useFormik({
     initialValues: {
-        currentPassword: "",
+        password: "",
         newPassword: "",
         confirmPassword:'',
     },
     validationSchema: schema,
-    onSubmit: () => {
-    //   handleLogin();
-    }
+        onSubmit: (values) => {
+        updateSubject(values);
+        }
     })
-  return (
+
+    const handleStatusChange = async (e) => {
+        const body = new FormData()
+        body.set('2FA',!user['2FA']) 
+        const {data, status} = await api.updateTwoFA(body);
+        if(status === 200) {
+            dispatch(setTwoFA(!user['2FA']))
+            setFieldValue("status", data.data)
+        }
+    };
+
+    const updateSubject = async(values) => {
+        dispatch(changeProfilePassword(values))
+    }
+return (
     <div>
         <div className={Styles.factorText} style={{marginTop:20}}>
             Two-factor Authentication
@@ -36,6 +61,8 @@ const SecurityManage = () => {
         <div style={{marginTop:20}}>
             <CustomizedSwitches
                 onMessage={'Enable or disable two factor authentication'}
+                handleChange={handleStatusChange}
+                checked={user['2FA']}
             />
         </div>
         <div style={{marginTop:20}} className={Styles.factorText}>
@@ -46,10 +73,10 @@ const SecurityManage = () => {
                 <label className={Styles.label}>Current Password </label>
                 <br />
                 <div className={Styles.input}>
-                    <input type="text" placeholder='Enter' onBlur={handleBlur} value={values.currentPassword} name='currentPassword' onChange={handleChange} />
+                    <input type='password' placeholder='Enter' onBlur={handleBlur} value={values.password} name='password' onChange={handleChange} />
                 </div>
                 {
-                    errors.currentPassword && touched.currentPassword && <p style={{ color: "red", fontSize: "12px" }}>{errors.currentPassword}</p>
+                    errors.password && touched.password && <p style={{ color: "red", fontSize: "12px" }}>{errors.password}</p>
                 } 
             </div>
         </div>
@@ -58,7 +85,7 @@ const SecurityManage = () => {
                 <label className={Styles.label}>New Password </label>
                 <br />
                 <div className={Styles.input}>
-                    <input type="text" placeholder='Enter' onBlur={handleBlur} value={values.newPassword} name='newPassword' onChange={handleChange} />
+                    <input type='password' placeholder='Enter' onBlur={handleBlur} value={values.newPassword} name='newPassword' onChange={handleChange} />
                 </div>
                 {
                     errors.newPassword && touched.newPassword && <p style={{ color: "red", fontSize: "12px" }}>{errors.newPassword}</p>
@@ -68,7 +95,7 @@ const SecurityManage = () => {
                 <label className={Styles.label}>Confirm New Password</label>
                 <br />
                 <div className={Styles.input}>
-                    <input type="text" placeholder='Enter' onBlur={handleBlur} value={values.confirmPassword} name='confirmPassword' onChange={handleChange} />
+                    <input type='password' placeholder='Enter' onBlur={handleBlur} value={values.confirmPassword} name='confirmPassword' onChange={handleChange} />
                 </div>
                 {
                     errors.confirmPassword && touched.confirmPassword && <p style={{ color: "red", fontSize: "12px" }}>{errors.confirmPassword}</p>

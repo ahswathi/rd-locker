@@ -4,7 +4,7 @@ import api from "../helper/Api";
 const initialState = {
     isLoggedIn: false,
     user: {
-
+        '2FA':false
     },
     errorMsg: "",
     isError: false
@@ -33,7 +33,9 @@ const userSlice = createSlice({
             state.isLoggedIn = true
             state.user = action.payload
         },
-        
+        setTwoFA: (state, action) => {
+            state.user["2FA"] = action.payload
+        }   
     },
     extraReducers: (builder) => {
         // login
@@ -52,6 +54,6 @@ const userSlice = createSlice({
     }
 })
 
-export const { setLogin } = userSlice.actions
+export const { setLogin, setTwoFA } = userSlice.actions
 
 export default userSlice.reducer
