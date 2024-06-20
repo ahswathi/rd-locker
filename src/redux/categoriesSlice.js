@@ -17,6 +17,9 @@ const initialState = {
     delData: {
         
     },
+    searchData:{
+
+    },
     errorMsg: "",
     isError: false
 }
@@ -81,6 +84,21 @@ export const deleteData = createAsyncThunk('deleteData',async (body, {rejectWith
         return rejectWithValue(err.response.data.message || "'Something went wrong. Please try again later.'")
     }
 })
+
+export const searchCategory = createAsyncThunk("searchCategory" , async (body, {rejectWithValue, dispatch}) => {
+    try {
+        const {data ,status } = await api.searchCategory(body);
+        if(status === 200){
+            dispatch(setSearchCategory(data.data))
+        }
+    } catch (err) {
+        Toastify.error(err.response.data.message);
+        return rejectWithValue(err.response.data.message || "'Something went wrong. Please try again later.'")
+    }
+})
+
+
+
 export const categoriesSlice = createSlice({
     name: "categories",
     initialState,
@@ -96,6 +114,9 @@ export const categoriesSlice = createSlice({
         },
         setDeleteData: (state, action) => {
             state.delData = action.payload
+        },
+        setSearchCategory: (state,action) => {
+            state.searchData = action.payload
         },
         setRefresh:(state) => {
             state.isRefresh = !state.isRefresh
@@ -160,6 +181,6 @@ export const categoriesSlice = createSlice({
     }
 })
 
-export const { setCategories,setAddCategories,setEditCategories,setRefresh,setDeleteData } = categoriesSlice.actions
+export const { setCategories,setAddCategories,setEditCategories,setRefresh,setDeleteData,setSearchCategory } = categoriesSlice.actions
 
 export default categoriesSlice.reducer;

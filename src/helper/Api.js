@@ -13,7 +13,7 @@ const getToken = async () => {
 class Api {
     constructor() {
         this.client = null;
-        this.api_url = process.env.NODE_ENV === "development" ? "https://aradee.universalairproducts.com/api" : `https://aradee.universalairproducts.com/api`;
+        this.api_url = process.env.NODE_ENV === "development" ? "http://localhost:5000/api" : `https://aradee.universalairproducts.com/api`;
     }
 
     init = (type) => {
@@ -90,6 +90,9 @@ class Api {
     }
     deleteData = (data, config) => {
         return this.init().delete(`/admin/category/${data._id}`, data)
+    }
+    searchCategory = (data,config) => {
+        return this.init().post("/admin/category/search", data)
     }
 
     //subCategories
