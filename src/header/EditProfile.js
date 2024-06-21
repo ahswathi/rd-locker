@@ -72,9 +72,9 @@ const EditProfile = () => {
             {values?.img?.length > 0 ? (
                 <div>
                     <img
-                    src={values.img[0]}
-                    alt="Selected"
-                    style={{ maxWidth: '100px',maxHeight:'100px', marginTop: '0px' }}
+                        src={values.img[0]}
+                        alt="Selected"
+                        style={{ maxWidth: '100px',maxHeight:'100px', marginTop: '0px' }}
                     />
                     {/* <button onClick={handleUpload}>Upload</button> */}
                 </div>

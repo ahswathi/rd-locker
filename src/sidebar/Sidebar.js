@@ -63,7 +63,7 @@ const Sidebar = ({ children }) => {
                         User
                     </p>
                 </div>
-                <div onClick={() => navigate('/vendorManagement')} className={path === 'vendorManagement' ? `${Styles.width} ${Styles.active}` : Styles.width}>
+                <div onClick={() => navigate('/vendorManagement/KYCApproval')} className={path === 'vendorManagement' ? `${Styles.width} ${Styles.active}` : Styles.width}>
                     <div>
                         {path === 'vendorManagement' ?
                             (
@@ -108,7 +108,7 @@ const Sidebar = ({ children }) => {
                             </div>
                         </div> : ''
                 }
-                <div onClick={() => navigate('/eTravelerManagement')} className={path === 'eTravelerManagement' ? `${Styles.width} ${Styles.active}` : Styles.width}>
+                <div onClick={() => navigate('/eTravelerManagement/ETravellerProfile')} className={path === 'eTravelerManagement' ? `${Styles.width} ${Styles.active}` : Styles.width}>
                     <div>
                         {path === 'eTravelerManagement' ?
                             (
@@ -140,7 +140,7 @@ const Sidebar = ({ children }) => {
                         </div> : ''
                 }
                 
-                <div onClick={() => navigate('/deliveryAgent')} className={path === 'deliveryAgent' ? `${Styles.width} ${Styles.active}` : Styles.width}>
+                <div onClick={() => navigate('/deliveryAgent/KYCApprovals')} className={path === 'deliveryAgent' ? `${Styles.width} ${Styles.active}` : Styles.width}>
                     <div>
                         {path === 'deliveryAgent' ?
                             (
@@ -197,7 +197,7 @@ const Sidebar = ({ children }) => {
                         Others
                     </p>
                 </div>
-                <div onClick={() => navigate('/reports')} className={path === 'reports' ? `${Styles.width} ${Styles.active}` : Styles.width}>
+                <div onClick={() => navigate('/reports/accounts')} className={path === 'reports' ? `${Styles.width} ${Styles.active}` : Styles.width}>
                     <div>
                         {path === 'reports' ? (
                             <ReportActive />

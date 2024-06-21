@@ -179,7 +179,6 @@ const EditVoucher = ({open,onCloseModal,data}) => {
                                 alt="Selected"
                                 style={{ maxWidth: '100%', marginTop: '0px' }}
                               />
-                              {/* <button onClick={handleUpload}>Upload</button> */}
                         </div>
                         ) : (
                             <Image/>
@@ -236,15 +235,9 @@ const EditVoucher = ({open,onCloseModal,data}) => {
                         <label className={styles.label}>Start Date</label>
                         <br />
                         <div className={StylesView.calendarBox}>
-                            <LocalizationProvider dateAdapter={AdapterDayjs}
-                            sx={{
-                                '.MuiFormControl-root-MuiTextField-root ': {
-                                    width:'100%',
-                                  },
-                            }}>
+                            <LocalizationProvider dateAdapter={AdapterDayjs}>
                                <DatePicker 
-                                   disablePast
-                                    
+                                   sx={{ width: 470 }}
                                    onChange={(val) => setFieldValue("details.startDate", val.$d)}
                                />
                            </LocalizationProvider> 
@@ -257,12 +250,7 @@ const EditVoucher = ({open,onCloseModal,data}) => {
                         <div className={StylesView.calendarBox}>
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                <DatePicker 
-                                   disablePast
-                                   sx={{
-                                       '.MuiFormControl-root-MuiTextField-root ': {
-                                           width:'100%',
-                                         },
-                                   }} 
+                                   sx={{ width: 470 }} 
                                    onChange={(val) => setFieldValue("details.endDate", val.$d)}
                                />
                            </LocalizationProvider> 

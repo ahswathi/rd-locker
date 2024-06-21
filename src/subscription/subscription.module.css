@@ -153,7 +153,7 @@
 }
 .inputbox {
     display: flex;
-    padding-left: 10px;
+    /* padding-left: 10px; */
     align-items: center;
     border: 1px solid var(--Gray-100, #E9EAF0);
     background: var(--Gray-White, #FFF);
