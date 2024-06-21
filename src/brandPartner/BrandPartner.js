@@ -4,15 +4,25 @@ import SwitchTab from '../component/SwitchTab'
 import styles from '../categories/category.module.css';
 import BrandPartnerAdsTab from './BrandPartnerAdsTab';
 import CreateAdTemplate from './CreateAdTemplate';
+import { useDispatch, useSelector } from 'react-redux';
+import { brandPartners } from '../redux/brandPartnerSlice';
+import EditBrandPartner from './EditBrandPartner';
+import DeleteBrandPartner from './DeleteBrandPartner';
 
 const BrandPartner = () => {
+    const dispatch = useDispatch();
+    const brandPartner = useSelector(state => state.brandPartner.brandPartnerData)
+    const isRefresh = useSelector((state) => state.brandPartner.isRefresh)
+    
     const [value, setValue] = useState([
         { val: 'Brand Partners Ads', id: 0 },
         { val: 'Business Vouchers', id: 1 },
     ]);
     const [selected, setSelected] = useState(0);
-    const [search, setSearch] = useState('')
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+    const [data,setData] = useState(null)
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const changeID = (id) => {
         setSelected(id.id);
         // setValue(data)
@@ -21,6 +31,10 @@ const BrandPartner = () => {
     useEffect(() => {
         setSelected(selected)
     }, [])
+
+    useEffect(() => {
+        dispatch(brandPartners())
+    },[dispatch,isRefresh])
     const openModal = () => {
         setIsModalOpen(true);
     };
@@ -28,6 +42,21 @@ const BrandPartner = () => {
     const closeModal = () => {
         setIsModalOpen(false);
     };
+    const openEditModal = (data) => {
+        setData(data)
+        setIsEditModalOpen(true)
+    }
+    const closeEditModal = () => {
+        setIsEditModalOpen(false)
+    }
+  
+  const openDeleteModal =(data) => {
+    setData(data)
+    setIsDeleteModalOpen(true)
+  }
+  const closeDeleteModal = () => {
+    setIsDeleteModalOpen(false);
+  }
   return (
     <div style={{ padding: 20 }}>
             <div className={styles.container}>
@@ -62,13 +91,31 @@ const BrandPartner = () => {
                 </div>
             </div>
             {selected === 0 ? (
-                <BrandPartnerAdsTab/>
+                <BrandPartnerAdsTab
+                    data={brandPartner.filter((data) => data.category == 'BRAND_PARTNER')}
+                    openEditModal={openEditModal}
+                    openDeleteModal={openDeleteModal}
+                />
             ): (
-                <BrandPartnerAdsTab/>
+                <BrandPartnerAdsTab
+                    data={brandPartner.filter((data) => data.category == 'VOUCHER')}
+                    openEditModal={openEditModal}
+                    openDeleteModal={openDeleteModal}
+                />
             )}
             <CreateAdTemplate
                 open={isModalOpen}
                 onCloseModal={closeModal}
+            />
+            <EditBrandPartner
+                onCloseModal={closeEditModal}
+                open={isEditModalOpen}
+                data={data}
+            />
+            <DeleteBrandPartner
+                closeModal={closeDeleteModal} 
+                open={isDeleteModalOpen}
+                data={data}
             />
         </div>
   )

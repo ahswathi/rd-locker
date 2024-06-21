@@ -166,6 +166,25 @@ class Api {
     updateTwoFA = (data, config) => {
         return this.init().put(`/admin/profile/update-2FA`, data)
     }
+
+    // Brand Partner
+    getBrandPartner = (data, config) => {
+        return this.init().get("/admin/brand-partners", data)
+    }
+    addBrandPartner = (data, config) => {
+        return this.init().post("/admin/brand-partners/new", data)
+    }
+    editBrandPartner = (data, config) => {
+        return this.init().put(`/admin/brand-partners/edit/${data._id}`, data)
+    }
+    deleteBrandPartner = (data, config) => {
+        return this.init().delete(`/admin/brand-partners/delete/${data._id}`, data)
+    }
+
+    // Enquiries
+    createEnquiry = (data, config) => {
+        return this.init().post("/admin/enquiry/create", data)
+    }
 }
 
 const api = new Api();

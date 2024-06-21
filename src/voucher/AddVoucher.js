@@ -77,7 +77,6 @@ const AddVoucher = () => {
         validationSchema: schema,
         onSubmit: (values) => {
           handleSubject(values);
-          console.log('valuseeeeee',values);
         }
       })
       console.log(errors)
@@ -98,8 +97,7 @@ const AddVoucher = () => {
       }
 
       const handleSubject = async (values) => {
-        dispatch(addVouchers(values))
-        console.log('valuseeeeee',values);
+        // dispatch(addVouchers(values))
       }
   return (
     <div style={{padding:20}}>
@@ -263,12 +261,7 @@ const AddVoucher = () => {
                         <div className={StylesView.calendarBox}>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <DatePicker 
-                                // defaultValue={dayjs('DD-MM-YYYY')} 
-                                sx={{
-                                    'MuiFormControl-root-MuiTextField-root ': {
-                                        width:'100%',
-                                      },
-                                }} 
+                                sx={{ width: 470 }}
                                 onChange={(val) => setFieldValue("details.startDate", val.$d)}
                             />
                         </LocalizationProvider>  
@@ -285,13 +278,8 @@ const AddVoucher = () => {
                         <div className={StylesView.calendarBox}>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                                <DatePicker 
-                                //    defaultValue={dayjs('DD-MM-YYYY')} 
-                                   sx={{
-                                       'MuiFormControl-root-MuiTextField-root ': {
-                                           width:'100%',
-                                         },
-                                   }} 
-                                   onChange={(val) => setFieldValue("details.endDate", val.$d)}
+                                    sx={{ width: 470 }}
+                                    onChange={(val) => setFieldValue("details.endDate", val.$d)}
                                />
                            </LocalizationProvider> 
                         </div>

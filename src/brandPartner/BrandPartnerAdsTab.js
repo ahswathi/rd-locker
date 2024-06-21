@@ -2,44 +2,16 @@ import React, { useState } from 'react';
 import styles from '../vendorManagement/vendor.module.css';
 import { Delete, Edit, FilterIcon, Left, Right, View } from '../Svg';
 import { useNavigate } from 'react-router-dom';
-import Modal from '../component/Modal';
-import DeleteCategory from '../categories/DeleteCategory';
 
-const BrandPartnerAdsTab = () => {
-    const Data = [
-        {
-            id:1,
-            companyname:'Dummy name',
-            vendorName:'Rahul',
-            emailId:'deeksha@gmail.com',
-            location:'bangalore',
-            adsPrice:'INR 1500',
-            dateTime:'1 Apr 24 - 10 Apr 24',
-            status:'Active'
-        },
-        {
-            id:2,
-            companyname:'Dummy name',
-            vendorName:'Rahul',
-            emailId:'deeksha@gmail.com',
-            location:'bangalore',
-            adsPrice:'INR 1500',
-            dateTime:'1 Apr 24 - 10 Apr 24',
-            status:'InActive'
-        },
-        
-    ]
+const BrandPartnerAdsTab = ({
+    data,
+    openEditModal,
+    openDeleteModal
+}) => {
   const navigate = useNavigate();  
   //state
   
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   
-  const openDeleteModal =() => {
-    setIsDeleteModalOpen(true)
-  }
-  const closeDeleteModal = () => {
-    setIsDeleteModalOpen(false);
-  }
   const [page, setPage] = useState(1)
   const [limit, setLimit] = useState(50)
   const [totalPages, setTotalPages] = useState(1)
@@ -66,6 +38,15 @@ const BrandPartnerAdsTab = () => {
       setPage((prev) => prev - 1)
     }
   }
+  const formatDate = (date) => {
+    const dateFromMongoDB = new Date(date);
+    const formattedDate = dateFromMongoDB.toLocaleDateString('en-US', {
+        day: '2-digit',
+        month: 'long',
+        year: '2-digit',
+    });
+    return formattedDate;
+}
   return (
         <div className={styles.listContainer}>
             <div className={styles.header}>
@@ -77,15 +58,15 @@ const BrandPartnerAdsTab = () => {
                 <div className={styles.sixth}>Status <FilterIcon/></div>
                 <div className={styles.seventh}>Options</div>
             </div>
-            {Data.map((item,index) => {
+            {data?.map((item,index) => {
                 return(
-                    <div className={styles.info}>
-                        <div className={styles.fourth}>{item.companyname}</div>
-                        <div className={styles.third}>{item.emailId}
+                    <div className={styles.info} key={index}>
+                        <div className={styles.fourth}>{item.companyName}</div>
+                        <div className={styles.third}>{item.email}
                         </div>
-                        <div className={styles.second}>{item.adsPrice}</div>
-                        <div className={styles.first}>{item.location}</div>
-                        <div className={styles.fifth}>{item.dateTime}</div>
+                        <div className={styles.second}>{item.price}</div>
+                        <div className={styles.first}>{item.targetLocation[0]}</div>
+                        <div className={styles.fifth}>{formatDate(item.startDate)} - {formatDate(item.endDate)}</div>
                         <div className={styles.status}
                             style={{
                                 backgroundColor: item.status === 'Active' ? "#1A98821A" : '#F439391A'
@@ -96,7 +77,6 @@ const BrandPartnerAdsTab = () => {
                                     fontFamily: 'DM Sans',
                                     fontSize: 14,
                                     fontWeight: '400',
-                                    // lineHeight: 18.23,
                                     letterSpacing: 0.5,
                                     textAlign:'center',
                                     color:item.status === 'Active' ? '#1A9882' : '#F43939',
@@ -106,10 +86,10 @@ const BrandPartnerAdsTab = () => {
                         <div style={{marginLeft:10}}>
                             <View/>
                         </div>
-                        <div style={{marginLeft:10}}>
+                        <div style={{marginLeft:10}} onClick={() => openEditModal(item)}>
                             <Edit/>
                         </div>
-                        <div style={{marginLeft:10}} onClick={openDeleteModal}>
+                        <div style={{marginLeft:10}} onClick={() => openDeleteModal(item)}>
                             <Delete/>
                         </div>
                         </div>
@@ -129,10 +109,7 @@ const BrandPartnerAdsTab = () => {
                     
                 </div>
             </div>
-            <DeleteCategory
-                closeModal={closeDeleteModal} 
-                open={isDeleteModalOpen}
-            />
+            
         </div>
     )
 }
