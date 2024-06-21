@@ -7,7 +7,7 @@ import { apply, custom, delet, formselect, save } from '../MaterialUI';
 import * as yup from "yup";
 import { DropDownIcon } from '../Svg';
 
-const Filter = ({onClose}) => {
+export const Filter = ({onClose}) => {
     const schema = yup.object().shape({
         name: yup.string().required("Name is required"),
       })
