@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Delete, Discount, Edit, Filter, FilterIcon, Left, Plus, Right, Search, View } from '../Svg';
+import { Delete, Discount, Edit, FilterIcon, Left, Plus, Right, Search, View } from '../Svg';
 import SwitchTab from '../component/SwitchTab';
 import styles from '../categories/category.module.css';
 import Styles from '../component/Style.module.css';
@@ -9,6 +9,8 @@ import EditVoucher from './EditVoucher';
 import { useDispatch, useSelector } from 'react-redux';
 import { vouchers } from '../redux/voucherSlice';
 import DeleteVoucher from './DeleteVoucher';
+import { Popover } from '@mui/material';
+import Filter from '../component/Filter';
 
 const Voucher = () => {
     const dispatch = useDispatch();
@@ -28,6 +30,17 @@ const Voucher = () => {
     const [totalPages, setTotalPages] = useState(1)
     const [totalItems, setTotalItems] = useState(0);
     const [data, setData] = useState(null);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
 
     const changeID = (id) => {
         setSelected(id.id);
@@ -127,9 +140,27 @@ const Voucher = () => {
                             <Search />
                             <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Search by name...' />
                         </div>
-                        <div className={styles.filter}>
-                            <Filter /> <span>Filter</span>
+                        <div className={styles.filter} onClick={handleClick}>
+                            <img src='/filter.png' /> <span>Filter</span>
                         </div>
+                        <Popover
+                            id={id}
+                            open={open}
+                            anchorEl={anchorEl}
+                            onClose={handleClose}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'right',
+                            }}
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                        >
+                            <Filter
+                                onClose={handleClose}
+                            />
+                        </Popover>
                     </div>
                 </div>
             </div>

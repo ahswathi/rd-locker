@@ -3,18 +3,20 @@ import Card from '../component/Card';
 import Styles from '../component/Style.module.css';
 import styles from '../categories/category.module.css';
 import SwitchTab from '../component/SwitchTab';
-import { Export,Search } from '../Svg';
-import {Area, AreaChart, CartesianGrid,Tooltip, XAxis, YAxis} from 'recharts';
+import { Export, Search } from '../Svg';
+import { Area, AreaChart, CartesianGrid, Tooltip, XAxis, YAxis } from 'recharts';
 import Calendar from 'react-calendar';
 import Modal from '../component/Modal';
 import AccountsCard from './accountsCard';
+import { Popover } from '@mui/material';
+import Filter from '../component/Filter';
 
 const Accounts = () => {
     const cardData = [
         {
             id: 0,
             image: '/Group1.png',
-            icon:'/rating.png',
+            icon: '/rating.png',
             prize: '100000',
             name: 'Vendors',
             rate: '15k'
@@ -22,7 +24,7 @@ const Accounts = () => {
         {
             id: 1,
             image: '/Group.png',
-            icon:'/rate1.png',
+            icon: '/rate1.png',
             prize: '100000',
             name: 'E-traveller',
             rate: '15k'
@@ -30,116 +32,116 @@ const Accounts = () => {
         {
             id: 2,
             image: '/Group2.png',
-            icon:'/rate2.png',
+            icon: '/rate2.png',
             prize: '100000',
             name: 'Delivery agent',
             rate: '15k'
         },
-       /*  {
-            id: 3,
-            image: '/incom.png',
-            prize: '100000',
-            name: 'Income'
-        },
-        {
-            id: 4,
-            image: '/graph.png',
-            prize: '100000',
-            name: 'Profit'
-        }, */
+        /*  {
+             id: 3,
+             image: '/incom.png',
+             prize: '100000',
+             name: 'Income'
+         },
+         {
+             id: 4,
+             image: '/graph.png',
+             prize: '100000',
+             name: 'Profit'
+         }, */
     ]
     const data = [
         {
-            name: 'Jan', 
-            uv: 90000, 
-            pv: 24000, 
+            name: 'Jan',
+            uv: 90000,
+            pv: 24000,
             amt: 24000
         },
         {
-            name: 'Feb', 
-            uv: 16000, 
-            pv: 2200, 
+            name: 'Feb',
+            uv: 16000,
+            pv: 2200,
             amt: 2200
         },
         {
-            name: 'March', 
-            uv: 20000, 
-            pv: 2100, 
+            name: 'March',
+            uv: 20000,
+            pv: 2100,
             amt: 2100
         },
         {
-            name: 'April', 
-            uv: 30000, 
-            pv: 2400, 
+            name: 'April',
+            uv: 30000,
+            pv: 2400,
             amt: 2400
         },
         {
-            name: 'May', 
-            uv: 50000, 
-            pv: 2400, 
+            name: 'May',
+            uv: 50000,
+            pv: 2400,
             amt: 2400
         },
         {
-            name: 'June', 
-            uv: 60000, 
-            pv: 2400, 
+            name: 'June',
+            uv: 60000,
+            pv: 2400,
             amt: 2400
         },
         {
-            name: 'JUly', 
-            uv: 70430, 
-            pv: 2400, 
+            name: 'JUly',
+            uv: 70430,
+            pv: 2400,
             amt: 2400
         },
         {
-            name: 'Augut', 
-            uv: 60320, 
-            pv: 2400, 
+            name: 'Augut',
+            uv: 60320,
+            pv: 2400,
             amt: 2400
         },
         {
-            name: 'Sept', 
-            uv: 80210, 
-            pv: 2400, 
+            name: 'Sept',
+            uv: 80210,
+            pv: 2400,
             amt: 2400
         },
         {
-            name: 'Oct', 
-            uv: 90330, 
-            pv: 2400, 
+            name: 'Oct',
+            uv: 90330,
+            pv: 2400,
             amt: 2400
         },
         {
-            name: 'Nov', 
-            uv: 10030, 
-            pv: 2400, 
+            name: 'Nov',
+            uv: 10030,
+            pv: 2400,
             amt: 2400
         },
         {
-            name: 'Dec', 
-            uv: 1200, 
-            pv: 2400, 
+            name: 'Dec',
+            uv: 1200,
+            pv: 2400,
             amt: 2400
         },
-        
+
     ]
     const profitData = [
         {
-            id:0,
+            id: 0,
             img: '/downloadIcon.png',
-            income:'Income',
+            income: 'Income',
             amount: 'INR22,678'
         },
         {
-            id:1,
+            id: 1,
             img: '/expensIcon.png',
-            income:'Expense',
+            income: 'Expense',
             amount: 'INR12,678'
         },
         {
-            id:2,
+            id: 2,
             img: '/profitIcon.png',
-            income:'Profit',
+            income: 'Profit',
             amount: 'INR22,678'
         },
     ]
@@ -174,8 +176,8 @@ const Accounts = () => {
             return (
                 <div className={Styles.customtootip}>
                     <div className={Styles.width}>
-                        <img src='/blackRoundIcon.png' style={{width:20,height:20}}/>
-                        <p style={{paddingLeft:10}}>{payload[0].payload.name}</p>
+                        <img src='/blackRoundIcon.png' style={{ width: 20, height: 20 }} />
+                        <p style={{ paddingLeft: 10 }}>{payload[0].payload.name}</p>
                     </div>
                     <div className={Styles.revenue}>
                         <p>{`Revenue  INR${payload[0].value}`}</p>
@@ -183,7 +185,7 @@ const Accounts = () => {
                 </div>
             );
         }
-    
+
         return null;
     };
 
@@ -205,68 +207,98 @@ const Accounts = () => {
     ]);
     const [selected, setSelected] = useState(0);
     const [search, setSearch] = useState('')
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
+
     const changeID = (id) => {
         setSelected(id.id);
         // setValue(data)
     };
     useEffect(() => {
         setSelected(selected)
-    },[])
+    }, [])
 
 
-  return (
-    <div className={Styles.frontPage}>
-        <div className={Styles.dash} style={{paddingLeft:10}}>
-            All Users Accounts
-        </div>
-        
-        <div className={Styles.App}>
-            {cardData.map((card) => (
-                <Card
-                    key={card.id}
-                    image={card.image}
-                    icon={card.icon}
-                    prize={card.prize}
-                    name={card.name}
-                    rate={card.rate}
-                />
-            ))}
-        </div>
-        <div className={styles.container} style={{marginTop:20,marginLeft:10,marginRight:10}}>
-            <div>
-                <SwitchTab 
-                    value={value}
-                    selected={selected}
-                    onChange={(id) => changeID(id)}
-                />
+    return (
+        <div className={Styles.frontPage}>
+            <div className={Styles.dash} style={{ paddingLeft: 10 }}>
+                All Users Accounts
             </div>
-            <div style={{marginTop:5}}>
-                <div className={Styles.width}>
-                    <div className={styles.search}>
-                        <Search /> 
-                        <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Search by name...' />
-                    </div>
-                    <div className={styles.filter}>
-                        <img src='/filter.png'/> <span>Filter</span>
-                    </div>
-                    <div className={styles.export}>
-                        <Export/> <span>Export</span>
+
+            <div className={Styles.App}>
+                {cardData.map((card) => (
+                    <Card
+                        key={card.id}
+                        image={card.image}
+                        icon={card.icon}
+                        prize={card.prize}
+                        name={card.name}
+                        rate={card.rate}
+                    />
+                ))}
+            </div>
+            <div className={styles.container} style={{ marginTop: 20, marginLeft: 10, marginRight: 10 }}>
+                <div>
+                    <SwitchTab
+                        value={value}
+                        selected={selected}
+                        onChange={(id) => changeID(id)}
+                    />
+                </div>
+                <div style={{ marginTop: 5 }}>
+                    <div className={Styles.width}>
+                        <div className={styles.search}>
+                            <Search />
+                            <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Search by name...' />
+                        </div>
+                        <div className={styles.filter} onClick={handleClick}>
+                            <img src='/filter.png' /> <span>Filter</span>
+                        </div>
+                        <Popover
+                            id={id}
+                            open={open}
+                            anchorEl={anchorEl}
+                            onClose={handleClose}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'right',
+                            }}
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                        >
+                            <Filter
+                                onClose={handleClose}
+                            />
+                        </Popover>
+                        <div className={styles.export}>
+                            <Export /> <span>Export</span>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div style={{ marginLeft: 10, marginRight: 10 }}>
+                {selected === 0 ? (
+                    <AccountsCard />
+                ) : (selected === 1 ? (
+                    <AccountsCard />
+                ) : <AccountsCard />
+                )
+                }
+            </div>
+
         </div>
-        <div style={{marginLeft:10,marginRight:10}}>
-            {selected === 0 ? (
-            <AccountsCard/>
-            ) : (selected === 1 ? (
-                <AccountsCard/>
-            ) : <AccountsCard/>
-            ) 
-            }
-        </div>
-      
-    </div>
-  )
+    )
 }
 
 export default Accounts

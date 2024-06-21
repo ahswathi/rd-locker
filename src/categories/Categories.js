@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '../categories/category.module.css';
 import Styles from '../component/Style.module.css';
 import SwitchTab from '../component/SwitchTab';
-import { Filter, Plus, Search } from '../Svg';
+import { Plus, Search } from '../Svg';
 import Cards from './Cards';
 import { useNavigate } from 'react-router-dom';
 import Modal from '../component/Modal';
@@ -12,6 +12,8 @@ import DeleteCategory from './DeleteCategory';
 import CategoriesRequestList from './CategoriesRequestList';
 import { useDispatch, useSelector } from 'react-redux';
 import { categories } from '../redux/categoriesSlice';
+import { Popover } from '@mui/material';
+import Filter from '../component/Filter';
 
 const Categories = () => {
     // const data = [
@@ -77,16 +79,16 @@ const Categories = () => {
     //     },
     // ]
     const dispatch = useDispatch();
-    const catData  = useSelector(state => state.categories.catData)
-    const isRefresh  = useSelector(state => state.categories.isRefresh)
-    
+    const catData = useSelector(state => state.categories.catData)
+    const isRefresh = useSelector(state => state.categories.isRefresh)
+
 
     useEffect(() => {
         dispatch(categories(catData))
-    },[dispatch, isRefresh])
+    }, [dispatch, isRefresh])
 
 
-    const [data,setData] = useState(null)
+    const [data, setData] = useState(null)
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -119,6 +121,7 @@ const Categories = () => {
     ]);
     const [selected, setSelected] = useState(0);
     const [search, setSearch] = useState('')
+    const [anchorEl, setAnchorEl] = React.useState(null);
     const changeID = (id) => {
         setSelected(id.id);
         // setValue(data)
@@ -126,6 +129,16 @@ const Categories = () => {
     useEffect(() => {
         setSelected(selected)
     }, [])
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
 
     return (
         <div style={{ padding: 20 }}>
@@ -159,9 +172,27 @@ const Categories = () => {
                             <Search />
                             <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Search by name...' />
                         </div>
-                        <div className={styles.filter}>
-                            <Filter /> <span>Filter</span>
+                        <div className={styles.filter} onClick={handleClick}>
+                            <img src='/filter.png' /> <span>Filter</span>
                         </div>
+                        <Popover
+                            id={id}
+                            open={open}
+                            anchorEl={anchorEl}
+                            onClose={handleClose}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'right',
+                            }}
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                        >
+                            <Filter
+                                onClose={handleClose}
+                            />
+                        </Popover>
                     </div>
                 </div>
             </div>
@@ -181,7 +212,7 @@ const Categories = () => {
                                             openEditModal={openEditModal}
                                             openDeleteModal={openDeleteModal}
                                             data={item}
-                                            
+
                                         />
                                     </div>
                                 )
@@ -190,36 +221,36 @@ const Categories = () => {
                         </div>
                     ) :
                         <div className={styles.mainContainer}>
-                            
-                                <img src='/illustration.png' />
-                                <h3 className={styles.create} onClick={openModal}>
-                                    Create First Category
-                                </h3>
-                                <p className={styles.noCategoryText}>
-                                    No category is created yet!
-                                </p>
-                        
+
+                            <img src='/illustration.png' />
+                            <h3 className={styles.create} onClick={openModal}>
+                                Create First Category
+                            </h3>
+                            <p className={styles.noCategoryText}>
+                                No category is created yet!
+                            </p>
+
                         </div>
                     }
                 </>
             ) :
                 <CategoriesRequestList />
             }
-                <AddNewCategory
-                    onClose={closeModal}
-                    open={isModalOpen} 
-                />
-                <EditCategory
-                    onCloseModal={closeEditModal}
-                    open={isEditModalOpen}
-                    data={data}
-                />
-                <DeleteCategory
-                    heading={'Delete Category'}
-                    closeModal={closeDeleteModal}
-                    open={isDeleteModalOpen}
-                    data={data}
-                />
+            <AddNewCategory
+                onClose={closeModal}
+                open={isModalOpen}
+            />
+            <EditCategory
+                onCloseModal={closeEditModal}
+                open={isEditModalOpen}
+                data={data}
+            />
+            <DeleteCategory
+                heading={'Delete Category'}
+                closeModal={closeDeleteModal}
+                open={isDeleteModalOpen}
+                data={data}
+            />
         </div>
     )
 }
