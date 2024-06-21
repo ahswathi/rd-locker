@@ -9,6 +9,8 @@ import {Area, AreaChart, CartesianGrid,Tooltip, XAxis, YAxis} from 'recharts';
 import Calendar from 'react-calendar';
 import Modal from '../component/Modal';
 import TransactionList from './TransactionList';
+import { Popover } from '@mui/material';
+import Filter from '../component/Filter';
 
 const Transactions = () => {
     const cardData = [
@@ -149,6 +151,17 @@ const Transactions = () => {
 
     //DateModal
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -346,9 +359,27 @@ const Transactions = () => {
                         <Search /> 
                         <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder='Search by name...' />
                     </div>
-                    <div className={categoryStyle.filter}>
-                        <img src='/filter.png'/> <span>Filter</span>
-                    </div>
+                    <div className={categoryStyle.filter} onClick={handleClick}>
+                            <img src='/filter.png' /> <span>Filter</span>
+                        </div>
+                        <Popover
+                            id={id}
+                            open={open}
+                            anchorEl={anchorEl}
+                            onClose={handleClose}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'right',
+                            }}
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                        >
+                            <Filter
+                                onClose={handleClose}
+                            />
+                        </Popover>
                     <div className={categoryStyle.export}>
                         <Export/> <span>Export</span>
                     </div>

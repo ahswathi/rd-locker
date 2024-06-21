@@ -15,7 +15,14 @@ const AddNewVendor = () => {
     // schema -----------
   const schema = yup.object().shape({
     email: yup.string().matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, "Please enter valid email").required("Please enter valid email"),
-    password: yup.string().required("Password is required")
+    password: yup.string().required("Password is required"),
+    confirmPassword: yup.string().required("confirmPassword is required"),
+    name: yup.string().required("Name is required"),
+    number: yup.string().required("number is required"),
+    city: yup.string().required("City is required"),
+    language: yup.string().required("Language is required"),
+    state: yup.string().required("State is required"),
+    country: yup.string().required("Country is required"),
   })
 
   const {
@@ -23,7 +30,14 @@ const AddNewVendor = () => {
   } = useFormik({
     initialValues: {
       email: "",
-      password: ""
+      password: "",
+      confirmPassword: "",
+      name: "",
+      number: "",
+      city: "",
+      language: "",
+      state: "",
+      country: "",
     },
     validationSchema: schema,
     onSubmit: () => {
@@ -79,10 +93,10 @@ const AddNewVendor = () => {
                     <label className={Styles.label}>Vendor Name*</label>
                     <div className={Styles.inputbox}>
                     
-                    <input type="email" onBlur={handleBlur} value={values.email} placeholder='Enter user name' name="email" onChange={handleChange} />
+                    <input type="name" onBlur={handleBlur} value={values.name} placeholder='Enter user name' name="name" onChange={handleChange} />
                     </div>
                     {
-                    errors.email && touched.email && <p style={{ color: "red", fontSize: "12px" }}>{errors.email}</p>
+                    errors.name && touched.name && <p style={{ color: "red", fontSize: "12px" }}>{errors.name}</p>
                     }
                 </div>
                 <div style={{marginTop:20}}>
@@ -99,10 +113,10 @@ const AddNewVendor = () => {
                     <label className={Styles.label}>Phone Number*</label>
                     <div className={Styles.inputbox}>
                     
-                    <input type="text" placeholder='Enter phone number' onBlur={handleBlur} value={values.password} name='password' onChange={handleChange} />
+                    <input type='number' placeholder='Enter phone number' onBlur={handleBlur} value={values.number} name='number' onChange={handleChange} />
                     </div>
                     {
-                    errors.password && touched.password && <p style={{ color: "red", fontSize: "12px" }}>{errors.password}</p>
+                    errors.number && touched.number && <p style={{ color: "red", fontSize: "12px" }}>{errors.number}</p>
                     }
                 </div>
                 <div style={{marginTop:20}}>
@@ -145,10 +159,10 @@ const AddNewVendor = () => {
                     <label className={Styles.label}>Languages</label>
                     <div className={Styles.inputbox}>
                     
-                    <input type="text" placeholder='Enter vendor known languages' onBlur={handleBlur} value={values.password} name='password' onChange={handleChange} />
+                    <input type="text" placeholder='Enter vendor known languages' onBlur={handleBlur} value={values.language} name='language' onChange={handleChange} />
                     </div>
                     {
-                    errors.password && touched.password && <p style={{ color: "red", fontSize: "12px" }}>{errors.password}</p>
+                    errors.language && touched.language && <p style={{ color: "red", fontSize: "12px" }}>{errors.language}</p>
                     }
                 </div>
                 <div style={{marginTop:20}}>
@@ -174,30 +188,30 @@ const AddNewVendor = () => {
                         <label className={Styles.label}>City</label>
                         <div className={Styles.inputbox}>
                         
-                        <input type="email" onBlur={handleBlur} value={values.email} placeholder='Enter' name="email" onChange={handleChange} />
+                        <input type="text" onBlur={handleBlur} value={values.city} placeholder='Enter' name="city" onChange={handleChange} />
                         </div>
                         {
-                        errors.email && touched.email && <p style={{ color: "red", fontSize: "12px" }}>{errors.email}</p>
+                        errors.city && touched.city && <p style={{ color: "red", fontSize: "12px" }}>{errors.city}</p>
                         }
                     </div>
                     <div style={{marginTop:30}}>
                         <label className={Styles.label}>State</label>
                         <div className={Styles.inputbox}>
                         
-                        <input type="email" onBlur={handleBlur} value={values.email} placeholder='Enter' name="email" onChange={handleChange} />
+                        <input type="text" onBlur={handleBlur} value={values.state} placeholder='Enter' name="state" onChange={handleChange} />
                         </div>
                         {
-                        errors.email && touched.email && <p style={{ color: "red", fontSize: "12px" }}>{errors.email}</p>
+                        errors.state && touched.state && <p style={{ color: "red", fontSize: "12px" }}>{errors.state}</p>
                         }
                     </div>
                     <div style={{marginTop:30}}>
                         <label className={Styles.label}>Country</label>
                         <div className={Styles.inputbox}>
                         
-                        <input type="text" placeholder='Enter' onBlur={handleBlur} value={values.password} name='password' onChange={handleChange} />
+                        <input type="text" placeholder='Enter' onBlur={handleBlur} value={values.country} name='country' onChange={handleChange} />
                         </div>
                         {
-                        errors.password && touched.password && <p style={{ color: "red", fontSize: "12px" }}>{errors.password}</p>
+                        errors.country && touched.country && <p style={{ color: "red", fontSize: "12px" }}>{errors.country}</p>
                         }
                     </div>
                 </div> 
@@ -208,20 +222,20 @@ const AddNewVendor = () => {
                         <label className={Styles.label}>Password*</label>
                         <div className={Styles.inputbox}>
                         
-                        <input type="email" onBlur={handleBlur} value={values.email} placeholder='Enter password' name="email" onChange={handleChange} />
+                        <input type='password' onBlur={handleBlur} value={values.password} placeholder='Enter password' name="password" onChange={handleChange} />
                         </div>
                         {
-                        errors.email && touched.email && <p style={{ color: "red", fontSize: "12px" }}>{errors.email}</p>
+                        errors.password && touched.password && <p style={{ color: "red", fontSize: "12px" }}>{errors.password}</p>
                         }
                     </div>
                     <div style={{marginTop:30}}>
                         <label className={Styles.label}>Confirm Password*</label>
                         <div className={Styles.inputbox}>
                         
-                        <input type="email" onBlur={handleBlur} value={values.email} placeholder='Confirm password' name="email" onChange={handleChange} />
+                        <input type="password" onBlur={handleBlur} value={values.confirmPassword} placeholder='Confirm password' name="confirmPassword" onChange={handleChange} />
                         </div>
                         {
-                        errors.email && touched.email && <p style={{ color: "red", fontSize: "12px" }}>{errors.email}</p>
+                        errors.confirmPassword && touched.confirmPassword && <p style={{ color: "red", fontSize: "12px" }}>{errors.confirmPassword}</p>
                         }
                     </div>
                 </div> 
