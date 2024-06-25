@@ -180,7 +180,7 @@
     /* padding-left: 10px; */
 }
 .frontPage {
-    background-color: #F5F6FA;
+    background-color: #EDF1B6;
     flex-wrap: wrap;
     margin: 10px;
 }
@@ -286,7 +286,7 @@
     margin: 16px;
 }
 .sideView {
-    background-color: #F5F6FA;
+    background-color: #EDF1B6;
     border-radius: 5px;
     padding-left: 20px;
     margin-top: 20px;

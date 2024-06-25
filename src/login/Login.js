@@ -67,7 +67,7 @@ const Email = () => {
         </div>
         <div className={styles.login}>
           <div className={styles.content}>
-            <h2>Super Admin Sign In!</h2>
+            <h2>Admin Sign In!</h2>
             <p>Enter your email and password to sign in!</p>
             <div style={{ marginTop: 30 }}>
               <label>Email*</label>

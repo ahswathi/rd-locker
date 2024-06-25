@@ -19,15 +19,15 @@ const Layout = ({ children }) => {
   // Get the callback URL from the query parameters
   const callbackUrl = new URLSearchParams(location.search).get('callbackUrl');
 
-  useEffect(() => {
+ /*  useEffect(() => {
     if (token) {
       dispatch(getProfile());
     }
-  }, [token])
+  }, [token]) */
 
   // console.log("callback url", callbackUrl)
 
-  useEffect(() => {
+ /*  useEffect(() => {
     if (isLoggedIn) {
       setLayout(true)
       if (path === "" || path === "login") {
@@ -52,7 +52,7 @@ const Layout = ({ children }) => {
       
       navigate(`/`)
     }
-  }, [path, isLoggedIn])
+  }, [path, isLoggedIn]) */
 
   // { layout ? <><Header /> <Sidebar children={children} /></> : children }
 

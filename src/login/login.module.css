@@ -21,6 +21,7 @@
 .main {
     /* width: 1012px; */
     display: flex;
+    gap: 80px;
     justify-content: space-evenly;
     align-items: center;
     /* margin-top: 25px; */
@@ -35,8 +36,8 @@
     /* margin-right: 30px; */
 }
 .imgView{
-    width: 349px;
-    height: 350px;
+    width: 252px;
+    height: 513px;
     margin-top: 20px;
     margin-right: 50px;
 }
@@ -118,20 +119,20 @@
     border-radius: 7px;
     justify-content: center;
     align-items: center;
-    background: #1E5EFF;
+    background: #19392C;
     color: white;
     font-family: Rubik;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
     cursor: pointer;
-    border-color: #1E5EFF;
+    border-color: #19392C;
     margin-top: 20px;
     /* transition: all ease-in 0.6s; */
 }
 
 button:hover {
-    background-color: hsl(236, 93%, 61%);
+    background-color: #19392C;
 }
 
 .forgotText {
@@ -141,7 +142,7 @@ button:hover {
     line-height: 20px;
     letter-spacing: -0.02em;
     text-align: right;
-    color: #1E5EFF;
+    color: #19392C;
     cursor: pointer;
 }
 .lineStyle{
@@ -172,6 +173,6 @@ button:hover {
     font-weight: 500;
     line-height: 24px;
     text-align: center;
-    color: #1E5EFF;
+    color: #19392C;
     cursor: pointer;
 }
