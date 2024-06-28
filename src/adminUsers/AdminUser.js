@@ -4,7 +4,7 @@ import { Delete, Edit, FilterIcon, Left, LockIcon, Plus, Right, Search, View } f
 import DeleteCategory from '../categories/DeleteCategory';
 import styles from '../categories/category.module.css';
 import Styles from '../component/Style.module.css';
-import Style from '../vendorManagement/vendor.module.css'
+import Style from '../adminUsers/vendor.module.css'
 import { useNavigate } from 'react-router-dom'
 import EditAdminUser from './EditAdminUser'
 import ChangePasswordModal from './ChangePasswordModal'
@@ -27,6 +27,8 @@ const AdminUser = () => {
     const [data, setData] = useState(null)
     const [value, setValue] = useState([
         { val: 'All Users', id: 0 },
+        { val: 'Premium members', id: 1 },
+        { val: 'Trash', id: 2 },
     ]);
     const [selected, setSelected] = useState(0);
     const [search, setSearch] = useState('');
@@ -110,22 +112,17 @@ const AdminUser = () => {
             <div className={styles.container}>
                 <div>
                     <div>
-                        <h2 className={styles.categoryText}>Admin Users</h2>
+                        <h2 className={styles.categoryText}> Users</h2>
                     </div>
                     <span className={styles.home}>
-                        home
+                        Home
                         <img src='/tiangle.png' style={{ marginLeft: 10 }} />
                         <span style={{ color: 'var(--Gray-900, #1E5EFF)', marginLeft: 10 }}>
-                            Admin Users
+                             Users
                         </span>
                     </span>
                 </div>
-                <div className={styles.buttonStyle} onClick={() => navigate('/adminUsers/AdminUser/AddNewUser')}>
-                    <Plus />
-                    <div className={styles.addcategoryText}>
-                        Add New User
-                    </div>
-                </div>
+                
             </div>
             <div className={styles.container}>
                 <div style={{ marginTop: 20 }}>
@@ -242,17 +239,11 @@ const AdminUser = () => {
                 <div className={styles.mainContainer}>
                     <img src='/usersImg.png' />
                     <h3 className={styles.create}>
-                        Add First User
+                    No First User
                     </h3>
                     <p className={styles.noCategoryText}>
                         No users are created yet!
                     </p>
-                    <div className={styles.buttonStyle} onClick={() => navigate('/adminUsers/AdminUser/AddNewUser')} style={{ marginTop: 20 }}>
-                        <Plus />
-                        <div className={styles.addcategoryText}>
-                            Add New User
-                        </div>
-                    </div>
                 </div>
             )}
             <EditAdminUser

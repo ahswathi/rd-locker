@@ -18,7 +18,7 @@
     align-items: center;
     position: fixed;
     right: 0;
-    background: #fff;
+    background: #19392C;
     z-index: 3;
     /* flex-wrap: wrap; */
 }
@@ -37,7 +37,7 @@
     font-weight: 500;
     line-height: 16.59px;
     text-align: left;
-    color: #2F2F3B;
+    color: #EDF1B6;
 }
 
 .admin {
@@ -46,7 +46,7 @@
     font-weight: 400;
     line-height: 14.22px;
     text-align: left;
-    color: #2F2F3BB2;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .width {
@@ -64,7 +64,7 @@
     font-weight: 500;
     line-height: 19.53px;
     text-align: left;
-    color: #7366FF;
+    color: #EDF1B6;
 }
 
 .form {

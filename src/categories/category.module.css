@@ -64,23 +64,22 @@
     width: fit-content;
     height: 52px;
     gap: 20px;
-    border-radius: 8px;
-    background: #FFFFFF;
+   /*  background: #FFFFFF; */
     flex-direction: row;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding-left: 10px;
+   /*  padding-left: 10px; */
     padding-right: 10px;
-    border: 1px solid #E0E2E7;
-    box-shadow: 0px 4px 10px 0px #0000001A;
+    border-bottom: 1px solid #b0b2b7;
 }
 .active {
-    padding: 0px 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     height: 38px;
     gap: 8px;
     border-radius: 6px;
-    background: #1E5EFF;
+    /* background: #1E5EFF; */
     justify-content: center;
     align-content: center;
     cursor: pointer;
@@ -95,11 +94,21 @@
 .activeText {
     font-family: Public Sans;
     font-size: 14px;
-    font-weight: 500;
-    line-height: 20px;
+    font-weight: 700;
+    line-height: 44px;
     letter-spacing: 0.005em;
     text-align: center;
-    color: #FFFFFF;
+    color: #19392C;
+    border-bottom:1px solid #19392C;
+}
+.inActiveText {
+    font-family: Public Sans;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 44px;
+    letter-spacing: 0.005em;
+    text-align: center;
+    color: #667085;
 }
 .activeVer{
     font-family: DM Sans;
@@ -119,15 +128,6 @@
     margin-top: 10px;
     margin-left: 10px;
     margin-bottom: 10px;
-}
-.inActiveText {
-    font-family: Public Sans;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 20px;
-    letter-spacing: 0.005em;
-    text-align: center;
-    color: #667085;
 }
 .search {
     border-radius: 7px;
@@ -173,7 +173,7 @@
 }
 .mainContainer {
     width: 100%;
-    height: 500px;
+    height: 100vh;
     background: #FFFFFF;
     box-shadow: 0px 1px 4px 0px #15223214;
     border-radius: 8px;

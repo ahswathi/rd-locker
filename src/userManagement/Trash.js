@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import SwitchTab from '../component/SwitchTab';
-import { Search } from '../Svg';
-import VendorsCard from '../vendorManagement/VendorsCard';
+import React, { useEffect, useState } from 'react';
 import styles from '../categories/category.module.css';
 import Styles from '../component/Style.module.css';
-import ETravelerCard from './ETravelerProfileCard';
+import SwitchTab from '../component/SwitchTab';
+import { Plus, Search } from '../Svg';
+import TrashCard from './TrashCard';
 import { Popover } from '@mui/material';
 import Filter from '../component/Filter';
 
-const ETravellerProfile = () => {
+const Trash = () => {
+
+
     const [value, setValue] = useState([
-        { val: 'All E-traveller', id: 0 },
-        { val: 'Trash', id: 1 },
+        { val: 'All Users', id: 0 },
+        { val: 'Premium members', id: 1 },
+        { val: 'Trash', id: 2 },
     ]);
     const [selected, setSelected] = useState(0);
     const [search, setSearch] = useState('')
@@ -23,7 +25,6 @@ const ETravellerProfile = () => {
     useEffect(() => {
         setSelected(selected)
     }, [])
-
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -31,18 +32,18 @@ const ETravellerProfile = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
-
     return (
         <div style={{ padding: 20 }}>
             <div className={styles.container}>
                 <div>
                     <div>
-                        <h2 className={styles.categoryText}>E-traveller Profiles</h2>
+                        <h2 className={styles.categoryText}>Users</h2>
                     </div>
                     <span className={styles.home}>
-                        home <img src='/tiangle.png' style={{ marginLeft: 10 }} /> <span style={{ color: 'var(--Gray-900, #1E5EFF)', marginLeft: 10 }}>All E-traveller</span>
+                        Home <img src='/tiangle.png' style={{ marginLeft: 10 }} /> <span style={{ color: 'var(--Gray-900, #1E5EFF)', marginLeft: 10 }}>Users</span>
                     </span>
                 </div>
             </div>
@@ -86,14 +87,14 @@ const ETravellerProfile = () => {
             </div>
             <div>
                 {selected === 0 ? (
-                    <ETravelerCard />
+                    <TrashCard />
                 ) : (selected === 1 ? (
-                    <VendorsCard />
-                ) : <VendorsCard />)
+                    <TrashCard />
+                ) : <TrashCard />)
                 }
             </div>
         </div>
     )
 }
 
-export default ETravellerProfile
+export default Trash

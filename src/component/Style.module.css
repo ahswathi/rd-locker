@@ -653,7 +653,7 @@ li {
     width: 100%;
     height: 30px;
     border-radius: 8px;
-    background: #5570F11F;
+    background: #18382B1F;
     display: flex;
     justify-content: space-between;
     align-content: center;
@@ -667,7 +667,7 @@ li {
     padding: 5px 63px 9px 63px;
     gap: 10px;
     border-radius: 8px;
-    background: #5570F1;
+    background: #18382B;
     font-family: Inter;
     font-size: 14px;
     font-weight: 500;
@@ -683,6 +683,6 @@ li {
     line-height: 21px;
     letter-spacing: -0.005em;
     text-align: center;
-    color: #5570F1;
+    color: #18382B;
     padding: 5px 63px 9px 63px
 }

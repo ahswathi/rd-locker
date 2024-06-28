@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styles from '../categories/category.module.css';
-import Styles from '../vendorManagement/vendor.module.css';
-import style from '../healthcare/healthcare.module.css';
+/* import Styles from '../vendorManagement/vendor.module.css'; */
 import { Button, MenuItem, Select } from '@mui/material';
 import { useFormik } from 'formik';
 import { accept, custom, delet, formselect, save } from '../MaterialUI';

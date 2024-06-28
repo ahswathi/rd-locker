@@ -2,32 +2,22 @@ import React, { useEffect, useState } from 'react';
 import styles from '../categories/category.module.css';
 import Styles from '../component/Style.module.css';
 import SwitchTab from '../component/SwitchTab';
-import {  Plus, Search } from '../Svg';
-import BrandPartnerTab from './BrandPartnerTab';
-import WebsiteTab from './WebsiteTab';
+import { Plus, Search } from '../Svg';
+import UsersCard from './UsersCard';
 import { Popover } from '@mui/material';
 import Filter from '../component/Filter';
 
-const Enquiries = () => {
+const PremiumMembers = () => {
 
 
     const [value, setValue] = useState([
-        { val: 'Brand partners', id: 0 },
-        { val: 'Website', id: 1 },
+        { val: 'All Users', id: 0 },
+        { val: 'Premium members', id: 1 },
+        { val: 'Trash', id: 2 },
     ]);
     const [selected, setSelected] = useState(0);
     const [search, setSearch] = useState('')
     const [anchorEl, setAnchorEl] = React.useState(null);
-
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-    const open = Boolean(anchorEl);
-    const id = open ? 'simple-popover' : undefined;
     const changeID = (id) => {
         setSelected(id.id);
         // setValue(data)
@@ -35,16 +25,25 @@ const Enquiries = () => {
     useEffect(() => {
         setSelected(selected)
     }, [])
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
 
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
     return (
         <div style={{ padding: 20 }}>
             <div className={styles.container}>
                 <div>
                     <div>
-                        <h2 className={styles.categoryText}>Enquiry</h2>
+                        <h2 className={styles.categoryText}>Users</h2>
                     </div>
                     <span className={styles.home}>
-                        home <img src='/tiangle.png' style={{ marginLeft: 10 }} /> <span style={{ color: 'var(--Gray-900, #1E5EFF)', marginLeft: 10 }}>Enquiry</span>
+                        Home <img src='/tiangle.png' style={{ marginLeft: 10 }} /> <span style={{ color: 'var(--Gray-900, #1E5EFF)', marginLeft: 10 }}>Users</span>
                     </span>
                 </div>
             </div>
@@ -88,12 +87,14 @@ const Enquiries = () => {
             </div>
             <div>
                 {selected === 0 ? (
-                    <BrandPartnerTab />
-                ) : <WebsiteTab />
+                    <UsersCard />
+                ) : (selected === 1 ? (
+                    <UsersCard />
+                ) : <UsersCard />)
                 }
             </div>
         </div>
     )
 }
 
-export default Enquiries
+export default PremiumMembers

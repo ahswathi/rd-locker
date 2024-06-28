@@ -3,17 +3,17 @@ import styles from '../categories/category.module.css';
 import Styles from '../component/Style.module.css';
 import SwitchTab from '../component/SwitchTab';
 import { Plus, Search } from '../Svg';
-import VendorsCard from './VendorsCard';
+import UsersCard from './UsersCard';
 import { Popover } from '@mui/material';
 import Filter from '../component/Filter';
 
-const KYCApproval = () => {
+const Allusers = () => {
 
 
     const [value, setValue] = useState([
-        { val: 'Accepted vendors', id: 0 },
-        { val: 'Rejected vendors', id: 1 },
-        { val: 'New requests', id: 2 },
+        { val: 'All Users', id: 0 },
+        { val: 'Premium members', id: 1 },
+        { val: 'Trash', id: 2 },
     ]);
     const [selected, setSelected] = useState(0);
     const [search, setSearch] = useState('')
@@ -40,17 +40,11 @@ const KYCApproval = () => {
             <div className={styles.container}>
                 <div>
                     <div>
-                        <h2 className={styles.categoryText}>KYC Approvals</h2>
+                        <h2 className={styles.categoryText}>Users</h2>
                     </div>
                     <span className={styles.home}>
-                        home <img src='/tiangle.png' style={{ marginLeft: 10 }} /> <span style={{ color: 'var(--Gray-900, #1E5EFF)', marginLeft: 10 }}>KYC approvals</span>
+                        Home <img src='/tiangle.png' style={{ marginLeft: 10 }} /> <span style={{ color: 'var(--Gray-900, #1E5EFF)', marginLeft: 10 }}>Users</span>
                     </span>
-                </div>
-                <div className={styles.buttonStyle}>
-                    <Plus />
-                    <div className={styles.addcategoryText}>
-                        Add Vendor
-                    </div>
                 </div>
             </div>
             <div className={styles.container}>
@@ -93,14 +87,14 @@ const KYCApproval = () => {
             </div>
             <div>
                 {selected === 0 ? (
-                    <VendorsCard />
+                    <UsersCard />
                 ) : (selected === 1 ? (
-                    <VendorsCard />
-                ) : <VendorsCard />)
+                    <UsersCard />
+                ) : <UsersCard />)
                 }
             </div>
         </div>
     )
 }
 
-export default KYCApproval
+export default Allusers

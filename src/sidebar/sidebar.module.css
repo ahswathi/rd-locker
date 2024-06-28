@@ -4,7 +4,7 @@
     padding: 0;
     width: 265px;
     margin: 0;
-    background-color: #fff;
+    background-color: #19392C;
     position: fixed;
     height: 100vh;
     overflow: hidden;
@@ -40,7 +40,7 @@
 
 .left {
     width: 265px;
-    background-color: #fff;
+    background-color: #19392C;
     padding: 20px 0;
     position: absolute;
     top: 0;
@@ -53,7 +53,7 @@
     font-family: "Rubik", sans-serif;
     font-size: 26px;
     text-align: center;
-    color: rgba(47, 47, 59, 1);
+    color: #EDF1B6;
 }
 
 .lineStyle {
@@ -80,7 +80,7 @@
     line-height: 16.59px;
     letter-spacing: 0.003em;
     text-align: left;
-    color: #52526C;
+    color: #FFFFFF;
     text-transform: uppercase;
 }
 
@@ -91,8 +91,12 @@
     line-height: 18.23px;
     letter-spacing: 0.003em;
     text-align: left;
-    color: #2F2F3BCC;
+    color: #fff;
     padding-left: 10px;
+}
+.dashboardText.active {
+    background: #2F2F3B;
+    color: #2F2F3B;
 }
 
 .width {
@@ -109,6 +113,7 @@
 
 .width:hover {
     background-color: #1e5eff0b;
+    color: #2F2F3B;
 }
 
 .width > div {
@@ -117,7 +122,7 @@
 }
 
 .width.active {
-    background: #1E5EFF12;
+    background: #EDF1B6;
 }
 
 .width.active::after {
@@ -125,10 +130,15 @@
     display: block;
     width: 4px;
     height: 30px;
-    background: rgba(30, 94, 255, 1);
+    background: #19392C;
     border-radius: 5px 0 0 5px;
     position: absolute;
     right: 0;
+}
+
+.width.active p {
+    color: #19392C !important;
+    
 }
 
 svg {
@@ -203,6 +213,6 @@ svg {
     line-height: 18.23px;
     letter-spacing: 0.003em;
     text-align: left;
-    color: #52526CCC;
+    color: #FFFFFFCC;
     position: relative;
 }

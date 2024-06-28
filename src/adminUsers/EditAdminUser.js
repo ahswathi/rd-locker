@@ -7,7 +7,7 @@ import ImageUpload from '../component/ImageUpload';
 import { Image, ToggleButton, ToggleButton1, Upload } from '../Svg';
 import Button from '@mui/material/Button';
 import { custom, save } from '../MaterialUI';
-import Style from '../vendorManagement/vendor.module.css';
+import Style from '../adminUsers/vendor.module.css'
 import { Box, Modal } from '@mui/material';
 import CustomizedSwitches from '../categories/CustomSwitch';
 import { editAdminUsers } from '../redux/adminUserSlice';

@@ -30,13 +30,13 @@ export const Filter = ({onClose}) => {
             <div className={Styles.notifText}>
                 Filter
             </div>
+            
             <div onClick={onClose}>
                 <img src='/cross.png'/>
             </div>
         </div>
         <div style={{marginTop:10}}>
-            <label className={styles.desc}>Status</label>
-            <br />
+           
             <Select className={Styles.formselect}
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
@@ -50,42 +50,7 @@ export const Filter = ({onClose}) => {
                 <MenuItem value="">All</MenuItem>
                 <MenuItem value="ACTIVE">Active</MenuItem>
                 <MenuItem value="INACTIVE">Inactive</MenuItem>
-            </Select>
-        </div>
-        <div style={{marginTop:10}}>
-            <label className={styles.desc}>Category</label>
-            <br />
-            <Select className={Styles.formselect}
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                sx={formselect}
-                IconComponent={DropDownIcon}
-                displayEmpty
-                defaultValue=''
-                name='All' value={values.All}
-                onChange={handleChange}
-            >
-                <MenuItem value="">All</MenuItem>
-                <MenuItem value="ACTIVE">Active</MenuItem>
-                <MenuItem value="INACTIVE">Inactive</MenuItem>
-            </Select>
-        </div>
-        <div style={{marginTop:10}}>
-            <label className={styles.desc}>Subcategory</label>
-            <br />
-            <Select className={Styles.formselect}
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                sx={formselect}
-                IconComponent={DropDownIcon}
-                displayEmpty
-                defaultValue=''
-                name='All' value={values.All}
-                onChange={handleChange}
-            >
-                <MenuItem value="">All</MenuItem>
-                <MenuItem value="ACTIVE">Active</MenuItem>
-                <MenuItem value="INACTIVE">Inactive</MenuItem>
+                <MenuItem value="INACTIVE">Blocked</MenuItem>
             </Select>
         </div>
         <div className={Styles.buttonStyle}>
