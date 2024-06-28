@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import Styles from '../header/header.module.css';
 import { useNavigate } from 'react-router-dom';
-import Modal from '../component/Modal';
-import Notifications from '../container/Notifications';
+import Modal from '../component/Modal'; 
 import { ArrowDown, Notification, Setting } from '../Svg';
 
 const Header = ({ children }) => {
@@ -43,10 +42,7 @@ const Header = ({ children }) => {
                         </div>
                     </div>
                 </div>
-                    <Notifications 
-                        open={isModalOpen}
-                        onClose={closeModal}
-                    />
+                 
             </div>
             <div className={Styles.main}>
                 {children}

@@ -4,7 +4,7 @@ import { Delete, Edit, FilterIcon, Left, LockIcon, Plus, Right, Search, View } f
 import DeleteCategory from '../categories/DeleteCategory';
 import styles from '../categories/category.module.css';
 import Styles from '../component/Style.module.css';
-import Style from '../adminUsers/vendor.module.css'
+import Style from '../adminUsers/admin.module.css'
 import { useNavigate } from 'react-router-dom'
 import EditAdminUser from './EditAdminUser'
 import ChangePasswordModal from './ChangePasswordModal'
